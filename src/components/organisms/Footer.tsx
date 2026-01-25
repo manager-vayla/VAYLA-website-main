@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="max-w-[90rem] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div>
                     {/* Footer Logo */}
-                    <div className="flex items-center gap-2 mb-6 h-8 opacity-80 hover:opacity-100 transition-opacity">
+                    <div className="flex items-center gap-2 mb-6 h-32 opacity-80 hover:opacity-100 transition-opacity">
                         <img
                             src={logo}
                             alt="VAYLA Protocol"
@@ -18,9 +18,14 @@ const Footer = () => {
                         The protocol for borderless fandom economy. Empowering creators and fans through decentralized infrastructure.
                     </p>
                     <div className="flex gap-4">
-                        {['twitter', 'discord', 'telegram', 'github'].map((social) => (
-                            <a key={social} href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-teal-400 transition-all">
-                                <iconify-icon icon={`mdi:${social}`}></iconify-icon>
+                        {[
+                            { icon: 'mdi:twitter', url: 'https://x.com/vaylamanager' },
+                            { icon: 'mdi:discord', url: 'https://discord.gg/PSNRHbZDS4' },
+                            { icon: 'mdi:telegram', url: 'https://t.me/Vayla_Official' },
+                            { icon: 'mdi:github', url: 'https://github.com/manager-vayla' }
+                        ].map((social, i) => (
+                            <a key={i} href={social.url} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-teal-400 transition-all">
+                                <iconify-icon icon={social.icon}></iconify-icon>
                             </a>
                         ))}
                     </div>

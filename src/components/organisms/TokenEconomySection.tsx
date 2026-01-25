@@ -49,11 +49,11 @@ const TokenEconomySection = () => {
                             <div className="space-y-4 relative z-10 font-mono">
                                 <div className="flex justify-between items-center border-b border-white/5 pb-3">
                                     <span className="text-gray-500 text-sm uppercase">Ticker</span>
-                                    <span className="text-teal-400 font-bold">VYA</span>
+                                    <span className="text-teal-400 font-bold">VAYLA</span>
                                 </div>
                                 <div className="flex justify-between items-center border-b border-white/5 pb-3">
                                     <span className="text-gray-500 text-sm uppercase">Network</span>
-                                    <span className="text-white font-bold">Polygon (ERC-20)</span>
+                                    <span className="text-white font-bold">BNB Smart Chain (BEP-20)</span>
                                 </div>
                                 <div className="flex justify-between items-center border-b border-white/5 pb-3">
                                     <span className="text-gray-500 text-sm uppercase">Total Supply</span>

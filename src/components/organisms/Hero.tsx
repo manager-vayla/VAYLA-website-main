@@ -67,9 +67,14 @@ const Hero = () => {
                                 JOIN DAO
                                 <iconify-icon icon="eos-icons:arrow-forward" className="group-hover:translate-x-1 transition-transform"></iconify-icon>
                             </button>
-                            <button className="h-14 px-8 bg-transparent border border-white/20 text-white font-bold text-sm uppercase tracking-widest hover:bg-white/5 transition-all rounded-sm">
-                                Read Whitepaper
-                            </button>
+                            <a
+                                href="https://manager-vayla.github.io/VAYLA-link-tree/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="h-14 px-8 bg-transparent border border-white/20 text-white font-bold text-sm uppercase tracking-widest hover:bg-white/5 transition-all rounded-sm flex items-center justify-center"
+                            >
+                                Linktree
+                            </a>
                         </div>
                     </div>
                 </div>

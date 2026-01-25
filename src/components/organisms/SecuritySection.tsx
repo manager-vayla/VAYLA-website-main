@@ -37,8 +37,8 @@ const SecuritySection = () => {
                     />
                     <SpotlightCard
                         variant="solid"
-                        icon="logos:polygon"
-                        title="Polygon L2 Solution"
+                        icon="simple-icons:binance"
+                        title="BNB Smart Chain (BEP-20)"
                         desc="Ensures global scalability with low fees and fast transaction speeds."
                         delay={200}
                     />

@@ -1,9 +1,9 @@
 import { getDefaultConfig } from '@rainbow-me/rainbowkit';
-import { polygon } from 'wagmi/chains';
+import { bsc } from 'wagmi/chains';
 
 export const config = getDefaultConfig({
     appName: 'VAYLA Protocol',
     projectId: 'YOUR_PROJECT_ID',
-    chains: [polygon],
+    chains: [bsc],
     ssr: false, // Since this is a SPA
 });

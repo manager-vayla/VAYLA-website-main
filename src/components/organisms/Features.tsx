@@ -54,7 +54,7 @@ const Features = () => {
                         className="md:col-span-1 md:row-span-1"
                         icon="eos-icons:api"
                         title="Cross-Chain Bridge"
-                        desc="Seamlessly move assets between Ethereum, Solana, and Polygon with our trustless bridge architecture."
+                        desc="Seamlessly move assets between Ethereum, Solana, and BNB Smart Chain with our trustless bridge architecture."
                         delay={400}
                     />
                 </div>
