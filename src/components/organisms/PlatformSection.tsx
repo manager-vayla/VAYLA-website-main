@@ -1,4 +1,7 @@
+'use client';
+
 import React from "react";
+import Image from 'next/image';
 import GlassAppIcon from "@/components/molecules/GlassAppIcon";
 import logo from "@/assets/VAYLA_logo.png";
 
@@ -35,9 +38,11 @@ const PlatformSection = () => {
                             <div className="absolute inset-0 bg-emerald-400/20 blur-[90px] rounded-full animate-pulse"></div>
 
                             <div className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-white/10 shadow-[0_0_60px_rgba(45,212,191,0.3)] bg-black z-10 group hover:scale-105 transition-transform duration-500">
-                                <img
+                                <Image
                                     src={logo}
                                     alt="VAYLA Protocol Hub"
+                                    width={320}
+                                    height={320}
                                     className="w-full h-full object-cover rounded-full animate-[float_6s_ease-in-out_infinite]"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-tr from-black/50 via-transparent to-white/10 pointer-events-none rounded-full"></div>
@@ -82,7 +87,7 @@ const PlatformSection = () => {
                 {/* Mobile View */}
                 <div className="md:hidden flex flex-col gap-4 mb-20 mt-10">
                     <div className="w-56 h-56 mx-auto mb-12 relative rounded-full overflow-hidden border-2 border-white/20 shadow-xl bg-black">
-                        <img src={logo} className="w-full h-full object-cover" alt="Logo" />
+                        <Image src={logo} width={224} height={224} className="w-full h-full object-cover" alt="Logo" />
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         {orbitItems.map((item, i) => (

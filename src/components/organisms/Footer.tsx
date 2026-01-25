@@ -1,4 +1,7 @@
+'use client';
+
 import React from "react";
+import Image from 'next/image';
 import logo from "@/assets/VAYLA_S_LOGO_White.png";
 
 const Footer = () => {
@@ -8,9 +11,11 @@ const Footer = () => {
                 <div>
                     {/* Footer Logo */}
                     <div className="flex items-center gap-2 mb-6 h-8 opacity-80 hover:opacity-100 transition-opacity">
-                        <img
+                        <Image
                             src={logo}
                             alt="VAYLA Protocol"
+                            width={120}
+                            height={32}
                             className="h-full w-auto object-contain"
                         />
                     </div>

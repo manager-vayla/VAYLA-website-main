@@ -1,4 +1,7 @@
+'use client';
+
 import React, { useEffect, useState } from "react";
+import Image from 'next/image';
 import logo from '@/assets/VAYLA_S_LOGO_White.png';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 
@@ -14,10 +17,13 @@ const Navbar = () => {
     return (
         <nav className={`fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-12 transition-all duration-500 ${scrolled ? 'py-4 bg-black/50 backdrop-blur-xl border-b border-white/5' : 'py-8 bg-transparent'}`}>
             <div className="flex items-center pointer-events-auto group cursor-pointer h-10">
-                <img
+                <Image
                     src={logo}
                     alt="VAYLA Protocol"
+                    width={120}
+                    height={40}
                     className="h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                    priority
                 />
             </div>
 
