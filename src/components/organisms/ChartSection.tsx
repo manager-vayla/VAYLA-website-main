@@ -1,6 +1,7 @@
 'use client';
 
 import React from "react";
+import ChartsVisualization from "./ChartsVisualization";
 
 const ChartSection = () => {
     const netflixShows = [
@@ -121,6 +122,12 @@ const ChartSection = () => {
                         </div>
                     </div>
                 </div>
+
+                {/* Charts Visualization with Recharts */}
+                <ChartsVisualization 
+                    netflixShows={netflixShows}
+                    billboardSongs={billboardSongs}
+                />
             </div>
         </section>
     );
