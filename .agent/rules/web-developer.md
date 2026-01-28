@@ -2,96 +2,151 @@
 trigger: always_on
 ---
 
-KINC Project Rules & Technology Stack (Frontend Focus)
+1. Tổng Quan & Phạm Vi (Overview & Scope)
+Dự án: VAYLA.
 
-1. Core Framework & Language
-   Framework: React 18+ (Vite)
+Mô hình: Full-Stack Monolithic (hoặc Modular Monolith).
 
-Language: TypeScript (Bắt buộc). Phải định nghĩa Interface/Type cho mọi dữ liệu từ API và Smart Contract.
+Kiến trúc: Client-Server qua REST API.
 
-State Management:
+Hạ tầng: AWS EC2 t4g.large (ARM64/Graviton), Ubuntu 24.04 LTS. KHÔNG sử dụng Docker. Triển khai trực tiếp (Bare-metal) với Systemd và PM2.
 
-Global: Zustand (Nhẹ, hiệu năng cao hơn Context API cho các tác vụ lưu trữ trạng thái ví/session).
+2. Tech Stack Bắt Buộc (Mandatory Tech Stack)
+Frontend
+Framework: Next.js 14+ (App Router).
 
-Server State & Blockchain Data: TanStack Query (React Query) để cache và sync dữ liệu RWA.
+Ngôn ngữ: TypeScript (Strict Mode).
 
-Routing: React Router DOM (v6+).
+Styling: Tailwind CSS, Shadcn UI (cho components).
 
-2. Web3 & Blockchain Integration
-   Provider & Library: Wagmi kết hợp với Viem (Tối ưu tốc độ và type-safe hơn Web3.js).
+State Management: Zustand (client-state), TanStack Query (server-state).
 
-Wallet Connection: RainbowKit (Đã cấu hình cho Polygon Mainnet).
+Web3 Auth: Privy SDK (@privy-io/react-auth).
 
-Data Handling:
+Wallet Interaction: Wagmi / Viem.
 
-Luôn sử dụng BigInt cho các giá trị Token.
+Backend
+Framework: FastAPI (Python 3.11+).
 
-Sử dụng formatUnits và parseUnits từ Viem để xử lý số thập phân (Decimals) của USDT/KCT.
+Cơ sở dữ liệu: PostgreSQL 16 (Cài đặt native trên OS).
 
-RPC Management: Sử dụng Alchemy hoặc QuickNode (Cấu hình qua biến môi trường .env).
+ORM: SQLAlchemy 2.0 (AsyncIO only).
 
-3. Styling & UI System
-   Engine: Tailwind CSS.
+Migration: Alembic.
 
-Design Pattern: Atomic Design (Atoms, Molecules, Organisms).
+Blockchain Interaction: Web3.py (AsyncHTTPProvider).
 
-Visual Style:
+Task Queue: Asyncio background tasks (cho các tác vụ nhẹ) hoặc Celery + Redis (nếu cần xử lý nặng, hiện tại ưu tiên Asyncio để tiết kiệm RAM).
 
-Glassmorphism: Sử dụng backdrop-blur và bg-opacity.
+3. Quy Tắc Coding (Coding Standards)
+3.1 Nguyên Tắc Chung (General)
+DRY (Don't Repeat Yourself): Tách logic lặp lại thành các utils hoặc services.
 
-Theme: Dark Mode mặc định (Navy/Blue/Gold).
+KISS (Keep It Simple, Stupid): Ưu tiên giải pháp đơn giản, dễ đọc hơn giải pháp phức tạp.
 
-Responsiveness: Quy tắc Mobile-First. Kiểm tra nghiêm ngặt trên breakpoint 375px (iPhone SE) và 414px.
+Type Safety:
 
-4. Project Structure (Standardized)
-   Plaintext
+Frontend: Không dùng any. Định nghĩa Interface/Type cho mọi Props và API Response.
 
-src/
-├── assets/ # Images, Fonts, Icons
-├── components/ # Reusable UI components
-├── constants/ # ABI, Contract Addresses, Configs
-├── hooks/ # Custom hooks (useContractRead, useFunding, etc.)
-├── layouts/ # MainLayout, AuthLayout
-├── pages/ # Screen views
-├── services/ # API calls (Axios instances)
-├── store/ # Zustand stores
-├── types/ # TypeScript definitions (.d.ts)
-└── utils/ # Formatters, Helpers (address shorten, date) 5. Coding Rules & Best Practices
-5.1. Type Safety & Validation
-Tuyệt đối không sử dụng any.
+Backend: Sử dụng Pydantic Models cho mọi Schema (Input/Output). Sử dụng Type Hinting đầy đủ cho function arguments và return types.
 
-Các hàm tương tác Contract phải được bọc trong try-catch và có thông báo lỗi (Toast) cho người dùng.
+3.2 Frontend Rules (Next.js)
+Server vs Client Components:
 
-5.2. Component Design
-Functional Components: Sử dụng arrow functions.
+Mặc định sử dụng Server Components để tối ưu SEO và performance.   
 
-Props: Phải được định nghĩa Type cụ thể.
+Chỉ sử dụng 'use client' khi cần tương tác UI (onClick, useState) hoặc truy cập Browser API.
 
-Performance: Sử dụng React.memo cho các component hiển thị bảng giá hoặc danh sách dự án Funding lớn để tránh re-render thừa.
+Data Fetching:
 
-5.3. Naming Convention
-Components/Pages: PascalCase.tsx
+Server: Sử dụng fetch hoặc gọi trực tiếp service (nếu mô hình cho phép).
 
-Hooks: useCamelCase.ts
+Client: Bắt buộc dùng TanStack Query để quản lý caching và loading state.
 
-Variables/Functions: camelCase
+Privy Integration:
 
-Constants: UPPER_SNAKE_CASE
+KHÔNG bao giờ lộ App Secret ở phía Client.
 
-5.4. Git Workflow (Strict)
-Commits: Tuân thủ Conventional Commits:
+Sử dụng usePrivy() để lấy getAccessToken(). Token này MỚI LÀ CHÌA KHÓA để gọi API Backend.
 
-feat: Tính năng mới.
+Luôn gửi token trong Header: Authorization: Bearer <access_token>.
 
-fix: Sửa lỗi.
+3.3 Backend Rules (FastAPI & Python)
+Async First:
 
-refactor: Tối ưu code nhưng không đổi tính năng.
+Tất cả route handlers (def route(...)) PHẢI là async def.
 
-chore: Cập nhật thư viện, cấu hình build.
+Tất cả IO operations (Database, RPC calls, HTTP requests) PHẢI có await.   
 
-Branching: main -> develop -> feature/feature-name.
+❌ time.sleep(5) -> ✅ await asyncio.sleep(5).
 
-6. Deployment Context (AWS t4g.large)
-   Build Output: Tối ưu hóa Vite build (manualChunks) để giảm kích thước tệp JS, giúp Nginx trên AWS EC2 phục vụ file nhanh hơn.
+Cấu Trúc Thư Mục:
 
-Environment: Toàn bộ API URL và Contract Address phải nằm trong .env. Không hardcode thông tin nhạy cảm.
+/api: Chứa các route controllers (endpoints).
+
+/core: Config, Security, Database Connection.
+
+/services: Business Logic (Xử lý Funding, Blockchain Event Listening).
+
+/schemas: Pydantic Models.
+
+/models: SQLAlchemy Models.
+
+Database Session Management:
+
+Sử dụng Dependency Injection Depends(get_db) để lấy session.
+
+Session phải là AsyncSession.
+
+KHÔNG BAO GIỜ thực hiện commit trong get_db. Commit phải được gọi rõ ràng trong Service layer sau khi hoàn tất logic nghiệp vụ.
+
+3.4 Bảo Mật & Xác Thực (Security & Auth)
+Verify Token:
+
+Backend KHÔNG TIN TƯỞNG bất kỳ request nào không có token (trừ các route public).
+
+Middleware xác thực phải:
+
+Lấy Bearer Token từ Header.
+
+Decode JWT sử dụng Public Key của Privy (Ed25519).   
+
+Kiểm tra iss (privy.io), aud (app-id), exp (hết hạn).
+
+Inject user_id (DID) vào request context.
+
+Input Validation:
+
+Mọi dữ liệu đầu vào (từ form funding, số tiền invest) phải được validate chặt chẽ qua Pydantic.
+
+Kiểm tra logic nghiệp vụ (Ví dụ: current_raise + amount <= target_raise) trước khi ghi vào DB.
+
+4. Quy Tắc Hạ Tầng & Triển Khai (Infrastructure)
+Môi trường ARM64:
+
+Khi cài đặt thư viện Python (như uvloop, cryptography), đảm bảo hệ thống có đủ build-essential và libssl-dev để compile native extensions nếu không có wheel.   
+
+PostgreSQL config phải được tối ưu cho RAM 8GB (Shared Buffers ~2GB).   
+
+Nginx Reverse Proxy:
+
+Cấu hình Nginx để forward header X-Forwarded-For, X-Real-IP vào Backend để rate limiting hoạt động đúng.   
+
+SSL Termination thực hiện tại Nginx (Sử dụng Certbot).
+
+Process Management:
+
+Backend: Chạy dưới dạng Systemd Service (kinc-backend.service).
+
+Frontend: Build static (npm run build) và serve qua PM2 hoặc Nginx trực tiếp.
+
+5. Phong Cách Cam Kết Mã (Git Commit Style)
+Sử dụng Conventional Commits:
+
+feat: thêm chức năng tạo campaign
+
+fix: sửa lỗi tính toán lãi suất
+
+chore: cập nhật dependencies
+
+docs: cập nhật hướng dẫn API

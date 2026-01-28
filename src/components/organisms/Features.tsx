@@ -5,7 +5,7 @@ import SpotlightCard from "@/components/molecules/SpotlightCard";
 
 const Features = () => {
     return (
-        <section className="py-32 px-6 md:px-12 bg-[#050505] relative z-10">
+        <section id="governance" className="py-32 px-6 md:px-12 bg-[#050505] relative z-10">
             <div className="max-w-[90rem] mx-auto">
                 <div className="mb-24">
                     <span className="font-mono text-teal-500 text-xs tracking-widest uppercase mb-4 block">Core Architecture</span>

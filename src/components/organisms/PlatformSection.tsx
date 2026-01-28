@@ -16,7 +16,7 @@ const PlatformSection = () => {
     ];
 
     return (
-        <section className="py-32 px-6 md:px-12 bg-black relative z-10 overflow-hidden min-h-screen flex flex-col justify-center">
+        <section id="ecosystem" className="py-32 px-6 md:px-12 bg-black relative z-10 overflow-hidden min-h-screen flex flex-col justify-center">
             {/* Ambient Background Glows */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none mix-blend-screen opacity-50"></div>
 

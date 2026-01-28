@@ -25,7 +25,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <section className="relative w-full h-[110vh] flex flex-col justify-center bg-[#050505] overflow-hidden">
+        <section id="mission" className="relative w-full h-[110vh] flex flex-col justify-center bg-[#050505] overflow-hidden">
             {/* Background Gradient Spotlights */}
             <div className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] bg-teal-600/5 blur-[120px] rounded-full pointer-events-none animate-pulse-slow"></div>
             <div className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-indigo-600/5 blur-[120px] rounded-full pointer-events-none"></div>
@@ -69,9 +69,14 @@ const Hero = () => {
                                 JOIN DAO
                                 <iconify-icon icon="eos-icons:arrow-forward" className="group-hover:translate-x-1 transition-transform"></iconify-icon>
                             </button>
-                            <button className="h-14 px-8 bg-transparent border border-white/20 text-white font-bold text-sm uppercase tracking-widest hover:bg-white/5 transition-all rounded-sm">
-                                Read Whitepaper
-                            </button>
+                            <a
+                                href="https://manager-vayla.github.io/VAYLA-link-tree/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="h-14 px-8 bg-transparent border border-white/20 text-white font-bold text-sm uppercase tracking-widest hover:bg-white/5 transition-all rounded-sm flex items-center justify-center cursor-pointer"
+                            >
+                                Link Tree
+                            </a>
                         </div>
                     </div>
                 </div>

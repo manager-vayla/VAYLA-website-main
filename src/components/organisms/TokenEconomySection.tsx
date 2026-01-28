@@ -32,10 +32,16 @@ const TokenEconomySection = () => {
         return `M ${x1} ${y1} A ${radius} ${radius} 0 ${largeArcFlag} 1 ${x2} ${y2} L ${x3} ${y3} A ${radius - thickness} ${radius - thickness} 0 ${largeArcFlag} 0 ${x4} ${y4} Z`;
     };
 
+    const [mounted, setMounted] = React.useState(false);
+
+    React.useEffect(() => {
+        setMounted(true);
+    }, []);
+
     let currentPercent = 0;
 
     return (
-        <section className="py-32 px-6 md:px-12 bg-[#050505] relative z-10 border-t border-white/5">
+        <section id="tokenomics" className="py-32 px-6 md:px-12 bg-[#050505] relative z-10 border-t border-white/5">
             <div className="max-w-[90rem] mx-auto">
                 <div className="mb-20">
                     <span className="font-mono text-teal-500 text-xs tracking-widest uppercase mb-4 block">Tokenomics</span>
@@ -51,11 +57,11 @@ const TokenEconomySection = () => {
                             <div className="space-y-4 relative z-10 font-mono">
                                 <div className="flex justify-between items-center border-b border-white/5 pb-3">
                                     <span className="text-gray-500 text-sm uppercase">Ticker</span>
-                                    <span className="text-teal-400 font-bold">VYA</span>
+                                    <span className="text-teal-400 font-bold uppercase">VAYLA</span>
                                 </div>
                                 <div className="flex justify-between items-center border-b border-white/5 pb-3">
                                     <span className="text-gray-500 text-sm uppercase">Network</span>
-                                    <span className="text-white font-bold">Polygon (ERC-20)</span>
+                                    <span className="text-white font-bold">BNB Smart Chain (BEP-20)</span>
                                 </div>
                                 <div className="flex justify-between items-center border-b border-white/5 pb-3">
                                     <span className="text-gray-500 text-sm uppercase">Total Supply</span>
@@ -80,20 +86,23 @@ const TokenEconomySection = () => {
                     </div>
                     <div className="flex flex-col items-center order-1 lg:order-2">
                         <div className="relative w-full max-w-[500px] aspect-square mb-10">
-                            <svg viewBox="0 0 400 400" className="w-full h-full transform transition-transform hover:scale-105 duration-500">
-                                <g transform="rotate(-90 200 200)">
-                                    {distribution.map((d, i) => {
-                                        const start = currentPercent;
-                                        const end = currentPercent + d.percent;
-                                        currentPercent = end;
-                                        return (
-                                            <path key={i} d={generateArc(start, end - 0.5, 180, 80)} fill={d.color} className="hover:opacity-80 transition-opacity cursor-pointer" />
-                                        );
-                                    })}
-                                </g>
-                                <text x="200" y="195" textAnchor="middle" fill="white" className="text-3xl font-bold font-['Space_Grotesk']" style={{ fontSize: '24px' }}>3B</text>
-                                <text x="200" y="220" textAnchor="middle" fill="#9ca3af" className="text-[10px] font-mono uppercase tracking-widest">Total Supply</text>
-                            </svg>
+                            {mounted && (
+                                <svg viewBox="0 0 400 400" className="w-full h-full transform transition-transform hover:scale-105 duration-500">
+                                    <g transform="rotate(-90 200 200)">
+                                        {distribution.map((d, i) => {
+                                            const start = currentPercent;
+                                            const end = currentPercent + d.percent;
+                                            const pathData = generateArc(start, end - 0.5, 180, 80);
+                                            currentPercent = end;
+                                            return (
+                                                <path key={i} d={pathData} fill={d.color} className="hover:opacity-80 transition-opacity cursor-pointer" />
+                                            );
+                                        })}
+                                    </g>
+                                    <text x="200" y="195" textAnchor="middle" fill="white" className="text-3xl font-bold font-['Space_Grotesk']" style={{ fontSize: '24px' }}>3B</text>
+                                    <text x="200" y="220" textAnchor="middle" fill="#9ca3af" className="text-[10px] font-mono uppercase tracking-widest">Total Supply</text>
+                                </svg>
+                            )}
                         </div>
                         <div className="grid grid-cols-2 gap-x-8 gap-y-4 w-full px-4">
                             {distribution.map((d, i) => (

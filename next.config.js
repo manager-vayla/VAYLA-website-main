@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [],
+    remotePatterns: [],
   },
   webpack: (config) => {
     config.resolve.fallback = {
@@ -11,6 +11,8 @@ const nextConfig = {
     };
     return config;
   },
+  // Silence the Turbopack vs Webpack conflict error
+  turbopack: {},
 };
 
 module.exports = nextConfig;

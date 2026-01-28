@@ -10,12 +10,12 @@ const Footer = () => {
             <div className="max-w-[90rem] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div>
                     {/* Footer Logo */}
-                    <div className="flex items-center gap-2 mb-6 h-8 opacity-80 hover:opacity-100 transition-opacity">
+                    <div className="flex items-center gap-2 mb-6 h-32 opacity-80 hover:opacity-100 transition-opacity">
                         <Image
                             src={logo}
                             alt="VAYLA Protocol"
-                            width={120}
-                            height={32}
+                            width={160}
+                            height={42}
                             className="h-full w-auto object-contain"
                         />
                     </div>
@@ -23,9 +23,20 @@ const Footer = () => {
                         The protocol for borderless fandom economy. Empowering creators and fans through decentralized infrastructure.
                     </p>
                     <div className="flex gap-4">
-                        {['twitter', 'discord', 'telegram', 'github'].map((social) => (
-                            <a key={social} href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-teal-400 transition-all">
-                                <iconify-icon icon={`mdi:${social}`}></iconify-icon>
+                        {[
+                            { id: 'twitter', icon: 'mdi:twitter', href: 'https://x.com/vaylamanager' },
+                            { id: 'discord', icon: 'mdi:discord', href: 'https://discord.gg/PSNRHbZDS4' },
+                            { id: 'telegram', icon: 'mdi:telegram', href: 'https://t.me/Vayla_Official' },
+                            { id: 'github', icon: 'mdi:github', href: 'https://github.com/manager-vayla' }
+                        ].map((social) => (
+                            <a
+                                key={social.id}
+                                href={social.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-teal-400 transition-all border border-white/5"
+                            >
+                                <iconify-icon icon={social.icon} style={{ fontSize: '20px' }}></iconify-icon>
                             </a>
                         ))}
                     </div>
@@ -43,7 +54,7 @@ const Footer = () => {
                 <div>
                     <h4 className="text-white font-bold mb-6 font-['Space_Grotesk']">Resources</h4>
                     <ul className="space-y-3 text-sm text-gray-500">
-                        {['Whitepaper', 'Documentation', 'Security Audits', 'Brand Kit'].map(item => (
+                        {['Link Tree', 'Documentation', 'Security Audits', 'Brand Kit'].map(item => (
                             <li key={item}><a href="#" className="hover:text-teal-400 transition-colors">{item}</a></li>
                         ))}
                     </ul>
