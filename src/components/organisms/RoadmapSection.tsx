@@ -18,7 +18,7 @@ interface MilestoneCardProps {
 }
 
 const MilestoneCard: React.FC<MilestoneCardProps> = ({ milestone, idx }) => {
-    const itemRef = useRef<HTMLDivElement>(null);
+    const itemRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -41,6 +41,7 @@ const MilestoneCard: React.FC<MilestoneCardProps> = ({ milestone, idx }) => {
 
     return (
         <div
+            key={milestone.q}
             ref={itemRef}
             style={{
                 animationDelay: `${idx * 100}ms`,
@@ -148,7 +149,7 @@ const RoadmapSection = () => {
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
 export default RoadmapSection;
