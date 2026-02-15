@@ -22,9 +22,7 @@ jobs:
         run: npm install
 
       - name: 🔨 Build Project
-        run: |
-          npm install
-          npm run build
+        run: npm run build
         env:
           NEXT_PUBLIC_BASE_URL: https://vayla.io
 
@@ -34,5 +32,6 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./out/ 
-          server-dir: ./ # Vì tài khoản FTP đã trỏ sẵn vào public_html rồi
+          local-dir: ./out/
+          server-dir: ./ 
+          # server-dir: ./ là đúng vì tài khoản FTP của bạn đã trỏ thẳng vào public_html
