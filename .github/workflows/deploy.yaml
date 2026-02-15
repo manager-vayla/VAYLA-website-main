@@ -33,5 +33,6 @@ jobs:
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
-          local-dir: ./out/ # Thư mục sinh ra sau khi build export
-          server-dir: ./public_html/ # Thư mục chứa web trên hosting của bạn
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./out/ 
+          server-dir: ./ # Vì tài khoản FTP đã trỏ sẵn vào public_html rồi
