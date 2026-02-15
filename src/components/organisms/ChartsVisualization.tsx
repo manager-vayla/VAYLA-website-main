@@ -66,15 +66,15 @@ const ChartsVisualization: React.FC<ChartsVisualizationProps> = ({ netflixShows,
                             margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
                         >
                             <CartesianGrid strokeDasharray="3 3" stroke="#1f1f1f" />
-                            <XAxis 
-                                type="number" 
+                            <XAxis
+                                type="number"
                                 stroke="#666"
                                 tick={{ fill: '#999', fontSize: 11 }}
                                 domain={[0, 5]}
                                 hide
                             />
-                            <YAxis 
-                                type="category" 
+                            <YAxis
+                                type="category"
                                 dataKey="title"
                                 stroke="#666"
                                 tick={{ fill: '#fff', fontSize: 11 }}
@@ -92,8 +92,8 @@ const ChartsVisualization: React.FC<ChartsVisualizationProps> = ({ netflixShows,
                                     props.payload.title
                                 ]}
                             />
-                            <Bar 
-                                dataKey="value" 
+                            <Bar
+                                dataKey="value"
                                 radius={[0, 4, 4, 0]}
                             >
                                 {netflixData.map((entry, index) => (
@@ -107,8 +107,8 @@ const ChartsVisualization: React.FC<ChartsVisualizationProps> = ({ netflixShows,
                 {/* List View */}
                 <div className="space-y-2">
                     {netflixShows.map((show) => (
-                        <div 
-                            key={show.rank} 
+                        <div
+                            key={show.rank}
                             className="flex items-center gap-3 p-3 bg-black/40 rounded-lg border border-white/5 hover:border-white/10 transition-all group"
                         >
                             <span className="text-teal-400 font-mono text-sm font-bold w-6">{show.rank}</span>
@@ -138,15 +138,15 @@ const ChartsVisualization: React.FC<ChartsVisualizationProps> = ({ netflixShows,
                             margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
                         >
                             <CartesianGrid strokeDasharray="3 3" stroke="#1f1f1f" />
-                            <XAxis 
-                                type="number" 
+                            <XAxis
+                                type="number"
                                 stroke="#666"
                                 tick={{ fill: '#999', fontSize: 11 }}
                                 domain={[0, 5]}
                                 hide
                             />
-                            <YAxis 
-                                type="category" 
+                            <YAxis
+                                type="category"
                                 dataKey="title"
                                 stroke="#666"
                                 tick={{ fill: '#fff', fontSize: 11 }}
@@ -164,8 +164,8 @@ const ChartsVisualization: React.FC<ChartsVisualizationProps> = ({ netflixShows,
                                     `${props.payload.title} - ${props.payload.artist}`
                                 ]}
                             />
-                            <Bar 
-                                dataKey="value" 
+                            <Bar
+                                dataKey="value"
                                 radius={[0, 4, 4, 0]}
                             >
                                 {billboardData.map((entry, index) => (
@@ -179,8 +179,8 @@ const ChartsVisualization: React.FC<ChartsVisualizationProps> = ({ netflixShows,
                 {/* List View */}
                 <div className="space-y-2">
                     {billboardSongs.map((song) => (
-                        <div 
-                            key={song.rank} 
+                        <div
+                            key={song.rank}
                             className="flex items-center gap-3 p-3 bg-black/40 rounded-lg border border-white/5 hover:border-white/10 transition-all group"
                         >
                             <span className="text-teal-400 font-mono text-sm font-bold w-6">{song.rank}</span>
@@ -192,8 +192,8 @@ const ChartsVisualization: React.FC<ChartsVisualizationProps> = ({ netflixShows,
                                     {song.artist}
                                 </div>
                             </div>
-                            <iconify-icon 
-                                icon="mdi:chart-line" 
+                            <iconify-icon
+                                icon="mdi:chart-line"
                                 className="text-teal-400 opacity-50 group-hover:opacity-100 transition-opacity"
                                 style={{ fontSize: '18px' }}
                             ></iconify-icon>

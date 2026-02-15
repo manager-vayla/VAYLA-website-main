@@ -54,21 +54,41 @@ const TokenEconomySection = () => {
                         <div className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-8 relative overflow-hidden group">
                             <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             <h3 className="text-xl font-bold text-white mb-6 font-['Space_Grotesk'] relative z-10">Token Specifications</h3>
-                            <div className="space-y-4 relative z-10 font-mono">
-                                <div className="flex justify-between items-center border-b border-white/5 pb-3">
-                                    <span className="text-gray-500 text-sm uppercase">Ticker</span>
-                                    <span className="text-teal-400 font-bold uppercase">VAYLA</span>
+                            <div className="space-y-6 relative z-10 font-mono">
+                                <div className="flex justify-between items-center border-b border-white/5 pb-4">
+                                    <span className="text-gray-500 text-sm uppercase tracking-wider">Ticker</span>
+                                    <span className="text-teal-400 font-bold uppercase text-lg">VAYLA</span>
                                 </div>
-                                <div className="flex justify-between items-center border-b border-white/5 pb-3">
-                                    <span className="text-gray-500 text-sm uppercase">Network</span>
-                                    <span className="text-white font-bold">BNB Smart Chain (BEP-20)</span>
+                                <div className="space-y-3 pb-4 border-b border-white/5">
+                                    <div className="flex justify-between items-center">
+                                        <span className="text-gray-500 text-sm uppercase tracking-wider">Coingecko</span>
+                                        <a href="https://www.coingecko.com/en/coins/vayla-2" target="_blank" rel="noopener noreferrer" className="text-teal-400 font-bold hover:text-teal-300 transition-colors text-xs flex items-center gap-1">
+                                            View on Coingecko <iconify-icon icon="mdi:arrow-top-right"></iconify-icon>
+                                        </a>
+                                    </div>
+                                    <div className="flex justify-between items-center">
+                                        <span className="text-gray-500 text-sm uppercase tracking-wider">Coinmarketcap</span>
+                                        <a href="https://coinmarketcap.com/currencies/vayla/" target="_blank" rel="noopener noreferrer" className="text-teal-400 font-bold hover:text-teal-300 transition-colors text-xs flex items-center gap-1">
+                                            View on CMC <iconify-icon icon="mdi:arrow-top-right"></iconify-icon>
+                                        </a>
+                                    </div>
+                                    <div className="flex justify-between items-center">
+                                        <span className="text-gray-500 text-sm uppercase tracking-wider">BSCScan</span>
+                                        <a href="https://bscscan.com/token/0x3b6b2593475FC2Bf546F237Fd401D63a655cE53f" target="_blank" rel="noopener noreferrer" className="text-teal-400 font-bold hover:text-teal-300 transition-colors text-xs flex items-center gap-1">
+                                            View on BSCScan <iconify-icon icon="mdi:arrow-top-right"></iconify-icon>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div className="flex justify-between items-center border-b border-white/5 pb-3">
-                                    <span className="text-gray-500 text-sm uppercase">Total Supply</span>
-                                    <span className="text-white font-bold">3,000,000,000</span>
+                                <div className="flex justify-between items-center border-b border-white/5 pb-4">
+                                    <span className="text-gray-500 text-sm uppercase tracking-wider">Network</span>
+                                    <span className="text-white font-bold text-right">BNB Smart Chain (BEP-20)</span>
                                 </div>
-                                <div className="flex justify-between items-center pb-1">
-                                    <span className="text-gray-500 text-sm uppercase">Type</span>
+                                <div className="flex justify-between items-center border-b border-white/5 pb-4">
+                                    <span className="text-gray-500 text-sm uppercase tracking-wider">Total Supply</span>
+                                    <span className="text-white font-bold text-lg">3,000,000,000</span>
+                                </div>
+                                <div className="flex justify-between items-center pb-2">
+                                    <span className="text-gray-500 text-sm uppercase tracking-wider">Type</span>
                                     <span className="text-white font-bold">Utility / Governance</span>
                                 </div>
                             </div>

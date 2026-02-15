@@ -1,0 +1,836 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>VAYLA | The Protocol for Borderless Fandom</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#70F3D8",
+                        "muted-primary": "#48A896",
+                        "dark-mint": "#2D6B5F",
+                        "bright-mint": "#3E9484",
+                        "midnight": "#050505",
+                        "charcoal": "#0F0F0F",
+                        "border-accent": "rgba(112, 243, 216, 0.2)",
+                        "legacy-purple": "#A78BFA",
+                        "glow-purple": "#7C3AED",
+                        "muted-purple": "#4C1D95",
+                        "legacy-grey": "#E5E7EB",
+                        "dim-grey": "#9CA3AF",
+                        "off-white": "#FAFAFA",
+                    },
+                    fontFamily: {
+                        sans: ["'Plus Jakarta Sans'", "sans-serif"],
+                        averta: ["'Plus Jakarta Sans'", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .glass-card {
+                @apply bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl;
+            }
+            .section-divider {
+                @apply h-px w-full bg-gradient-to-r from-transparent via-primary/30 to-transparent shadow-[0_0_15px_rgba(112,243,216,0.4)];
+            }
+            .hero-v-glow {
+                background: radial-gradient(circle, rgba(112, 243, 216, 0.25) 0%, transparent 70%);
+            }
+            .v-icon-container {
+                position: absolute;
+                top: 45%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 320px;
+                height: 320px;
+                z-index: 0;
+            }
+            .v-icon-inner {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background: linear-gradient(135deg, #134e48 0%, #06201d 100%);
+                border: 2px solid rgba(112, 243, 216, 0.3);
+                box-shadow: inset 0 0 40px rgba(112, 243, 216, 0.2), 0 0 60px rgba(112, 243, 216, 0.1);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+            }
+            .v-icon-inner::after {
+                content: 'V';
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-size: 160px;
+                font-weight: 800;
+                background: linear-gradient(180deg, #70F3D8 0%, #134e48 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                filter: drop-shadow(0 0 15px rgba(112, 243, 216, 0.4));
+                opacity: 0.8;
+            }
+            .heading-bold {
+                @apply font-extrabold tracking-tight;
+            }
+            .sub-copy {
+                @apply text-white/85 leading-relaxed;
+            }
+            .card-copy {
+                @apply text-white/75 leading-relaxed;
+            }
+            .eco-orbit-container {
+                @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px];
+            }
+            .eco-node {
+                @apply absolute flex flex-col items-center justify-center text-center w-24 z-30;
+                transform: translate(-50%, -50%);
+            }
+            .eco-node-content {
+                @apply flex flex-col items-center;
+            }
+            .eco-bubble {
+                @apply w-14 h-14 rounded-full bg-white/5 backdrop-blur-xl border border-primary/50 flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(112,243,216,0.2)] relative;
+                transition: all 0.3s ease;
+            }
+            .eco-bubble::before {
+                content: '';
+                @apply absolute -inset-2 rounded-full border-t-2 border-primary/20 blur-[2px];
+                transform: rotate(-45deg);
+            }
+            .eco-bubble:hover {
+                @apply shadow-[0_0_20px_rgba(112,243,216,0.5)] border-primary;
+            }
+            .eco-title {
+                @apply text-[10px] font-bold text-white tracking-widest uppercase mb-1 font-averta;
+            }
+            .central-hub-wrapper {
+                @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20;
+            }
+            .central-pulse {
+                @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border border-primary/20 bg-primary/5;
+            }
+            .central-pulse-inner {
+                @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full border border-primary/30 bg-primary/10;
+            }
+            .central-hub-core {
+                @apply relative w-16 h-16 rounded-full bg-midnight border border-primary flex items-center justify-center shadow-[0_0_30px_rgba(112,243,216,0.6)];
+            }
+            .data-flow-ring-perfect {
+                @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] rounded-full border-[1.5px] border-transparent;
+                background-image: conic-gradient(from 0deg, rgba(112, 243, 216, 0.1), rgba(112, 243, 216, 0.6), #0f3d35, rgba(112, 243, 216, 0.1));
+                -webkit-mask: radial-gradient(circle at center, transparent 67%, black 68%);
+                mask: radial-gradient(circle at center, transparent 67%, black 68%);
+                box-shadow: 0 0 30px rgba(112, 243, 216, 0.1);
+            }
+            .eco-glow-bg {
+                background: radial-gradient(circle at center, rgba(112, 243, 216, 0.12) 0%, transparent 70%);
+            }
+            .split-card {
+                @apply glass-card overflow-hidden flex flex-col p-0 border-white/5 bg-[#0A0A0A];
+            }
+            .split-card-content {
+                @apply p-6 pt-5;
+            }
+            .split-card-image {
+                @apply w-full h-[180px] object-cover;
+            }
+            .roadmap-connector {
+                @apply absolute left-[20px] top-0 bottom-0 w-[1px] bg-primary/40 shadow-[0_0_8px_rgba(112,243,216,0.2)];
+            }
+            .neon-dot {
+                @apply absolute left-[16.5px] w-2 h-2 bg-primary rounded-full shadow-[0_0_15px_#70F3D8,0_0_5px_#70F3D8] z-10;
+            }
+            .social-icon-enhanced {
+                @apply flex-1 h-[72px] rounded-2xl flex items-center justify-center bg-[#0D0D0D] border border-primary/20 transition-all active:scale-95 shadow-[0_4px_12px_rgba(0,0,0,0.5)];
+            }
+            .social-icon-enhanced:hover {
+                @apply border-primary/60 bg-[#141414] shadow-[0_0_15px_rgba(112,243,216,0.15)];
+            }
+            .neon-text-glow {
+                text-shadow: 0 0 12px rgba(112, 243, 216, 0.4), 0 0 25px rgba(112, 243, 216, 0.2);
+            }
+            .card-title-gradient {
+                background: linear-gradient(180deg, #70F3D8 0%, #1a4d44 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+            .problem-card {
+                @apply glass-card p-6 bg-white/[0.04] transition-all duration-300;
+            }
+            .solution-card {
+                @apply glass-card p-6 border-primary bg-primary/5 shadow-[0_0_25px_rgba(112,243,216,0.25)] ring-1 ring-primary/50;
+            }
+            .muted-legacy-card {
+                @apply border-white/30 bg-white/[0.03] shadow-[0_0_15px_rgba(255,255,255,0.05)] ring-1 ring-white/10;
+            }
+            .logo-carousel-item {
+                @apply flex flex-col items-center justify-center min-w-[100%] transition-transform duration-500 ease-in-out;
+            }
+            .logo-placeholder {
+                @apply w-32 h-12 bg-white/10 rounded flex items-center justify-center grayscale opacity-80;
+            }
+            .no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .no-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-midnight text-white font-sans antialiased selection:bg-primary selection:text-midnight">
+    <header
+        class="fixed top-0 w-full z-50 bg-midnight/80 backdrop-blur-md border-b border-white/5 py-4 px-6 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <div
+                class="w-7 h-7 bg-primary rounded shadow-[0_0_10px_rgba(112,243,216,0.5)] flex items-center justify-center">
+                <span class="material-symbols-outlined text-midnight text-lg font-bold">layers</span>
+            </div>
+            <span class="heading-bold text-lg uppercase tracking-tighter">VAYLA</span>
+        </div>
+        <button class="w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 border border-white/10">
+            <span class="material-symbols-outlined text-primary">menu</span>
+        </button>
+    </header>
+    <main>
+        <section class="relative px-6 pt-32 pb-24 overflow-hidden bg-midnight">
+            <div class="v-icon-container opacity-60">
+                <div class="v-icon-inner"></div>
+                <div class="absolute inset-0 hero-v-glow"></div>
+            </div>
+            <div class="relative z-10 max-w-md mx-auto text-center">
+                <span
+                    class="inline-block px-4 py-1.5 mb-8 text-[11px] font-bold tracking-[0.25em] uppercase border border-primary/40 rounded-full text-primary bg-midnight/60 backdrop-blur-sm">
+                    The Future of Fandom Economy
+                </span>
+                <h1
+                    class="text-4xl sm:text-5xl heading-bold leading-[1.05] mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+                    The Protocol for <br /><span class="text-primary italic font-normal">Borderless</span> Fandom.
+                </h1>
+                <p
+                    class="sub-copy text-[17px] mb-40 max-w-[340px] mx-auto drop-shadow-lg leading-relaxed text-center font-averta italic">
+                    A Web3-native fandom platform<br />
+                    where humans, creators, and<br />
+                    AI/AGI participate together.
+                </p>
+                <p
+                    class="text-primary text-[17px] font-bold uppercase tracking-[0.2em] mb-12 mt-[-1.5rem] font-averta leading-relaxed mx-auto text-center neon-text-glow">
+                    THE UTILITY TOKEN POWERING<br />THE NEXT-GEN FANDOM ECONOMY
+                </p>
+                <div class="flex flex-col gap-4">
+                    <button
+                        class="bg-primary text-midnight heading-bold py-4 rounded-xl flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(112,243,216,0.3)]">
+                        Explore VAYLA Arena <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </button>
+                    <button
+                        class="bg-transparent backdrop-blur-md border-2 border-primary text-primary heading-bold py-4 rounded-xl hover:bg-primary/5 transition-colors">
+                        Token Utility
+                    </button>
+                </div>
+            </div>
+        </section>
+        <div class="section-divider"></div>
+        <section class="px-6 py-24 bg-charcoal">
+            <div class="text-center mb-8">
+                <div class="flex justify-center mb-8">
+                    <span
+                        class="inline-block px-4 py-1.5 text-[11px] font-bold tracking-[0.25em] uppercase border border-primary/30 rounded-full text-primary bg-primary/5 backdrop-blur-sm">
+                        THE VAYLA TOKEN
+                    </span>
+                </div>
+                <h2 class="text-3xl heading-bold mb-4 font-averta">Core Utility &amp; Settlement</h2>
+                <p class="text-white/85 text-sm max-w-[320px] mx-auto font-averta leading-relaxed text-center">
+                    VAYLA is the core utility, settlement, and<br />
+                    funding token of the VAYLA ecosystem.
+                </p>
+            </div>
+            <div class="flex flex-col gap-6 mb-12">
+                <div class="glass-card p-8 group">
+                    <div
+                        class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 border border-primary/20">
+                        <span class="material-symbols-outlined text-primary">how_to_vote</span>
+                    </div>
+                    <h3 class="text-xl heading-bold mb-3">Participation &amp; Voting</h3>
+                    <p class="card-copy text-sm">
+                        Used for on-chain participation, voting, and community actions.
+                    </p>
+                </div>
+                <div class="glass-card p-8">
+                    <div
+                        class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 border border-primary/20">
+                        <span class="material-symbols-outlined text-primary">account_balance_wallet</span>
+                    </div>
+                    <h3 class="text-xl heading-bold mb-3">Web3 Funding &amp; Settlement</h3>
+                    <p class="card-copy text-sm">
+                        The primary asset for fan-driven funding and on-chain settlement.
+                    </p>
+                </div>
+                <div class="glass-card p-8">
+                    <div
+                        class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 border border-primary/20">
+                        <span class="material-symbols-outlined text-primary">sync_alt</span>
+                    </div>
+                    <h3 class="text-xl heading-bold mb-3">Rewards &amp; Circulation</h3>
+                    <p class="card-copy text-sm">
+                        Collected fees are redistributed through rewards and ecosystem circulation.
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <p class="text-primary italic text-sm font-averta font-normal tracking-tight leading-relaxed">
+                    Built for discovery, participation, voting,<br />
+                    and funding — on-chain.
+                </p>
+            </div>
+        </section>
+        <div class="section-divider"></div>
+        <section class="px-6 py-24 bg-midnight relative overflow-hidden min-h-[700px]">
+            <div class="absolute inset-0 eco-glow-bg"></div>
+            <div class="text-center mb-12 relative z-30">
+                <span
+                    class="text-[10px] font-bold tracking-[0.3em] uppercase text-primary/80 mb-3 block font-averta">VAYLA
+                    Symmetrical Ecosystem Rotation</span>
+                <h2 class="text-3xl heading-bold mb-4 font-averta">How the VAYLA Cycle Works</h2>
+                <p class="sub-copy text-sm max-w-xs mx-auto font-averta">A continuous on-chain participation loop
+                    powered by the VAYLA token.</p>
+            </div>
+            <div class="relative w-full h-[400px] flex items-center justify-center">
+                <div class="data-flow-ring-perfect"></div>
+                <div class="data-flow-ring-perfect opacity-30 rotate-180 scale-[1.05]"></div>
+                <div class="central-hub-wrapper">
+                    <div class="central-pulse !w-24 !h-24"></div>
+                    <div class="central-pulse-inner !w-16 !h-16"></div>
+                    <div class="central-hub-core !w-14 !h-14">
+                        <span class="material-symbols-outlined text-primary text-2xl font-bold">star</span>
+                    </div>
+                </div>
+                <div class="eco-orbit-container">
+                    <div class="eco-node" style="top: 0%; left: 50%;">
+                        <div class="eco-node-content">
+                            <div class="eco-bubble shadow-[0_0_20px_rgba(112,243,216,0.5)] !border-primary">
+                                <div
+                                    class="absolute inset-[-10px] rounded-full border border-primary/10 border-t-primary/40 -rotate-45">
+                                </div>
+                                <span class="material-symbols-outlined text-primary text-2xl">travel_explore</span>
+                            </div>
+                            <span class="eco-title">Discover</span>
+                        </div>
+                    </div>
+                    <div class="eco-node" style="top: 25%; left: 93.3%;">
+                        <div class="eco-node-content">
+                            <div class="eco-bubble">
+                                <div
+                                    class="absolute inset-[-10px] rounded-full border border-primary/10 border-t-primary/40 -rotate-45">
+                                </div>
+                                <span class="material-symbols-outlined text-primary text-2xl">hub</span>
+                            </div>
+                            <span class="eco-title">Participate</span>
+                        </div>
+                    </div>
+                    <div class="eco-node" style="top: 75%; left: 93.3%;">
+                        <div class="eco-node-content">
+                            <div class="eco-bubble">
+                                <div
+                                    class="absolute inset-[-10px] rounded-full border border-primary/10 border-t-primary/40 -rotate-45">
+                                </div>
+                                <span class="material-symbols-outlined text-primary text-2xl">how_to_vote</span>
+                            </div>
+                            <span class="eco-title">Vote</span>
+                        </div>
+                    </div>
+                    <div class="eco-node" style="top: 100%; left: 50%;">
+                        <div class="eco-node-content">
+                            <div class="eco-bubble shadow-[0_0_20px_rgba(112,243,216,0.5)] !border-primary">
+                                <div
+                                    class="absolute inset-[-10px] rounded-full border border-primary/10 border-t-primary/40 -rotate-45">
+                                </div>
+                                <span
+                                    class="material-symbols-outlined text-primary text-2xl">account_balance_wallet</span>
+                            </div>
+                            <span class="eco-title">Fund</span>
+                        </div>
+                    </div>
+                    <div class="eco-node" style="top: 75%; left: 6.7%;">
+                        <div class="eco-node-content">
+                            <div class="eco-bubble">
+                                <div
+                                    class="absolute inset-[-10px] rounded-full border border-primary/10 border-t-primary/40 -rotate-45">
+                                </div>
+                                <span class="material-symbols-outlined text-primary text-2xl">payments</span>
+                            </div>
+                            <span class="eco-title">Earn</span>
+                        </div>
+                    </div>
+                    <div class="eco-node" style="top: 25%; left: 6.7%;">
+                        <div class="eco-node-content">
+                            <div class="eco-bubble">
+                                <div
+                                    class="absolute inset-[-10px] rounded-full border border-primary/10 border-t-primary/40 -rotate-45">
+                                </div>
+                                <span class="material-symbols-outlined text-primary text-2xl">cached</span>
+                            </div>
+                            <span class="eco-title">Reinvest</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="section-divider"></div>
+        <section class="px-6 py-24 bg-charcoal">
+            <div class="text-center mb-12">
+                <div class="flex justify-center mb-8">
+                    <span
+                        class="inline-block px-4 py-1.5 text-[11px] font-bold tracking-[0.25em] uppercase border border-primary/40 rounded-full text-primary bg-primary/5 backdrop-blur-sm font-averta">
+                        VAYLA ARENA
+                    </span>
+                </div>
+                <h2 class="text-3xl heading-bold leading-tight font-averta">The On-chain <br />Operating Layer</h2>
+                <p class="text-white/85 text-sm mt-4 font-averta max-w-[280px] mx-auto leading-relaxed">where the VAYLA
+                    token is actively used, earned, and settled.</p>
+            </div>
+            <div class="space-y-8 mb-12">
+                <div class="split-card">
+                    <div class="relative w-full h-[180px] overflow-hidden">
+                        <img alt="Solo artist" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdp6t_Hvdnp6sBjfKMnhm3TMmY9VEvYHjc7-33aMBYuNaQqB5CYBlEpqprcqzj0tkwWlrJoRc5ML00HfqjwGVa2RwnWibz1goJfCVJo68ZSj4-LpANvaQhvK1FfivgcgxMYcM5YK6KNi3-MiPOWvPHypl1Q2kW1juBpLKg0GoAKMIaAzRQGxAQ8jNvzsF7uPSLO71LxtPQeoHJrac1nDLQcrTiJ4lJC-GD6IU0I5StYor-jXaXR2gMFYNluNSRHaUWo_Ah8e1YgsjB" />
+                        <div
+                            class="absolute top-4 right-4 bg-yellow-400 text-black text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                            Upcoming</div>
+                    </div>
+                    <div class="split-card-content">
+                        <span
+                            class="text-[18px] font-bold mb-3 block tracking-[0.2em] uppercase font-averta text-primary">[VAYLA
+                            DISCOVERY]</span>
+                        <h3 class="text-[22px] heading-bold mb-2 text-white font-averta">Discover and support new
+                            creators</h3>
+                        <p class="text-white/80 text-sm leading-relaxed font-averta">Discover emerging artists,
+                            projects, and IPs through on-chain signals and community-driven insights.</p>
+                    </div>
+                </div>
+                <div class="split-card">
+                    <div class="relative w-full h-[180px] overflow-hidden">
+                        <img alt="Concert Crowd" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXANSABxPmUwPZPniwv6wN_EPak9cbEziRfcNSfAefW8oarYM-YT4gS7r46wHDH2m-Bin4oEtHSVZCJ4Ba66RAQIN2BaBkHkBlcd-ipk9rHbqn0B0HcU17CyJee9seValkvsP7wi3IYOZtIRJfUb0-jPdif5RedRNSrH_QoTWPN2QBfB8WhMYUByqz1sPc9Bgs_7Ghgl45R5lPtf3Nc_ZsIR4DbmVMl03g_UvlE53wj2vHmoKp8TwcetqlV8vMb8mBR5WmUaLhA03b" />
+                        <div
+                            class="absolute top-4 right-4 bg-yellow-400 text-black text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                            Live Now</div>
+                    </div>
+                    <div class="split-card-content">
+                        <span
+                            class="text-[18px] font-bold mb-3 block tracking-[0.2em] uppercase font-averta text-primary">[V-ONCHAIN
+                            CHART]</span>
+                        <h3 class="text-[22px] heading-bold mb-2 text-white font-averta">Vote and influence on-chain
+                            rankings</h3>
+                        <p class="text-white/80 text-sm leading-relaxed font-averta">Community-powered on-chain charts
+                            driven by transparent voting and participation.</p>
+                    </div>
+                </div>
+                <div class="split-card">
+                    <div class="relative w-full h-[180px] overflow-hidden">
+                        <img alt="Festival" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaQk6Bo9zOWNckdoy6FQZNNgy-FXYm8lss3vxA8ipbdATwA_63IXD5R4157OhnKf26SwK7nQUjrYDd7qVkxLWlmR-A5oonFqVaiFDJLsLlsCVzIM7wATPZnZnYWwLKk1d66VsjhtTBC1fQeQpof_0ya643ENo1H4r2qaMYshtQ9Ze-2wf6NQdJtP8i-K3X0kPo71myv7lyh6kaOWNc64cznsVzg-1T5ofgEPdz4aGshNVDAUN-edN4CcIf0xbtuehifCnviEmYGJQj" />
+                        <div
+                            class="absolute top-4 right-4 bg-white/20 backdrop-blur-md text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                            Goal: $1M</div>
+                    </div>
+                    <div class="split-card-content">
+                        <span
+                            class="text-[18px] font-bold mb-3 block tracking-[0.2em] uppercase font-averta text-primary">[VAYLA
+                            3.0 FUNDING]</span>
+                        <h3 class="text-[22px] heading-bold mb-2 text-white font-averta">Participate in Web3 funding
+                            projects</h3>
+                        <p class="text-white/80 text-sm leading-relaxed font-averta">Web3-native fandom funding powered
+                            by participation-based on-chain settlement.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <p
+                    class="text-primary italic font-normal text-sm font-averta tracking-tight leading-relaxed max-w-[320px] mx-auto">
+                    Together, these modules form a continuous<br />
+                    on-chain participation and funding<br />
+                    ecosystem.
+                </p>
+            </div>
+        </section>
+        <div class="section-divider"></div>
+        <section class="px-6 py-24 bg-midnight">
+            <div class="text-center mb-12">
+                <div class="flex justify-center mb-8">
+                    <span
+                        class="inline-block px-5 py-2 text-[11px] font-extrabold tracking-[0.25em] uppercase border border-primary/40 rounded-full text-primary bg-primary/5 backdrop-blur-sm font-averta">
+                        WHY WEB3 FANDOM &amp; FUNDING
+                    </span>
+                </div>
+                <h2 class="text-3xl heading-bold mb-4 font-averta">Evolving the Infrastructure</h2>
+                <p class="text-white/70 text-[15px] max-w-[300px] mx-auto font-averta leading-relaxed text-center">
+                    VAYLA does not replace the entertainment industry. It builds the participation and funding
+                    infrastructure beneath it.
+                </p>
+            </div>
+            <div class="flex flex-col items-center gap-0 relative max-w-sm mx-auto">
+                <div class="flex flex-col gap-3 w-full mb-2">
+                    <div class="problem-card w-full relative z-10 muted-legacy-card border-white/20">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-white/90 text-[16px]">shopping_bag</span>
+                                <span
+                                    class="text-[14px] heading-bold uppercase tracking-widest text-white/90 block font-averta">Traditional
+                                    Fandom</span>
+                            </div>
+                            <div class="flex items-center px-2 py-0.5 rounded border border-white/60 bg-white/5">
+                                <span
+                                    class="text-[8px] font-bold text-white/95 uppercase tracking-[0.15em] font-averta">Legacy</span>
+                            </div>
+                        </div>
+                        <p class="text-sm italic text-white/85 leading-relaxed font-averta">"Consumption-driven
+                            engagement with limited transparency and no direct rewards."</p>
+                    </div>
+                    <div class="problem-card w-full relative z-10 muted-legacy-card border-white/20">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-white/90 text-[16px]">lock</span>
+                                <span
+                                    class="text-[14px] heading-bold uppercase tracking-wider text-white/90 block whitespace-nowrap font-averta">Centralized
+                                    Platforms</span>
+                            </div>
+                            <div class="flex items-center px-2 py-0.5 rounded border border-white/60 bg-white/5">
+                                <span
+                                    class="text-[8px] font-bold text-white/95 uppercase tracking-[0.15em] font-averta">Legacy</span>
+                            </div>
+                        </div>
+                        <p class="text-sm italic text-white/85 leading-relaxed font-averta">"Closed systems where data,
+                            revenue, and decisions are controlled by intermediaries."</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center h-8 w-full relative z-20 -my-2">
+                    <span
+                        class="material-symbols-outlined text-primary text-2xl drop-shadow-[0_0_12px_rgba(112,243,216,1)]">arrow_drop_down</span>
+                </div>
+                <div class="solution-card w-full relative z-10">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-[16px]">star</span>
+                            <span
+                                class="text-[14px] heading-bold uppercase tracking-widest text-primary block font-averta">The
+                                VAYLA Approach</span>
+                        </div>
+                        <div class="flex items-center px-2 py-0.5 rounded border border-primary/50 bg-primary/10">
+                            <span class="text-[8px] font-bold text-primary uppercase tracking-wider font-averta">Web
+                                3.0</span>
+                        </div>
+                    </div>
+                    <p class="text-sm italic text-white leading-relaxed font-averta">"Participation-driven ecosystem
+                        designed to support high-frequency voting, and rewards."</p>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <p
+                    class="text-primary text-[11.5px] font-averta leading-relaxed max-w-[280px] mx-auto italic font-normal opacity-90">
+                    Web3 enables fandom participation to become transparent, autonomous, and economically meaningful.
+                </p>
+            </div>
+        </section>
+        <div class="section-divider"></div>
+        <section class="px-6 py-24 bg-charcoal">
+            <div class="text-center mb-16">
+                <div class="flex justify-center mb-8">
+                    <span
+                        class="inline-block px-5 py-1.5 text-[11px] font-bold tracking-[0.3em] uppercase border border-primary/40 rounded-full text-primary bg-primary/5 backdrop-blur-sm font-averta">
+                        AI &amp; AGI Ready
+                    </span>
+                </div>
+                <h2 class="text-3xl heading-bold mb-4 font-averta">Multi-Agent Ecosystem</h2>
+                <p class="text-white/85 text-sm max-w-[320px] mx-auto leading-relaxed font-averta">
+                    VAYLA Arena is designed for a future where not only humans and creators, but also AI and AGI agents
+                    participate as verified contributors within the fandom and funding ecosystem.
+                </p>
+            </div>
+            <div class="grid gap-6">
+                <div class="glass-card p-6 pb-5 flex flex-col items-start text-left">
+                    <div class="mb-3">
+                        <span class="material-symbols-outlined text-primary text-4xl">smart_toy</span>
+                    </div>
+                    <h3 class="heading-bold text-xl mb-1.5 font-averta leading-tight">AI Discovery Agents</h3>
+                    <p class="card-copy text-sm font-averta">AI-driven discovery engines identify emerging artists,
+                        trends, and IP opportunities through on-chain signals.</p>
+                </div>
+                <div class="glass-card p-6 pb-5 flex flex-col items-start text-left">
+                    <div class="mb-3">
+                        <span class="material-symbols-outlined text-primary text-4xl">bolt</span>
+                    </div>
+                    <h3 class="heading-bold text-xl mb-1.5 font-averta leading-tight">AI-Assisted Participation</h3>
+                    <p class="card-copy text-sm font-averta">AI agents support voting, trend analysis, and participation
+                        strategies based on transparent rules.</p>
+                </div>
+                <div class="glass-card p-6 pb-5 flex flex-col items-start text-left">
+                    <div class="mb-3">
+                        <span class="material-symbols-outlined text-primary text-4xl">account_tree</span>
+                    </div>
+                    <h3 class="heading-bold text-xl mb-1.5 font-averta leading-tight">AGI-Ready Architecture</h3>
+                    <p class="card-copy text-sm font-averta">An open, rule-based architecture designed to support future
+                        AGI participation within the ecosystem.</p>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <p class="text-primary italic text-[15px] font-averta max-w-[320px] mx-auto leading-relaxed">
+                    VAYLA is not built only for today’s users,<br />
+                    but for tomorrow’s participants.
+                </p>
+            </div>
+        </section>
+        <div class="section-divider"></div>
+        <section class="px-6 py-24 bg-midnight">
+            <div class="text-center mb-16">
+                <div class="flex justify-center mb-8">
+                    <span
+                        class="inline-block px-4 py-1.5 text-[11px] font-bold tracking-[0.25em] uppercase border border-primary/50 rounded-full text-primary bg-primary/5 backdrop-blur-sm font-averta">
+                        ROADMAP
+                    </span>
+                </div>
+                <h2 class="text-3xl heading-bold mb-4 font-averta">Strategic Execution</h2>
+                <p class="sub-copy text-sm max-w-[320px] mx-auto font-averta">A phased execution plan focused on real
+                    usage, token utility, and global expansion.</p>
+            </div>
+            <div class="space-y-12 relative max-w-sm mx-auto mb-16">
+                <div class="roadmap-connector !w-px !bg-primary/20"></div>
+                <div class="relative pl-12">
+                    <div class="neon-dot top-[28px] !left-[16.5px]"></div>
+                    <div class="glass-card p-6 border-primary/20 bg-primary/5">
+                        <span
+                            class="text-[10px] heading-bold text-primary uppercase mb-2 block tracking-widest leading-none font-averta">Phase
+                            1</span>
+                        <h4 class="text-lg heading-bold mb-2 text-white font-averta">Foundation</h4>
+                        <p class="text-white/60 text-sm leading-relaxed font-averta">Launch VAYLA Arena core modules:
+                            Discovery, On-chain Chart, and Funding. Establish token utility and on-chain participation
+                            flow.</p>
+                    </div>
+                </div>
+                <div class="relative pl-12">
+                    <div class="neon-dot top-[28px] !left-[16.5px]"></div>
+                    <div class="glass-card p-6 border-primary/20 bg-primary/5">
+                        <span
+                            class="text-[10px] heading-bold text-primary uppercase mb-2 block tracking-widest none font-averta">Phase
+                            2</span>
+                        <h4 class="text-lg heading-bold mb-2 text-white font-averta">Expansion</h4>
+                        <p class="text-white/60 text-sm leading-relaxed font-averta">Expand fandom funding use cases,
+                            enhance creator onboarding, and scale community participation.</p>
+                    </div>
+                </div>
+                <div class="relative pl-12">
+                    <div class="neon-dot top-[28px] !left-[16.5px]"></div>
+                    <div class="glass-card p-6 border-primary/20 bg-primary/5">
+                        <span
+                            class="text-[10px] heading-bold text-primary uppercase mb-2 block tracking-widest leading-none font-averta">Phase
+                            3</span>
+                        <h4 class="text-lg heading-bold mb-2 text-white font-averta">Intelligence</h4>
+                        <p class="text-white/60 text-sm leading-relaxed font-averta">Introduce AI-assisted discovery and
+                            participation logic across the ecosystem.</p>
+                    </div>
+                </div>
+                <div class="relative pl-12">
+                    <div class="neon-dot top-[28px] !left-[16.5px]"></div>
+                    <div class="glass-card p-6 border-primary/20 bg-primary/5">
+                        <span
+                            class="text-[10px] heading-bold text-primary uppercase mb-2 block tracking-widest leading-none font-averta">Phase
+                            4</span>
+                        <h4 class="text-lg heading-bold mb-2 text-white font-averta">Global Scale</h4>
+                        <p class="text-white/60 text-sm leading-relaxed font-averta">Global exchange expansion,
+                            ecosystem partnerships, and long-term protocol evolution.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <p class="text-primary italic text-sm font-averta max-w-[300px] mx-auto leading-relaxed">
+                    Each phase is designed to reinforce real usage, transparency, and sustainable token circulation.
+                </p>
+            </div>
+        </section>
+        <div class="section-divider"></div>
+        <section class="px-6 py-24 bg-charcoal">
+            <div class="text-center mb-8">
+                <div class="flex justify-center mb-8">
+                    <span
+                        class="inline-block px-5 py-1.5 text-[11px] font-bold tracking-[0.3em] uppercase border border-primary/40 rounded-full text-primary bg-primary/5 backdrop-blur-sm font-averta">
+                        PARTNERS
+                    </span>
+                </div>
+                <h2 class="text-3xl heading-bold mb-4 font-averta">Backers &amp; Builders</h2>
+                <p class="sub-copy text-sm max-w-xs mx-auto font-averta text-center mb-4">Built by a team with
+                    experience across entertainment, Web3, and global markets.</p>
+            </div>
+            <div class="flex flex-col gap-4 max-w-md mx-auto">
+                <div class="glass-card p-6 border-primary/30 text-center">
+                    <p class="heading-bold text-sm tracking-wide font-averta">Entertainment &amp; IP industry experience
+                    </p>
+                </div>
+                <div class="glass-card p-6 border-primary/30 text-center">
+                    <p class="heading-bold text-sm tracking-wide font-averta">Web3 platform and token operations</p>
+                </div>
+                <div class="glass-card p-6 border-primary/30 text-center">
+                    <p class="heading-bold text-sm tracking-wide font-averta">Global partnerships and<br />market
+                        execution.</p>
+                </div>
+                <div
+                    class="glass-card p-6 text-center mt-2 border-primary/60 border-[1px] bg-primary/[0.04] shadow-[0_0_35px_rgba(112,243,216,0.18)] ring-1 ring-primary/30 relative overflow-hidden group">
+                    <div
+                        class="absolute -inset-20 bg-primary/3 blur-[120px] rounded-full opacity-40 pointer-events-none -z-10">
+                    </div>
+                    <p class="heading-bold text-sm tracking-wide text-white font-averta uppercase mb-6 relative z-10">
+                        Strategic Partners Advisors<br />Ecosystem Contributors.</p>
+                    <div class="relative overflow-hidden w-full z-10">
+                        <div class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 gap-0 no-scrollbar">
+                            <div class="logo-carousel-item snap-center">
+                                <div class="logo-placeholder">
+                                    <span class="font-bold tracking-tighter text-lg">NETFLIX</span>
+                                </div>
+                            </div>
+                            <div class="logo-carousel-item snap-center">
+                                <div class="logo-placeholder">
+                                    <span class="font-bold tracking-tighter text-lg">HYBE</span>
+                                </div>
+                            </div>
+                            <div class="logo-carousel-item snap-center">
+                                <div class="logo-placeholder">
+                                    <span class="font-bold tracking-tighter text-lg">SM ENT</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-center gap-1.5 mt-2">
+                            <div class="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_5px_rgba(112,243,216,1)]"></div>
+                            <div class="w-1.5 h-1.5 rounded-full bg-white/20"></div>
+                            <div class="w-1.5 h-1.5 rounded-full bg-white/20"></div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-[14px] text-primary italic text-center mt-6 leading-relaxed font-averta px-4">
+                    Additional partners and ecosystem participants<br />
+                    will be progressively disclosed.
+                </p>
+            </div>
+        </section>
+        <div class="section-divider"></div>
+        <section class="px-6 py-24 bg-midnight">
+            <div class="text-center mb-16">
+                <div class="flex justify-center mb-8">
+                    <span
+                        class="inline-block px-5 py-2 text-[11px] font-bold tracking-[0.3em] uppercase border border-primary/40 rounded-full text-primary bg-primary/5 backdrop-blur-sm font-averta">
+                        GOVERNANCE
+                    </span>
+                </div>
+                <h2 class="text-3xl heading-bold mb-4 font-averta">Transparency &amp; Disclosure</h2>
+                <p class="sub-copy text-sm max-w-xs mx-auto font-averta">Transparency and on-chain disclosure are core
+                    principles of the VAYLA ecosystem.</p>
+            </div>
+            <div class="flex flex-col gap-6 max-w-md mx-auto">
+                <div class="glass-card p-8 border-primary/30 flex flex-col items-center text-center">
+                    <h3 class="text-xl heading-bold mb-3 font-averta">Documentation</h3>
+                    <p class="card-copy text-sm mb-6 font-averta">Official documents including whitepaper, platform
+                        overview, token utility, and positioning notes.</p>
+                    <button
+                        class="w-full bg-primary text-midnight heading-bold py-3.5 rounded-xl text-sm shadow-[0_4px_15px_rgba(112,243,216,0.2)] font-averta">
+                        View Docs
+                    </button>
+                </div>
+                <div class="glass-card p-8 border-primary/30 flex flex-col items-center text-center">
+                    <h3 class="text-xl heading-bold mb-3 font-averta">GitHub Repository</h3>
+                    <p class="card-copy text-sm mb-6 font-averta">Public disclosures, development structure, and ongoing
+                        project updates.</p>
+                    <button
+                        class="w-full bg-primary text-midnight heading-bold py-3.5 rounded-xl text-sm shadow-[0_4px_15px_rgba(112,243,216,0.2)] font-averta">
+                        View GitHub
+                    </button>
+                </div>
+                <div class="mt-8 text-center px-4">
+                    <p class="text-[15px] text-primary italic font-averta leading-relaxed">
+                        This website reflects the same structure and disclosures shared<br />
+                        with partners and exchanges.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-charcoal pt-24 pb-12 px-6 border-t border-white/5">
+        <div class="max-w-md mx-auto flex flex-col items-start text-left">
+            <div class="flex items-center gap-3 mb-8">
+                <div
+                    class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(112,243,216,0.3)]">
+                    <span class="material-symbols-outlined text-midnight text-2xl font-bold">layers</span>
+                </div>
+                <span class="heading-bold text-3xl uppercase tracking-tighter">VAYLA</span>
+            </div>
+            <p class="sub-copy text-[15px] mb-10 font-averta max-w-sm leading-relaxed text-white/80">
+                The core protocol for <span class="text-white font-averta font-bold">Borderless Fandom</span>.<br />
+                Empowering creators, fans, and AI agents through<br />
+                decentralized on-chain participation.
+            </p>
+            <div class="flex gap-3 mb-16 w-full">
+                <a class="social-icon-enhanced" href="#">
+                    <img alt="X" class="w-8 h-8 opacity-95"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoJWShCYfHS63g80c1U2UGheZi2QhZdjizYhVOpc3wGkGkK0uHyq4uQmOvintIcQ_ghGBWUQOv1x16B91k5BDz1z5MYn8N1ttqPQPbihhZAl5b9okiMhC9YnksPj217I7PdiIMOINmh1f73Cxd0KP-x9IuYe1ifzPtgTrZwJWMypaDSB8vPuc6Ns45oOXnjrcEDayc9Hn2y4-S0u6SftnglabRacfgHZ6hjgKq60jfnWEpxSiZW60BBibb1vBU8OWkgZcd52DPHGEX" />
+                </a>
+                <a class="social-icon-enhanced" href="#">
+                    <img alt="Telegram" class="w-8 h-8 opacity-95"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBygNTmhRFfjZ8VmllCwZpbKQ0n3QBiCcvGWdyDxtkqGY65yIxoS-d_K_ujeTYwcIGcj8joKXVxecFjnZISNy3Fo84F-QXXzygdTcQUlIqpyeV-R1GRpAgGOhQ2P8yZIgfcYyHNAuMJbNlnWM3GZ4h0-lrkOMXli5UiRjs5rItONB9leVzT8iudlT7WesWWAOlK9NsD-C-aAqlu8_zymI9R9qr9SvCVQEbxGTOcgyxacv2QxmDtGwz8dJAVepGfJycvQO9xB4j0qW5M" />
+                </a>
+                <a class="social-icon-enhanced" href="#">
+                    <img alt="Discord" class="w-8 h-8 opacity-95"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfWBfVvQzwV17QZ_OCPgP6Z6-HuskQ5_nwewK1dl35dHzvpY880Yv15WvzkvltjrGuS5YSwtmMn9Eeeob6ywrtGU_s_1cVZVxVBHdqwscDTMYEyPBfkEo_8ogrWUVufuP_C7HyMz_vtfVQViDbqUX3UvABvzZxWgw2lmRYtNIgw-UN8scDofjPrqDGZaJHwJyLg4s3jpV0v73CdDFWJYW_kHCF398RvO4nytV78oGIzLLYSk7_3c40zZk6LspD_fFa2C1vHhNOp9YK" />
+                </a>
+                <a class="social-icon-enhanced" href="#">
+                    <img alt="Zealy" class="w-8 h-8 opacity-95"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBstR1QNyk1SHo2x2TZEDmf-DvGhb_5vUVb7xV7ibxZlaTwjXA7t8IE_sj9N7mOQcmGcRcQ6gsRAw8i_Nlh3rlJ0gCFdppI4YxTSIp-TRtwgSvTOLKTvXIuv8wmtkiAPBYfU0HPRpMsp4f9mVKsqExOG_tGOKgqgrhzOCAGxy8-ydy2EsC-kdbIKF1E5Vj86ZtKKzGgPoBu0gcxcMVw-EVD0AuxQCTjiLr1ZuxVKtUUOib4Onfp73lCkKzWB44RataGuZ7m4uUCfY9u" />
+                </a>
+            </div>
+            <div class="grid grid-cols-2 gap-10 mb-16 font-averta w-full">
+                <div>
+                    <h5 class="text-xs heading-bold uppercase tracking-[0.2em] text-primary mb-6">PLATFORM</h5>
+                    <ul class="space-y-4 text-base text-white/60">
+                        <li><a class="hover:text-primary transition-colors" href="#">Arena</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Token</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Roadmap</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-xs heading-bold uppercase tracking-[0.2em] text-primary mb-6">RESOURCES</h5>
+                    <ul class="space-y-4 text-base text-white/60">
+                        <li><a class="hover:text-primary transition-colors" href="#">Documentation</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Whitepaper</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-10 border-t border-white/5 flex flex-col gap-6 w-full items-start text-left">
+                <p class="text-[10px] text-white/30 heading-bold uppercase tracking-widest font-averta">©2026 VAYLA. All
+                    rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

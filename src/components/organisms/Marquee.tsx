@@ -18,8 +18,8 @@ const Marquee = () => {
                             <span className="text-sm font-mono text-gray-400">SOLANA</span>
                         </div>
                         <div className="flex items-center gap-3 opacity-50 grayscale hover:grayscale-0 transition-all duration-500 cursor-default">
-                            <iconify-icon icon="logos:polygon" style={{ fontSize: '20px' }}></iconify-icon>
-                            <span className="text-sm font-mono text-gray-400">POLYGON</span>
+                            <iconify-icon icon="logos:binance" style={{ fontSize: '20px' }}></iconify-icon>
+                            <span className="text-sm font-mono text-gray-400">BSC</span>
                         </div>
                     </React.Fragment>
                 ))}

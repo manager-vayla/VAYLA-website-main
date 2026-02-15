@@ -72,14 +72,14 @@ const BillionairesChart = () => {
                         margin={{ top: 20, right: 30, left: 100, bottom: 20 }}
                     >
                         <CartesianGrid strokeDasharray="3 3" stroke="#1f1f1f" />
-                        <XAxis 
-                            type="number" 
+                        <XAxis
+                            type="number"
                             stroke="#666"
                             tick={{ fill: '#999', fontSize: 12 }}
                             domain={[0, 120]}
                         />
-                        <YAxis 
-                            type="category" 
+                        <YAxis
+                            type="category"
                             dataKey="city"
                             stroke="#666"
                             tick={{ fill: '#999', fontSize: 11 }}
@@ -94,8 +94,8 @@ const BillionairesChart = () => {
                             }}
                             formatter={(value: number) => [`${value} billionaires`, '']}
                         />
-                        <Bar 
-                            dataKey="billionaires" 
+                        <Bar
+                            dataKey="billionaires"
                             radius={[0, 4, 4, 0]}
                         >
                             {data.map((entry, index) => (
@@ -109,8 +109,8 @@ const BillionairesChart = () => {
             {/* Detailed List */}
             <div className="space-y-3">
                 {data.map((item) => (
-                    <div 
-                        key={item.rank} 
+                    <div
+                        key={item.rank}
                         className="flex items-center gap-4 p-3 bg-black/40 rounded-lg border border-white/5 hover:border-white/10 transition-all group"
                     >
                         {/* Rank Change */}
@@ -136,9 +136,9 @@ const BillionairesChart = () => {
                         {/* Bar Chart */}
                         <div className="flex-1 h-8 relative">
                             <div className="absolute inset-0 flex items-center">
-                                <div 
+                                <div
                                     className="h-6 rounded-sm transition-all duration-300 group-hover:h-7"
-                                    style={{ 
+                                    style={{
                                         width: `${(item.billionaires / 119) * 100}%`,
                                         backgroundColor: getBarColor(item.rank),
                                         minWidth: '20px'

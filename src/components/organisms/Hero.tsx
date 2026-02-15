@@ -65,10 +65,10 @@ const Hero = () => {
                         </p>
 
                         <div className="flex gap-6">
-                            <button className="group h-14 px-8 bg-white text-black font-bold text-sm uppercase tracking-widest hover:bg-teal-400 transition-all duration-300 flex items-center gap-3 rounded-sm">
-                                JOIN DAO
+                            <a href="http://www.vayla-arena.com/" className="group h-14 px-8 bg-white text-black font-bold text-sm uppercase tracking-widest hover:bg-teal-400 transition-all duration-300 flex items-center gap-3 rounded-sm">
+                                JOIN VAYLA ARENA
                                 <iconify-icon icon="eos-icons:arrow-forward" className="group-hover:translate-x-1 transition-transform"></iconify-icon>
-                            </button>
+                            </a>
                             <a
                                 href="https://manager-vayla.github.io/VAYLA-link-tree/"
                                 target="_blank"

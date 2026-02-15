@@ -99,21 +99,7 @@ const PlatformSection = () => {
                     </div>
                 </div>
 
-                {/* Stats Row */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-24">
-                    {[
-                        { label: "Total Value Locked", val: "$12.5M+" },
-                        { label: "Active Stakers", val: "45K+" },
-                        { label: "Projects Funded", val: "120+" },
-                        { label: "APY Average", val: "18.2%" }
-                    ].map((stat, i) => (
-                        <div key={i} className="bg-[#050505] border border-white/5 p-8 rounded-2xl text-center hover:border-teal-500/20 transition-all relative overflow-hidden group">
-                            <div className="absolute inset-0 bg-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            <div className="relative z-10 text-2xl md:text-3xl font-bold text-white mb-2 font-['Space_Grotesk'] tracking-tight group-hover:text-teal-400 transition-colors">{stat.val}</div>
-                            <div className="relative z-10 text-[10px] text-gray-500 font-mono uppercase tracking-[0.2em]">{stat.label}</div>
-                        </div>
-                    ))}
-                </div>
+
             </div>
             <style>{`
         @keyframes float {
