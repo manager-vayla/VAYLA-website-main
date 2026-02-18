@@ -2,6 +2,7 @@
 
 import React from "react";
 import SpotlightCard from "@/components/molecules/SpotlightCard";
+import TextReveal from "@/components/atoms/TextReveal";
 
 const RevenueSection = () => {
     return (
@@ -12,8 +13,8 @@ const RevenueSection = () => {
                         VAYLA ARENA
                     </div>
                     <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 font-['Space_Grotesk'] tracking-tighter">
-                        The On-chain<br />
-                        Operating Layer
+                        <TextReveal>The On-chain</TextReveal><br />
+                        <TextReveal delay={0.1}>Operating Layer</TextReveal>
                     </h2>
                     <p className="text-xl text-gray-400 font-light max-w-3xl leading-relaxed">
                         where the VAYLA token is actively used, earned, and settled.

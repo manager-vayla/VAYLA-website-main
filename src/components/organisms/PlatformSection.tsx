@@ -91,9 +91,11 @@ const PlatformSection = () => {
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         {orbitItems.map((item, i) => (
-                            <div key={i} className="flex flex-col items-center justify-center gap-4 p-6 bg-[#0a0a0a] border border-white/10 rounded-2xl">
+                            <div key={i} className="flex flex-col items-center justify-center gap-4 p-6 bg-[#0a0a0a] border border-white/10 rounded-2xl relative overflow-hidden group">
+                                <div className="absolute top-0 left-0 w-4 h-4 border-l border-t border-teal-500/30 rounded-tl-lg"></div>
+                                <div className="absolute bottom-0 right-0 w-4 h-4 border-r border-b border-teal-500/30 rounded-br-lg"></div>
                                 <GlassAppIcon icon={item.icon} colorLabel={item.label} colorHex={item.colorHex} />
-                                <span className="text-white font-bold font-mono text-[10px] uppercase text-center tracking-widest">{item.label}</span>
+                                <span className="text-white font-bold font-mono text-[10px] uppercase text-center tracking-widest relative z-10">{item.label}</span>
                             </div>
                         ))}
                     </div>

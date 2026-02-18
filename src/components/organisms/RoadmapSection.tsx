@@ -1,6 +1,7 @@
 "use client";
 // 1. Thêm useRef vào import
 import React, { useEffect, useState, useRef } from "react";
+import TextReveal from "@/components/atoms/TextReveal";
 
 interface Milestone {
     q: string;
@@ -138,7 +139,7 @@ const RoadmapSection = () => {
                 <div className="mb-24 text-center">
                     <span className="font-mono text-teal-500 text-xs tracking-widest uppercase mb-4 block">Milestones</span>
                     <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 font-['Space_Grotesk'] tracking-tighter">
-                        Roadmap
+                        <TextReveal>Roadmap</TextReveal>
                     </h2>
                 </div>
 

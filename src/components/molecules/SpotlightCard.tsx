@@ -61,13 +61,17 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
             onMouseMove={handleMouseMove}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`${baseStyles} ${variants[variant]} ${className}`}
+            className={`${baseStyles} ${variants[variant]} ${className} relative`}
             style={{
                 transitionDelay: `${delay}ms`,
                 transform: `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg) scale3d(1, 1, 1)`,
                 transition: 'transform 0.1s ease-out, background 0.3s, border-color 0.3s'
             }}
         >
+            {/* Tech Corners */}
+            <div className="absolute top-0 left-0 w-8 h-8 border-l border-t border-teal-500/30 rounded-tl-xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
+            <div className="absolute bottom-0 right-0 w-8 h-8 border-r border-b border-teal-500/30 rounded-br-xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
+
             {/* Spotlight Gradient */}
             <div
                 className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 z-10"
@@ -97,19 +101,21 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
                             alt={title}
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
+                        {/* Image Overlay Gradient */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent opacity-80"></div>
                     </div>
                 )}
 
-                <div className={image ? 'p-8' : ''}>
+                <div className={image ? 'p-8 pt-4' : ''}>
                     {icon && !image && (
-                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-colors text-gray-400
-                     ${variant === 'glass' ? 'bg-teal-500/10 border border-teal-500/20 text-teal-400' : 'bg-white/5 border border-white/10 group-hover:bg-teal-500/10 group-hover:border-teal-500/50 group-hover:text-teal-400'}
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-all duration-300
+                     ${variant === 'glass' ? 'bg-teal-500/10 text-teal-400 shadow-[0_0_15px_-3px_rgba(20,184,166,0.3)]' : 'bg-white/5 border border-white/10 group-hover:bg-teal-500/20 group-hover:border-teal-500/50 group-hover:text-teal-400'}
                 `}>
                             <iconify-icon icon={icon} style={{ fontSize: '24px' }}></iconify-icon>
                         </div>
                     )}
-                    <h3 className={`text-xl md:text-2xl font-bold text-teal-400 mb-3 font-['Space_Grotesk'] leading-tight tracking-tight uppercase`}>{title}</h3>
-                    <div className="text-gray-400/80 leading-relaxed text-sm md:text-base font-light">
+                    <h3 className={`text-xl md:text-2xl font-bold text-white mb-3 font-['Space_Grotesk'] leading-tight tracking-tight uppercase group-hover:text-teal-400 transition-colors`}>{title}</h3>
+                    <div className="text-gray-300 leading-relaxed text-sm md:text-base font-light">
                         {desc}
                     </div>
                 </div>

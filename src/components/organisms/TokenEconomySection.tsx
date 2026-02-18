@@ -1,6 +1,7 @@
 'use client';
 
 import React from "react";
+import TextReveal from "@/components/atoms/TextReveal";
 
 const TokenEconomySection = () => {
     const distribution = [
@@ -46,7 +47,7 @@ const TokenEconomySection = () => {
                 <div className="mb-20">
                     <span className="font-mono text-teal-500 text-xs tracking-widest uppercase mb-4 block">Tokenomics</span>
                     <h2 className="text-4xl md:text-6xl font-bold text-white font-['Space_Grotesk'] tracking-tighter">
-                        Token Economy
+                        <TextReveal>Token Economy</TextReveal>
                     </h2>
                 </div>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">

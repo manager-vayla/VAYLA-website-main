@@ -29,17 +29,21 @@ export default function DocPage() {
                     {
                         title: 'Platform Overview',
                         description: 'High-level explanation of VAYLA Arena, including Discovery, On-chain Chart, and Funding modules.',
-                        icon: 'ri:layout-grid-line'
+                        icon: 'ri:layout-grid-line',
+                        link: '/docs/1_(EN)VAYLA_Arena__Project_Overview.pdf',
+                        highlight: false
                     },
                     {
                         title: 'Token Utility & Economics',
                         description: 'Detailed explanation of how the VAYLA token is used, circulated, and settled within the ecosystem.',
-                        icon: 'ri:coin-line'
+                        icon: 'ri:coin-line',
+                        link: '/docs/2_(EN)VAYLA_Token_Economics.pdf'
                     },
                     {
                         title: 'Legal & Positioning Notes',
                         description: 'Clarification of VAYLA\'s role as a participation infrastructure, not a financial product issuer.',
-                        icon: 'ri:scales-3-line'
+                        icon: 'ri:scales-3-line',
+                        link: '/docs/4_(EN)VAYLA_Legal__Compliance.pdf'
                     },
                     {
                         title: 'GitHub Repository',
@@ -55,8 +59,8 @@ export default function DocPage() {
                         target={doc.link ? '_blank' : '_self'}
                         rel={doc.link ? 'noopener noreferrer' : ''}
                         className={`group flex flex-col md:flex-row items-start gap-6 p-8 rounded-3xl bg-white/5 border hover:bg-white/10 transition-all duration-300 relative overflow-hidden ${doc.highlight
-                                ? 'border-teal-500/50 shadow-[0_0_15px_-5px_rgba(45,212,191,0.2)]'
-                                : 'border-white/10 hover:border-teal-500/50'
+                            ? 'border-teal-500/50 shadow-[0_0_15px_-5px_rgba(45,212,191,0.2)]'
+                            : 'border-white/10 hover:border-teal-500/50'
                             }`}
                     >
                         <div className={`absolute top-0 right-0 w-24 h-24 rounded-full blur-2xl -mr-10 -mt-10 transition-all group-hover:bg-teal-500/10 ${doc.highlight ? 'bg-teal-500/10' : 'bg-teal-500/5'}`}></div>
