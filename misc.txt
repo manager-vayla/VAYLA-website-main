@@ -1,0 +1,6 @@
+Clean Everything
+rd /s /q node_modules
+del package-lock.json
+del pnpm-lock.yaml
+rd /s /q .next
+pnpm install

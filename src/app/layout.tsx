@@ -4,6 +4,7 @@ import { Plus_Jakarta_Sans, Inter, Space_Grotesk } from 'next/font/google';
 import Providers from '@/components/providers/Providers';
 import Navbar from '@/components/organisms/Navbar';
 import Footer from '@/components/organisms/Footer';
+import DynamicBackground from '@/components/atoms/DynamicBackground';
 import '@/styles/globals.css';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -50,6 +51,7 @@ export default function RootLayout({
         className="bg-midnight min-h-screen text-white font-sans selection:bg-primary selection:text-midnight"
         suppressHydrationWarning
       >
+        <DynamicBackground />
         <Script
           src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"
           strategy="afterInteractive"

@@ -24,18 +24,31 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
     const divRef = useRef<HTMLDivElement>(null);
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [opacity, setOpacity] = useState(0);
+    const [rotation, setRotation] = useState({ x: 0, y: 0 });
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         if (!divRef.current) return;
         const rect = divRef.current.getBoundingClientRect();
-        setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        setPosition({ x, y });
+
+        // Calculate rotation
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -5; // Max 5 degrees
+        const rotateY = ((x - centerX) / centerX) * 5; // Max 5 degrees
+        setRotation({ x: rotateX, y: rotateY });
     };
 
     const handleMouseEnter = () => setOpacity(1);
-    const handleMouseLeave = () => setOpacity(0);
+    const handleMouseLeave = () => {
+        setOpacity(0);
+        setRotation({ x: 0, y: 0 });
+    };
 
     // Variant Styles
-    const baseStyles = "relative group overflow-hidden transition-all duration-500 hover:-translate-y-1";
+    const baseStyles = "relative group overflow-hidden transition-all duration-500";
     const variants = {
         default: "rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl hover:bg-black/60",
         glass: "rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm hover:bg-white/[0.04]",
@@ -49,7 +62,11 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             className={`${baseStyles} ${variants[variant]} ${className}`}
-            style={{ transitionDelay: `${delay}ms` }}
+            style={{
+                transitionDelay: `${delay}ms`,
+                transform: `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg) scale3d(1, 1, 1)`,
+                transition: 'transform 0.1s ease-out, background 0.3s, border-color 0.3s'
+            }}
         >
             {/* Spotlight Gradient */}
             <div
