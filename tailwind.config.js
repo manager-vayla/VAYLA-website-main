@@ -35,7 +35,18 @@ export default {
                     '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
                     '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
                     '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                },
+                breath: {
+                    '0%, 100%': { transform: 'scale(1)', filter: 'brightness(1)' },
+                    '50%': { transform: 'scale(1.03)', filter: 'brightness(1.1)' },
                 }
+            },
+            animation: {
+                'pulse-slow': 'pulse-slow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'fade-in-up': 'fade-in-up 0.6s ease-out forwards',
+                'blob': 'blob 7s infinite',
+                'breath': 'breath 1s ease-in-out',
+                'breath-once': 'breath 1s ease-in-out forwards',
             },
         },
     },

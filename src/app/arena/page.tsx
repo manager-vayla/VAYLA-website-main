@@ -1,7 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import ImageSwiper from '@/components/molecules/ImageSwiper';
-import RotatingCircle from '@/components/molecules/RotatingCircle';
+import HolographicTurntable from '@/components/molecules/HolographicTurntable';
+import ArenaBentoGrid from '@/components/organisms/ArenaBentoGrid';
 
 export default function ArenaPage() {
     return (
@@ -35,45 +36,13 @@ export default function ArenaPage() {
             </section>
 
             {/* Core Modules */}
-            <section className="w-full max-w-6xl mb-24 px-4">
-                <h2 className="text-2xl md:text-4xl font-bold mb-12 text-center text-white tracking-tight">CORE MODULES</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {[
-                        {
-                            title: 'VAYLA Discovery',
-                            description: 'Discover emerging artists, projects, and IPs through on-chain data and community-driven signals.',
-                            icon: 'ri:compass-discover-line'
-                        },
-                        {
-                            title: 'V-Onchain Chart',
-                            description: 'Participate in transparent, community-powered charts driven by on-chain voting and engagement.',
-                            icon: 'ri:bar-chart-box-line'
-                        },
-                        {
-                            title: 'VAYLA 3.0 Funding',
-                            description: 'Enable fandom-driven funding and IP-based projects through Web3-native, on-chain settlement.',
-                            icon: 'ri:funds-box-line'
-                        }
-                    ].map((module, i) => (
-                        <div key={i} className="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-teal-500/50 hover:bg-white/10 hover:shadow-[0_0_30px_-5px_rgba(45,212,191,0.1)] transition-all duration-300 flex flex-col items-start relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/5 rounded-full blur-3xl -mr-16 -mt-16 transition-all group-hover:bg-teal-500/10"></div>
-
-                            <div className="w-14 h-14 mb-6 rounded-2xl bg-gradient-to-br from-white/10 to-transparent border border-white/5 text-teal-400 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                <iconify-icon icon={module.icon} width="28" height="28"></iconify-icon>
-                            </div>
-                            <h3 className="text-xl font-bold mb-3 text-white group-hover:text-teal-300 transition-colors">{module.title}</h3>
-                            <p className="text-sm md:text-base text-gray-400 leading-relaxed text-left group-hover:text-gray-300 transition-colors">{module.description}</p>
-                        </div>
-                    ))}
-                </div>
-            </section>
+            <ArenaBentoGrid />
 
             {/* How It Works - Dynamic Flow */}
             <section className="w-full max-w-5xl mb-24 text-center">
                 <h2 className="text-3xl font-bold mb-12 text-white">HOW IT WORKS</h2>
-                <div className="w-full flex items-center justify-center py-10 bg-white/5 rounded-3xl border border-white/5 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-b from-teal-500/5 to-transparent opacity-20"></div>
-                    <RotatingCircle />
+                <div className="w-full flex items-center justify-center py-0 bg-transparent rounded-3xl relative overflow-visible">
+                    <HolographicTurntable />
                 </div>
             </section>
 

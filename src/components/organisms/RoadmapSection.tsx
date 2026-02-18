@@ -1,159 +1,176 @@
-"use client";
-// 1. Thêm useRef vào import
-import React, { useEffect, useState, useRef } from "react";
-import TextReveal from "@/components/atoms/TextReveal";
+'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+// Utility for merging classes
+function cn(...inputs: ClassValue[]) {
+    return twMerge(clsx(inputs));
+}
 
 interface Milestone {
     q: string;
     title: string;
     items: Array<{
         category: string;
-        icon: string;
         text: string;
     }>;
 }
 
-interface MilestoneCardProps {
-    milestone: Milestone;
-    idx: number;
-}
-
-const MilestoneCard: React.FC<MilestoneCardProps> = ({ milestone, idx }) => {
-    const itemRef = useRef<HTMLDivElement>(null); // Thêm Type cho Ref
-    const [isVisible, setIsVisible] = useState(false);
-    const [isMounted, setIsMounted] = useState(false);
-
-    // Đảm bảo chỉ chạy logic Client sau khi đã Mount để tránh lỗi Hydration
-    useEffect(() => {
-        setIsMounted(true);
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                    observer.unobserve(entry.target);
-                }
-            },
-            { threshold: 0.1 }
-        );
-
-        if (itemRef.current) {
-            observer.observe(itemRef.current);
-        }
-
-        return () => observer.disconnect();
-    }, []);
-
-    if (!isMounted) return <div ref={itemRef} className="min-h-[200px]" />;
-
+const MilestoneCard = ({ milestone, idx }: { milestone: Milestone; idx: number }) => {
     return (
-        <div
-            ref={itemRef}
-            style={{
-                animationDelay: `${idx * 100}ms`,
-                opacity: isVisible ? 1 : 0
-            }}
-            className={`relative flex flex-col md:flex-row items-start ${idx % 2 === 0 ? "md:flex-row-reverse" : ""
-                } ${isVisible ? "animate-fade-in-up" : ""}`}
+        <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: idx * 0.2 }}
+            className="relative group"
         >
-            {/* Center Point */}
-            <div className="absolute left-4 md:left-1/2 w-3 h-3 bg-teal-500 rounded-full shadow-[0_0_15px_rgba(20,184,166,0.8)] md:-translate-x-1/2 mt-8 z-10 border-4 border-[#050505]" />
+            {/* Ticket Shape Container */}
+            <div
+                className="relative bg-black/40 border border-white/10 backdrop-blur-xl p-8 overflow-hidden transition-all duration-500 group-hover:bg-white/5 group-hover:border-teal-500/30 group-hover:shadow-[0_0_30px_-10px_rgba(45,212,191,0.2)]"
+                style={{
+                    clipPath: "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)"
+                }}
+            >
+                {/* Decorative Elements */}
+                <div className="absolute top-4 right-4 flex gap-1">
+                    {[...Array(3)].map((_, i) => (
+                        <div key={i} className="w-1 h-1 bg-white/20 rounded-full" />
+                    ))}
+                </div>
 
-            {/* Content Card */}
-            <div className={`w-full md:w-[45%] pl-12 md:pl-0 ${idx % 2 === 0 ? "md:pr-12" : "md:pl-12"}`}>
-                <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-8 backdrop-blur-xl hover:bg-white/[0.05] transition-all duration-300 group">
-                    <div className="flex items-center gap-4 mb-6">
-                        <span className="text-teal-400 font-mono text-sm font-bold tracking-widest uppercase">
-                            {milestone.q}
-                        </span>
-                        <div className="h-px flex-1 bg-white/5" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-white mb-8 font-['Space_Grotesk'] tracking-tight">
-                        {milestone.title}
-                    </h3>
-
-                    <div className="space-y-6">
-                        {milestone.items.map((item, i) => (
-                            <div key={i} className="flex gap-4 group/item">
-                                <div className="w-10 h-10 rounded-lg bg-teal-500/10 border border-teal-500/20 flex items-center justify-center shrink-0 group-hover/item:border-teal-500/50 transition-colors">
-                                    {/* Sử dụng thẻ iconify chuẩn */}
-                                    <span className="iconify text-teal-400 text-lg" data-icon={item.icon}></span>
-                                </div>
-                                <div>
-                                    <span className="text-white/40 font-mono text-[10px] uppercase tracking-widest block mb-1">
-                                        {item.category}
-                                    </span>
-                                    <p className="text-gray-300 text-sm leading-relaxed font-light">
-                                        {item.text}
-                                    </p>
-                                </div>
-                            </div>
+                {/* Barcode Decoration */}
+                <div className="absolute bottom-6 right-6 opacity-20 group-hover:opacity-40 transition-opacity">
+                    <div className="flex items-end gap-[2px] h-8">
+                        {[...Array(12)].map((_, i) => (
+                            <div key={i} className="bg-teal-500 w-[2px]" style={{ height: `${Math.random() * 100}%` }} />
                         ))}
                     </div>
                 </div>
+
+                {/* Header Section */}
+                <div className="mb-8 relative z-10">
+                    <div className="flex items-baseline gap-3 mb-2">
+                        <span className="text-teal-400 font-mono text-xs font-bold tracking-[0.2em] uppercase">
+                            SCHEDULE // {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
+                        </span>
+                        <div className="h-px bg-teal-500/30 flex-1" />
+                    </div>
+
+                    <h3 className="text-4xl md:text-5xl font-bold text-white font-['Space_Grotesk'] tracking-tighter leading-[0.9]">
+                        <span className="block text-2xl md:text-3xl text-gray-500 mb-1 font-mono tracking-normal">{milestone.q}</span>
+                        {milestone.title}
+                    </h3>
+                </div>
+
+                {/* Items List */}
+                <div className="space-y-6 relative z-10">
+                    {milestone.items.map((item, i) => (
+                        <div key={i} className="flex gap-4 items-start group/item">
+                            <span className="font-mono text-xs text-teal-500/50 mt-1.5 min-w-[24px]">
+                                {i + 1 < 10 ? `0${i + 1}` : i + 1}
+                            </span>
+                            <div>
+                                <span className="inline-block px-2 py-0.5 rounded-sm bg-white/5 border border-white/5 text-[10px] text-gray-400 font-mono uppercase tracking-wider mb-1.5 group-hover/item:text-teal-400 group-hover/item:border-teal-500/30 transition-colors">
+                                    {item.category}
+                                </span>
+                                <p className="text-gray-300 text-sm md:text-base leading-relaxed font-light group-hover/item:text-white transition-colors">
+                                    {item.text}
+                                </p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Background Watermark */}
+                <div className="absolute -bottom-4 -left-4 text-[120px] font-bold text-white/[0.02] leading-none pointer-events-none select-none font-['Space_Grotesk']">
+                    {milestone.q.split(' ')[0]}
+                </div>
             </div>
 
-            <div className="hidden md:block w-[45%]" />
-        </div>
+            {/* Cutout Corner Accents (Pseudo-elements simulation) */}
+            <div className="absolute top-0 left-0 w-5 h-5 border-l border-t border-teal-500/0 group-hover:border-teal-500/50 transition-colors duration-500 pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-5 h-5 border-r border-b border-teal-500/0 group-hover:border-teal-500/50 transition-colors duration-500 pointer-events-none" />
+
+        </motion.div>
     );
 };
 
-const RoadmapSection = () => {
+export default function RoadmapSection() {
     const milestones: Milestone[] = [
         {
             q: "Q1 2026",
-            title: "Global Foundation & Data Infrastructure",
+            title: "Global Foundation",
             items: [
-                { category: "Marketing", icon: "mdi:bullhorn-outline", text: "Optimize global targeting and build a comprehensive artist database." },
-                { category: "Development", icon: "mdi:database-outline", text: "Launch Global Traffic Analytics Dashboard — Real-time system for user engagement monitoring." }
+                { category: "Marketing", text: "Optimize global targeting and build a comprehensive artist database." },
+                { category: "Development", text: "Launch Global Traffic Analytics Dashboard — Real-time system for user engagement monitoring." }
             ]
         },
         {
             q: "Q2 2026",
-            title: "Service Expansion & Funding",
+            title: "Service Projects",
             items: [
-                { category: "Marketing", icon: "mdi:account-group-outline", text: "Expand global influencer partnerships and Launch Global Concert Crowdfunding projects." },
-                { category: "Development", icon: "mdi:robot-outline", text: "Beta Release of AI Marketing Assistant — Trend keyword extraction and automated copy generation." }
+                { category: "Marketing", text: "Expand global influencer partnerships and Launch Global Concert Crowdfunding projects." },
+                { category: "Development", text: "Beta Release of AI Marketing Assistant — Trend keyword extraction and automated copy generation." }
             ]
         },
         {
             q: "Q3 2026",
-            title: "Community Engagement & Scalability",
+            title: "Fandom Engage",
             items: [
-                { category: "Marketing", icon: "mdi:music-note-outline", text: "Host online music festivals and release digital assets/badges for the fandom." },
-                { category: "Development", icon: "mdi:vote-outline", text: "Community Voting & Reward System Integration — Secure voting with digital rewards for active participants." }
+                { category: "Marketing", text: "Host online music festivals and release digital assets/badges for the fandom." },
+                { category: "Development", text: "Community Voting & Reward System Integration — Secure voting with digital rewards." }
             ]
         },
         {
             q: "Q4 2026",
-            title: "Performance Analytics & 2027 Vision",
+            title: "Visualize 2027",
             items: [
-                { category: "Marketing", icon: "mdi:trophy-outline", text: "Year-end Music Battle Championship and launch of B2B marketing solution packages." },
-                { category: "Development", icon: "mdi:api", text: "Scalable Enterprise API Launch — API suite for agencies to access global music market insights." }
+                { category: "Marketing", text: "Year-end Music Battle Championship and launch of B2B marketing solution packages." },
+                { category: "Development", text: "Scalable Enterprise API Launch — API suite for agencies to access global music market insights." }
             ]
         }
     ];
 
     return (
-        <section className="py-32 px-6 md:px-12 bg-[#050505] relative z-10 border-t border-white/5 overflow-hidden" id="roadmap">
-            <div className="max-w-6xl mx-auto">
+        <section className="py-32 px-4 md:px-12 bg-[#050505] relative z-10 overflow-hidden" id="roadmap">
+            {/* Stage Light Gradient */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-teal-500/10 via-purple-500/5 to-transparent blur-[100px] pointer-events-none" />
+
+            <div className="max-w-7xl mx-auto relative z-20">
                 <div className="mb-24 text-center">
-                    <span className="font-mono text-teal-500 text-xs tracking-widest uppercase mb-4 block">Milestones</span>
-                    <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 font-['Space_Grotesk'] tracking-tighter">
-                        <TextReveal>Roadmap</TextReveal>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="inline-flex items-center gap-2 mb-6 border border-teal-500/30 bg-teal-500/10 rounded-full px-4 py-1.5 text-teal-400 font-mono text-xs tracking-widest uppercase"
+                    >
+                        <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
+                        Comeback Schedule
+                    </motion.div>
+
+                    <h2 className="text-5xl md:text-8xl font-bold text-white mb-6 font-['Space_Grotesk'] tracking-tighter mix-blend-overlay opacity-90">
+                        OFFICIAL<br />ROADMAP
                     </h2>
                 </div>
 
-                <div className="relative">
-                    <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-teal-500/50 via-teal-500/20 to-transparent md:-translate-x-1/2 z-0" />
-                    <div className="space-y-24">
-                        {milestones.map((milestone, idx) => (
-                            <MilestoneCard key={milestone.q} milestone={milestone} idx={idx} />
-                        ))}
-                    </div>
+                {/* Staggered Grid Layout */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-y-16">
+                    {milestones.map((milestone, idx) => (
+                        <div key={idx} className={clsx(idx % 2 !== 0 && "md:translate-y-24")}>
+                            <MilestoneCard milestone={milestone} idx={idx} />
+                        </div>
+                    ))}
+                </div>
+
+                {/* Connecting Waveform Line (Abstract) */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1px] h-full hidden md:block opacity-20">
+                    <div className="w-full h-full bg-gradient-to-b from-transparent via-teal-500 to-transparent dashed-line" />
                 </div>
             </div>
         </section>
     );
-};
-
-export default RoadmapSection;
+}

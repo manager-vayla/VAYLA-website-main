@@ -26,7 +26,7 @@ const SecuritySection = () => {
                     <SpotlightCard
                         variant="solid"
                         icon="mdi:account-group-outline"
-                        title="TRADITIONAL FANDOM"
+                        title="TRADITIONAL FANDOM2222"
                         desc="Consumption-driven engagement with limited transparency and no direct rewards."
                         delay={0}
                         className="opacity-60 grayscale hover:opacity-100 hover:grayscale-0"

@@ -65,19 +65,17 @@ const Hero = () => {
                             for the next-generation fandom economy.
                         </p>
 
-                        <div className="flex gap-6">
-                            <a href="http://www.vayla-arena.com/" className="group h-14 px-8 bg-white text-black font-bold text-sm uppercase tracking-widest hover:bg-teal-400 transition-all duration-300 flex items-center gap-3 rounded-sm">
-                                JOIN VAYLA ARENA
-                                <iconify-icon icon="eos-icons:arrow-forward" className="group-hover:translate-x-1 transition-transform"></iconify-icon>
-                            </a>
-                            <a
-                                href="https://manager-vayla.github.io/VAYLA-link-tree/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="h-14 px-8 bg-transparent border border-white/20 text-white font-bold text-sm uppercase tracking-widest hover:bg-white/5 transition-all rounded-sm flex items-center justify-center cursor-pointer"
-                            >
-                                Link Tree
-                            </a>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-20">
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <a href="http://www.vayla-arena.com/" className="group h-14 px-8 bg-white text-black font-bold text-sm uppercase tracking-widest hover:bg-teal-400 transition-all duration-300 flex items-center gap-3 rounded-sm shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(45,212,191,0.6)]">
+                                    JOIN VAYLA ARENA
+                                    <iconify-icon icon="eos-icons:arrow-forward" className="group-hover:translate-x-1 transition-transform"></iconify-icon>
+                                </a>
+                                <a href="https://manager-vayla.github.io/VAYLA-link-tree/" target="_blank" rel="noopener noreferrer" className="group h-14 px-8 bg-black/40 border border-white/20 text-white font-bold text-sm uppercase tracking-widest hover:border-teal-400 hover:text-teal-400 transition-all duration-300 flex items-center gap-3 rounded-sm backdrop-blur-sm">
+                                    <iconify-icon icon="simple-icons:linktree" className="text-lg"></iconify-icon>
+                                    Linktree
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
