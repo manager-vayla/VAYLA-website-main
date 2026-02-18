@@ -3,7 +3,7 @@ name: 🚀 Deploy Vayla Website
 on:
   push:
     branches:
-      - feat/refactor-nextjs # Tự động chạy khi push vào branch này
+      - feat/refactor-nextjs
 
 jobs:
   build-and-deploy:
@@ -26,6 +26,15 @@ jobs:
         env:
           NEXT_PUBLIC_BASE_URL: https://vayla.io
 
+      - name: 📝 Create .htaccess for Routing
+        # Bước này cực kỳ quan trọng để các trang như /chart, /arena không bị lỗi 404
+        run: |
+          echo "RewriteEngine On
+          RewriteBase /
+          RewriteCond %{REQUEST_FILENAME} !-f
+          RewriteCond %{REQUEST_FILENAME} !-d
+          RewriteRule ^([^/]+)/?$ \$1.html [L]" > ./out/.htaccess
+
       - name: 📂 Sync files via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -33,5 +42,8 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./out/
-          server-dir: ./ 
-          # server-dir: ./ là đúng vì tài khoản FTP của bạn đã trỏ thẳng vào public_html
+          # CHỈNH SỬA TẠI ĐÂY:
+          # Vì tài khoản FTP của bạn trỏ vào /home/ptbinh, ta phải đẩy vào public_html
+          server-dir: ./public_html/
+          # Nếu bạn muốn xóa các file cũ không còn tồn tại trong repo:
+          delete: false
