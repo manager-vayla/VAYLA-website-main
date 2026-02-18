@@ -16,13 +16,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+          # Nếu dùng pnpm thì không để cache: 'npm' ở đây
+
+      - name: 📦 Install pnpm
+        run: npm install -g pnpm
 
       - name: 📦 Install dependencies
-        run: npm install
+        run: pnpm install # Dùng pnpm thay vì npm
 
       - name: 🔨 Build Project
-        run: npm run build
+        run: pnpm run build # Dùng pnpm thay vì npm
         env:
           NEXT_PUBLIC_BASE_URL: https://vayla.io
 
