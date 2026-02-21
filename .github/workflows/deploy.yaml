@@ -3,7 +3,7 @@ name: 🚀 Deploy Vayla Website
 on:
   push:
     branches:
-      - feat/refactor-nextjs
+      - feat/stitch-design #branch mới
 
 jobs:
   build-and-deploy:
