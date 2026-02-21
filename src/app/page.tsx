@@ -1,5 +1,4 @@
 import GlobalBreathingEffect from '@/components/atoms/GlobalBreathingEffect';
-import StitchHeader from '@/components/organisms/StitchHeader';
 import StitchHero from '@/components/organisms/StitchHero';
 import StitchCoreUtility from '@/components/organisms/StitchCoreUtility';
 import StitchEcosystemRotation from '@/components/organisms/StitchEcosystemRotation';
@@ -9,13 +8,11 @@ import StitchMultiAgent from '@/components/organisms/StitchMultiAgent';
 import StitchRoadmap from '@/components/organisms/StitchRoadmap';
 import StitchPartners from '@/components/organisms/StitchPartners';
 import StitchGovernance from '@/components/organisms/StitchGovernance';
-import StitchFooter from '@/components/organisms/StitchFooter';
 
 export default function Home() {
   return (
     <>
       <GlobalBreathingEffect />
-      <StitchHeader />
       <main>
         <StitchHero />
         <div className="section-divider"></div>
@@ -35,7 +32,6 @@ export default function Home() {
         <div className="section-divider"></div>
         <StitchGovernance />
       </main>
-      <StitchFooter />
     </>
   );
 }

@@ -28,27 +28,43 @@ export default function StitchPartners() {
                     <div className="absolute -inset-20 bg-primary/3 blur-[120px] rounded-full opacity-40 pointer-events-none -z-10"></div>
                     <p className="heading-bold text-sm tracking-wide text-white font-averta uppercase mb-6 relative z-10">Strategic Partners Advisors<br />Ecosystem Contributors.</p>
                     <div className="relative overflow-hidden w-full z-10">
-                        <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 gap-0 no-scrollbar">
-                            <div className="logo-carousel-item snap-center shrink-0">
-                                <div className="logo-placeholder">
-                                    <span className="font-bold tracking-tighter text-lg">NETFLIX</span>
+                        <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-6 gap-6 no-scrollbar px-12">
+                            <div className="logo-carousel-item snap-center shrink-0 flex flex-col items-center gap-3 group">
+                                <div className="w-20 h-20 bg-white/[0.03] border border-white/10 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:border-primary/40 group-hover:bg-primary/5 shadow-lg">
+                                    <iconify-icon icon="logos:netflix-icon" width="36" height="36"></iconify-icon>
                                 </div>
+                                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40 group-hover:text-primary transition-colors">Netflix</span>
                             </div>
-                            <div className="logo-carousel-item snap-center shrink-0">
-                                <div className="logo-placeholder">
-                                    <span className="font-bold tracking-tighter text-lg">HYBE</span>
+                            <div className="logo-carousel-item snap-center shrink-0 flex flex-col items-center gap-3 group">
+                                <div className="w-20 h-20 bg-white/[0.03] border border-white/10 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:border-primary/40 group-hover:bg-primary/5 shadow-lg px-4">
+                                    <iconify-icon icon="simple-icons:melon" width="36" height="36" style={{ color: '#00CD3C' }}></iconify-icon>
                                 </div>
+                                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40 group-hover:text-primary transition-colors">Melon</span>
                             </div>
-                            <div className="logo-carousel-item snap-center shrink-0">
-                                <div className="logo-placeholder">
-                                    <span className="font-bold tracking-tighter text-lg">SM ENT</span>
+                            <div className="logo-carousel-item snap-center shrink-0 flex flex-col items-center gap-3 group">
+                                <div className="w-20 h-20 bg-white/[0.03] border border-white/10 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:border-primary/40 group-hover:bg-primary/5 shadow-lg">
+                                    <div className="font-black text-white text-[22px] tracking-tight" style={{ fontFamily: 'Arial, sans-serif' }}>DANAL</div>
                                 </div>
+                                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40 group-hover:text-primary transition-colors">Danal</span>
+                            </div>
+                            <div className="logo-carousel-item snap-center shrink-0 flex flex-col items-center gap-3 group">
+                                <div className="w-20 h-20 bg-white/[0.03] border border-white/10 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:border-primary/40 group-hover:bg-primary/5 shadow-lg">
+                                    <iconify-icon icon="simple-icons:hybe" width="36" height="36" style={{ color: 'white' }}></iconify-icon>
+                                </div>
+                                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40 group-hover:text-primary transition-colors">HYBE</span>
+                            </div>
+                            <div className="logo-carousel-item snap-center shrink-0 flex flex-col items-center gap-3 group">
+                                <div className="w-20 h-20 bg-white/[0.03] border border-white/10 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:border-primary/40 group-hover:bg-primary/5 shadow-lg">
+                                    <div className="font-black text-white text-xl tracking-tighter">SM</div>
+                                </div>
+                                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40 group-hover:text-primary transition-colors">SM ENT</span>
                             </div>
                         </div>
-                        <div className="flex justify-center gap-1.5 mt-2">
-                            <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_5px_rgba(112,243,216,1)]"></div>
-                            <div className="w-1.5 h-1.5 rounded-full bg-white/20"></div>
-                            <div className="w-1.5 h-1.5 rounded-full bg-white/20"></div>
+                        <div className="flex justify-center gap-2 mt-4">
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(112,243,216,1)]"></div>
+                            <div className="w-1.5 h-1.5 rounded-full bg-white/10"></div>
+                            <div className="w-1.5 h-1.5 rounded-full bg-white/10"></div>
+                            <div className="w-1.5 h-1.5 rounded-full bg-white/10"></div>
                         </div>
                     </div>
                 </div>

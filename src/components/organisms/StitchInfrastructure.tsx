@@ -16,7 +16,7 @@ export default function StitchInfrastructure() {
                     VAYLA does not replace the entertainment industry. It builds the participation and funding infrastructure beneath it.
                 </p>
             </div>
-            <div className="flex flex-col items-center gap-0 relative max-w-sm mx-auto">
+            <div className="flex flex-col items-center gap-0 relative max-w-sm md:max-w-2xl mx-auto">
                 <div className="flex flex-col gap-3 w-full mb-2">
                     <div className="problem-card w-full relative z-10 muted-legacy-card border-white/20">
                         <div className="flex items-center justify-between mb-4">

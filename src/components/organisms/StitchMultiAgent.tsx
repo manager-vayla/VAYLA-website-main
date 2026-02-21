@@ -16,22 +16,22 @@ export default function StitchMultiAgent() {
                     VAYLA Arena is designed for a future where not only humans and creators, but also AI and AGI agents participate as verified contributors within the fandom and funding ecosystem.
                 </p>
             </div>
-            <div className="grid gap-6">
-                <div className="glass-card p-6 pb-5 flex flex-col items-start text-left">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <div className="glass-card p-6 pb-5 flex flex-col items-start text-left h-full">
                     <div className="mb-3">
                         <span className="material-symbols-outlined text-primary text-4xl">smart_toy</span>
                     </div>
                     <h3 className="heading-bold text-xl mb-1.5 font-averta leading-tight">AI Discovery Agents</h3>
                     <p className="card-copy text-sm font-averta">AI-driven discovery engines identify emerging artists, trends, and IP opportunities through on-chain signals.</p>
                 </div>
-                <div className="glass-card p-6 pb-5 flex flex-col items-start text-left">
+                <div className="glass-card p-6 pb-5 flex flex-col items-start text-left h-full">
                     <div className="mb-3">
                         <span className="material-symbols-outlined text-primary text-4xl">bolt</span>
                     </div>
                     <h3 className="heading-bold text-xl mb-1.5 font-averta leading-tight">AI-Assisted Participation</h3>
                     <p className="card-copy text-sm font-averta">AI agents support voting, trend analysis, and participation strategies based on transparent rules.</p>
                 </div>
-                <div className="glass-card p-6 pb-5 flex flex-col items-start text-left">
+                <div className="glass-card p-6 pb-5 flex flex-col items-start text-left h-full">
                     <div className="mb-3">
                         <span className="material-symbols-outlined text-primary text-4xl">account_tree</span>
                     </div>

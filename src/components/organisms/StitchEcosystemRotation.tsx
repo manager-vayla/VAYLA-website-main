@@ -21,59 +21,61 @@ export default function StitchEcosystemRotation() {
                         <span className="material-symbols-outlined text-primary text-2xl font-bold">star</span>
                     </div>
                 </div>
-                <div className="eco-orbit-container">
-                    <div className="eco-node" style={{ top: '0%', left: '50%' }}>
-                        <div className="eco-node-content">
-                            <div className="eco-bubble shadow-[0_0_20px_rgba(112,243,216,0.5)] !border-primary">
-                                <div className="absolute inset-[-10px] rounded-full border border-primary/10 border-t-primary/40 -rotate-45"></div>
-                                <span className="material-symbols-outlined text-primary text-2xl">travel_explore</span>
+                <div className="eco-orbit-wrapper">
+                    <div className="eco-orbit-container">
+                        <div className="eco-node" style={{ top: '0%', left: '50%' }}>
+                            <div className="eco-node-content">
+                                <div className="eco-bubble shadow-[0_0_20px_rgba(112,243,216,0.5)] !border-primary">
+                                    <div className="absolute inset-[-10px] rounded-full border border-primary/10 border-t-primary/40 -rotate-45"></div>
+                                    <span className="material-symbols-outlined text-primary text-2xl">travel_explore</span>
+                                </div>
+                                <span className="eco-title">Discover</span>
                             </div>
-                            <span className="eco-title">Discover</span>
                         </div>
-                    </div>
-                    <div className="eco-node" style={{ top: '25%', left: '93.3%' }}>
-                        <div className="eco-node-content">
-                            <div className="eco-bubble">
-                                <div className="absolute inset-[-10px] rounded-full border border-primary/10 border-t-primary/40 -rotate-45"></div>
-                                <span className="material-symbols-outlined text-primary text-2xl">hub</span>
+                        <div className="eco-node" style={{ top: '25%', left: '93.3%' }}>
+                            <div className="eco-node-content">
+                                <div className="eco-bubble">
+                                    <div className="absolute inset-[-10px] rounded-full border border-primary/10 border-t-primary/40 -rotate-45"></div>
+                                    <span className="material-symbols-outlined text-primary text-2xl">hub</span>
+                                </div>
+                                <span className="eco-title">Participate</span>
                             </div>
-                            <span className="eco-title">Participate</span>
                         </div>
-                    </div>
-                    <div className="eco-node" style={{ top: '75%', left: '93.3%' }}>
-                        <div className="eco-node-content">
-                            <div className="eco-bubble">
-                                <div className="absolute inset-[-10px] rounded-full border border-primary/10 border-t-primary/40 -rotate-45"></div>
-                                <span className="material-symbols-outlined text-primary text-2xl">how_to_vote</span>
+                        <div className="eco-node" style={{ top: '75%', left: '93.3%' }}>
+                            <div className="eco-node-content">
+                                <div className="eco-bubble">
+                                    <div className="absolute inset-[-10px] rounded-full border border-primary/10 border-t-primary/40 -rotate-45"></div>
+                                    <span className="material-symbols-outlined text-primary text-2xl">how_to_vote</span>
+                                </div>
+                                <span className="eco-title">Vote</span>
                             </div>
-                            <span className="eco-title">Vote</span>
                         </div>
-                    </div>
-                    <div className="eco-node" style={{ top: '100%', left: '50%' }}>
-                        <div className="eco-node-content">
-                            <div className="eco-bubble shadow-[0_0_20px_rgba(112,243,216,0.5)] !border-primary">
-                                <div className="absolute inset-[-10px] rounded-full border border-primary/10 border-t-primary/40 -rotate-45"></div>
-                                <span className="material-symbols-outlined text-primary text-2xl">account_balance_wallet</span>
+                        <div className="eco-node" style={{ top: '100%', left: '50%' }}>
+                            <div className="eco-node-content">
+                                <div className="eco-bubble shadow-[0_0_20px_rgba(112,243,216,0.5)] !border-primary">
+                                    <div className="absolute inset-[-10px] rounded-full border border-primary/10 border-t-primary/40 -rotate-45"></div>
+                                    <span className="material-symbols-outlined text-primary text-2xl">account_balance_wallet</span>
+                                </div>
+                                <span className="eco-title">Fund</span>
                             </div>
-                            <span className="eco-title">Fund</span>
                         </div>
-                    </div>
-                    <div className="eco-node" style={{ top: '75%', left: '6.7%' }}>
-                        <div className="eco-node-content">
-                            <div className="eco-bubble">
-                                <div className="absolute inset-[-10px] rounded-full border border-primary/10 border-t-primary/40 -rotate-45"></div>
-                                <span className="material-symbols-outlined text-primary text-2xl">payments</span>
+                        <div className="eco-node" style={{ top: '75%', left: '6.7%' }}>
+                            <div className="eco-node-content">
+                                <div className="eco-bubble">
+                                    <div className="absolute inset-[-10px] rounded-full border border-primary/10 border-t-primary/40 -rotate-45"></div>
+                                    <span className="material-symbols-outlined text-primary text-2xl">payments</span>
+                                </div>
+                                <span className="eco-title">Earn</span>
                             </div>
-                            <span className="eco-title">Earn</span>
                         </div>
-                    </div>
-                    <div className="eco-node" style={{ top: '25%', left: '6.7%' }}>
-                        <div className="eco-node-content">
-                            <div className="eco-bubble">
-                                <div className="absolute inset-[-10px] rounded-full border border-primary/10 border-t-primary/40 -rotate-45"></div>
-                                <span className="material-symbols-outlined text-primary text-2xl">cached</span>
+                        <div className="eco-node" style={{ top: '25%', left: '6.7%' }}>
+                            <div className="eco-node-content">
+                                <div className="eco-bubble">
+                                    <div className="absolute inset-[-10px] rounded-full border border-primary/10 border-t-primary/40 -rotate-45"></div>
+                                    <span className="material-symbols-outlined text-primary text-2xl">cached</span>
+                                </div>
+                                <span className="eco-title">Reinvest</span>
                             </div>
-                            <span className="eco-title">Reinvest</span>
                         </div>
                     </div>
                 </div>

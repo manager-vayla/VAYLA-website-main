@@ -14,7 +14,7 @@ export default function StitchRoadmap() {
                 <h2 className="text-3xl heading-bold mb-4 font-averta">Strategic Execution</h2>
                 <p className="sub-copy text-sm max-w-[320px] mx-auto font-averta">A phased execution plan focused on real usage, token utility, and global expansion.</p>
             </div>
-            <div className="space-y-12 relative max-w-sm mx-auto mb-16">
+            <div className="space-y-12 relative max-w-sm md:max-w-2xl mx-auto mb-16">
                 <div className="roadmap-connector !w-px !bg-primary/20"></div>
                 <div className="relative pl-12">
                     <div className="neon-dot top-[28px] !left-[16.5px]"></div>

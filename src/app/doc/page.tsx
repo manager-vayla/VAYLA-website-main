@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import GlobalBreathingEffect from '@/components/atoms/GlobalBreathingEffect';
-import StitchFooter from '@/components/organisms/StitchFooter';
 
 export default function DocPage() {
     return (
@@ -126,7 +125,6 @@ export default function DocPage() {
                     </div>
                 </footer>
             </div>
-            <StitchFooter />
         </main>
     );
 }

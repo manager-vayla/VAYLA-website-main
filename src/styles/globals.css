@@ -147,8 +147,13 @@ body {
         @apply text-white/75 leading-relaxed;
     }
 
-    .eco-orbit-container {
+    .eco-orbit-wrapper {
         @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px];
+    }
+
+    .eco-orbit-container {
+        @apply w-full h-full;
+        animation: rotate-orbit 30s linear infinite;
     }
 
     .eco-node {
@@ -158,6 +163,7 @@ body {
 
     .eco-node-content {
         @apply flex flex-col items-center;
+        animation: counter-rotate 30s linear infinite;
     }
 
     .eco-bubble {

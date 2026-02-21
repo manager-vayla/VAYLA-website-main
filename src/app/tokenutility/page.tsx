@@ -1,22 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
 import GlobalBreathingEffect from '@/components/atoms/GlobalBreathingEffect';
-import StitchFooter from '@/components/organisms/StitchFooter';
 
 export default function TokenUtilityPage() {
     return (
         <main className="min-h-screen bg-midnight text-white pb-0">
             <GlobalBreathingEffect />
-            <header className="sticky top-0 z-50 bg-black/80 backdrop-blur-md px-6 py-4 flex items-center justify-between border-b border-white/5">
-                <Link href="/" className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-primary/10 shadow-[0_0_15px_rgba(112,243,216,0.3)]">
-                        <span className="material-symbols-outlined text-primary text-lg font-bold">layers</span>
-                    </div>
-                    <div className="text-[20px] font-bold tracking-tight text-white font-sans uppercase">VAYLA</div>
+            <header className="app-header relative border-b border-white/10 z-50">
+                <Link href="/" className="absolute left-4 cursor-pointer flex items-center justify-center p-2">
+                    <span className="material-symbols-outlined text-white text-2xl hover:text-primary transition-colors">chevron_left</span>
                 </Link>
-                <button className="w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center hover:bg-white/10 transition-colors">
-                    <span className="material-symbols-outlined text-primary text-2xl" style={{ fontVariationSettings: "'wght' 300" }}>menu</span>
-                </button>
+                <h1 className="text-white text-lg font-bold tracking-tight w-full text-center">VAYLA Token Utility</h1>
             </header>
 
             <div className="px-6 pb-12 space-y-12 max-w-5xl mx-auto">
@@ -147,7 +141,6 @@ export default function TokenUtilityPage() {
                     </p>
                 </div>
             </div>
-            <StitchFooter />
         </main>
     );
 }

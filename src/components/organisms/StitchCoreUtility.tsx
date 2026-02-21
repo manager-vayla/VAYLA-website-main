@@ -17,7 +17,7 @@ export default function StitchCoreUtility() {
                     funding token of the VAYLA ecosystem.
                 </p>
             </div>
-            <div className="flex flex-col gap-6 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-6xl mx-auto">
                 <div className="glass-card p-8 group">
                     <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 border border-primary/20">
                         <span className="material-symbols-outlined text-primary">how_to_vote</span>
@@ -27,7 +27,7 @@ export default function StitchCoreUtility() {
                         Used for on-chain participation, voting, and community actions.
                     </p>
                 </div>
-                <div className="glass-card p-8">
+                <div className="glass-card p-8 group">
                     <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 border border-primary/20">
                         <span className="material-symbols-outlined text-primary">account_balance_wallet</span>
                     </div>
@@ -36,7 +36,7 @@ export default function StitchCoreUtility() {
                         The primary asset for fan-driven funding and on-chain settlement.
                     </p>
                 </div>
-                <div className="glass-card p-8">
+                <div className="glass-card p-8 group">
                     <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 border border-primary/20">
                         <span className="material-symbols-outlined text-primary">sync_alt</span>
                     </div>

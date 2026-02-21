@@ -10,7 +10,7 @@ export default function StitchHero() {
                 <div className="v-icon-inner"></div>
                 <div className="absolute inset-0 hero-v-glow"></div>
             </div>
-            <div className="relative z-10 max-w-md mx-auto text-center">
+            <div className="relative z-10 max-w-md md:max-w-4xl mx-auto text-center">
                 <span className="inline-block px-4 py-1.5 mb-8 text-[11px] font-bold tracking-[0.25em] uppercase border border-primary/40 rounded-full text-primary bg-midnight/60 backdrop-blur-sm">
                     The Future of Fandom Economy
                 </span>
@@ -26,9 +26,9 @@ export default function StitchHero() {
                     THE UTILITY TOKEN POWERING<br />THE NEXT-GEN FANDOM ECONOMY
                 </p>
                 <div className="flex flex-col gap-4">
-                    <Link href="/arena" className="bg-primary text-midnight heading-bold py-4 rounded-xl flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(112,243,216,0.3)]">
+                    <a href="https://vayla-arena.com" target="_blank" rel="noopener noreferrer" className="bg-primary text-midnight heading-bold py-4 rounded-xl flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(112,243,216,0.3)]">
                         Explore VAYLA Arena <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                    </Link>
+                    </a>
                     <Link href="/tokenutility" className="bg-transparent backdrop-blur-md border-2 border-primary text-primary heading-bold flex items-center justify-center py-4 rounded-xl hover:bg-primary/5 transition-colors">
                         Token Utility
                     </Link>

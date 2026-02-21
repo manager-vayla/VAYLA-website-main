@@ -1,9 +1,23 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import GlobalBreathingEffect from '@/components/atoms/GlobalBreathingEffect';
-import StitchFooter from '@/components/organisms/StitchFooter';
+import swipe1 from '@/assets/arena_swipe_1.png';
+import swipe2 from '@/assets/arena_swipe_2.png';
+import swipe3 from '@/assets/arena_swipe_3.png';
 
 export default function ArenaPage() {
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveIndex((prev) => (prev + 1) % 3);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <main className="min-h-screen bg-midnight text-white pb-0">
             <GlobalBreathingEffect />
@@ -26,16 +40,29 @@ export default function ArenaPage() {
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-[400px] bg-primary opacity-10 blur-[120px] rounded-full"></div>
                     <div className="device-front">
                         <div className="device-inner">
-                            <div className="device-screen"></div>
+                            <div className="device-screen relative overflow-hidden bg-black">
+                                <div className="flex w-[300%] h-full transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${activeIndex * (100 / 3)}%)` }}>
+                                    <div className="w-1/3 h-full relative">
+                                        <Image src={swipe1} alt="Music Tech" fill className="object-cover" unoptimized />
+                                    </div>
+                                    <div className="w-1/3 h-full relative">
+                                        <Image src={swipe2} alt="Concert Hologram" fill className="object-cover" unoptimized />
+                                    </div>
+                                    <div className="w-1/3 h-full relative">
+                                        <Image src={swipe3} alt="Token Fandom" fill className="object-cover" unoptimized />
+                                    </div>
+                                </div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+                            </div>
                         </div>
                     </div>
                     <div className="mt-10 flex flex-col items-center gap-4">
                         <div className="flex items-center gap-3">
-                            <div className="pagination-dot active"></div>
-                            <div className="pagination-dot"></div>
-                            <div className="pagination-dot"></div>
+                            <div className={`pagination-dot ${activeIndex === 0 ? 'active' : ''}`}></div>
+                            <div className={`pagination-dot ${activeIndex === 1 ? 'active' : ''}`}></div>
+                            <div className={`pagination-dot ${activeIndex === 2 ? 'active' : ''}`}></div>
                         </div>
-                        <div className="flex items-center gap-1.5 text-primary group cursor-pointer">
+                        <div className="flex items-center gap-1.5 text-primary group cursor-pointer active:scale-95 transition-transform">
                             <span className="text-[10px] font-bold uppercase tracking-[0.25em] opacity-80">Swipe to explore</span>
                             <span className="material-symbols-outlined text-base">chevron_right</span>
                         </div>
@@ -163,7 +190,6 @@ export default function ArenaPage() {
                     </p>
                 </div>
             </section>
-            <StitchFooter />
         </main>
     );
 }
