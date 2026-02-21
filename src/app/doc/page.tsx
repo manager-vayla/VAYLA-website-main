@@ -6,16 +6,7 @@ export default function DocPage() {
     return (
         <main className="min-h-screen bg-midnight text-white pb-0">
             <GlobalBreathingEffect />
-            <nav className="fixed top-0 left-0 right-0 z-[60] header-glass h-16 flex items-center px-4 bg-midnight/80 backdrop-blur-md border-b border-white/5">
-                <div className="flex items-center w-full relative">
-                    <Link href="/" className="flex items-center justify-center w-10 h-10 -ml-2 text-white hover:text-primary transition-colors">
-                        <span className="material-symbols-outlined !text-[28px]">chevron_left</span>
-                    </Link>
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                        <h1 className="text-[17px] font-bold text-white tracking-tight">VAYLA Documentation</h1>
-                    </div>
-                </div>
-            </nav>
+
             <div className="pt-16 max-w-5xl mx-auto">
                 <header className="px-6 pt-16 md:pt-24 pb-12 relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[100px] -z-10"></div>

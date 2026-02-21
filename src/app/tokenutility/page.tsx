@@ -6,12 +6,7 @@ export default function TokenUtilityPage() {
     return (
         <main className="min-h-screen bg-midnight text-white pb-0">
             <GlobalBreathingEffect />
-            <header className="app-header relative border-b border-white/10 z-50">
-                <Link href="/" className="absolute left-4 cursor-pointer flex items-center justify-center p-2">
-                    <span className="material-symbols-outlined text-white text-2xl hover:text-primary transition-colors">chevron_left</span>
-                </Link>
-                <h1 className="text-white text-lg font-bold tracking-tight w-full text-center">VAYLA Token Utility</h1>
-            </header>
+
 
             <div className="px-6 pb-12 space-y-12 max-w-5xl mx-auto">
                 <section className="pt-16 md:pt-24 text-center relative">

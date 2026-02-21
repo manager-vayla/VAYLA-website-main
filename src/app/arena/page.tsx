@@ -8,26 +8,36 @@ import swipe1 from '@/assets/arena_swipe_1.png';
 import swipe2 from '@/assets/arena_swipe_2.png';
 import swipe3 from '@/assets/arena_swipe_3.png';
 
+import { motion, AnimatePresence } from 'framer-motion';
+
 export default function ArenaPage() {
     const [activeIndex, setActiveIndex] = useState(0);
+    const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
     useEffect(() => {
+        if (!isAutoPlaying) return;
         const interval = setInterval(() => {
             setActiveIndex((prev) => (prev + 1) % 3);
-        }, 3000);
+        }, 4000);
         return () => clearInterval(interval);
-    }, []);
+    }, [isAutoPlaying]);
+
+    const handleDragEnd = (event: any, info: any) => {
+        const threshold = 50;
+        if (info.offset.x < -threshold) {
+            setActiveIndex((prev) => (prev + 1) % 3);
+            setIsAutoPlaying(false);
+        } else if (info.offset.x > threshold) {
+            setActiveIndex((prev) => (prev - 1 + 3) % 3);
+            setIsAutoPlaying(false);
+        }
+    };
 
     return (
         <main className="min-h-screen bg-midnight text-white pb-0">
             <GlobalBreathingEffect />
-            <header className="app-header relative border-b border-white/10 z-50">
-                <Link href="/" className="absolute left-4 cursor-pointer flex items-center justify-center p-2">
-                    <span className="material-symbols-outlined text-white text-2xl hover:text-primary transition-colors">chevron_left</span>
-                </Link>
-                <h1 className="text-white text-lg font-bold tracking-tight w-full text-center">VAYLA Arena</h1>
-            </header>
-            <section className="pt-16 pb-12 relative overflow-hidden">
+
+            <section className="pt-24 pb-12 relative overflow-hidden">
                 <header className="text-center mb-8 relative z-10">
                     <h1 className="text-5xl font-bold hero-title mb-2 tracking-tight">VAYLA Arena</h1>
                     <div className="sub-headline text-[var(--light-grey)] font-medium text-[0.95rem] leading-[1.4] max-w-[340px] mx-auto text-center opacity-80">
@@ -41,26 +51,38 @@ export default function ArenaPage() {
                     <div className="device-front">
                         <div className="device-inner">
                             <div className="device-screen relative overflow-hidden bg-black">
-                                <div className="flex w-[300%] h-full transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${activeIndex * (100 / 3)}%)` }}>
-                                    <div className="w-1/3 h-full relative">
+                                <motion.div
+                                    className="flex h-full"
+                                    drag="x"
+                                    dragConstraints={{ left: 0, right: 0 }}
+                                    onDragEnd={handleDragEnd}
+                                    animate={{ x: `-${activeIndex * 100}%` }}
+                                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                    style={{ width: '100%' }}
+                                >
+                                    <div className="w-full h-full relative flex-shrink-0">
                                         <Image src={swipe1} alt="Music Tech" fill className="object-cover" unoptimized />
                                     </div>
-                                    <div className="w-1/3 h-full relative">
+                                    <div className="w-full h-full relative flex-shrink-0">
                                         <Image src={swipe2} alt="Concert Hologram" fill className="object-cover" unoptimized />
                                     </div>
-                                    <div className="w-1/3 h-full relative">
+                                    <div className="w-full h-full relative flex-shrink-0">
                                         <Image src={swipe3} alt="Token Fandom" fill className="object-cover" unoptimized />
                                     </div>
-                                </div>
+                                </motion.div>
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
                             </div>
                         </div>
                     </div>
                     <div className="mt-10 flex flex-col items-center gap-4">
                         <div className="flex items-center gap-3">
-                            <div className={`pagination-dot ${activeIndex === 0 ? 'active' : ''}`}></div>
-                            <div className={`pagination-dot ${activeIndex === 1 ? 'active' : ''}`}></div>
-                            <div className={`pagination-dot ${activeIndex === 2 ? 'active' : ''}`}></div>
+                            {[0, 1, 2].map((i) => (
+                                <div
+                                    key={i}
+                                    onClick={() => { setActiveIndex(i); setIsAutoPlaying(false); }}
+                                    className={`pagination-dot cursor-pointer transition-all duration-300 ${activeIndex === i ? 'active w-6' : 'w-2'}`}
+                                ></div>
+                            ))}
                         </div>
                         <div className="flex items-center gap-1.5 text-primary group cursor-pointer active:scale-95 transition-transform">
                             <span className="text-[10px] font-bold uppercase tracking-[0.25em] opacity-80">Swipe to explore</span>

@@ -47,22 +47,9 @@ export default function StitchPartners() {
                                 </div>
                                 <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40 group-hover:text-primary transition-colors">Danal</span>
                             </div>
-                            <div className="logo-carousel-item snap-center shrink-0 flex flex-col items-center gap-3 group">
-                                <div className="w-20 h-20 bg-white/[0.03] border border-white/10 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:border-primary/40 group-hover:bg-primary/5 shadow-lg">
-                                    <iconify-icon icon="simple-icons:hybe" width="36" height="36" style={{ color: 'white' }}></iconify-icon>
-                                </div>
-                                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40 group-hover:text-primary transition-colors">HYBE</span>
-                            </div>
-                            <div className="logo-carousel-item snap-center shrink-0 flex flex-col items-center gap-3 group">
-                                <div className="w-20 h-20 bg-white/[0.03] border border-white/10 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:border-primary/40 group-hover:bg-primary/5 shadow-lg">
-                                    <div className="font-black text-white text-xl tracking-tighter">SM</div>
-                                </div>
-                                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40 group-hover:text-primary transition-colors">SM ENT</span>
-                            </div>
                         </div>
                         <div className="flex justify-center gap-2 mt-4">
                             <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(112,243,216,1)]"></div>
-                            <div className="w-1.5 h-1.5 rounded-full bg-white/10"></div>
                             <div className="w-1.5 h-1.5 rounded-full bg-white/10"></div>
                             <div className="w-1.5 h-1.5 rounded-full bg-white/10"></div>
                         </div>
