@@ -1,0 +1,422 @@
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VAYLA Arena - Ecosystem Flow</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        @import url(https://fonts.cdnfonts.com/css/averta-2);
+        :root {
+            --mint-green: #71F5D2;
+            --mint-bright: #A5FFEA;
+            --mint-dark: #1a3a32;
+            --deep-black: #000;
+            --card-bg: rgba(15, 15, 15, 0.6);
+            --light-grey: #E0E0E0;
+            --bright-grey: #F5F5F5;
+            --device-frame: #121212;
+            --header-bg: rgba(0, 0, 0, 0.7);
+        }
+        body {
+            font-family: "Averta", sans-serif;
+            background-color: var(--deep-black);
+            color: white;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+            min-height: max(884px, 100dvh);
+            padding-top: 64px;
+        }
+        .app-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background: var(--header-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 0.5px solid var(--mint-green);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 16px;
+        }
+        .glass-card-premium {
+            background: var(--card-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--mint-green);
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(113, 245, 210, 0.05);
+        }
+        .premium-border-card {
+            position: relative;
+            background: linear-gradient(135deg, rgba(25, 25, 25, 0.6) 0%, rgba(10, 10, 10, 0.8) 100%);
+            border-radius: 28px;
+            z-index: 1;
+            backdrop-filter: blur(40px);
+            overflow: hidden;
+            box-shadow: 
+                inset 0 1px 1px rgba(255, 255, 255, 0.1),
+                inset 0 0 20px rgba(113, 245, 210, 0.03),
+                0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .premium-border-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 28px;
+            padding: 1.5px;
+            background: linear-gradient(145deg, 
+                var(--mint-green) 0%, 
+                rgba(113, 245, 210, 0.1) 35%, 
+                transparent 60%, 
+                rgba(113, 245, 210, 0.4) 85%, 
+                var(--mint-bright) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        .gradient-border-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            z-index: 1;
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+        .gradient-border-card:active {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(113, 245, 210, 0.25);
+        }
+        .gradient-border-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            padding: 1px;
+            background: radial-gradient(circle at 50% 0%, var(--mint-green) 0%, transparent 70%),
+                        radial-gradient(circle at 50% 100%, var(--mint-green) 0%, transparent 70%),
+                        radial-gradient(circle at 0% 50%, var(--mint-green) 0%, transparent 70%),
+                        radial-gradient(circle at 100% 50%, var(--mint-green) 0%, transparent 70%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+        .hero-title {
+            text-shadow: 0 0 40px rgba(113, 245, 210, 0.4);
+        }
+        .mint-glow {
+            box-shadow: 0 0 15px rgba(113, 245, 210, 0.4);
+        }
+        .pill-glow {
+            box-shadow: 0 0 15px rgba(113, 245, 210, 0.4);
+            border: 1.5px solid var(--mint-green);
+        }
+        .device-front {
+            position: relative;
+            width: 280px;
+            height: 580px;
+            background: #080808;
+            border-radius: 48px;
+            padding: 8px;
+            box-shadow: 
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                0 30px 60px -12px rgba(0, 0, 0, 0.9),
+                0 0 40px rgba(113, 245, 210, 0.1);
+            border: 1px solid #1a1a1a;
+        }
+        .device-inner {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            border-radius: 40px;
+            overflow: hidden;
+            position: relative;
+        }
+        .device-screen {
+            width: 100%;
+            height: 100%;
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDUWaiL5wW2y7dJ8K02I8_yFWE_878qSB2xwH8EWoL8dXVuHCQR023TfGoKx30hq0e0fgx05Pdu_QFBtJCplsr0Ix9-BxnMC2rqyV08WQSuej-6PGMGEzKF5kdx_CrPG1JtsYjEqjnSxHGHAImOKkFt-CFenTUZETOCuYnM9TrBVXfHCmS6XUycbaA0tTLk48EB6r5lnrQvVc0DKG53UQpFkOc5PKpR0zjj25_5bnrlN7gW1O-QBhfv555prNHJ5cvPG9F0mEjHIHOk);
+            background-size: cover;
+            background-position: center;
+        }
+        .pagination-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(113, 245, 210, 0.3);
+        }
+        .pagination-dot.active {
+            background: var(--mint-green);
+            width: 24px;
+            border-radius: 3px;
+        }
+        .icon-accent {
+            filter: drop-shadow(0 0 8px rgba(113, 245, 210, 0.6));
+        }
+        .infographic-container {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .outer-ring {
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border: 4px solid var(--mint-green);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(113, 245, 210, 0.3), inset 0 0 20px rgba(113, 245, 210, 0.3);
+        }
+        .central-hub {
+            position: relative;
+            z-index: 10;
+            width: 70px;
+            height: 70px;
+            background: radial-gradient(circle at center, #1a3a32 0%, #000 70%);
+            border: 1px solid var(--mint-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(113, 245, 210, 0.5);
+        }
+        .orbit-wrapper {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: rotate-orbit 20s linear infinite;
+        }
+        @keyframes rotate-orbit {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .node-item {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 54px;
+            height: 54px;
+            margin-top: -27px;
+            margin-left: -27px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .glass-disc {
+            width: 54px;
+            height: 54px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(113, 245, 210, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 4px 12px rgba(0, 0, 0, 0.5),
+                inset 0 0 10px rgba(113, 245, 210, 0.1);
+            animation: counter-rotate 20s linear infinite;
+        }
+        @keyframes counter-rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(-360deg); }
+        }
+        .node-label {
+            position: absolute;
+            top: 62px;
+            width: 100px;
+            text-align: center;
+            font-size: 9px;
+            font-weight: 800;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            animation: counter-rotate 20s linear infinite;
+        }
+        .node-1 { transform: rotate(0deg) translateY(-130px); }
+        .node-2 { transform: rotate(60deg) translateY(-130px); }
+        .node-3 { transform: rotate(120deg) translateY(-130px); }
+        .node-4 { transform: rotate(180deg) translateY(-130px); }
+        .node-5 { transform: rotate(240deg) translateY(-130px); }
+        .node-6 { transform: rotate(300deg) translateY(-130px); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="px-6 pb-12">
+<header class="app-header">
+<div class="absolute left-4 cursor-pointer flex items-center justify-center p-2">
+<span class="material-symbols-outlined text-white text-2xl">chevron_left</span>
+</div>
+<h1 class="text-white text-lg font-bold tracking-tight">VAYLA Arena</h1>
+</header>
+<section class="pt-16 pb-12 relative overflow-hidden">
+<header class="text-center mb-8 relative z-10">
+<h1 class="text-5xl font-bold hero-title mb-2 tracking-tight">VAYLA Arena</h1>
+<div class="sub-headline text-[var(--light-grey)] font-medium text-[0.95rem] leading-[1.4] max-w-[340px] mx-auto text-center opacity-80">
+<p>The on-chain operating environment</p>
+<p>where discovery, participation, voting,</p>
+<p>and funding take place.</p>
+</div>
+</header>
+<div class="relative flex flex-col items-center">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-[400px] bg-[var(--mint-green)] opacity-10 blur-[120px] rounded-full"></div>
+<div class="device-front">
+<div class="device-inner">
+<div class="device-screen"></div>
+</div>
+</div>
+<div class="mt-10 flex flex-col items-center gap-4">
+<div class="flex items-center gap-3">
+<div class="pagination-dot active"></div>
+<div class="pagination-dot"></div>
+<div class="pagination-dot"></div>
+</div>
+<div class="flex items-center gap-1.5 text-[var(--mint-green)] group cursor-pointer">
+<span class="text-[10px] font-bold uppercase tracking-[0.25em] opacity-80">Swipe to explore</span>
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-20 px-2">
+<div class="flex justify-center mb-10">
+<div class="inline-block px-10 py-3 rounded-full pill-glow bg-black/40 backdrop-blur-md">
+<h2 class="text-[var(--mint-green)] text-[11px] font-bold uppercase tracking-[0.4em] text-center">What is VAYLA Arena?</h2>
+</div>
+</div>
+<div class="premium-border-card p-8 mx-auto max-w-[380px] relative">
+<p class="text-[var(--bright-grey)] text-center text-[0.88rem] font-medium tracking-normal leading-[1.6] relative z-10">
+                VAYLA Arena is the core platform<br/>
+                where the VAYLA token is actively<br/>
+                used to enable <span class="text-[var(--mint-green)] font-bold">fandom discovery</span>,<br/>
+<span class="text-[var(--mint-green)] font-bold">on-chain participation</span>, <span class="text-[var(--mint-green)] font-bold">community</span><br/>
+<span class="text-[var(--mint-green)] font-bold">voting</span>, and <span class="text-[var(--mint-green)] font-bold">Web3-native funding</span>.
+            </p>
+</div>
+</section>
+<section class="mb-16">
+<div class="flex justify-center mb-10">
+<div class="inline-block px-8 py-3 rounded-full pill-glow bg-black/40 backdrop-blur-md">
+<h2 class="text-[var(--mint-green)] text-[12px] font-bold uppercase tracking-[0.3em] text-center">CORE MODULES</h2>
+</div>
+</div>
+<div class="space-y-6 max-w-[400px] mx-auto">
+<div class="gradient-border-card p-6 flex items-start gap-5">
+<div class="bg-black border border-[var(--mint-green)] p-3 rounded-2xl flex items-center justify-center shadow-[0_0_20px_rgba(113,245,210,0.2)] flex-shrink-0">
+<span class="material-symbols-outlined text-[var(--mint-green)] text-3xl icon-accent">explore</span>
+</div>
+<div>
+<h3 class="font-bold text-xl mb-1 text-white">VAYLA Discovery</h3>
+<p class="text-[var(--light-grey)] text-sm opacity-80">Discover emerging artists, projects, and IPs through on-chain data and community-driven signals.</p>
+</div>
+</div>
+<div class="gradient-border-card p-6 flex items-start gap-5">
+<div class="bg-black border border-[var(--mint-green)] p-3 rounded-2xl flex items-center justify-center shadow-[0_0_20px_rgba(113,245,210,0.2)] flex-shrink-0">
+<span class="material-symbols-outlined text-[var(--mint-green)] text-3xl icon-accent">monitoring</span>
+</div>
+<div>
+<h3 class="font-bold text-xl mb-1 text-white">V-Onchain Chart</h3>
+<p class="text-[var(--light-grey)] text-sm opacity-80">Participate in transparent, community-powered charts driven by on-chain voting and engagement.</p>
+</div>
+</div>
+<div class="gradient-border-card p-6 flex items-start gap-5">
+<div class="bg-black border border-[var(--mint-green)] p-3 rounded-2xl flex items-center justify-center shadow-[0_0_20px_rgba(113,245,210,0.2)] flex-shrink-0">
+<span class="material-symbols-outlined text-[var(--mint-green)] text-3xl icon-accent">account_balance_wallet</span>
+</div>
+<div>
+<h3 class="font-bold text-xl mb-1 text-white">VAYLA 3.0 Funding</h3>
+<p class="text-[var(--light-grey)] text-sm opacity-80">Enable fandom-driven funding and IP-based projects through Web3-native, on-chain settlement.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-16">
+<div class="flex justify-center mb-10">
+<div class="inline-block px-10 py-3 rounded-full pill-glow bg-black/40 backdrop-blur-md">
+<h2 class="text-[var(--mint-green)] text-[11px] font-bold uppercase tracking-[0.4em] text-center">HOW IT WORKS</h2>
+</div>
+</div>
+<div class="infographic-container">
+<div class="outer-ring"></div>
+<div class="central-hub">
+<span class="material-symbols-outlined text-[var(--mint-green)] text-4xl" style="font-variation-settings: 'FILL' 1">grade</span>
+</div>
+<div class="orbit-wrapper">
+<div class="node-item node-1">
+<div class="glass-disc">
+<span class="material-symbols-outlined text-[var(--mint-green)] text-2xl">search</span>
+</div>
+<span class="node-label">Discover</span>
+</div>
+<div class="node-item node-2">
+<div class="glass-disc">
+<span class="material-symbols-outlined text-[var(--mint-green)] text-2xl">hub</span>
+</div>
+<span class="node-label">Participate</span>
+</div>
+<div class="node-item node-3">
+<div class="glass-disc">
+<span class="material-symbols-outlined text-[var(--mint-green)] text-2xl" style="font-variation-settings: 'FILL' 1">how_to_vote</span>
+</div>
+<span class="node-label">Vote</span>
+</div>
+<div class="node-item node-4">
+<div class="glass-disc">
+<span class="material-symbols-outlined text-[var(--mint-green)] text-2xl">account_balance_wallet</span>
+</div>
+<span class="node-label">Fund</span>
+</div>
+<div class="node-item node-5">
+<div class="glass-disc">
+<span class="material-symbols-outlined text-[var(--mint-green)] text-2xl">payments</span>
+</div>
+<span class="node-label">Earn</span>
+</div>
+<div class="node-item node-6">
+<div class="glass-disc">
+<span class="material-symbols-outlined text-[var(--mint-green)] text-2xl">cached</span>
+</div>
+<span class="node-label">Reinvest</span>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-8 px-2">
+<div class="glass-card-premium p-8 max-w-[400px] mx-auto border-[1px] border-[var(--mint-green)]">
+<h2 class="text-white text-xl font-bold mb-4 uppercase tracking-tight text-center">ECOSYSTEM POSITIONING</h2>
+<p class="text-[var(--light-grey)] leading-relaxed text-[1.1rem] opacity-90 text-center">
+                VAYLA Arena does not replace<br/>
+                existing entertainment platforms.<br/>
+                It serves as a participation and<br/>
+                funding infrastructure built on<br/>
+                Web3 principles.
+            </p>
+</div>
+<div class="mt-10 mb-6 text-center">
+<p class="text-[var(--mint-green)] italic font-normal text-[1rem] leading-[1.6]">
+                Platform features will be progressively<br/>
+                activated in line with the roadmap.
+            </p>
+</div>
+</section>
+<footer class="text-center py-12 border-t border-white/10">
+<p class="text-zinc-500 text-[11px] tracking-widest uppercase">©2026 VAYLA. All rights reserved.</p>
+</footer>
+
+</body></html>
