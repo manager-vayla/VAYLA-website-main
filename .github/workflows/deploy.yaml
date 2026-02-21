@@ -3,7 +3,7 @@ name: 🚀 Deploy Vayla Website ver 2.0
 on:
   push:
     branches:
-      - feat/stitch-design
+      - stitch-design
 
 jobs:
   build-and-deploy:
