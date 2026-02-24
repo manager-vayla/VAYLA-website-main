@@ -6,9 +6,8 @@ import Link from 'next/link';
 export default function StitchHero() {
     return (
         <section className="relative px-6 pt-32 pb-24 overflow-hidden bg-midnight">
-            <div className="v-icon-container opacity-60">
-                <div className="v-icon-inner"></div>
-                <div className="absolute inset-0 hero-v-glow"></div>
+            <div className="absolute inset-0 z-0 opacity-60 overflow-hidden pointer-events-none">
+                <video src="/assets/hero_video.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover" />
             </div>
             <div className="relative z-10 max-w-md md:max-w-4xl mx-auto text-center">
                 <span className="inline-block px-4 py-1.5 mb-8 text-[11px] font-bold tracking-[0.25em] uppercase border border-primary/40 rounded-full text-primary bg-midnight/60 backdrop-blur-sm">

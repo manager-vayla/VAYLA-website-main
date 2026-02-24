@@ -31,7 +31,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className={`fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-12 transition-all duration-500 ${scrolled ? 'py-4 bg-black/60 backdrop-blur-md border-b border-white/5' : 'py-8 bg-transparent'}`}>
+            <nav className={`sticky top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-12 transition-all duration-500 ${scrolled ? 'py-4 bg-black/60 backdrop-blur-md border-b border-white/5' : 'py-8 bg-transparent'}`}>
                 <Link href="/" className="flex items-center pointer-events-auto group cursor-pointer h-24 md:h-32">
                     <Image
                         src={logo}
@@ -110,10 +110,15 @@ const Navbar = () => {
                 {/* Footer and Socials */}
                 <div className="mt-auto">
                     <div className="flex gap-4 mb-8">
-                        {['simple-icons:x', 'simple-icons:telegram', 'simple-icons:discord', 'ph:user-bold'].map((icon, idx) => (
-                            <div key={idx} className="w-14 h-14 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-white/60">
-                                <iconify-icon icon={icon} width="24" height="24"></iconify-icon>
-                            </div>
+                        {[
+                            { icon: 'simple-icons:x', href: 'https://x.com/VAYLAOfficial_' },
+                            { icon: 'simple-icons:telegram', href: 'https://t.me/Vayla_Official' },
+                            { icon: 'simple-icons:discord', href: 'https://discord.gg/PSNRHbZDS4' },
+                            { icon: 'ph:user-bold', href: '#' }
+                        ].map((social, idx) => (
+                            <a key={idx} href={social.href} target={social.href !== '#' ? "_blank" : "_self"} rel={social.href !== '#' ? "noopener noreferrer" : ""} className="w-14 h-14 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-white/60 hover:bg-white/10 hover:text-teal-400 transition-all">
+                                <iconify-icon icon={social.icon} width="24" height="24"></iconify-icon>
+                            </a>
                         ))}
                     </div>
 

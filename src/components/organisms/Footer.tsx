@@ -24,7 +24,7 @@ const Footer = () => {
                     </p>
                     <div className="flex gap-4">
                         {[
-                            { id: 'twitter', icon: 'mdi:twitter', href: 'https://x.com/vaylamanager' },
+                            { id: 'twitter', icon: 'simple-icons:x', href: 'https://x.com/VAYLAOfficial_' },
                             { id: 'discord', icon: 'mdi:discord', href: 'https://discord.gg/PSNRHbZDS4' },
                             { id: 'telegram', icon: 'mdi:telegram', href: 'https://t.me/Vayla_Official' },
                             { id: 'github', icon: 'mdi:github', href: 'https://github.com/manager-vayla' }

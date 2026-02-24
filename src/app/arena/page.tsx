@@ -61,13 +61,13 @@ export default function ArenaPage() {
                                     style={{ width: '100%' }}
                                 >
                                     <div className="w-full h-full relative flex-shrink-0">
-                                        <Image src={swipe1} alt="Music Tech" fill className="object-cover" unoptimized />
+                                        <Image src={swipe1} alt="Music Tech" fill className="object-cover pointer-events-none" unoptimized draggable={false} />
                                     </div>
                                     <div className="w-full h-full relative flex-shrink-0">
-                                        <Image src={swipe2} alt="Concert Hologram" fill className="object-cover" unoptimized />
+                                        <Image src={swipe2} alt="Concert Hologram" fill className="object-cover pointer-events-none" unoptimized draggable={false} />
                                     </div>
                                     <div className="w-full h-full relative flex-shrink-0">
-                                        <Image src={swipe3} alt="Token Fandom" fill className="object-cover" unoptimized />
+                                        <Image src={swipe3} alt="Token Fandom" fill className="object-cover pointer-events-none" unoptimized draggable={false} />
                                     </div>
                                 </motion.div>
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
