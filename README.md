@@ -1,6 +1,6 @@
-# VAYLA Protocol Website
+# Vayla Technology INC Website
 
-Website chính thức của VAYLA Protocol - The Protocol for Borderless Fandom.
+Website chính thức của Vayla Technology INC - The Protocol for Borderless Fandom.
 
 ## Công nghệ sử dụng
 

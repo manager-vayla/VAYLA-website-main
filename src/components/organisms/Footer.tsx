@@ -13,7 +13,7 @@ const Footer = () => {
                     <div className="flex items-center gap-2 mb-6 h-32 opacity-80 hover:opacity-100 transition-opacity">
                         <Image
                             src={logo}
-                            alt="VAYLA Protocol"
+                            alt="Vayla Technology INC"
                             width={160}
                             height={42}
                             className="h-full w-auto object-contain"
@@ -71,7 +71,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="max-w-[90rem] mx-auto pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p className="text-gray-600 text-[10px] uppercase font-mono tracking-widest">© 2024 VAYLA Protocol. All rights reserved.</p>
+                <p className="text-gray-600 text-[10px] uppercase font-mono tracking-widest">© 2024 Vayla Technology INC. All rights reserved.</p>
                 <div className="flex gap-6">
                     <a href="#" className="text-gray-600 hover:text-white text-[10px] uppercase font-mono tracking-widest">Privacy</a>
                     <a href="#" className="text-gray-600 hover:text-white text-[10px] uppercase font-mono tracking-widest">Terms</a>

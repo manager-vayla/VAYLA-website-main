@@ -27,7 +27,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: 'VAYLA Protocol',
+  title: 'Vayla Technology INC',
   description: 'The Protocol for Borderless Fandom',
 };
 

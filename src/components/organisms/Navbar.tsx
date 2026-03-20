@@ -35,7 +35,7 @@ const Navbar = () => {
                 <Link href="/" className="flex items-center pointer-events-auto group cursor-pointer h-24 md:h-32">
                     <Image
                         src={logo}
-                        alt="VAYLA Protocol"
+                        alt="Vayla Technology INC"
                         width={160}
                         height={54}
                         className="h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105"

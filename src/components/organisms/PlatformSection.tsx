@@ -189,7 +189,7 @@ const PlatformSection = () => {
                             <div className="relative w-36 h-36 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-white/20 shadow-[0_0_50px_rgba(45,212,191,0.5)]">
                                 <Image
                                     src={logo}
-                                    alt="VAYLA Protocol Hub"
+                                    alt="Vayla Technology INC Hub"
                                     layout="fill"
                                     objectFit="cover"
                                     className="animate-[pulse_4s_ease-in-out_infinite]"
