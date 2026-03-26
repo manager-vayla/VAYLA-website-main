@@ -8,8 +8,8 @@ const documents = [
     {
         title: 'Project Whitepaper',
         description: "Vision, platform structure, and roadmap.",
-        icon: getWhitepaperUrlSync()
-        link: 'https://manager-vayla.github.io/VAYLA-link-tree/#WHITEW',
+        icon: 'ri:file-paper-2-line',
+        link: getWhitepaperUrlSync(),
         highlight: true
     },
     {
