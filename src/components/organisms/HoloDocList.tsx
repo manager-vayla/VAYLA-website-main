@@ -1,17 +1,34 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import HoloDocEntry from '../molecules/HoloDocEntry';
-import { getWhitepaperUrlSync } from '@/utils/whitepaperUtils';
+import { getWhitepaperUrl } from '@/utils/whitepaperUtils';
 
-const documents = [
-    {
-        title: 'Project Whitepaper',
-        description: "Vision, platform structure, and roadmap.",
-        icon: 'ri:file-paper-2-line',
-        link: getWhitepaperUrlSync(),
-        highlight: true
-    },
+export default function HoloDocList() {
+    const [whitepaperUrl, setWhitepaperUrl] = useState<string>('https://manager-vayla.github.io/VAYLA-link-tree/');
+
+    useEffect(() => {
+        const fetchPdfUrl = async () => {
+            try {
+                const url = await getWhitepaperUrl();
+                setWhitepaperUrl(url);
+            } catch (error) {
+                console.error('Failed to fetch whitepaper URL:', error);
+                setWhitepaperUrl('https://manager-vayla.github.io/VAYLA-link-tree/');
+            }
+        };
+
+        fetchPdfUrl();
+    }, []);
+
+    const documents = [
+        {
+            title: 'Project Whitepaper',
+            description: "Vision, platform structure, and roadmap.",
+            icon: 'ri:file-paper-2-line',
+            link: whitepaperUrl,
+            highlight: true
+        },
     {
         title: 'Arena Overview',
         description: 'Discovery, On-chain Chart, and Funding modules.',
@@ -31,16 +48,15 @@ const documents = [
         icon: 'ri:scales-3-line',
         link: '/docs/4_(EN)VAYLA_Legal__Compliance.pdf'
     },
-    {
-        title: 'GitHub Repository',
-        description: 'Development structure and updates.',
-        icon: 'ri:github-fill',
-        link: 'https://github.com/manager-vayla',
-        highlight: true
-    }
-];
+        {
+            title: 'GitHub Repository',
+            description: 'Development structure and updates.',
+            icon: 'ri:github-fill',
+            link: 'https://github.com/manager-vayla',
+            highlight: true
+        }
+    ];
 
-export default function HoloDocList() {
     return (
         <section className="w-full max-w-4xl mx-auto mb-32 px-4">
             <div className="mb-12 border-b border-white/20 pb-4 flex justify-between items-end">

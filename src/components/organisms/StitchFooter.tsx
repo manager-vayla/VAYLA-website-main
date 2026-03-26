@@ -1,11 +1,26 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { getWhitepaperUrlSync } from '@/utils/whitepaperUtils';
+import { getWhitepaperUrl } from '@/utils/whitepaperUtils';
 
 export default function StitchFooter() {
-    const whitepaperUrl = getWhitepaperUrlSync();
+    const [whitepaperUrl, setWhitepaperUrl] = useState<string>('https://manager-vayla.github.io/VAYLA-link-tree/');
+
+    useEffect(() => {
+        const fetchPdfUrl = async () => {
+            try {
+                const url = await getWhitepaperUrl();
+                setWhitepaperUrl(url);
+            } catch (error) {
+                console.error('Failed to fetch whitepaper URL:', error);
+                setWhitepaperUrl('https://manager-vayla.github.io/VAYLA-link-tree/');
+            }
+        };
+
+        fetchPdfUrl();
+    }, []);
+
     return (
         <footer className="bg-charcoal pt-24 pb-12 px-6 border-t border-white/5 relative z-10">
             <div className="max-w-md mx-auto flex flex-col items-start text-left">
