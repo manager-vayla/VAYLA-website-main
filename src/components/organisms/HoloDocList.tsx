@@ -8,7 +8,7 @@ const documents = [
         title: 'Project Whitepaper',
         description: "Vision, platform structure, and roadmap.",
         icon: 'ri:file-paper-2-line',
-        link: 'https://manager-vayla.github.io/VAYLA-link-tree/(EN)_VAYLA_WHITEPAPER_v3.5.pdf',
+        link: 'https://manager-vayla.github.io/VAYLA-link-tree/#WHITEW',
         highlight: true
     },
     {

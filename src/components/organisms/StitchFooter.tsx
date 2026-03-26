@@ -46,7 +46,7 @@ export default function StitchFooter() {
                         <h5 className="text-xs heading-bold uppercase tracking-[0.2em] text-primary mb-6">RESOURCES</h5>
                         <ul className="space-y-4 text-base text-white/60">
                             <li><Link className="hover:text-primary transition-colors" href="/doc">Documentation</Link></li>
-                            <li><a className="hover:text-primary transition-colors" href="https://manager-vayla.github.io/VAYLA-link-tree/(EN)_VAYLA_WHITEPAPER_v3.5.pdf" target="_blank" rel="noopener noreferrer">Whitepaper</a></li>
+                            <li><a className="hover:text-primary transition-colors" href="https://manager-vayla.github.io/VAYLA-link-tree/#WHITEW" target="_blank" rel="noopener noreferrer">Whitepaper</a></li>
                             <li><a className="hover:text-primary transition-colors" href="https://github.com/manager-vayla" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                         </ul>
                     </div>

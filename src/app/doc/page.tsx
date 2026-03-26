@@ -37,7 +37,7 @@ export default function DocPage() {
                                 <p className="text-white/60 text-sm mb-8 leading-relaxed font-averta">
                                     Comprehensive overview of VAYLA&apos;s vision, platform structure, token utility, and roadmap.
                                 </p>
-                                <a href="https://manager-vayla.github.io/VAYLA-link-tree/(EN)_VAYLA_WHITEPAPER_v3.5.pdf" target="_blank" rel="noopener noreferrer" className="w-full py-4 bg-primary text-midnight font-bold rounded-xl hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 font-averta">
+                                <a href="https://manager-vayla.github.io/VAYLA-link-tree/#WHITEW" target="_blank" rel="noopener noreferrer" className="w-full py-4 bg-primary text-midnight font-bold rounded-xl hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 font-averta">
                                     View Whitepaper <span className="material-symbols-outlined text-[18px]">open_in_new</span>
                                 </a>
                             </div>
