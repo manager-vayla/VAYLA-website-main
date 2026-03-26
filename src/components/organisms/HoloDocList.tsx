@@ -2,12 +2,13 @@
 
 import React from 'react';
 import HoloDocEntry from '../molecules/HoloDocEntry';
+import { getWhitepaperUrlSync } from '@/utils/whitepaperUtils';
 
 const documents = [
     {
         title: 'Project Whitepaper',
         description: "Vision, platform structure, and roadmap.",
-        icon: 'ri:file-paper-2-line',
+        icon: getWhitepaperUrlSync()
         link: 'https://manager-vayla.github.io/VAYLA-link-tree/#WHITEW',
         highlight: true
     },

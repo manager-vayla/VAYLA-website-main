@@ -39,9 +39,9 @@
 <p className="text-slate-400 text-sm mb-6 leading-relaxed">
                             Comprehensive overview of VAYLA's vision, platform structure, token utility, and roadmap.
                         </p>
-<button className="w-full py-3 bg-primary text-background-dark font-bold rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+<a href="https://manager-vayla.github.io/VAYLA-link-tree/#WHITEW" target="_blank" rel="noopener noreferrer" className="w-full py-3 bg-primary text-background-dark font-bold rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center gap-2 block">
                             View Whitepaper <span className="material-symbols-outlined text-[18px]">open_in_new</span>
-</button>
+</a>
 </div>
 <div className="glass-card p-6 rounded-2xl text-left">
 <h3 className="text-xl font-bold mb-2 text-white">Platform Overview</h3>

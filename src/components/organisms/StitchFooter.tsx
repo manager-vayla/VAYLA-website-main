@@ -2,8 +2,10 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { getWhitepaperUrlSync } from '@/utils/whitepaperUtils';
 
-export default function StitchFooter() {
+expoconst whitepaperUrl = getWhitepaperUrlSync();
+    rt default function StitchFooter() {
     return (
         <footer className="bg-charcoal pt-24 pb-12 px-6 border-t border-white/5 relative z-10">
             <div className="max-w-md mx-auto flex flex-col items-start text-left">
@@ -44,7 +46,7 @@ export default function StitchFooter() {
                     </div>
                     <div>
                         <h5 className="text-xs heading-bold uppercase tracking-[0.2em] text-primary mb-6">RESOURCES</h5>
-                        <ul className="space-y-4 text-base text-white/60">
+                        <ul className="space-y-4 text-base text-white/60">{whitepaperUrl}
                             <li><Link className="hover:text-primary transition-colors" href="/doc">Documentation</Link></li>
                             <li><a className="hover:text-primary transition-colors" href="https://manager-vayla.github.io/VAYLA-link-tree/#WHITEW" target="_blank" rel="noopener noreferrer">Whitepaper</a></li>
                             <li><a className="hover:text-primary transition-colors" href="https://github.com/manager-vayla" target="_blank" rel="noopener noreferrer">GitHub</a></li>

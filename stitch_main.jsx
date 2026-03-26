@@ -448,16 +448,16 @@
 <div className="glass-card p-8 border-primary/30 flex flex-col items-center text-center">
 <h3 className="text-xl heading-bold mb-3 font-averta">Documentation</h3>
 <p className="card-copy text-sm mb-6 font-averta">Official documents including whitepaper, platform overview, token utility, and positioning notes.</p>
-<button className="w-full bg-primary text-midnight heading-bold py-3.5 rounded-xl text-sm shadow-[0_4px_15px_rgba(112,243,216,0.2)] font-averta">
+<a href="https://manager-vayla.github.io/VAYLA-link-tree/" target="_blank" rel="noopener noreferrer" className="w-full bg-primary text-midnight heading-bold py-3.5 rounded-xl text-sm shadow-[0_4px_15px_rgba(112,243,216,0.2)] font-averta block text-center">
                         View Docs
-                    </button>
+                    </a>
 </div>
 <div className="glass-card p-8 border-primary/30 flex flex-col items-center text-center">
 <h3 className="text-xl heading-bold mb-3 font-averta">GitHub Repository</h3>
 <p className="card-copy text-sm mb-6 font-averta">Public disclosures, development structure, and ongoing project updates.</p>
-<button className="w-full bg-primary text-midnight heading-bold py-3.5 rounded-xl text-sm shadow-[0_4px_15px_rgba(112,243,216,0.2)] font-averta">
+<a href="https://github.com/manager-vayla" target="_blank" rel="noopener noreferrer" className="w-full bg-primary text-midnight heading-bold py-3.5 rounded-xl text-sm shadow-[0_4px_15px_rgba(112,243,216,0.2)] font-averta block text-center">
                         View GitHub
-                    </button>
+                    </a>
 </div>
 <div className="mt-8 text-center px-4">
 <p className="text-[15px] text-primary italic font-averta leading-relaxed">
@@ -499,17 +499,17 @@
 <div>
 <h5 className="text-xs heading-bold uppercase tracking-[0.2em] text-primary mb-6">PLATFORM</h5>
 <ul className="space-y-4 text-base text-white/60">
-<li><a className="hover:text-primary transition-colors" href="#">Arena</a></li>
-<li><a className="hover:text-primary transition-colors" href="#">Token</a></li>
-<li><a className="hover:text-primary transition-colors" href="#">Roadmap</a></li>
+<li><a className="hover:text-primary transition-colors" href="/arena">Arena</a></li>
+<li><a className="hover:text-primary transition-colors" href="/tokenutility">Token</a></li>
+<li><a className="hover:text-primary transition-colors" href="/">Roadmap</a></li>
 </ul>
 </div>
 <div>
 <h5 className="text-xs heading-bold uppercase tracking-[0.2em] text-primary mb-6">RESOURCES</h5>
 <ul className="space-y-4 text-base text-white/60">
-<li><a className="hover:text-primary transition-colors" href="#">Documentation</a></li>
-<li><a className="hover:text-primary transition-colors" href="#">Whitepaper</a></li>
-<li><a className="hover:text-primary transition-colors" href="#">GitHub</a></li>
+<li><a className="hover:text-primary transition-colors" href="/doc">Documentation</a></li>
+<li><a className="hover:text-primary transition-colors" href="https://manager-vayla.github.io/VAYLA-link-tree/#WHITEW" target="_blank" rel="noopener noreferrer">Whitepaper</a></li>
+<li><a className="hover:text-primary transition-colors" href="https://github.com/manager-vayla" target="_blank" rel="noopener noreferrer">GitHub</a></li>
 </ul>
 </div>
 </div>

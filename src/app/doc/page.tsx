@@ -1,8 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 import GlobalBreathingEffect from '@/components/atoms/GlobalBreathingEffect';
+import { getWhitepaperUrlSync } from '@/utils/whitepaperUtils';
 
 export default function DocPage() {
+    const whitepaperUrl = getWhitepaperUrlSync();
     return (
         <main className="min-h-screen bg-midnight text-white pb-0">
             <GlobalBreathingEffect />
@@ -36,7 +38,7 @@ export default function DocPage() {
                                 <h3 className="text-2xl font-bold mb-3 text-white font-averta">Whitepaper</h3>
                                 <p className="text-white/60 text-sm mb-8 leading-relaxed font-averta">
                                     Comprehensive overview of VAYLA&apos;s vision, platform structure, token utility, and roadmap.
-                                </p>
+                                </p>{whitepaperUrl}
                                 <a href="https://manager-vayla.github.io/VAYLA-link-tree/#WHITEW" target="_blank" rel="noopener noreferrer" className="w-full py-4 bg-primary text-midnight font-bold rounded-xl hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 font-averta">
                                     View Whitepaper <span className="material-symbols-outlined text-[18px]">open_in_new</span>
                                 </a>
