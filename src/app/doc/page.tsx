@@ -43,7 +43,7 @@ export default function DocPage() {
                             <div className="glass-card p-8 rounded-2xl text-left border border-white/10 hover:border-primary/30 transition-all duration-300">
                                 <h3 className="text-2xl font-bold mb-3 text-white font-averta">Platform Overview</h3>
                                 <p className="text-white/60 text-sm mb-8 leading-relaxed font-averta">
-                                    High-level explanation of VAYLA Arena, including Discovery, On-chain Chart, and Funding modules.
+                                    High-level explanation of VAYLA Arena, including Discovery, On-chain Chart, and VAYLA Boost modules.
                                 </p>
                                 <a href="/docs/1_(EN)VAYLA_Arena__Project_Overview.pdf" target="_blank" rel="noopener noreferrer" className="w-full py-4 bg-primary text-midnight font-bold rounded-xl hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 font-averta">
                                     View Overview <span className="material-symbols-outlined text-[18px]">open_in_new</span>

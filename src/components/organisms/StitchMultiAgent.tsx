@@ -13,7 +13,7 @@ export default function StitchMultiAgent() {
                 </div>
                 <h2 className="text-3xl heading-bold mb-4 font-averta">Multi-Agent Ecosystem</h2>
                 <p className="text-white/85 text-sm max-w-[320px] mx-auto leading-relaxed font-averta">
-                    VAYLA Arena is designed for a future where not only humans and creators, but also AI and AGI agents participate as verified contributors within the fandom and funding ecosystem.
+                    VAYLA Arena is designed for a future where not only humans and creators, but also AI and AGI agents participate as verified contributors within the fandom and the VAYLA Boost ecosystem.
                 </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">

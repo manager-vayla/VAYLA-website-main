@@ -46,7 +46,7 @@
 <div className="glass-card p-6 rounded-2xl text-left">
 <h3 className="text-xl font-bold mb-2 text-white">Platform Overview</h3>
 <p className="text-slate-400 text-sm mb-6 leading-relaxed">
-                            High-level explanation of VAYLA Arena, including Discovery, On-chain Chart, and Funding modules.
+                            High-level explanation of VAYLA Arena, including Discovery, On-chain Chart, and VAYLA Boost modules.
                         </p>
 <button className="w-full py-3 bg-primary text-background-dark font-bold rounded-xl hover:opacity-90 transition-opacity">
                             View Overview

@@ -13,12 +13,12 @@ const SecuritySection = () => {
 
             <div className="max-w-[90rem] mx-auto relative z-10">
                 <div className="mb-24">
-                    <span className="font-mono text-gray-500 text-xs tracking-widest uppercase mb-4 block">Why Web3 Fandom & Funding</span>
+                    <span className="font-mono text-gray-500 text-xs tracking-widest uppercase mb-4 block">Why Web3 Fandom & VAYLA Boost</span>
                     <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 font-['Space_Grotesk'] tracking-tighter">
                         Evolving the Infrastructure
                     </h2>
                     <p className="text-xl text-gray-400 font-light max-w-3xl leading-relaxed">
-                        VAYLA does not replace the entertainment industry. It builds the participation and funding infrastructure beneath it.
+                        VAYLA does not replace the entertainment industry. It builds the participation infrastructure behind VAYLA Boost.
                     </p>
                 </div>
 

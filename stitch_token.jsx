@@ -17,7 +17,7 @@
                 VAYLA Token <span className="text-primary italic">Utility</span>
 </h1>
 <p className="text-[17px] leading-relaxed text-primary italic font-normal max-w-[340px] mx-auto font-averta">
-                The core utility and settlement token powering participation, funding, and circulation within the VAYLA ecosystem.
+                The core utility and settlement token powering participation, VAYLA Boost, and circulation within the VAYLA ecosystem.
             </p>
 </section>
 <section>
@@ -54,9 +54,9 @@
 <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
 <span className="material-symbols-outlined text-primary">payments</span>
 </div>
-<h3 className="text-xl font-bold mb-2 text-white">Funding &amp; Settlement</h3>
+<h3 className="text-xl font-bold mb-2 text-white">VAYLA Boost &amp; Settlement</h3>
 <p className="text-sm text-slate-400 leading-relaxed">
-                        Primary asset for fandom-driven funding and IP-based projects, with transparent on-chain settlement.
+                        Primary asset for fandom-driven VAYLA Boost and IP-based projects, with transparent on-chain settlement.
                     </p>
 </div>
 <div className="bg-card-dark border border-white/5 p-6 rounded-2xl group transition-all duration-300 hover:border-primary/30">
@@ -94,7 +94,7 @@
 </div>
 <span className="material-symbols-outlined glow-arrow-mint py-1">arrow_downward</span>
 <div className="w-full flow-node-glass py-5 px-6 rounded-2xl text-center">
-<span className="text-sm font-black tracking-widest uppercase text-white font-averta">FUNDING &amp; REWARDS</span>
+<span className="text-sm font-black tracking-widest uppercase text-white font-averta">VAYLA BOOST &amp; REWARDS</span>
 </div>
 <span className="material-symbols-outlined glow-arrow-mint py-1">arrow_downward</span>
 <div className="w-full flow-node-glass py-5 px-6 rounded-2xl text-center">

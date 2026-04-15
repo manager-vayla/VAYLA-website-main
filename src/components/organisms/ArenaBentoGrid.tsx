@@ -30,9 +30,9 @@ const modules = [
         id: '02'
     },
     {
-        title: 'FUNDING 3.0',
+        title: 'VAYLA Boost 3.0',
         subtitle: 'Protocol Native',
-        description: 'Fandom-driven funding and IP-based project settlement.',
+        description: 'Fandom-driven VAYLA Boost and IP-based project settlement.',
         className: 'md:col-span-3',
         color: 'text-amber-400',
         bg: 'from-orange-500/20 to-yellow-500/20',

@@ -15,7 +15,7 @@ export default function TokenUtilityPage() {
                         VAYLA Token <span className="text-primary italic">Utility</span>
                     </h1>
                     <p className="text-[17px] md:text-xl leading-relaxed text-primary italic font-normal max-w-xl mx-auto font-averta px-4">
-                        The core utility and settlement token powering participation, funding, and circulation within the VAYLA ecosystem.
+                        The core utility and settlement token powering participation, VAYLA Boost, and circulation within the VAYLA ecosystem.
                     </p>
                 </section>
 
@@ -54,9 +54,9 @@ export default function TokenUtilityPage() {
                             <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
                                 <span className="material-symbols-outlined text-primary">payments</span>
                             </div>
-                            <h3 className="text-xl font-bold mb-2 text-white font-averta">Funding &amp; Settlement</h3>
+                            <h3 className="text-xl font-bold mb-2 text-white font-averta">VAYLA Boost &amp; Settlement</h3>
                             <p className="text-sm text-white/60 leading-relaxed font-averta">
-                                Primary asset for fandom-driven funding and IP-based projects, with transparent on-chain settlement.
+                                Primary asset for fandom-driven VAYLA Boost and IP-based projects, with transparent on-chain settlement.
                             </p>
                         </div>
                         <div className="bg-charcoal border border-white/5 p-6 rounded-2xl group transition-all duration-300 hover:border-primary/30">
@@ -110,7 +110,7 @@ export default function TokenUtilityPage() {
                         </div>
                         <span className="material-symbols-outlined text-primary text-2xl drop-shadow-[0_0_8px_rgba(112,243,216,0.8)] py-1">arrow_downward</span>
                         <div className="w-full bg-charcoal/80 backdrop-blur-md border border-white/10 shadow-lg py-5 px-6 rounded-2xl text-center">
-                            <span className="text-sm font-black tracking-widest uppercase text-white font-averta">FUNDING &amp; REWARDS</span>
+                            <span className="text-sm font-black tracking-widest uppercase text-white font-averta">VAYLA BOOST &amp; REWARDS</span>
                         </div>
                         <span className="material-symbols-outlined text-primary text-2xl drop-shadow-[0_0_8px_rgba(112,243,216,0.8)] py-1">arrow_downward</span>
                         <div className="w-full bg-charcoal/80 backdrop-blur-md border border-white/10 shadow-lg py-5 px-6 rounded-2xl text-center">

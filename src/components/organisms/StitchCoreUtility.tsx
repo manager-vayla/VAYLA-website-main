@@ -14,7 +14,7 @@ export default function StitchCoreUtility() {
                 <h2 className="text-3xl heading-bold mb-4 font-averta">Core Utility &amp; Settlement</h2>
                 <p className="text-white/85 text-sm max-w-[320px] mx-auto font-averta leading-relaxed text-center">
                     VAYLA is the core utility, settlement, and<br />
-                    funding token of the VAYLA ecosystem.
+                    The VAYLA Boost token powers the VAYLA ecosystem.
                 </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-6xl mx-auto">
@@ -31,9 +31,9 @@ export default function StitchCoreUtility() {
                     <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 border border-primary/20">
                         <span className="material-symbols-outlined text-primary">account_balance_wallet</span>
                     </div>
-                    <h3 className="text-xl heading-bold mb-3">Web3 Funding &amp; Settlement</h3>
+                    <h3 className="text-xl heading-bold mb-3">Web3 VAYLA Boost &amp; Settlement</h3>
                     <p className="card-copy text-sm">
-                        The primary asset for fan-driven funding and on-chain settlement.
+                        The primary asset for fan-driven VAYLA Boost and on-chain settlement.
                     </p>
                 </div>
                 <div className="glass-card p-8 group">
@@ -49,7 +49,7 @@ export default function StitchCoreUtility() {
             <div className="text-center mt-8">
                 <p className="text-primary italic text-sm font-averta font-normal tracking-tight leading-relaxed">
                     Built for discovery, participation, voting,<br />
-                    and funding — on-chain.
+                    and VAYLA Boost — on-chain.
                 </p>
             </div>
         </section>

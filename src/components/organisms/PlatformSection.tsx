@@ -17,7 +17,7 @@ const PlatformSection = () => {
     const orbitItems = [
         { label: "Creator", icon: "mdi:account-star-outline", colorHex: "#f472b6" },
         { label: "Merch", icon: "mdi:tshirt-crew-outline", colorHex: "#60a5fa" },
-        { label: "Fan Funding", icon: "mdi:hand-coin-outline", colorHex: "#22d3ee" },
+        { label: "VAYLA Boost for Fans", icon: "mdi:hand-coin-outline", colorHex: "#22d3ee" },
         { label: "NFT Ticket", icon: "mdi:ticket-confirmation-outline", colorHex: "#a78bfa" },
         { label: "Rewards", icon: "ph:moon-fill", colorHex: "#fbbf24" },
         { label: "Staking", icon: "mdi:cached", colorHex: "#34d399" }
@@ -83,7 +83,7 @@ const PlatformSection = () => {
                             <span className="absolute -top-6 -right-12 text-xs font-mono text-teal-500 tracking-widest border border-teal-500 bg-teal-900/20 rounded px-2 py-1 animate-pulse">V3.0 ACTIVE</span>
                         </h2>
                         <p className="text-xl text-gray-400 font-light max-w-3xl mx-auto leading-relaxed">
-                            VAYLA does not replace the entertainment industry. It builds the participation and funding infrastructure beneath it.
+                            VAYLA does not replace the entertainment industry. It builds the participation infrastructure behind VAYLA Boost.
                         </p>
                     </div>
                 </div>

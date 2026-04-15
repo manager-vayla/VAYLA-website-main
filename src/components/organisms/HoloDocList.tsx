@@ -31,7 +31,7 @@ export default function HoloDocList() {
         },
     {
         title: 'Arena Overview',
-        description: 'Discovery, On-chain Chart, and Funding modules.',
+        description: 'Discovery, On-chain Chart, and VAYLA Boost modules.',
         icon: 'ri:layout-grid-line',
         link: '/docs/1_(EN)VAYLA_Arena__Project_Overview.pdf',
         highlight: false

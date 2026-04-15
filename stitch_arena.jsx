@@ -11,7 +11,7 @@
 <div className="sub-headline text-[var(--light-grey)] font-medium text-[0.95rem] leading-[1.4] max-w-[340px] mx-auto text-center opacity-80">
 <p>The on-chain operating environment</p>
 <p>where discovery, participation, voting,</p>
-<p>and funding take place.</p>
+<p>and VAYLA Boost unfold.</p>
 </div>
 </header>
 <div className="relative flex flex-col items-center">
@@ -46,7 +46,7 @@
                 where the VAYLA token is actively<br/>
                 used to enable <span className="text-[var(--mint-green)] font-bold">fandom discovery</span>,<br/>
 <span className="text-[var(--mint-green)] font-bold">on-chain participation</span>, <span className="text-[var(--mint-green)] font-bold">community</span><br/>
-<span className="text-[var(--mint-green)] font-bold">voting</span>, and <span className="text-[var(--mint-green)] font-bold">Web3-native funding</span>.
+<span className="text-[var(--mint-green)] font-bold">voting</span>, and <span className="text-[var(--mint-green)] font-bold">Web3-native VAYLA Boost</span>.
             </p>
 </div>
 </section>
@@ -80,8 +80,8 @@
 <span className="material-symbols-outlined text-[var(--mint-green)] text-3xl icon-accent">account_balance_wallet</span>
 </div>
 <div>
-<h3 className="font-bold text-xl mb-1 text-white">VAYLA 3.0 Funding</h3>
-<p className="text-[var(--light-grey)] text-sm opacity-80">Enable fandom-driven funding and IP-based projects through Web3-native, on-chain settlement.</p>
+<h3 className="font-bold text-xl mb-1 text-white">VAYLA Boost 3.0</h3>
+<p className="text-[var(--light-grey)] text-sm opacity-80">Enable fandom-driven VAYLA Boost and IP-based projects through Web3-native, on-chain settlement.</p>
 </div>
 </div>
 </div>
@@ -144,7 +144,7 @@
                 VAYLA Arena does not replace<br/>
                 existing entertainment platforms.<br/>
                 It serves as a participation and<br/>
-                funding infrastructure built on<br/>
+                the VAYLA Boost infrastructure built on<br/>
                 Web3 principles.
             </p>
 </div>

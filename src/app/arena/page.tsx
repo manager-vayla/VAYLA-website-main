@@ -43,7 +43,7 @@ export default function ArenaPage() {
                     <div className="sub-headline text-[var(--light-grey)] font-medium text-[0.95rem] leading-[1.4] max-w-[340px] mx-auto text-center opacity-80">
                         <p>The on-chain operating environment</p>
                         <p>where discovery, participation, voting,</p>
-                        <p>and funding take place.</p>
+                        <p>and VAYLA Boost unfold.</p>
                     </div>
                 </header>
                 <div className="relative flex flex-col items-center">
@@ -103,7 +103,7 @@ export default function ArenaPage() {
                         where the VAYLA token is actively<br className="lg:hidden" />
                         used to enable <span className="text-primary font-bold">fandom discovery</span>,<br className="lg:hidden" />
                         <span className="text-primary font-bold">on-chain participation</span>, <span className="text-primary font-bold">community</span><br className="lg:hidden" />
-                        <span className="text-primary font-bold">voting</span>, and <span className="text-primary font-bold">Web3-native funding</span>.
+                        <span className="text-primary font-bold">voting</span>, and <span className="text-primary font-bold">Web3-native VAYLA Boost</span>.
                     </p>
                 </div>
             </section>
@@ -137,8 +137,8 @@ export default function ArenaPage() {
                             <span className="material-symbols-outlined text-primary text-3xl icon-accent">account_balance_wallet</span>
                         </div>
                         <div>
-                            <h3 className="font-bold text-xl mb-1 text-white">VAYLA 3.0 Funding</h3>
-                            <p className="text-white/70 text-sm opacity-80">Enable fandom-driven funding and IP-based projects through Web3-native, on-chain settlement.</p>
+                            <h3 className="font-bold text-xl mb-1 text-white">VAYLA Boost 3.0</h3>
+                            <p className="text-white/70 text-sm opacity-80">Enable fandom-driven VAYLA Boost and IP-based projects through Web3-native, on-chain settlement.</p>
                         </div>
                     </div>
                 </div>
@@ -201,7 +201,7 @@ export default function ArenaPage() {
                         VAYLA Arena does not replace<br className="lg:hidden" />
                         existing entertainment platforms.<br className="lg:hidden" />
                         It serves as a participation and<br className="lg:hidden" />
-                        funding infrastructure built on<br className="lg:hidden" />
+                        the VAYLA Boost infrastructure built on<br className="lg:hidden" />
                         Web3 principles.
                     </p>
                 </div>

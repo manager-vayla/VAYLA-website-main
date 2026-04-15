@@ -19,9 +19,9 @@ const utilities = [
         color: 'border-teal-400'
     },
     {
-        title: 'FUNDING',
+        title: 'VAYLA BOOST',
         subtitle: '& SETTLEMENT',
-        description: 'Primary asset for fandom-driven funding and IP-based project settlement.',
+        description: 'The primary asset for VAYLA Boost and IP-based project settlement.',
         id: 'PASS-02',
         delay: 1.5,
         color: 'border-purple-400'

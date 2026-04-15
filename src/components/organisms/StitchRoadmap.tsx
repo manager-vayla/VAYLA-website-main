@@ -21,7 +21,7 @@ export default function StitchRoadmap() {
                     <div className="glass-card p-6 border-primary/20 bg-primary/5">
                         <span className="text-[10px] heading-bold text-primary uppercase mb-2 block tracking-widest leading-none font-averta">Phase 1</span>
                         <h4 className="text-lg heading-bold mb-2 text-white font-averta">Foundation</h4>
-                        <p className="text-white/60 text-sm leading-relaxed font-averta">Launch VAYLA Arena core modules: Discovery, On-chain Chart, and Funding. Establish token utility and on-chain participation flow.</p>
+                        <p className="text-white/60 text-sm leading-relaxed font-averta">Launch VAYLA Arena core modules: Discovery, On-chain Chart, and VAYLA Boost. Establish token utility and on-chain participation flow.</p>
                     </div>
                 </div>
                 <div className="relative pl-12">
@@ -29,7 +29,7 @@ export default function StitchRoadmap() {
                     <div className="glass-card p-6 border-primary/20 bg-primary/5">
                         <span className="text-[10px] heading-bold text-primary uppercase mb-2 block tracking-widest leading-none font-averta">Phase 2</span>
                         <h4 className="text-lg heading-bold mb-2 text-white font-averta">Expansion</h4>
-                        <p className="text-white/60 text-sm leading-relaxed font-averta">Expand fandom funding use cases, enhance creator onboarding, and scale community participation.</p>
+                        <p className="text-white/60 text-sm leading-relaxed font-averta">Expand VAYLA Boost use cases for fandom, enhance creator onboarding, and scale community participation.</p>
                     </div>
                 </div>
                 <div className="relative pl-12">

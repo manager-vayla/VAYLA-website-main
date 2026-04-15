@@ -8,12 +8,12 @@ export default function StitchInfrastructure() {
             <div className="text-center mb-12">
                 <div className="flex justify-center mb-8">
                     <span className="inline-block px-5 py-2 text-[11px] font-extrabold tracking-[0.25em] uppercase border border-primary/40 rounded-full text-primary bg-primary/5 backdrop-blur-sm font-averta">
-                        WHY WEB3 FANDOM &amp; FUNDING
+                        WHY WEB3 FANDOM &amp; VAYLA BOOST
                     </span>
                 </div>
                 <h2 className="text-3xl heading-bold mb-4 font-averta">Evolving the Infrastructure</h2>
                 <p className="text-white/70 text-[15px] max-w-[300px] mx-auto font-averta leading-relaxed text-center">
-                    VAYLA does not replace the entertainment industry. It builds the participation and funding infrastructure beneath it.
+                    VAYLA does not replace the entertainment industry. It builds the participation infrastructure behind VAYLA Boost.
                 </p>
             </div>
             <div className="flex flex-col items-center gap-0 relative max-w-sm md:max-w-2xl mx-auto">

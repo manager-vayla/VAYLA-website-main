@@ -52,7 +52,7 @@
 <h2 className="text-3xl heading-bold mb-4 font-averta">Core Utility &amp; Settlement</h2>
 <p className="text-white/85 text-sm max-w-[320px] mx-auto font-averta leading-relaxed text-center">
                     VAYLA is the core utility, settlement, and<br/>
-                    funding token of the VAYLA ecosystem.
+                    The VAYLA Boost token powers the VAYLA ecosystem.
                 </p>
 </div>
 <div className="flex flex-col gap-6 mb-12">
@@ -69,9 +69,9 @@
 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 border border-primary/20">
 <span className="material-symbols-outlined text-primary">account_balance_wallet</span>
 </div>
-<h3 className="text-xl heading-bold mb-3">Web3 Funding &amp; Settlement</h3>
+<h3 className="text-xl heading-bold mb-3">Web3 VAYLA Boost &amp; Settlement</h3>
 <p className="card-copy text-sm">
-                        The primary asset for fan-driven funding and on-chain settlement.
+                        The primary asset for fan-driven VAYLA Boost and on-chain settlement.
                     </p>
 </div>
 <div className="glass-card p-8">
@@ -87,7 +87,7 @@
 <div className="text-center mt-8">
 <p className="text-primary italic text-sm font-averta font-normal tracking-tight leading-relaxed">
                     Built for discovery, participation, voting,<br/>
-                    and funding — on-chain.
+                    and VAYLA Boost — on-chain.
                 </p>
 </div>
 </section>
@@ -207,16 +207,16 @@
 <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-md text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Goal: $1M</div>
 </div>
 <div className="split-card-content">
-<span className="text-[18px] font-bold mb-3 block tracking-[0.2em] uppercase font-averta text-primary">[VAYLA 3.0 FUNDING]</span>
-<h3 className="text-[22px] heading-bold mb-2 text-white font-averta">Participate in Web3 funding projects</h3>
-<p className="text-white/80 text-sm leading-relaxed font-averta">Web3-native fandom funding powered by participation-based on-chain settlement.</p>
+<span className="text-[18px] font-bold mb-3 block tracking-[0.2em] uppercase font-averta text-primary">[VAYLA Boost 3.0]</span>
+<h3 className="text-[22px] heading-bold mb-2 text-white font-averta">Participate in Web3 VAYLA Boost projects</h3>
+<p className="text-white/80 text-sm leading-relaxed font-averta">Web3-native VAYLA Boost powered by participation-based on-chain settlement.</p>
 </div>
 </div>
 </div>
 <div className="text-center mt-8">
 <p className="text-primary italic font-normal text-sm font-averta tracking-tight leading-relaxed max-w-[320px] mx-auto">
                     Together, these modules form a continuous<br/>
-                    on-chain participation and funding<br/>
+                    on-chain participation and VAYLA Boost<br/>
                     ecosystem.
                 </p>
 </div>
@@ -226,12 +226,12 @@
 <div className="text-center mb-12">
 <div className="flex justify-center mb-8">
 <span className="inline-block px-5 py-2 text-[11px] font-extrabold tracking-[0.25em] uppercase border border-primary/40 rounded-full text-primary bg-primary/5 backdrop-blur-sm font-averta">
-                        WHY WEB3 FANDOM &amp; FUNDING
+                        WHY WEB3 FANDOM &amp; VAYLA BOOST
                     </span>
 </div>
 <h2 className="text-3xl heading-bold mb-4 font-averta">Evolving the Infrastructure</h2>
 <p className="text-white/70 text-[15px] max-w-[300px] mx-auto font-averta leading-relaxed text-center">
-                    VAYLA does not replace the entertainment industry. It builds the participation and funding infrastructure beneath it.
+                    VAYLA does not replace the entertainment industry. It builds the participation infrastructure behind VAYLA Boost.
                 </p>
 </div>
 <div className="flex flex-col items-center gap-0 relative max-w-sm mx-auto">
@@ -293,7 +293,7 @@
 </div>
 <h2 className="text-3xl heading-bold mb-4 font-averta">Multi-Agent Ecosystem</h2>
 <p className="text-white/85 text-sm max-w-[320px] mx-auto leading-relaxed font-averta">
-                    VAYLA Arena is designed for a future where not only humans and creators, but also AI and AGI agents participate as verified contributors within the fandom and funding ecosystem.
+                    VAYLA Arena is designed for a future where not only humans and creators, but also AI and AGI agents participate as verified contributors within the fandom and the VAYLA Boost ecosystem.
                 </p>
 </div>
 <div className="grid gap-6">
@@ -344,7 +344,7 @@
 <div className="glass-card p-6 border-primary/20 bg-primary/5">
 <span className="text-[10px] heading-bold text-primary uppercase mb-2 block tracking-widest leading-none font-averta">Phase 1</span>
 <h4 className="text-lg heading-bold mb-2 text-white font-averta">Foundation</h4>
-<p className="text-white/60 text-sm leading-relaxed font-averta">Launch VAYLA Arena core modules: Discovery, On-chain Chart, and Funding. Establish token utility and on-chain participation flow.</p>
+<p className="text-white/60 text-sm leading-relaxed font-averta">Launch VAYLA Arena core modules: Discovery, On-chain Chart, and VAYLA Boost. Establish token utility and on-chain participation flow.</p>
 </div>
 </div>
 <div className="relative pl-12">
@@ -352,7 +352,7 @@
 <div className="glass-card p-6 border-primary/20 bg-primary/5">
 <span className="text-[10px] heading-bold text-primary uppercase mb-2 block tracking-widest none font-averta">Phase 2</span>
 <h4 className="text-lg heading-bold mb-2 text-white font-averta">Expansion</h4>
-<p className="text-white/60 text-sm leading-relaxed font-averta">Expand fandom funding use cases, enhance creator onboarding, and scale community participation.</p>
+<p className="text-white/60 text-sm leading-relaxed font-averta">Expand VAYLA Boost use cases for fandom, enhance creator onboarding, and scale community participation.</p>
 </div>
 </div>
 <div className="relative pl-12">

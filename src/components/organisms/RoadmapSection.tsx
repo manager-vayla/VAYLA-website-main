@@ -113,7 +113,7 @@ export default function RoadmapSection() {
             q: "Q2 2026",
             title: "Service Projects",
             items: [
-                { category: "Marketing", text: "Expand global influencer partnerships and Launch Global Concert Crowdfunding projects." },
+                { category: "Marketing", text: "Expand global influencer partnerships and launch global concert crowd-powered VAYLA Boost projects." },
                 { category: "Development", text: "Beta Release of AI Marketing Assistant — Trend keyword extraction and automated copy generation." }
             ]
         },

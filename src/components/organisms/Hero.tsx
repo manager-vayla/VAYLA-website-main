@@ -61,7 +61,7 @@ const Hero = () => {
                     <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-12 border-t border-white/10 pt-10 animate-fade-in-up [animation-delay:600ms]">
                         <p className="text-xs md:text-sm text-white font-light max-w-2xl leading-relaxed">
                             Bridging the gap between global fans and premier entertainment IPs.
-                            From funding to ownership, VAYLA builds the infrastructure
+                            From VAYLA Boost to ownership, VAYLA builds the infrastructure
                             for the next-generation fandom economy.
                         </p>
 

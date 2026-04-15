@@ -45,7 +45,7 @@ const Footer = () => {
                 <div>
                     <h4 className="text-white font-bold mb-6 font-['Space_Grotesk']">Ecosystem</h4>
                     <ul className="space-y-3 text-sm text-gray-500">
-                        {['Fan Funding', 'Asset Tokenization', 'Marketplace', 'DAO Governance'].map(item => (
+                        {['VAYLA Boost for Fans', 'Asset Tokenization', 'Marketplace', 'DAO Governance'].map(item => (
                             <li key={item}><a href="#" className="hover:text-teal-400 transition-colors">{item}</a></li>
                         ))}
                     </ul>

@@ -49,11 +49,11 @@ const RevenueSection = () => {
                     <SpotlightCard
                         variant="glass"
                         image="https://images.unsplash.com/photo-1618044733300-9472054094ee?q=80&w=2070&auto=format&fit=crop"
-                        title="[VAYLA 3.0 FUNDING]"
+                        title="[VAYLA Boost 3.0]"
                         desc={
                             <>
-                                <strong className="block text-white mb-2 text-lg">Participate in Web3 funding projects</strong>
-                                Web3-native fandom funding powered by participation-based on-chain settlement.
+                                <strong className="block text-white mb-2 text-lg">Participate in Web3 VAYLA Boost projects</strong>
+                                Web3-native VAYLA Boost powered by participation-based on-chain settlement.
                             </>
                         }
                         delay={200}
@@ -61,7 +61,7 @@ const RevenueSection = () => {
                 </div>
 
                 <div className="mt-16 text-center text-teal-500/80 font-mono text-xs uppercase tracking-widest max-w-2xl mx-auto">
-                    Together, these modules form a continuous on-chain participation and funding ecosystem.
+                    Together, these modules form a continuous on-chain participation and VAYLA Boost ecosystem.
                 </div>
             </div>
         </section>

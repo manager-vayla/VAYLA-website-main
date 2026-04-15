@@ -45,16 +45,16 @@ export default function StitchArenaLayer() {
                         <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-md text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Goal: $1M</div>
                     </div>
                     <div className="split-card-content">
-                        <span className="text-[18px] font-bold mb-3 block tracking-[0.2em] uppercase font-averta text-primary">[VAYLA 3.0 FUNDING]</span>
-                        <h3 className="text-[22px] heading-bold mb-2 text-white font-averta">Participate in Web3 funding projects</h3>
-                        <p className="text-white/80 text-sm leading-relaxed font-averta">Web3-native fandom funding powered by participation-based on-chain settlement.</p>
+                        <span className="text-[18px] font-bold mb-3 block tracking-[0.2em] uppercase font-averta text-primary">[VAYLA Boost 3.0]</span>
+                        <h3 className="text-[22px] heading-bold mb-2 text-white font-averta">Participate in Web3 VAYLA Boost projects</h3>
+                        <p className="text-white/80 text-sm leading-relaxed font-averta">Web3-native VAYLA Boost powered by participation-based on-chain settlement.</p>
                     </div>
                 </div>
             </div>
             <div className="text-center mt-8">
                 <p className="text-primary italic font-normal text-sm font-averta tracking-tight leading-relaxed max-w-[320px] mx-auto">
                     Together, these modules form a continuous<br />
-                    on-chain participation and funding<br />
+                    on-chain participation and VAYLA Boost<br />
                     ecosystem.
                 </p>
             </div>

@@ -104,7 +104,7 @@ const CoreUtilitySection = () => {
                     <ReactorNode
                         title="FUND & SETTLE"
                         icon="mdi:finance"
-                        desc="The native currency for IP funding rounds, asset settlement, and cross-border transactions."
+                        desc="The native currency for IP VAYLA Boost rounds, asset settlement, and cross-border transactions."
                         color="#a855f7"
                         delay={1}
                     />
