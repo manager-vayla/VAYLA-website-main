@@ -2,7 +2,7 @@
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Suspense, useState } from 'react';
-import RouteChangeTracker from '@/components/atoms/RouteChangeTracker';
+import RouteChangeTracker from '../atoms/RouteChangeTracker';
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
