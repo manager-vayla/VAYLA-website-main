@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tailwind preflight is intentionally kept; original.css overrides what it needs.
+   The other React routes (Vaults browser, Dashboard, AI hub, etc.) use Tailwind. */
+
+::selection { background: rgba(112,243,216,0.35); color: #FAFFFD; }
+
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: #1A2E27; border-radius: 999px; }
+*::-webkit-scrollbar-thumb:hover { background: #234038; }
+
+@layer components {
+  .glass {
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    border: 1px solid #1A2E27;
+    backdrop-filter: blur(8px);
+  }
+  .glass-hover { @apply transition-all duration-200; }
+  .glass-hover:hover {
+    border-color: #2D5448;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  }
+
+  .pill {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium;
+    background: linear-gradient(180deg, rgba(112,243,216,0.10), rgba(112,243,216,0.04));
+    border: 1px solid rgba(112,243,216,0.18);
+    color: #C7FBEA;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-semibold transition-all;
+  }
+  .btn-mint {
+    background: linear-gradient(180deg, #9CFBE4, #3FE0BC);
+    color: #0A1310;
+    box-shadow: 0 8px 30px -8px rgba(31,184,154,0.6), inset 0 1px 0 rgba(255,255,255,0.4);
+  }
+  .btn-mint:hover { transform: translateY(-1px); box-shadow: 0 12px 40px -8px rgba(31,184,154,0.7), inset 0 1px 0 rgba(255,255,255,0.5); }
+  .btn-ghost {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid #2D5448;
+    color: #E6F2EE;
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.06); border-color: #3FE0BC; }
+
+  .card {
+    @apply rounded-2xl;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border: 1px solid #1A2E27;
+  }
+
+  .tabular { font-variant-numeric: tabular-nums; font-feature-settings: 'tnum'; }
+
+  .display { font-family: 'Fraunces', Georgia, serif; letter-spacing: -0.02em; }
+  .display-italic { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400; }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(112,243,216,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(112,243,216,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 80%);
+  }
+
+  .ticker-track {
+    display: inline-flex; gap: 48px; white-space: nowrap;
+    animation: tickerScroll 40s linear infinite;
+  }
+  @keyframes tickerScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  .blob {
+    position: absolute; border-radius: 50%; filter: blur(60px);
+    mix-blend-mode: screen; pointer-events: none;
+  }
+}

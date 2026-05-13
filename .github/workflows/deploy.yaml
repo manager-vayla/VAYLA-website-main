@@ -1,48 +1,63 @@
-name: 🚀 Deploy Vayla Website ver 2.0
+# Next.js static export -> ./out → FTP upload to Hostinger/shared hosting (public_html).
+# Mirrors ver 2.0 with reproducible installs, Node 24, and verified output before FTP.
+
+name: Deploy Vayla Website ver 3.0
 
 on:
+  workflow_dispatch:
   push:
     branches:
-      - stitch-design
+      - main
+
+concurrency:
+  group: deploy-vayla-io-ftp
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    # THÊM VÀO ĐÂY: Ép GitHub Actions sử dụng Node.js 24 cho các Javascript Actions
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
-      - name: 🚚 Get latest code
+      - name: Get latest code
         uses: actions/checkout@v4
 
-      - name: ⚙️ Setup Node.js
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          # CẬP NHẬT: Chuyển từ '20' lên '24' để tương thích với runner mới
           node-version: '24'
+          cache: 'pnpm'
 
-      - name: 📦 Install pnpm
-        run: npm install -g pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-      - name: 📦 Install dependencies
-        run: pnpm install
-
-      - name: 🔨 Build Project
+      - name: Build static export
         run: pnpm run build
         env:
           NEXT_PUBLIC_BASE_URL: https://vayla.io
+          NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID: ${{ secrets.WALLETCONNECT_PROJECT_ID }}
 
-      - name: 📝 Create .htaccess for Routing
+      - name: Verify export output
         run: |
-          echo "RewriteEngine On
+          test -f out/index.html || { echo "::error::Missing out/index.html"; exit 1; }
+          test -d out/_next/static || { echo "::error::Missing Next static assets"; exit 1; }
+
+      - name: Create .htaccess for routing
+        run: |
+          cat <<'EOF' > ./out/.htaccess
+          RewriteEngine On
           RewriteBase /
           RewriteCond %{REQUEST_FILENAME} !-f
           RewriteCond %{REQUEST_FILENAME} !-d
-          RewriteRule ^([^/]+)/?$ \$1.html [L]" > ./out/.htaccess
+          RewriteRule ^([^/]+)/?$ $1.html [L]
+          EOF
 
-      - name: 📂 Sync files via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Sync files via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}

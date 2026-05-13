@@ -1,0 +1,43 @@
+/* Override .vault-card for clean React links, original CSS may have been JS-template-specific */
+.vault-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 18px;
+}
+.vault-card {
+  display: block;
+  padding: 22px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  color: inherit;
+  transition: border-color 0.25s, transform 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.vault-card:hover { border-color: rgba(112,243,216,0.35); transform: translateY(-2px); }
+.vault-head { display: flex; align-items: center; gap: 12px; }
+.vault-avatar {
+  width: 44px; height: 44px; border-radius: 12px;
+  display: grid; place-items: center;
+  font-weight: 700; color: #0A1310; font-family: var(--display);
+}
+.vault-id { flex: 1; min-width: 0; }
+.vault-id strong { display: block; font-family: var(--display); font-size: 17px; }
+.vault-id span { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); }
+.vault-status {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px; border-radius: 999px;
+  border: 1px solid rgba(112,243,216,0.18);
+  background: rgba(112,243,216,0.05);
+  font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #C7FBEA;
+}
+.vault-status .dot { width: 6px; height: 6px; border-radius: 50%; background: #70F3D8; box-shadow: 0 0 8px rgba(112,243,216,0.7); }
+.vault-tagline { color: var(--text-2); margin-top: 14px; font-size: 13px; line-height: 1.5; }
+.vault-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
+.vault-stats .lbl { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); }
+.vault-stats .val { font-family: var(--display); font-size: 18px; margin-top: 4px; }
+.vault-fill { margin-top: 18px; }
+.vault-fill-meta { display: flex; justify-content: space-between; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); margin-bottom: 6px; }
+.vault-fill-bar { height: 4px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.vault-fill-bar div { height: 100%; background: linear-gradient(90deg, #9CFBE4, #1FB89A); }

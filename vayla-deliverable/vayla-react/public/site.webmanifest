@@ -1,0 +1,14 @@
+{
+  "name": "VAYLA",
+  "short_name": "VAYLA",
+  "description": "The settlement layer for fan-funded equity. Fan Vaults · Creator Equity · On-chain.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050706",
+  "theme_color": "#70F3D8",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/apple-touch-icon.svg", "sizes": "180x180", "type": "image/svg+xml", "purpose": "any maskable" }
+  ],
+  "categories": ["finance", "music", "social"]
+}

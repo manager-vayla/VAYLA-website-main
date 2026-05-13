@@ -36,4 +36,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/vayla-deliverable/
+# Deliverable: Next aliases vayla-deliverable/vayla-react/src — track that app, not local bulk.
+/vayla-deliverable/brand-kit/
+/vayla-deliverable/contracts/
+/vayla-deliverable/vayla-react/package-lock.json

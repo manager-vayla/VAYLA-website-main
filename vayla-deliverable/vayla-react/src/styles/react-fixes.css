@@ -1,0 +1,1034 @@
+/* React-port adjustments. Loaded AFTER original.css.
+   Fixes layout edge cases that surfaced once components re-mounted in
+   different contexts, plus tightens mobile paddings and chart alignment. */
+
+/* -------- Donut center text alignment fix --------
+   Original used `display: grid; place-items: center` which puts each child in
+   its own implicit row. Switch to flex column so the three lines stack as one
+   block centered both axes inside the donut hole. */
+.donut-center {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.donut-center .num {
+  font-size: clamp(34px, 4vw, 56px);
+  line-height: 1;
+}
+.donut-center .total { margin-bottom: 4px; }
+.donut-center .ticker { margin-top: 6px; white-space: nowrap; }
+.donut-wrap { max-width: 380px; }
+
+/* -------- Token grid: stack on mobile -------- */
+@media (max-width: 880px) {
+  .token-grid { grid-template-columns: 1fr !important; gap: 24px; }
+  .donut-wrap { max-width: 280px; }
+}
+
+/* -------- Wider hero deck on tablet between breakpoints -------- */
+@media (max-width: 1080px) and (min-width: 881px) {
+  .hero { padding-top: 60px; padding-bottom: 40px; }
+}
+
+/* -------- Mechanism mobile: stack frames + art, kill the full-section pin -------- */
+@media (max-width: 1080px) {
+  .pin-frames { padding: 0; }
+  .pin-art { aspect-ratio: 1; max-width: 460px; margin: 0 auto; }
+  .pin-art-svg { position: relative; }
+}
+
+/* -------- Hero protocol art: don't overflow on narrow screens -------- */
+@media (max-width: 1080px) {
+  .hero-art-svg { transform: scale(0.92); }
+}
+
+/* -------- Tighten section vertical rhythm on mobile -------- */
+@media (max-width: 880px) {
+  .section { padding-top: 80px; padding-bottom: 80px; }
+  .section-title { font-size: clamp(36px, 9vw, 56px) !important; line-height: 1.02; }
+  .hero-title { font-size: clamp(48px, 12vw, 88px) !important; line-height: 0.96; }
+}
+
+/* -------- Roadmap: bigger touch-friendly cards on mobile -------- */
+@media (max-width: 880px) {
+  .road-card { min-width: 86vw; }
+}
+
+/* -------- Vault grid: better mobile column rules -------- */
+@media (max-width: 880px) {
+  .vault-grid { grid-template-columns: 1fr !important; }
+}
+
+/* -------- Marquee speed: a touch slower so it's readable -------- */
+.marquee-track { animation-duration: 60s; }
+
+/* -------- Footer: stack columns more gracefully on small screens -------- */
+@media (max-width: 880px) {
+  .f-grid { grid-template-columns: 1fr 1fr !important; gap: 32px; }
+  .f-brand { grid-column: span 2; }
+  .f-bottom { flex-direction: column; gap: 12px; align-items: flex-start; }
+}
+
+/* -------- Statusbar on mobile: hide ticker, keep MAINNET + clock -------- */
+@media (max-width: 880px) {
+  .statusbar .ticker-track { display: none; }
+  .statusbar { padding: 8px 16px; font-size: 11px; }
+}
+
+/* -------- Nav on mobile: show condensed -------- */
+@media (max-width: 880px) {
+  .nav { padding: 12px 16px; }
+}
+
+/* -------- Dashboard stats: 1 col on tiny screens -------- */
+@media (max-width: 540px) {
+  .dash-stats { grid-template-columns: 1fr !important; }
+  .dash-body { grid-template-columns: 1fr !important; }
+}
+
+/* -------- Reveal: a hint of motion (matches `.reveal.is-in` from original which we keep) -------- */
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.reveal.is-in { opacity: 1; transform: none; }
+
+/* -------- Buttons: ensure no Tailwind preflight strips border-radius from <button> -------- */
+button.btn { font-family: inherit; }
+
+/* -------- Body bg: extra safety in case Tailwind preflight wins early -------- */
+body { background: var(--midnight); color: var(--text-1); font-family: var(--body); }
+
+/* -------- ConnectKit modal: dark theme polish (more spacing/contrast) -------- */
+[class*='ck-'] { font-family: var(--body) !important; }
+
+/* =================================================================
+   MOBILE PASS, comprehensive polish across every route
+   ================================================================= */
+
+/* --- Mobile nav: burger drawer ----------------------------------- */
+@media (max-width: 880px) {
+  .nav { padding: 12px 16px; gap: 12px; }
+  .nav-burger {
+    display: inline-flex !important; align-items: center; justify-content: center;
+  }
+  .nav-links {
+    display: none !important;
+    position: fixed; inset: 90px 16px auto 16px;
+    flex-direction: column !important; gap: 4px !important;
+    background: rgba(7, 12, 10, 0.95);
+    backdrop-filter: blur(20px) saturate(1.4);
+    border: 1px solid var(--line-2); border-radius: 20px;
+    padding: 12px !important;
+    z-index: 100;
+  }
+  .nav-links.is-open { display: flex !important; }
+  .nav-link {
+    width: 100%; text-align: left;
+    padding: 14px 18px !important; font-size: 14px !important;
+  }
+  .nav-cta {
+    padding: 8px 14px !important; font-size: 11px !important;
+  }
+  .nav-cta-cluster { gap: 8px; }
+}
+@media (min-width: 881px) {
+  .nav-burger { display: none !important; }
+}
+
+/* --- Mobile hero: stack columns, hide protocol art, scale title -- */
+@media (max-width: 1080px) {
+  .hero { padding: 130px 0 60px !important; }
+  .hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; align-items: start; }
+  .hero-art { display: none; }
+  .hero-title { font-size: clamp(44px, 11vw, 80px) !important; line-height: 0.96 !important; }
+  .hero-deck { font-size: 16px !important; }
+  .hero-streaks { mask-image: linear-gradient(180deg, transparent 0%, #000 8%, #000 92%, transparent 100%); }
+}
+
+/* --- Mobile sections: tighter rhythm ----------------------------- */
+@media (max-width: 880px) {
+  .section { padding: 80px 0 !important; }
+  .section-head { gap: 12px; }
+  .section-title { font-size: clamp(36px, 9vw, 56px) !important; line-height: 1 !important; }
+  .section-deck  { font-size: 15px !important; max-width: 100% !important; }
+  .section-eyebrow { font-size: 10px !important; }
+}
+
+/* --- Mobile thesis: 1 col --------------------------------------- */
+@media (max-width: 880px) {
+  .thesis-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .thesis-card { padding: 28px !important; }
+  .thesis-card h3 { font-size: 24px !important; }
+}
+
+/* --- Mobile dashboard: stack ------------------------------------ */
+@media (max-width: 880px) {
+  .dash-stats { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+  .dash-body { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .dash { padding: 20px !important; }
+  .dash-locked { padding: 60px 20px !important; }
+  .dash-locked h3 { font-size: 28px !important; }
+}
+@media (max-width: 540px) {
+  .dash-stats { grid-template-columns: 1fr !important; }
+  .dash-stat { padding: 16px !important; }
+}
+
+/* --- Mobile vaults arena ---------------------------------------- */
+@media (max-width: 880px) {
+  .vault-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .vault-card { padding: 18px !important; }
+}
+
+/* --- Mobile mechanism (already CSS-stacked above 1080px breakpoint) -- */
+@media (max-width: 1080px) {
+  .pin-track { height: auto !important; }
+  .pin-stage {
+    position: relative !important; height: auto !important;
+    grid-template-columns: 1fr !important; gap: 24px !important;
+    padding: 60px 20px !important;
+  }
+  .pin-frame {
+    position: relative !important;
+    opacity: 1 !important; transform: none !important;
+    filter: none !important; pointer-events: auto !important;
+    grid-area: auto !important;
+    padding: 60px 0; border-top: 1px solid var(--line);
+  }
+  .pin-frame:first-child { border-top: 0; padding-top: 0; }
+  .pin-frame h3 { font-size: clamp(36px, 8vw, 56px) !important; }
+  .pin-art { display: none; }
+  .pin-rail, .pin-dots { display: none !important; }
+}
+
+/* --- Mobile token: stack donut + alloc list -------------------- */
+@media (max-width: 880px) {
+  .token-grid { grid-template-columns: 1fr !important; gap: 32px !important; align-items: center; }
+  .donut-wrap { max-width: 260px; margin: 0 auto !important; }
+  .alloc-list { width: 100%; }
+  .token-tooltip {
+    position: fixed !important;
+    left: 16px !important; right: 16px !important; bottom: 16px !important;
+    top: auto !important; width: auto !important;
+    transform: none !important;
+  }
+}
+
+/* --- Mobile roadmap: bigger swipe-friendly cards --------------- */
+@media (max-width: 880px) {
+  .road-track { grid-auto-columns: 86vw !important; gap: 12px !important; }
+  .road-arrows { display: none !important; }
+  .road-card { padding: 22px !important; }
+  .road-card .when { font-size: 24px !important; }
+}
+
+/* --- Mobile final CTA + footer -------------------------------- */
+@media (max-width: 880px) {
+  .final { padding: 80px 0 !important; }
+  .final h2 { font-size: clamp(40px, 10vw, 64px) !important; }
+  .foot { padding: 48px 0 20px !important; }
+  .f-grid { grid-template-columns: 1fr 1fr !important; gap: 28px !important; margin-bottom: 28px !important; }
+  .f-brand { grid-column: span 2; }
+  .f-bottom { flex-direction: column !important; gap: 12px !important; align-items: flex-start !important; padding-top: 16px !important; }
+}
+
+/* --- Mobile ticker: hide on very narrow screens ---------------- */
+@media (max-width: 540px) {
+  .statusbar .ticker-track { display: none; }
+  .statusbar { padding: 0 14px; }
+}
+
+/* --- Mobile vault detail page --------------------------------- */
+@media (max-width: 880px) {
+  /* Vault detail uses Tailwind grid; tighten header + stat grid */
+  .card .display { font-size: clamp(28px, 7vw, 44px) !important; }
+}
+
+/* --- Mobile whitepaper ---------------------------------------- */
+@media (max-width: 880px) {
+  .wp-body {
+    grid-template-columns: 1fr !important;
+    padding: 32px 20px 80px !important;
+    gap: 32px !important;
+  }
+  .toc {
+    position: relative !important;
+    top: auto !important;
+    padding: 16px 16px 8px !important;
+    border-left: 0 !important;
+    border: 1px solid var(--line-2);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.02);
+  }
+  .toc-list { columns: 2; gap: 4px; }
+  .wp-title { font-size: clamp(40px, 11vw, 76px) !important; }
+  .wp-deck { font-size: 16px !important; }
+  .wp-chapter h2 { font-size: clamp(28px, 7vw, 44px) !important; }
+  .wp-grid { grid-template-columns: 1fr !important; }
+  .wp-table { font-size: 12px !important; }
+  .wp-table th, .wp-table td { padding: 10px 8px !important; }
+  .wp-code { font-size: 11.5px !important; padding: 16px !important; overflow-x: auto; }
+}
+
+/* --- Vaults browser, AI hub, marketplace, creator portal, onboarding all
+       use Tailwind which is already responsive. Just ensure top padding
+       (which we set via main:not(:has(.hero))) doesn't leave dead space. */
+@media (max-width: 880px) {
+  main:not(:has(.hero)):not(:has(.heroFlow)) { padding-top: 96px !important; }
+}
+
+/* -------- Background-layer mask softening --------
+   Original .bg-grid and .bg-dots-dim used radial masks with hard endpoints
+   (transparent 75% / 80%), which created visible "cut lines" on the canvas
+   where the grid/dots suddenly disappeared. Replace with much softer fades
+   that reach 100% at the viewport edge, no boundary visible. */
+.bg-grid {
+  -webkit-mask-image: radial-gradient(ellipse 90% 75% at 50% 35%, #000 0%, rgba(0,0,0,0.85) 30%, rgba(0,0,0,0.4) 65%, transparent 100%) !important;
+          mask-image: radial-gradient(ellipse 90% 75% at 50% 35%, #000 0%, rgba(0,0,0,0.85) 30%, rgba(0,0,0,0.4) 65%, transparent 100%) !important;
+}
+.bg-dots-dim {
+  -webkit-mask-image: radial-gradient(ellipse 95% 80% at 50% 40%, #000 0%, rgba(0,0,0,0.9) 35%, rgba(0,0,0,0.5) 70%, transparent 100%) !important;
+          mask-image: radial-gradient(ellipse 95% 80% at 50% 40%, #000 0%, rgba(0,0,0,0.9) 35%, rgba(0,0,0,0.5) 70%, transparent 100%) !important;
+}
+/* The mechanism pin-stage's mint glow had a hard 65% endpoint too */
+.pin-stage::before {
+  background: radial-gradient(900px 600px at 75% 50%, rgba(112,243,216,0.08), rgba(112,243,216,0.02) 50%, transparent 90%) !important;
+}
+
+/* -------- Body offset for non-hero routes --------
+   Original .nav is fixed at top:28px, height ~62px. Hero clears this with its
+   180px padding-top, but other routes need explicit top padding. */
+body { padding-top: 0; }
+main:not(:has(.hero)):not(:has(.heroFlow)) { padding-top: 110px; }
+@media (max-width: 880px) {
+  main:not(:has(.hero)):not(:has(.heroFlow)) { padding-top: 88px; }
+}
+
+/* -------- Nav CTA: don't double-wrap with the gradient pseudo when ConnectKit overrides -------- */
+.nav-cta { font-family: var(--mono); border: 0; cursor: pointer; }
+.nav-cta:disabled { opacity: 0.5; }
+.nav-burger { background: transparent; cursor: pointer; }
+
+/* -------- Tiny vertical gap fix between statusbar and nav -------- */
+.nav { top: 28px !important; }
+
+/* -------- React routes use Tailwind for the inner layout, but the fixed nav must always sit above -------- */
+.nav { z-index: 95; }
+.statusbar { z-index: 100; }
+
+/* -------- Ticker seamless-loop fix --------
+   Original used `display: inline-flex; gap: 28px` which adds a 28px gap between
+   EVERY adjacent pair, including across the SET1 → SET2 boundary. That makes
+   the rail width != 2 × content-width, so the `translateX(-50%)` keyframe lands
+   ~14px before the duplicate's start, briefly revealing empty space. Switch to
+   gap: 0 and put the spacing inside the `.sep` separators. */
+/* Statusbar no longer has the .live label, collapse to ticker | clock */
+.statusbar { grid-template-columns: 1fr auto !important; }
+@media (max-width: 880px) { .statusbar { grid-template-columns: 1fr !important; } }
+.statusbar .ticker-rail {
+  gap: 0 !important;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  will-change: transform;
+  animation: tickerRoll 60s linear infinite;
+}
+.statusbar .ticker-set {
+  display: inline-flex; align-items: center; gap: 28px;
+  flex: 0 0 auto; padding-right: 28px;
+}
+.statusbar .ticker-rail > span,
+.statusbar .ticker-rail > span.sep { margin-right: 0; padding: 0; }
+/* Translate by exactly the width of one set. Two identical sets sit side-by-side
+   with gap: 0, so -50% lands the second set precisely where the first started. */
+/* Rail has 6 identical sets, translate by 1/6 of the rail (= one set width)
+   per cycle. After the cycle, set[1..5] occupy positions of set[0..4], and
+   since every set is identical the seam is invisible. This guarantees the
+   visible area is always covered by at least 5 sets' worth of content, no
+   matter how wide the viewport is. */
+@keyframes tickerRoll { from { transform: translate3d(0,0,0); } to { transform: translate3d(-16.6666%,0,0); } }
+
+/* Marquee bands (FAN VAULTS / creator equity), same seamless-loop pattern */
+.marquee-track {
+  gap: 0 !important;
+  display: inline-flex;
+  flex-wrap: nowrap;
+}
+.marquee-set {
+  display: inline-flex; align-items: center; gap: 0.6em;
+  flex-shrink: 0; padding-right: 0.6em;
+  font-family: var(--display);
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
+
+/* -------- Subtle focus ring on inputs (inspired by xAI's 0 0 0 2px shadow) --------
+   Uses VAYLA mint instead of gray to stay on brand. Applied to all text-like
+   inputs site-wide. */
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="number"],
+input:not([type]),
+textarea,
+select {
+  outline: none;
+  transition: box-shadow 0.18s var(--ease, ease-out), border-color 0.18s var(--ease, ease-out);
+}
+input[type="text"]:focus-visible,
+input[type="search"]:focus-visible,
+input[type="email"]:focus-visible,
+input[type="number"]:focus-visible,
+input:not([type]):focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  box-shadow: 0 0 0 2px rgba(112, 243, 216, 0.32);
+  border-color: rgba(112, 243, 216, 0.55);
+}
+
+/* -------- Body text: subtle negative letter-spacing for a tighter feel -------- */
+body { letter-spacing: -0.005em; }
+.section p, .wp-content p, .hero-deck { letter-spacing: -0.012em; }
+
+/* -------- Roadmap: kill the green underline strip on each card --------
+   Original .road-card::after drew a 2px linear-gradient strip at the bottom
+   of every card. User flagged it as visually wrong. */
+.road-card::after { display: none !important; }
+
+/* -------- Roadmap: custom horizontal scrollbar --------
+   Original was a 4px nub, too anonymous. Make it a clear mint progress rail
+   with hover state. Cross-browser via ::-webkit-scrollbar + scrollbar-color. */
+.road-track {
+  padding-bottom: 28px !important;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(112,243,216,0.45) rgba(255,255,255,0.04);
+}
+.road-track::-webkit-scrollbar {
+  height: 8px;
+}
+.road-track::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.04);
+  border-radius: 999px;
+  margin: 0 4px;
+}
+.road-track::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, var(--mint), var(--mint-deep));
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(112,243,216,0.35);
+  transition: filter 0.2s;
+}
+.road-track::-webkit-scrollbar-thumb:hover {
+  filter: brightness(1.2) saturate(1.2);
+}
+
+/* -------- Nav scrollspy: stronger active-link styling -------- */
+.nav-link.is-active {
+  color: var(--mint) !important;
+  background: rgba(112,243,216,0.08) !important;
+  position: relative;
+}
+.nav-link.is-active::after {
+  content: '';
+  position: absolute;
+  left: 14px; right: 14px; bottom: 4px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--mint), transparent);
+}
+
+/* -------- Token donut: glass-morph tooltip + linked hover with alloc list -------- */
+.donut-wrap { position: relative; }
+.token-tooltip {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(320px, 90%);
+  padding: 18px 18px 16px;
+  border-radius: 18px;
+  background: rgba(10, 19, 16, 0.55);
+  backdrop-filter: blur(22px) saturate(1.4);
+  -webkit-backdrop-filter: blur(22px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 24px 60px -12px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    0 1px 0 rgba(255, 255, 255, 0.08) inset;
+  z-index: 5;
+  pointer-events: none;
+  overflow: hidden;
+}
+.token-tooltip-bar {
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  opacity: 0.85;
+}
+.token-tooltip-head {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 8px;
+}
+.token-tooltip-head .swatch {
+  width: 10px; height: 10px; border-radius: 3px;
+  box-shadow: 0 0 12px currentColor;
+}
+.token-tooltip-head strong {
+  flex: 1;
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-1);
+  letter-spacing: -0.01em;
+}
+.token-tooltip-head .pct {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+.token-tooltip p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-2);
+  margin: 0 0 12px;
+}
+.token-tooltip-meta {
+  display: flex; justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Alloc list hover state, paired with donut highlight */
+.alloc {
+  cursor: pointer;
+  transition: padding 0.2s, opacity 0.2s, background 0.2s;
+  border-radius: 8px;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  margin: 0 -8px;
+}
+.alloc.is-hovered {
+  background: rgba(255, 255, 255, 0.025);
+  padding-left: 14px !important;
+}
+.alloc.is-dimmed { opacity: 0.45; }
+
+/* -------- Mechanism pin-stage: align with .wrap max-width --------
+   Original .pin-stage was full-bleed (padding: 0 32px, no max-width), so on
+   wide viewports text drifts all the way to the left edge while other
+   sections sit at max-width 1320px. Constrain the inner grid the same way. */
+.pin-stage {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding-left: 32px !important;
+  padding-right: 32px !important;
+  gap: 80px !important;
+}
+@media (max-width: 880px) {
+  .pin-stage { padding-left: 20px !important; padding-right: 20px !important; }
+}
+
+/* -------- Mechanism art: richer motion --------
+   Adds slow rotation, inward-flowing photon trails on the FAN illustration,
+   plus a soft halo ripple radiating from the central VAULT/CREATOR/YIELD glyphs. */
+.pin-art-svg .ha-rings,
+.pin-art-svg [data-rings] {
+  transform-origin: 300px 270px;
+  animation: pinRingsSpin 60s linear infinite;
+}
+@keyframes pinRingsSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Subtle inner halo pulse on every active art frame's center */
+.pin-art-svg.is-active .pin-halo {
+  animation: pinHalo 3.4s ease-in-out infinite;
+}
+@keyframes pinHalo {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50%      { opacity: 0.55; transform: scale(1.18); }
+}
+
+/* Particle streams: shared keyframes used by motion paths in art */
+@keyframes pinParticleFade {
+  0%, 100% { opacity: 0; }
+  20%      { opacity: 1; }
+  80%      { opacity: 1; }
+}
+
+/* -------- Hero diagonal streaks (Raycast-inspired, mint palette) --------
+   Full-bleed diagonal saturated bands behind the hero text. Mint instead of
+   red, angle is shallower (-18deg vs Raycast's ~-45deg), and streaks vary in
+   width/opacity for organic feel. Positioned behind hero-grid (z-index 0) so
+   the title + protocol art sit on top. */
+.hero { position: relative; }
+.hero .wrap { position: relative; z-index: 2; }
+
+.hero-streaks {
+  position: absolute; inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+}
+
+/* Each streak is a tight horizontal band of mint light. Two animations stack:
+     1) `streakSweep` translates it across the hero left → right (one full pass per cycle).
+     2) `streakPulse` ramps opacity in/out so the streak fades into existence mid-pass.
+   Different durations + negative delays per streak keep them desynchronized. */
+.hero-streak {
+  position: absolute;
+  left: 0; right: 0;
+  height: 32px;
+  width: 60%;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(112, 243, 216, 0.0) 6%,
+    rgba(112, 243, 216, 0.55) 35%,
+    rgba(112, 243, 216, 0.95) 50%,
+    rgba(112, 243, 216, 0.55) 65%,
+    rgba(112, 243, 216, 0) 94%,
+    transparent 100%);
+  filter: blur(26px) saturate(1.35);
+  transform-origin: 50% 50%;
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+}
+
+.hero-streak.s1 { top:  -6%; height: 38px; width: 55%; animation: streakSweep 14s linear  -0s infinite, streakPulse 14s ease-in-out  -0s infinite; }
+.hero-streak.s2 { top:  10%; height: 22px; width: 48%; animation: streakSweep 11s linear  -3s infinite, streakPulse 11s ease-in-out  -3s infinite; }
+.hero-streak.s3 { top:  26%; height: 56px; width: 70%;
+  background: linear-gradient(90deg, transparent, rgba(31,184,154,0.65) 38%, rgba(31,184,154,0.95) 50%, rgba(31,184,154,0.65) 62%, transparent);
+  animation: streakSweep 19s linear  -7s infinite, streakPulse 19s ease-in-out  -7s infinite; }
+.hero-streak.s4 { top:  40%; height: 18px; width: 42%; animation: streakSweep  9s linear -2s infinite, streakPulse  9s ease-in-out -2s infinite; }
+.hero-streak.s5 { top:  56%; height: 70px; width: 80%;
+  background: linear-gradient(90deg, transparent, rgba(155,123,255,0.45) 38%, rgba(155,123,255,0.85) 50%, rgba(155,123,255,0.45) 62%, transparent);
+  filter: blur(32px) saturate(1.2);
+  animation: streakSweep 24s linear -11s infinite, streakPulse 24s ease-in-out -11s infinite; }
+.hero-streak.s6 { top:  72%; height: 26px; width: 50%; animation: streakSweep 12s linear -5s infinite, streakPulse 12s ease-in-out -5s infinite; }
+.hero-streak.s7 { top:  88%; height: 44px; width: 65%; animation: streakSweep 17s linear -9s infinite, streakPulse 17s ease-in-out -9s infinite; }
+
+@keyframes streakSweep {
+  0%   { transform: translateX(-110%) rotate(-18deg); }
+  100% { transform: translateX(170%)  rotate(-18deg); }
+}
+@keyframes streakPulse {
+  0%, 100% { opacity: 0; }
+  20%      { opacity: 0.55; }
+  50%      { opacity: 0.85; }
+  80%      { opacity: 0.45; }
+}
+
+@media (max-width: 880px) {
+  .hero-streak { filter: blur(22px) saturate(1.2); }
+  .hero-streak.s5 { display: none; } /* drop the violet on mobile */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-streak { animation: none !important; }
+}
+
+/* -------- Whitepaper hero: trim top padding, statusbar+nav already eat ~90px -------- */
+.wp-hero { padding-top: 110px !important; padding-bottom: 60px !important; }
+@media (max-width: 880px) {
+  .wp-hero { padding-top: 88px !important; padding-bottom: 48px !important; }
+}
+.wp-body { padding-top: 56px !important; }
+
+/* =============================================================
+   Cookie consent, bottom-right slide-in card.
+   Matches statusbar / glass aesthetic: dark panel, mint accents, mono eyebrow.
+   The mark is the VAYLA metaball logo doubled as a cookie cluster.
+   ============================================================= */
+.cookie-consent {
+  position: fixed; z-index: 400;
+  bottom: 24px; right: 24px;
+  width: min(420px, calc(100vw - 32px));
+  border-radius: 18px;
+  border: 1px solid var(--line-2);
+  background:
+    linear-gradient(180deg, rgba(13,22,19,0.92), rgba(8,14,12,0.94));
+  backdrop-filter: blur(18px) saturate(1.1);
+  -webkit-backdrop-filter: blur(18px) saturate(1.1);
+  box-shadow:
+    0 22px 60px -20px rgba(0,0,0,0.7),
+    0 0 0 1px rgba(112,243,216,0.05),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+  overflow: hidden;
+  transform: translateY(20px) scale(0.98);
+  opacity: 0;
+  animation: cookieSlideIn 0.55s cubic-bezier(0.2,0.8,0.2,1) 0.1s forwards;
+}
+@keyframes cookieSlideIn {
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+@media (max-width: 540px) {
+  .cookie-consent { left: 16px; right: 16px; bottom: 16px; width: auto; }
+}
+.cookie-consent__glow {
+  position: absolute; inset: -1px;
+  pointer-events: none;
+  background:
+    radial-gradient(180px 120px at 12% -10%, rgba(112,243,216,0.18), transparent 70%),
+    radial-gradient(220px 140px at 100% 110%, rgba(155,123,255,0.10), transparent 70%);
+  border-radius: inherit;
+}
+.cookie-consent__inner {
+  position: relative;
+  padding: 22px 22px 18px;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.cookie-consent__head {
+  display: flex; align-items: center; gap: 14px;
+}
+.cookie-consent__mark {
+  width: 56px; height: 56px;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+  border-radius: 16px;
+  background: radial-gradient(circle at 30% 25%, rgba(112,243,216,0.16), rgba(112,243,216,0.02) 70%);
+  border: 1px solid rgba(112,243,216,0.18);
+  filter: drop-shadow(0 8px 22px rgba(31,184,154,0.32));
+  animation: cookieMarkBob 4.5s ease-in-out infinite;
+}
+@keyframes cookieMarkBob {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-3px); }
+}
+.cookie-consent__title { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.cookie-consent__eyebrow {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em;
+  color: var(--mint); text-transform: uppercase;
+}
+.cookie-consent__title h3 {
+  font-family: var(--display);
+  font-size: 19px; line-height: 1.15; letter-spacing: -0.01em;
+  font-weight: 600;
+  color: var(--text-1);
+  margin: 0;
+}
+.cookie-consent__body {
+  font-size: 13px; line-height: 1.55;
+  color: var(--text-2);
+  margin: 0;
+}
+.cookie-consent__rows {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 4px 0 2px;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  animation: cookieRowsIn 0.35s ease both;
+}
+@keyframes cookieRowsIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+.cookie-consent__row {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.015);
+  cursor: pointer;
+  transition: border-color 0.18s, background 0.18s;
+}
+.cookie-consent__row:hover { border-color: var(--line-2); background: rgba(255,255,255,0.025); }
+.cookie-consent__row.is-locked { cursor: default; opacity: 0.85; }
+.cookie-consent__row > div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.cookie-consent__row strong {
+  font-size: 13px; color: var(--text-1); font-weight: 600;
+  letter-spacing: 0.005em;
+}
+.cookie-consent__row span:not(.cookie-consent__pill):not(.cookie-consent__toggle):not(.cookie-consent__track) {
+  font-size: 11.5px; color: var(--text-3); line-height: 1.4;
+}
+.cookie-consent__pill {
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 8px; border-radius: 999px;
+  background: rgba(112,243,216,0.08);
+  color: var(--mint);
+  border: 1px solid rgba(112,243,216,0.18);
+  flex-shrink: 0;
+}
+.cookie-consent__toggle {
+  position: relative; width: 36px; height: 20px;
+  flex-shrink: 0;
+}
+.cookie-consent__toggle input {
+  position: absolute; inset: 0; opacity: 0; cursor: pointer;
+  margin: 0; width: 100%; height: 100%; z-index: 2;
+}
+.cookie-consent__track {
+  position: absolute; inset: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--line-2);
+  transition: background 0.2s, border-color 0.2s;
+}
+.cookie-consent__track::after {
+  content: '';
+  position: absolute; top: 2px; left: 2px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--text-3);
+  transition: transform 0.22s cubic-bezier(0.5,0.05,0.4,1.4), background 0.2s;
+}
+.cookie-consent__toggle input:checked + .cookie-consent__track {
+  background: rgba(112,243,216,0.18);
+  border-color: rgba(112,243,216,0.45);
+}
+.cookie-consent__toggle input:checked + .cookie-consent__track::after {
+  transform: translateX(16px);
+  background: var(--mint);
+  box-shadow: 0 0 10px rgba(112,243,216,0.55);
+}
+.cookie-consent__actions {
+  display: flex; align-items: center; gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+.cookie-consent__btn {
+  font-family: var(--body);
+  font-size: 12.5px; font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.18s, border-color 0.18s, color 0.18s, box-shadow 0.18s;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+.cookie-consent__btn:active { transform: translateY(1px); }
+.cookie-consent__btn--mint {
+  background: linear-gradient(180deg, #9CFBE4, #3FE0BC);
+  color: #0A1310;
+  box-shadow: 0 8px 24px -10px rgba(31,184,154,0.6), inset 0 1px 0 rgba(255,255,255,0.4);
+  margin-left: auto;
+}
+.cookie-consent__btn--mint:hover {
+  filter: brightness(1.04);
+  box-shadow: 0 12px 32px -10px rgba(31,184,154,0.75), inset 0 1px 0 rgba(255,255,255,0.5);
+}
+.cookie-consent__btn--ghost {
+  background: rgba(255,255,255,0.025);
+  border-color: var(--line-2);
+  color: var(--text-2);
+}
+.cookie-consent__btn--ghost:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: var(--mint); color: var(--text-1);
+}
+.cookie-consent__btn--text {
+  background: transparent; color: var(--text-3);
+  padding: 10px 6px;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase;
+}
+.cookie-consent__btn--text:hover { color: var(--mint); }
+
+/* =============================================================
+   VaultAvatar, generative PFP for creator vaults.
+   ============================================================= */
+.v-avatar {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 14px;
+  overflow: visible;
+  isolation: isolate;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.35));
+  transition: transform 0.25s var(--ease, ease-out), filter 0.25s var(--ease, ease-out);
+}
+.v-avatar svg {
+  display: block;
+  border-radius: inherit;
+}
+.v-avatar__live {
+  position: absolute;
+  right: -2px; top: -2px;
+  width: 11px; height: 11px;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow:
+    0 0 0 2px var(--midnight),
+    0 0 12px rgba(112,243,216,0.85);
+  animation: pulseDot 1.6s ease-in-out infinite;
+}
+/* lift on parent card hover */
+.group:hover .v-avatar,
+a:hover > .v-avatar,
+a:hover .v-avatar {
+  transform: translateY(-1px) scale(1.02);
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.45)) drop-shadow(0 0 14px rgba(112,243,216,0.18));
+}
+
+/* =============================================================
+   Standalone <ConnectButton />, stacked states so the button
+   width is fixed (no flicker on hover from text-width swap).
+   ============================================================= */
+.connect-pill { position: relative; }
+.connect-pill .connect-pill__idle {
+  transition: opacity 0.18s var(--ease, ease-out);
+}
+.connect-pill .connect-pill__hover {
+  position: absolute; inset: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s var(--ease, ease-out);
+  color: var(--hot);
+}
+.connect-pill.is-conn:hover .connect-pill__idle { opacity: 0; }
+.connect-pill.is-conn:hover .connect-pill__hover { opacity: 1; }
+.connect-pill.is-conn:hover {
+  border-color: rgba(255,107,107,0.45) !important;
+  background: linear-gradient(135deg, rgba(255,107,107,0.12), rgba(255,107,107,0.04)) !important;
+}
+
+/* =================================================================
+   RESPONSIVE AUDIT PASS — covers /start, /legal, marketplace rows,
+   nav links overflow, footer 5-col layout, and edge cases at tiny
+   viewports. Loaded last so these win the cascade.
+   ================================================================= */
+
+/* --- Marketplace: stacked card layout on mobile, 7-col table on desktop -- */
+@media (max-width: 880px) {
+  /* Hide the desktop column header */
+  main .card .hidden.md\:grid.grid-cols-7 { display: none !important; }
+  /* Each listing row becomes a card-style block */
+  main .card > .grid.md\:grid-cols-7 {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    gap: 8px 12px !important;
+    padding: 16px !important;
+  }
+  /* Listing identity (avatar + name) spans both columns and sits on top */
+  main .card > .grid.md\:grid-cols-7 > .col-span-2 {
+    grid-column: 1 / -1;
+    margin-bottom: 4px;
+  }
+  /* Tier inline-pill */
+  main .card > .grid.md\:grid-cols-7 > span:not(.col-span-2):not(.text-right) {
+    grid-column: 1 / -1;
+    font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--text-3);
+  }
+  /* Staked / Ask / Discount labels */
+  main .card > .grid.md\:grid-cols-7 > .text-right {
+    text-align: left !important;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 13px;
+  }
+  main .card > .grid.md\:grid-cols-7 > .text-right::before {
+    content: attr(data-lbl);
+    font-size: 10px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--text-3);
+    font-family: var(--mono);
+  }
+  /* Buy button row */
+  main .card > .grid.md\:grid-cols-7 > .text-right:last-of-type {
+    grid-column: 1 / -1;
+    margin-top: 4px;
+  }
+  main .card > .grid.md\:grid-cols-7 > .text-right:last-of-type button {
+    width: 100%;
+  }
+}
+
+/* --- Start page: tighter hero stats and step cards on tiny screens ----- */
+@media (max-width: 540px) {
+  .start-page .grid.grid-cols-3 > div > div.display { font-size: 22px !important; }
+  .start-page .grid.grid-cols-3 > div > div:last-child { font-size: 9.5px !important; }
+}
+@media (max-width: 380px) {
+  /* Stack the 3 hero stats to 1 col on very narrow phones */
+  .start-page section:first-of-type .grid.grid-cols-3 {
+    grid-template-columns: 1fr !important; gap: 10px !important;
+  }
+}
+.start-page .display.text-5xl,
+.start-page .display.text-7xl,
+.start-page h1.display { word-break: break-word; }
+@media (max-width: 540px) {
+  .start-page section { padding-left: 4px; padding-right: 4px; }
+  .start-page .card { padding: 18px !important; }
+}
+
+/* Step number "01" should never crowd the title at small sizes */
+@media (max-width: 540px) {
+  .start-page .card .flex.items-baseline.gap-3 > span:first-child { font-size: 36px !important; }
+  .start-page .card .flex.items-baseline.gap-3 > h3 { font-size: 20px !important; }
+}
+
+/* --- Legal index: collapse 2-col cards to 1 on small phones ------------ */
+@media (max-width: 540px) {
+  .legal .grid.sm\:grid-cols-2 { grid-template-columns: 1fr !important; }
+}
+
+/* --- Legal doc body: looser line-height on mobile ---------------------- */
+@media (max-width: 540px) {
+  .legal article .card { padding: 18px !important; }
+  .legal article h2 { font-size: 18px !important; }
+  .legal article p, .legal article li { font-size: 14px !important; }
+}
+
+/* --- Footer 5-col: drop to 2 cols on tablet, 1 col on tiny phones ------ */
+@media (max-width: 1080px) and (min-width: 721px) {
+  .foot .f-col h6 { font-size: 10px; }
+  .foot .f-col a { font-size: 13px; }
+}
+/* Keep the legal column tight (it has 13 links) */
+.foot .f-col ul li a { line-height: 1.45; }
+@media (min-width: 1081px) {
+  .foot .f-col:last-child ul { columns: 1; }
+}
+
+/* --- Cookie consent: ensure buttons wrap nicely on narrow screens ------ */
+@media (max-width: 380px) {
+  .cookie-consent__actions { flex-direction: column !important; align-items: stretch !important; }
+  .cookie-consent__btn { width: 100%; text-align: center; }
+  .cookie-consent__btn--mint { margin-left: 0 !important; }
+}
+
+/* --- Nav: prevent overflow when route name list grows on tablet -------- */
+@media (min-width: 881px) and (max-width: 1100px) {
+  .nav-links { gap: 2px; padding: 6px; }
+  .nav-link { padding: 8px 10px !important; font-size: 12px !important; }
+  .nav { padding-left: 18px; padding-right: 18px; }
+}
+
+/* --- ConnectButton stacked-state pill: ensure overlay matches button ---- */
+.connect-pill { min-width: 0; }
+.connect-pill .connect-pill__hover { white-space: nowrap; }
+
+/* --- Avatar at small sizes: scale down liveDot proportionally ---------- */
+@media (max-width: 540px) {
+  .v-avatar__live { width: 9px; height: 9px; }
+}
+
+/* --- VaultDetail hero on mobile: stack avatar above text -------------- */
+@media (max-width: 720px) {
+  /* Already uses flex-col on mobile via Tailwind; ensure avatar centers */
+  main > .card > .flex.flex-col.md\:flex-row > .v-avatar { margin: 0 auto; }
+}
+
+/* --- Whitepaper: hide TOC on small screens (already styled in CSS) ----- */
+@media (max-width: 880px) {
+  .toc { display: none !important; }
+  .wp-body { padding-top: 32px !important; }
+}
+
+/* --- Universal: prevent horizontal scroll on any page ------------------ */
+/* `clip` not `hidden` — `hidden` breaks position:sticky on descendants
+   (Mechanism pin-stage). `clip` has the same visual effect. */
+html, body { overflow-x: clip; }
+@media (max-width: 540px) {
+  /* Scale down section eyebrows and titles uniformly on tiny phones */
+  .text-7xl { font-size: 44px !important; }
+  .display.text-5xl { font-size: 36px !important; }
+}
+
+/* --- Reveal performance on mobile: skip transform delays so content
+       doesn't pop in late on slow phones ---------------------------- */
+@media (max-width: 540px) and (prefers-reduced-motion: reduce) {
+  .reveal { transition: none !important; opacity: 1 !important; transform: none !important; }
+}
