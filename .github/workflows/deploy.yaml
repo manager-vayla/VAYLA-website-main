@@ -1,5 +1,5 @@
-# Next.js static export -> ./out → FTP upload to Hostinger/shared hosting (public_html).
-# Mirrors ver 2.0 with reproducible installs, Node 24, and verified output before FTP.
+# Next.js static export -> ./out -> FTP upload to public_html on shared hosting.
+# Production Next.js stack is on binance-redesign2 until merged to main (main is legacy Vite).
 
 name: Deploy Vayla Website ver 3.0
 
@@ -7,7 +7,8 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      # Next.js stack (pnpm, next build); main is legacy Vite — do not add until merged.
+      - binance-redesign2
 
 concurrency:
   group: deploy-vayla-io-ftp
