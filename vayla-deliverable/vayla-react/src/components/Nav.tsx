@@ -72,7 +72,7 @@ export function Nav() {
 
   return (
     <nav className="nav" id="nav">
-      <Link to="/" className="nav-brand" onClick={handleHomeNav} aria-label="VAYLA home"><Logo /></Link>
+      <Link to="/" className="nav-brand" onClick={handleHomeNav} aria-label="VAYLA home"><Logo size={80} /></Link>
 
       <div className={'nav-links' + (open ? ' is-open' : '')}>
         {LINKS.map(([to, label, sectionId]) => {

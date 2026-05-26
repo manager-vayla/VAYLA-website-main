@@ -46,6 +46,8 @@ jobs:
         run: |
           test -f out/index.html || { echo "::error::Missing out/index.html"; exit 1; }
           test -d out/_next/static || { echo "::error::Missing Next static assets"; exit 1; }
+          test -f out/VAYLA_S_LOGO_White.png || { echo "::error::Missing brand logo in export"; exit 1; }
+          test -f out/VAYLA_logo.png || { echo "::error::Missing logo mark in export"; exit 1; }
 
       - name: Create .htaccess for routing
         run: |
