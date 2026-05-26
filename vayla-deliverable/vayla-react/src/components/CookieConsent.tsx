@@ -41,7 +41,7 @@ export function CookieConsent() {
       <div className="cookie-consent__glow" aria-hidden="true" />
       <div className="cookie-consent__inner">
         <div className="cookie-consent__head">
-          <CookieMark id={id} />
+          <img src="/VAYLA_logo.png" alt="" className="cookie-consent__mark" width={44} height={44} aria-hidden draggable={false} />
           <div className="cookie-consent__title">
             <span className="cookie-consent__eyebrow">cookie · settlement</span>
             <h3 id={`cc-h-${id}`}>We use a few cookies.</h3>
@@ -110,39 +110,3 @@ export function CookieConsent() {
   );
 }
 
-/* Metaball mark, same construction as the VAYLA logo, scaled up to read as a
-   "cookie" cluster. Uses a goo filter so the three nodes fuse into one shape. */
-function CookieMark({ id }: { id: string }) {
-  return (
-    <span className="cookie-consent__mark" aria-hidden="true">
-      <svg width="44" height="44" viewBox="0 0 32 32" fill="none">
-        <defs>
-          <linearGradient id={`cc-g-${id}`} x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="#B6FFE9" />
-            <stop offset="0.5" stopColor="#4DE6C0" />
-            <stop offset="1" stopColor="#1FB89A" />
-          </linearGradient>
-          <radialGradient id={`cc-hi-${id}`} cx="35%" cy="30%" r="55%">
-            <stop offset="0" stopColor="#FFFFFF" stopOpacity="0.7" />
-            <stop offset="1" stopColor="#FFFFFF" stopOpacity="0" />
-          </radialGradient>
-          <filter id={`cc-goo-${id}`} x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="1.3" />
-            <feColorMatrix values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -10" />
-          </filter>
-        </defs>
-        <g filter={`url(#cc-goo-${id})`} fill={`url(#cc-g-${id})`}>
-          <circle cx="8.5" cy="9" r="4.4" />
-          <circle cx="23.5" cy="9" r="4.4" />
-          <circle cx="16" cy="23" r="3.7" />
-          <ellipse cx="12.2" cy="16" rx="2.1" ry="6" transform="rotate(-30 12.2 16)" />
-          <ellipse cx="19.8" cy="16" rx="2.1" ry="6" transform="rotate(30 19.8 16)" />
-        </g>
-        {/* Highlights, same as the brand logo, no dark chips */}
-        <circle cx="7" cy="7.5" r="1.7" fill={`url(#cc-hi-${id})`} />
-        <circle cx="22" cy="7.5" r="1.7" fill={`url(#cc-hi-${id})`} />
-        <circle cx="14.8" cy="21.6" r="1.2" fill={`url(#cc-hi-${id})`} />
-      </svg>
-    </span>
-  );
-}

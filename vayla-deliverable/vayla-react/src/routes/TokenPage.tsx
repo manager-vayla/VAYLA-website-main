@@ -289,42 +289,18 @@ export function TokenPage() {
 
 /* ─── components ─────────────────────────────────────────────────────── */
 
-/* Big VAYLA metaball mark as a positionable SVG. Same construction as the
-   brand logo + favicon so it visually unifies the token page. */
 function Sigil({ size }: { size: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" aria-hidden>
-      <defs>
-        <linearGradient id="sigil-ball" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#B6FFE9" />
-          <stop offset="0.5" stopColor="#4DE6C0" />
-          <stop offset="1" stopColor="#1FB89A" />
-        </linearGradient>
-        <radialGradient id="sigil-glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0" stopColor="#70F3D8" stopOpacity="0.45" />
-          <stop offset="1" stopColor="#70F3D8" stopOpacity="0" />
-        </radialGradient>
-        <radialGradient id="sigil-hi" cx="35%" cy="30%" r="55%">
-          <stop offset="0" stopColor="#FFFFFF" stopOpacity="0.7" />
-          <stop offset="1" stopColor="#FFFFFF" stopOpacity="0" />
-        </radialGradient>
-        <filter id="sigil-goo" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="1.3" />
-          <feColorMatrix values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -10" />
-        </filter>
-      </defs>
-      <circle cx="16" cy="16" r="16" fill="url(#sigil-glow)" />
-      <g filter="url(#sigil-goo)" fill="url(#sigil-ball)">
-        <circle cx="8.5" cy="9" r="4.4"/>
-        <circle cx="23.5" cy="9" r="4.4"/>
-        <circle cx="16" cy="23" r="3.7"/>
-        <ellipse cx="12.2" cy="16" rx="2.1" ry="6" transform="rotate(-30 12.2 16)"/>
-        <ellipse cx="19.8" cy="16" rx="2.1" ry="6" transform="rotate(30 19.8 16)"/>
-      </g>
-      <circle cx="7" cy="7.5" r="1.7" fill="url(#sigil-hi)"/>
-      <circle cx="22" cy="7.5" r="1.7" fill="url(#sigil-hi)"/>
-      <circle cx="14.8" cy="21.6" r="1.2" fill="url(#sigil-hi)"/>
-    </svg>
+    <img
+      src="/VAYLA_logo.png"
+      alt=""
+      width={size}
+      height={size}
+      className="object-contain"
+      style={{ width: size, height: size }}
+      aria-hidden
+      draggable={false}
+    />
   );
 }
 
