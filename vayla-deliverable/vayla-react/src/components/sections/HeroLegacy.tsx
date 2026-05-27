@@ -50,7 +50,7 @@ export function HeroLegacy() {
           <div>
             <Title />
             <p className="hero-deck">
-              VAYLA turns fandom into <strong>ownership</strong>. Every creator gets an on-chain Vault. Fans deposit. The Vault earns from streams, drops and IP, and pays it back, pro-rata, to the people who showed up first. <strong>Not equity in a label. Equity in the artist.</strong>
+              VAYLA is a global Web3 music fandom platform. Fans, artists, and music IP connect through <strong>VAYLA Boost</strong>, AI discovery, voting, rewards, and on-chain participation. <strong>Support artists you believe in—not passive speculation.</strong>
             </p>
             <div className="hero-ctas">
               <Link to="/calculator" className="btn btn-mint">

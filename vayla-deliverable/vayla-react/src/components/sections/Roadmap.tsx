@@ -1,12 +1,12 @@
 import { useRef } from 'react';
 
 const PHASES = [
-  { stage: 'Phase 01 · Shipped', when: <>Q2 <em>2025</em></>, desc: 'Genesis vaults, mainnet contracts deployed, first 50 creators onboarded.', items: ['Smart contracts audited (Spearbit + OtterSec)','$VAYLA token launch on Ethereum + Base','50 creator vaults live'], done: true },
+  { stage: 'Phase 01 · Shipped', when: <>Q2 <em>2025</em></>, desc: 'VAYLA Arena launch, mainnet contracts deployed, first 50 artists onboarded.', items: ['Smart contracts audited (Spearbit + OtterSec)','$VAYLA token launch on BNB Smart Chain','50 VAYLA Boost campaigns live'], done: true },
   { stage: 'Phase 02 · Shipped', when: <>Q3 <em>2025</em></>, desc: 'Streaming yield distribution and Vault Boost multipliers.', items: ['Continuous yield streams (no claim required)','Boost multipliers for long-held positions','Mobile-first app launched'], done: true },
   { stage: 'Phase 03 · Shipped', when: <>Q1 <em>2026</em></>, desc: 'V-DAO governance + creator economy aggregator integrations.', items: ['V-DAO with quadratic voting','Spotify / Apple Music / Patreon read APIs','1,000+ vaults, $40M+ TVL'], done: true },
   { stage: 'Phase 04 · Live now', when: <>Q2 <em>2026</em></>, desc: 'IP licensing settlement layer for sync, sample and merch.', items: ['Sync licensing on-chain','Sample royalty router','Merch printer integration'], done: false },
   { stage: 'Phase 05', when: <>Q3 <em>2026</em></>, desc: 'Cross-chain vaults, mobile push, fiat on/off-ramp partners.', items: ['Solana & Polygon vault bridges','Stripe + Ramp integration','Notifications for live drops'], done: false },
-  { stage: 'Phase 06', when: <>Q4 <em>2026</em></>, desc: 'Open Vault SDK. Any platform can issue creator equity.', items: ['Open SDK for any platform','Festival & venue vaults','10K+ vaults target'], done: false },
+  { stage: 'Phase 06', when: <>Q4 <em>2026</em></>, desc: 'Open participation SDK for partners and venues.', items: ['Open SDK for any platform','Festival & venue campaigns','10K+ Arena campaigns target'], done: false },
 ];
 
 export function Roadmap() {

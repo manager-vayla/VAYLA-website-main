@@ -48,9 +48,9 @@ export function Whitepaper() {
             <span className="sep">·</span>
             <span>54 pages</span>
           </div>
-          <h1 className="wp-title">The settlement layer for <em>fan-funded equity.</em></h1>
+          <h1 className="wp-title">Web3 music fandom, <em>on-chain.</em></h1>
           <p className="wp-deck">
-            VAYLA is a permissionless protocol that turns every creator into an on-chain enterprise. Fans deposit into Creator Vaults. Vaults capture revenue from streams, drops, sync licensing and merch. Yield streams pro-rata, continuously, to the people who showed up first. This document is the engineering and economic specification.
+            VAYLA is a global Web3 music fandom platform connecting fans, artists, and music IP through VAYLA Boost, AI music discovery, voting, rewards, NFTs, and token-based ecosystem utilities. This document is the product and protocol specification.
           </p>
           <div className="wp-cta-row">
             <a href="#abstract" className="btn btn-mint">

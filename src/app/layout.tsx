@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import Providers from '../components/providers/Providers';
+import { jsonLdGraph, OG_IMAGE, SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from '../lib/seo';
 import '../../vayla-deliverable/vayla-react/src/styles/globals.css';
 import '../../vayla-deliverable/vayla-react/src/styles/original.css';
 import '../../vayla-deliverable/vayla-react/src/styles/react-fixes.css';
@@ -12,8 +13,63 @@ import '../../vayla-deliverable/vayla-react/src/styles/calculator.css';
 import '../../vayla-deliverable/vayla-react/src/components/sections/vaults-arena.css';
 
 export const metadata: Metadata = {
-  title: 'VAYLA, Fan Vaults, Creator Equity, On-chain',
-  description: 'VAYLA is the BNB Smart Chain settlement layer for fan-funded creator vaults, powered by the 3B supply $VAYLA token.',
+  metadataBase: new URL(SITE_URL),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  keywords: [
+    'VAYLA',
+    'VAYLA token',
+    '$VAYLA',
+    'VAYLA Boost',
+    'Web3 music',
+    'music fandom',
+    'AI music discovery',
+    'on-chain participation',
+    'music IP',
+    'BNB Smart Chain',
+  ],
+  authors: [{ name: 'VAYLA Technology Inc' }],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
+  },
+  alternates: { canonical: '/' },
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-48.png', sizes: '48x48', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/site.webmanifest',
+  openGraph: {
+    type: 'website',
+    url: SITE_URL,
+    siteName: 'VAYLA',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    locale: 'en_US',
+    images: [
+      {
+        url: OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: 'VAYLA — Web3 music fandom platform',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@vaylamanager',
+    creator: '@vaylamanager',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [OG_IMAGE],
+  },
+  other: {
+    'telegram:channel': '@Vayla_Official',
+  },
 };
 
 export default function RootLayout({
@@ -25,11 +81,17 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+        <meta name="theme-color" content="#050706" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#0E1A16" media="(prefers-color-scheme: light)" />
         <link href="https://fonts.googleapis.com" rel="preconnect" />
         <link crossOrigin="" href="https://fonts.gstatic.com" rel="preconnect" />
         <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Instrument+Serif:ital@0;1&family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-        
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
+        />
+
         {/* Google Analytics */}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-ER53NBTHGD" />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -64,4 +126,3 @@ export default function RootLayout({
     </html>
   );
 }
-

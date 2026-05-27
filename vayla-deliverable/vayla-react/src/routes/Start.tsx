@@ -68,7 +68,7 @@ const FAQ: { q: string; a: string }[] = [
   },
   {
     q: 'Why would a creator agree to this?',
-    a: 'Because they keep ~80% of revenue (vs ~20% on a label deal), get capital upfront from fans (vs labels who claw it back), and never lose ownership of their work. The fan-funded model is simply better for them too.',
+    a: 'Because they keep more of their revenue, connect directly with fans through VAYLA Boost, and grow through community-driven discovery in VAYLA Arena—without giving up ownership of their work.',
   },
   {
     q: 'How do I know which vault to pick?',

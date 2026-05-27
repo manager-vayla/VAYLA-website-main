@@ -23,19 +23,19 @@ export function Marquee({ items, reverse = false }: { items: Item[]; reverse?: b
 function MarqueeOneSet() {
   return (
     <div className="marquee-set">
-      <span>FAN VAULTS</span><span className="star">✦</span>
-      <span><em>creator</em> equity</span><span className="star">✦</span>
-      <span>ON-CHAIN SETTLEMENT</span><span className="star">✦</span>
-      <span><em>fans</em> own it.</span><span className="star">✦</span>
+      <span>VAYLA BOOST</span><span className="star">✦</span>
+      <span><em>music</em> fandom</span><span className="star">✦</span>
+      <span>AI DISCOVERY</span><span className="star">✦</span>
+      <span><em>fans</em> participate.</span><span className="star">✦</span>
     </div>
   );
 }
 function MarqueeTwoSet() {
   return (
     <div className="marquee-set">
-      <span>NOT EQUITY IN A LABEL</span><span className="star">✦</span>
-      <span><em>equity</em> in the artist.</span><span className="star">✦</span>
-      <span>1,283 ACTIVE VAULTS</span><span className="star">✦</span>
+      <span>VAYLA ARENA</span><span className="star">✦</span>
+      <span><em>community</em> discovery.</span><span className="star">✦</span>
+      <span>1,283 ACTIVE CAMPAIGNS</span><span className="star">✦</span>
       <span>$48.21M <em>TVL</em></span><span className="star">✦</span>
     </div>
   );

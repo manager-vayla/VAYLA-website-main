@@ -13,7 +13,7 @@ export function VaultsArena() {
           <span className="section-eyebrow"><span className="num">03</span> The Arena</span>
           <h2 className="section-title">Open vaults, <em>open earnings.</em></h2>
           <p className="section-deck">
-            Every creator gets one Vault. Stake $VAYLA, earn pro-rata from streams, drops, IP licensing and merch. Boost multiplier compounds for held positions.
+            VAYLA Arena surfaces artists and campaigns for fan participation. Use $VAYLA in VAYLA Boost flows, voting, and rewards. Yield multipliers may compound for sustained support.
           </p>
         </div>
 

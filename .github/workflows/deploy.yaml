@@ -48,6 +48,12 @@ jobs:
           test -d out/_next/static || { echo "::error::Missing Next static assets"; exit 1; }
           test -f out/VAYLA_S_LOGO_White.png || { echo "::error::Missing brand logo in export"; exit 1; }
           test -f out/VAYLA_logo.png || { echo "::error::Missing logo mark in export"; exit 1; }
+          test -f out/favicon.ico || { echo "::error::Missing favicon.ico"; exit 1; }
+          test -f out/favicon-48.png || { echo "::error::Missing favicon-48.png"; exit 1; }
+          test -f out/robots.txt || { echo "::error::Missing robots.txt"; exit 1; }
+          test -f out/sitemap.xml || { echo "::error::Missing sitemap.xml"; exit 1; }
+          test -f out/site.webmanifest || { echo "::error::Missing site.webmanifest"; exit 1; }
+          grep -q 'rel="icon"' out/index.html || { echo "::error::Missing favicon link in index.html"; exit 1; }
 
       - name: Create .htaccess for routing
         run: |

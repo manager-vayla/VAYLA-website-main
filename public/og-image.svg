@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0A1310"/>
+      <stop offset="0.55" stop-color="#070C0A"/>
+      <stop offset="1" stop-color="#050706"/>
+    </linearGradient>
+    <radialGradient id="haloTL" cx="20%" cy="20%" r="55%">
+      <stop offset="0" stop-color="#70F3D8" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#70F3D8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="haloBR" cx="80%" cy="85%" r="45%">
+      <stop offset="0" stop-color="#9B7BFF" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#9B7BFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ball" x1="0" y1="0" x2="320" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#B6FFE9"/>
+      <stop offset="0.5" stop-color="#4DE6C0"/>
+      <stop offset="1" stop-color="#1FB89A"/>
+    </linearGradient>
+    <radialGradient id="ballGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#70F3D8" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#70F3D8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="hi" cx="35%" cy="30%" r="55%">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.65"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="vaylaText" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EAFFF8"/>
+      <stop offset="1" stop-color="#9CFBE4"/>
+    </linearGradient>
+    <linearGradient id="emText" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9CFBE4"/>
+      <stop offset="1" stop-color="#1FB89A"/>
+    </linearGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#FFFFFF" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+    <filter id="goo" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="13"/>
+      <feColorMatrix values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -10"/>
+    </filter>
+  </defs>
+
+  <!-- base -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#haloTL)"/>
+  <rect width="1200" height="630" fill="url(#haloBR)"/>
+
+  <!-- corner brackets -->
+  <g stroke="#70F3D8" stroke-opacity="0.4" stroke-width="2" fill="none">
+    <path d="M 40 40 L 40 80 M 40 40 L 80 40"/>
+    <path d="M 1160 40 L 1160 80 M 1160 40 L 1120 40"/>
+    <path d="M 40 590 L 40 550 M 40 590 L 80 590"/>
+    <path d="M 1160 590 L 1160 550 M 1160 590 L 1120 590"/>
+  </g>
+
+  <!-- mark backdrop (soft halo behind logo) -->
+  <circle cx="270" cy="315" r="240" fill="url(#ballGlow)"/>
+
+  <!-- VAYLA brand logo -->
+  <image href="https://vayla.xyz/VAYLA_logo.png" x="90" y="115" width="360" height="400" preserveAspectRatio="xMidYMid meet"/>
+
+  <!-- divider rule -->
+  <path d="M 510 200 L 510 460" stroke="#70F3D8" stroke-opacity="0.18" stroke-width="1"/>
+
+  <!-- right column: type lockup -->
+  <g font-family="'Geist Mono', ui-monospace, monospace" fill="#70F3D8" font-size="20" letter-spacing="3">
+    <text x="555" y="200">FAN VAULTS · CREATOR EQUITY · ON-CHAIN</text>
+  </g>
+
+  <text x="555" y="290"
+        font-family="'Bricolage Grotesque', system-ui, sans-serif"
+        font-size="118" font-weight="700" letter-spacing="-3"
+        fill="url(#vaylaText)">VAYLA</text>
+
+  <text x="555" y="380"
+        font-family="'Bricolage Grotesque', system-ui, sans-serif"
+        font-size="42" font-weight="500" letter-spacing="-1"
+        fill="#ECF7F4">The settlement layer for</text>
+
+  <text x="555" y="430"
+        font-family="'Instrument Serif', Georgia, serif"
+        font-style="italic" font-size="56" font-weight="400" letter-spacing="-1"
+        fill="url(#emText)">fan-funded equity.</text>
+
+  <!-- bottom strip stats -->
+  <g font-family="'Geist Mono', ui-monospace, monospace" font-size="18" fill="#98AAA5" letter-spacing="2">
+    <text x="555" y="510">$48.21M TVL · 1,283 VAULTS · 57,418 FANS · 0% PLATFORM FEE</text>
+  </g>
+
+  <!-- url -->
+  <text x="555" y="568"
+        font-family="'Geist Mono', ui-monospace, monospace"
+        font-size="18" font-weight="600" letter-spacing="3"
+        fill="#70F3D8">VAYLA.XYZ</text>
+
+  <!-- top-right live pip -->
+  <g transform="translate(1080 80)">
+    <circle r="6" fill="#70F3D8"/>
+    <circle r="6" fill="none" stroke="#70F3D8" stroke-opacity="0.3" stroke-width="2"/>
+    <text x="18" y="6"
+          font-family="'Geist Mono', ui-monospace, monospace"
+          font-size="14" letter-spacing="2" fill="#70F3D8">MAINNET</text>
+  </g>
+</svg>

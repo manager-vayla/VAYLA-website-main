@@ -18,9 +18,9 @@ const SUPPLY: { lbl: string; v: string; sub: string }[] = [
 const UTILITY: { ttl: string; tag: string; body: string; icon: 'stake' | 'govern' | 'boost' }[] = [
   {
     tag: '01 · Stake',
-    ttl: 'Stake into a creator vault.',
+    ttl: 'Participate with VAYLA Boost.',
     icon: 'stake',
-    body: '$VAYLA is the chip you place at the table. Lock it into a Creator Vault and earn pro rata as that creator generates revenue from streams, drops, sync licensing and merch. Yield streams in continuously, no claim required.',
+    body: '$VAYLA powers fan participation across VAYLA Boost campaigns. Support artists and music IP you believe in; rewards and ecosystem utility flow from real engagement—not guaranteed returns.',
   },
   {
     tag: '02 · Govern',
@@ -32,7 +32,7 @@ const UTILITY: { ttl: string; tag: string; body: string; icon: 'stake' | 'govern
     tag: '03 · Boost',
     ttl: 'Earn more for showing up early.',
     icon: 'boost',
-    body: 'The longer you stake, the higher your boost multiplier (up to +50% annualized). Early belief gets paid first. Boost compounds, lockup is optional, exit is always permissionless.',
+    body: 'The longer you participate, the higher your yield multiplier (up to +50% annualized). Early supporters may earn more when campaigns perform. Lockup is optional; exit stays permissionless.',
   },
 ];
 
@@ -92,7 +92,7 @@ export function TokenPage() {
             Belief, <span className="font-serif italic">made liquid.</span>
           </h1>
           <p className="token-hero__deck">
-            $VAYLA is the chip every fan places at the table. Stake it into a creator's vault, govern the protocol that routes their revenue, and compound on the cap table you helped build. <em className="font-serif italic text-mint-400">One token. Three jobs. Zero middlemen.</em>
+            $VAYLA is the ecosystem utility token for VAYLA Boost, Arena participation, governance, and rewards. Connect with artists and music IP through on-chain fan engagement. <em className="font-serif italic text-mint-400">One token. Ecosystem utility. Zero middlemen.</em>
           </p>
           <div className="token-hero__cta">
             <a className="btn btn-mint" href="#get">Get $VAYLA</a>
@@ -141,7 +141,7 @@ export function TokenPage() {
           <div className="token-head">
             <span className="eyebrow">Token utility</span>
             <h2>Three jobs. <span className="font-serif italic text-mint-400">All on-chain.</span></h2>
-            <p>$VAYLA is not a meme. It is the collateral for participation in every Creator Vault, the voting weight for the V-DAO, and the multiplier that rewards conviction over time.</p>
+            <p>$VAYLA is not a meme. It powers VAYLA Boost participation, V-DAO voting, Arena rewards, and multipliers that recognize long-term fan support.</p>
           </div>
           <div className="util-grid">
             {UTILITY.map((u, i) => (

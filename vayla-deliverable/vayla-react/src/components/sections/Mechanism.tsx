@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 
 const FRAMES = [
-  { num: '01 / FAN', h: <>A fan opens a <em>position.</em></>, p: 'One transaction. Stake $VAYLA into a creator\'s vault. Funds are non-custodial, smart-contract enforced, lockups optional. No platform between fan and artist.' },
-  { num: '02 / VAULT', h: <>The vault <em>aggregates</em> capital.</>, p: 'Every fan\'s deposit is pooled in the creator\'s vault address. The vault is the settlement layer for everything that creator earns onward, on-chain.' },
-  { num: '03 / CREATOR', h: <>The creator <em>earns.</em></>, p: 'Streams from Spotify, drops on the storefront, sync licensing for film and ads, merch, festival cuts. All revenue flows into the vault, not a label account.' },
-  { num: '04 / YIELD', h: <>Yield is <em>streamed back.</em></>, p: 'The protocol distributes pro-rata to every fan position. Continuous, no claim button, boost multipliers compound for held positions. Early belief gets paid first.' },
+  { num: '01 / FAN', h: <>A fan joins <em>VAYLA Boost.</em></>, p: 'One flow. Participate with $VAYLA in a campaign you believe in. Non-custodial, smart-contract enforced, lockups optional. Direct fan-to-artist engagement.' },
+  { num: '02 / ARENA', h: <>VAYLA Arena <em>surfaces</em> music IP.</>, p: 'Fans discover artists through AI-assisted discovery, voting, and community signals. Submit tracks via YouTube links and support emerging talent.' },
+  { num: '03 / ARTIST', h: <>Artists <em>grow.</em></>, p: 'Streams, drops, sync licensing, merch, and festival participation feed campaign outcomes. Revenue and rewards route on-chain with transparent rules.' },
+  { num: '04 / REWARDS', h: <>Rewards flow to <em>participants.</em></>, p: 'Ecosystem utility and campaign rewards distribute to engaged fans. Multipliers may compound for sustained support. Early participation is recognized—not guaranteed returns.' },
 ];
 
 export function Mechanism() {
