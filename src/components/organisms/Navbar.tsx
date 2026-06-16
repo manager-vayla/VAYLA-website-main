@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import logo from '@/assets/VAYLA_S_LOGO_White.png';
+import logo from '@/assets/vayla_logo_icon_new.jpg';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);

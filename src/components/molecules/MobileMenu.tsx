@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import logo from '@/assets/VAYLA_S_LOGO_White.png';
+import logo from '@/assets/vayla_logo_icon_new.jpg';
 
 interface NavItem {
     label: string;

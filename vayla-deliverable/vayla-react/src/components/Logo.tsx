@@ -1,5 +1,5 @@
-const LOGO_FULL = '/VAYLA_S_LOGO_White.png';
-const LOGO_MARK = '/VAYLA_logo.png';
+const LOGO_FULL = '/vayla_logo_icon_new.jpg';
+const LOGO_MARK = '/vayla_logo_new.png';
 
 export function Logo({ size = 48, withWord = true }: { size?: number; withWord?: boolean }) {
   // PNG is a square canvas; logo artwork sits in the center — needs ~56px+ height to read clearly.
