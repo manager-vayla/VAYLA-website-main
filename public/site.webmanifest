@@ -1,0 +1,15 @@
+{
+  "name": "VAYLA",
+  "short_name": "VAYLA",
+  "description": "Global Web3 music fandom platform — VAYLA Boost, AI discovery, voting, rewards, NFTs, and token utilities.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050706",
+  "theme_color": "#70F3D8",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "categories": ["music", "entertainment", "social"]
+}

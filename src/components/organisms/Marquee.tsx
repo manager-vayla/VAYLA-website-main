@@ -1,3 +1,5 @@
+'use client';
+
 import React from "react";
 
 const Marquee = () => {
@@ -17,7 +19,11 @@ const Marquee = () => {
                         </div>
                         <div className="flex items-center gap-3 opacity-50 grayscale hover:grayscale-0 transition-all duration-500 cursor-default">
                             <iconify-icon icon="logos:binance" style={{ fontSize: '20px' }}></iconify-icon>
+<<<<<<< HEAD
                             <span className="text-sm font-mono text-gray-400">BINANCE</span>
+=======
+                            <span className="text-sm font-mono text-gray-400">BSC</span>
+>>>>>>> binance-redesign2
                         </div>
                     </React.Fragment>
                 ))}

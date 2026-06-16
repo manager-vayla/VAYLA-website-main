@@ -1,74 +1,67 @@
+'use client';
+
 import React from "react";
 import SpotlightCard from "@/components/molecules/SpotlightCard";
+import TextReveal from "@/components/atoms/TextReveal";
 
 const RevenueSection = () => {
     return (
         <section className="py-32 px-6 md:px-12 bg-[#050505] relative z-10 overflow-hidden">
-            {/* Background Decoration */}
-            <div className="absolute right-0 top-1/4 w-[40vw] h-[40vw] bg-teal-900/10 rounded-full blur-[120px] pointer-events-none"></div>
-
             <div className="max-w-[90rem] mx-auto relative z-10">
-                <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
-                    <div>
-                        <span className="font-mono text-teal-500 text-xs tracking-widest uppercase mb-4 block">Tokenomics</span>
-                        <h2 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-teal-500/50 mb-6 font-['Space_Grotesk'] tracking-tighter">
-                            Revenue Structure
-                        </h2>
-                        <p className="text-xl text-gray-400 font-light max-w-3xl leading-relaxed">
-                            A virtuous Web3 fandom economy of <span className="text-teal-400">Funding</span> → Consumption → Rewards → Distribution → <span className="text-teal-400">Re-engagement</span>
-                        </p>
+                <div className="mb-24 flex flex-col items-center text-center">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-mono uppercase tracking-widest text-gray-400 mb-8">
+                        VAYLA ARENA
                     </div>
-                    {/* Decorative flow indicator */}
-                    <div className="hidden md:flex gap-2 items-center opacity-30">
-                        <div className="w-12 h-1 bg-gradient-to-r from-transparent to-teal-500"></div>
-                        <div className="w-2 h-2 rounded-full bg-teal-500"></div>
-                    </div>
+                    <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 font-['Space_Grotesk'] tracking-tighter">
+                        <TextReveal>The On-chain</TextReveal><br />
+                        <TextReveal delay={0.1}>Operating Layer</TextReveal>
+                    </h2>
+                    <p className="text-xl text-gray-400 font-light max-w-3xl leading-relaxed">
+                        where the VAYLA token is actively used, earned, and settled.
+                    </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <SpotlightCard
                         variant="glass"
-                        icon="eos-icons:monetization-on"
-                        title="Platform Fee"
-                        desc="When fans fund creators, the platform charges a fee (e.g., 5-10%)."
+                        image="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=2070&auto=format&fit=crop"
+                        title="[VAYLA DISCOVERY]"
+                        desc={
+                            <>
+                                <strong className="block text-white mb-2 text-lg">Discover and support new creators</strong>
+                                Discover emerging artists, projects, and IPs through on-chain signals and community-driven insights.
+                            </>
+                        }
                         delay={0}
                     />
                     <SpotlightCard
                         variant="glass"
-                        icon="eos-icons:products-outlined"
-                        title="Ticket & Merch Sales"
-                        desc="Direct revenue through artist concerts, fan meeting tickets, and merch sales."
+                        image="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop"
+                        title="[V-ONCHAIN CHART]"
+                        desc={
+                            <>
+                                <strong className="block text-white mb-2 text-lg">Vote and influence on-chain rankings</strong>
+                                Community-powered on-chain charts driven by transparent voting and participation.
+                            </>
+                        }
                         delay={100}
                     />
                     <SpotlightCard
                         variant="glass"
-                        icon="mdi:crown-outline"
-                        title="NFT Royalties"
-                        desc="When fans resell NFT tickets/merch, the platform generates 2.5-10% royalty income."
+                        image="https://images.unsplash.com/photo-1618044733300-9472054094ee?q=80&w=2070&auto=format&fit=crop"
+                        title="[VAYLA Boost 3.0]"
+                        desc={
+                            <>
+                                <strong className="block text-white mb-2 text-lg">Participate in Web3 VAYLA Boost projects</strong>
+                                Web3-native VAYLA Boost powered by participation-based on-chain settlement.
+                            </>
+                        }
                         delay={200}
                     />
-                    <SpotlightCard
-                        variant="glass"
-                        icon="eos-icons:database"
-                        title="Staking Revenue"
-                        desc="Yield generated from user token staking and liquidity pool rewards."
-                        delay={300}
-                    />
-                    <SpotlightCard
-                        variant="glass"
-                        icon="eos-icons:cluster-role"
-                        title="B2B Partnerships"
-                        desc="Partnership fees or IP licensing revenue with content owners and distributors."
-                        delay={400}
-                    />
-                    <SpotlightCard
-                        variant="glass"
-                        icon="eos-icons:performance"
-                        title="Token Appreciation"
-                        desc="Token value increase driven by ecosystem growth and rising demand."
-                        delay={500}
-                        className="border-teal-500/30 bg-teal-900/5 hover:bg-teal-900/10"
-                    />
+                </div>
+
+                <div className="mt-16 text-center text-teal-500/80 font-mono text-xs uppercase tracking-widest max-w-2xl mx-auto">
+                    Together, these modules form a continuous on-chain participation and VAYLA Boost ecosystem.
                 </div>
             </div>
         </section>

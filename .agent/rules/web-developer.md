@@ -2,96 +2,81 @@
 trigger: always_on
 ---
 
-KINC Project Rules & Technology Stack (Frontend Focus)
+1. Tổng Quan & Phạm Vi (Overview & Scope)
+Dự án: VAYLA Landing Page (Trang giới thiệu dự án).
 
-1. Core Framework & Language
-   Framework: React 18+ (Vite)
+Mô hình: Frontend-Only / Static Site.
 
-Language: TypeScript (Bắt buộc). Phải định nghĩa Interface/Type cho mọi dữ liệu từ API và Smart Contract.
+Kiến trúc: Tối ưu hóa cho SEO, tốc độ tải trang và trải nghiệm người dùng (UX).
 
-State Management:
+Hạ tầng: Deploy tự động qua GitHub Actions lên Hosting (Namecheap/cPanel) dưới dạng Static Export.
 
-Global: Zustand (Nhẹ, hiệu năng cao hơn Context API cho các tác vụ lưu trữ trạng thái ví/session).
+2. Tech Stack Bắt Buộc (Mandatory Tech Stack)
+Framework: Next.js 14+ (App Router).
 
-Server State & Blockchain Data: TanStack Query (React Query) để cache và sync dữ liệu RWA.
+Cấu hình Build: output: 'export' (Tạo HTML tĩnh).
 
-Routing: React Router DOM (v6+).
+Ngôn ngữ: TypeScript (Strict Mode).
 
-2. Web3 & Blockchain Integration
-   Provider & Library: Wagmi kết hợp với Viem (Tối ưu tốc độ và type-safe hơn Web3.js).
+Styling: Tailwind CSS, Shadcn UI (cho UI components).
 
-Wallet Connection: RainbowKit (Đã cấu hình cho Polygon Mainnet).
+Animations: Framer Motion hoặc Lucide React (cho các hiệu ứng chuyển động).
 
-Data Handling:
+Web3 Auth (Nếu có): Privy SDK (@privy-io/react-auth) - tích hợp phía Client.
 
-Luôn sử dụng BigInt cho các giá trị Token.
+3. Quy Tắc Coding (Coding Standards)
+3.1 Nguyên Tắc Chung (General)
+DRY (Don't Repeat Yourself): Tách các thành phần UI dùng chung (Button, Card, Section Title) vào thư mục src/components.
 
-Sử dụng formatUnits và parseUnits từ Viem để xử lý số thập phân (Decimals) của USDT/KCT.
+KISS (Keep It Simple, Stupid): Ưu tiên các giải pháp CSS/Animation đơn giản để tránh làm nặng trang web.
 
-RPC Management: Sử dụng Alchemy hoặc QuickNode (Cấu hình qua biến môi trường .env).
+Type Safety: Không dùng any. Định nghĩa Interface/Type cho mọi Props của Component.
 
-3. Styling & UI System
-   Engine: Tailwind CSS.
+Asset Optimization: Mọi hình ảnh phải qua thẻ <Image /> của Next.js hoặc định dạng WebP/SVG để tối ưu dung lượng.
 
-Design Pattern: Atomic Design (Atoms, Molecules, Organisms).
+3.2 Frontend Rules (Next.js)
+Server vs Client Components:
 
-Visual Style:
+Mặc định sử dụng Server Components cho tất cả nội dung tĩnh (văn bản, cấu trúc trang) để tối ưu SEO.
 
-Glassmorphism: Sử dụng backdrop-blur và bg-opacity.
+Chỉ dùng 'use client' cho các thành phần cần tương tác (Menu di động, Swiper, Modal, Connect Wallet).
 
-Theme: Dark Mode mặc định (Navy/Blue/Gold).
+Cấu Trúc Thư Mục:
 
-Responsiveness: Quy tắc Mobile-First. Kiểm tra nghiêm ngặt trên breakpoint 375px (iPhone SE) và 414px.
+/src/app: Định nghĩa routes và layout chính.
 
-4. Project Structure (Standardized)
-   Plaintext
+/src/components/organisms: Các section lớn của Landing Page (Hero, Features, Roadmap).
 
-src/
-├── assets/ # Images, Fonts, Icons
-├── components/ # Reusable UI components
-├── constants/ # ABI, Contract Addresses, Configs
-├── hooks/ # Custom hooks (useContractRead, useFunding, etc.)
-├── layouts/ # MainLayout, AuthLayout
-├── pages/ # Screen views
-├── services/ # API calls (Axios instances)
-├── store/ # Zustand stores
-├── types/ # TypeScript definitions (.d.ts)
-└── utils/ # Formatters, Helpers (address shorten, date) 5. Coding Rules & Best Practices
-5.1. Type Safety & Validation
-Tuyệt đối không sử dụng any.
+/src/components/molecules: Các cụm UI nhỏ hơn (GlassAppIcon, SpotlightCard).
 
-Các hàm tương tác Contract phải được bọc trong try-catch và có thông báo lỗi (Toast) cho người dùng.
+/src/assets: Chứa hình ảnh, icons và logo của Vayla.
 
-5.2. Component Design
-Functional Components: Sử dụng arrow functions.
+Web3 Integration:
 
-Props: Phải được định nghĩa Type cụ thể.
+Nếu có hiển thị dữ liệu on-chain, sử dụng Wagmi và Viem để đọc dữ liệu trực tiếp từ RPC (không qua backend riêng).
 
-Performance: Sử dụng React.memo cho các component hiển thị bảng giá hoặc danh sách dự án Funding lớn để tránh re-render thừa.
+4. Quy Tắc Triển Khai (Infrastructure & Deployment)
+Tự động hóa (CI/CD): * Sử dụng GitHub Actions để tự động build dự án mỗi khi push code lên branch chính (feat/refactor-nextjs hoặc main).
 
-5.3. Naming Convention
-Components/Pages: PascalCase.tsx
+Quy trình: Checkout -> Install -> Build (Export) -> FTP Deploy.
 
-Hooks: useCamelCase.ts
+Môi trường Hosting (cPanel):
 
-Variables/Functions: camelCase
+Triển khai vào thư mục public_html.
 
-Constants: UPPER_SNAKE_CASE
+Sử dụng file .htaccess để xử lý các đường dẫn (nếu không dùng static export hoàn toàn).
 
-5.4. Git Workflow (Strict)
-Commits: Tuân thủ Conventional Commits:
+Tối ưu hình ảnh: Vì sử dụng output: 'export', tính năng Image Optimization mặc định của Next.js sẽ không hoạt động trên hosting thường. Bắt buộc đặt unoptimized: true trong next.config.js hoặc tự tối ưu dung lượng ảnh thủ công trước khi upload.
 
-feat: Tính năng mới.
+5. Phong Cách Cam Kết Mã (Git Commit Style)
+Sử dụng Conventional Commits:
 
-fix: Sửa lỗi.
+feat: Thêm section mới (ví dụ: feat: add tokenomics section).
 
-refactor: Tối ưu code nhưng không đổi tính năng.
+fix: Sửa lỗi hiển thị UI hoặc lỗi responsive.
 
-chore: Cập nhật thư viện, cấu hình build.
+chore: Cập nhật thư viện hoặc cấu hình build/deploy.
 
-Branching: main -> develop -> feature/feature-name.
+style: Chỉnh sửa CSS, màu sắc, font chữ mà không thay đổi logic.
 
-6. Deployment Context (AWS t4g.large)
-   Build Output: Tối ưu hóa Vite build (manualChunks) để giảm kích thước tệp JS, giúp Nginx trên AWS EC2 phục vụ file nhanh hơn.
-
-Environment: Toàn bộ API URL và Contract Address phải nằm trong .env. Không hardcode thông tin nhạy cảm.
+perf: Các cải tiến về tốc độ load trang hoặc dung lượng ảnh.

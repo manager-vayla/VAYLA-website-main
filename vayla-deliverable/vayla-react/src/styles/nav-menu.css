@@ -1,0 +1,136 @@
+/* =================================================================
+   Nav role/help dropdown — small icon button + floating panel sitting
+   between the nav links and the Connect Wallet CTA. Houses Creator,
+   Newcomer, Legal and Contact entries so the primary nav stays lean.
+   ================================================================= */
+
+.nav-menu { position: relative; display: inline-flex; }
+
+.nav-menu-trigger {
+  width: 38px; height: 38px;
+  display: inline-grid; place-items: center;
+  border-radius: 10px;
+  border: 1px solid var(--line-2);
+  background: rgba(255,255,255,0.025);
+  color: var(--text-2);
+  cursor: pointer;
+  transition: color 0.18s, background 0.18s, border-color 0.18s, transform 0.18s;
+}
+.nav-menu-trigger:hover {
+  color: var(--mint);
+  border-color: rgba(112,243,216,0.4);
+  background: rgba(112,243,216,0.06);
+  transform: translateY(-1px);
+}
+.nav-menu-trigger.is-open {
+  color: var(--mint);
+  border-color: rgba(112,243,216,0.55);
+  background: rgba(112,243,216,0.08);
+}
+
+.nav-menu-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 80;
+  width: 296px;
+  padding: 8px;
+  border-radius: 16px;
+  border: 1px solid var(--line-2);
+  background:
+    linear-gradient(180deg, rgba(13,22,19,0.96), rgba(8,14,12,0.97));
+  backdrop-filter: blur(18px) saturate(1.1);
+  -webkit-backdrop-filter: blur(18px) saturate(1.1);
+  box-shadow:
+    0 24px 60px -22px rgba(0,0,0,0.7),
+    0 0 0 1px rgba(112,243,216,0.04),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+  animation: navMenuIn 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@keyframes navMenuIn {
+  from { opacity: 0; transform: translateY(-6px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.nav-menu-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  color: var(--text-1) !important;
+  text-decoration: none;
+  transition: background 0.15s;
+  cursor: pointer;
+}
+/* When the menu item is rendered as a <button> (e.g. Sign in trigger),
+   strip default button chrome so it looks identical to the <a>/<Link> ones. */
+button.nav-menu-item {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  text-align: left;
+  font: inherit;
+}
+.nav-menu-item:hover { background: rgba(112,243,216,0.06); }
+.nav-menu-item__icon {
+  display: inline-grid; place-items: center;
+  width: 32px; height: 32px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: radial-gradient(circle at 30% 25%, rgba(112,243,216,0.16), rgba(112,243,216,0.02) 70%);
+  border: 1px solid rgba(112,243,216,0.22);
+  color: var(--mint);
+}
+.nav-menu-item__body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.nav-menu-item__body strong {
+  font-size: 13px; font-weight: 600;
+  color: var(--text-1);
+  letter-spacing: 0.005em;
+}
+.nav-menu-item__body span {
+  font-size: 11.5px; line-height: 1.35; color: var(--text-3);
+}
+.nav-menu-item__chev {
+  margin-left: auto;
+  color: var(--text-3); font-size: 16px; line-height: 1;
+  transition: transform 0.15s, color 0.15s;
+}
+.nav-menu-item:hover .nav-menu-item__chev {
+  color: var(--mint); transform: translateX(2px);
+}
+
+.nav-menu-item--small {
+  padding: 10px 14px;
+}
+.nav-menu-item--small .nav-menu-item__body strong {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--text-2); font-weight: 500;
+}
+.nav-menu-item--small:hover .nav-menu-item__body strong { color: var(--mint); }
+
+.nav-menu-divider {
+  height: 1px;
+  margin: 4px 8px;
+  background: var(--line);
+}
+
+.nav-menu-heading {
+  display: block;
+  padding: 6px 14px 2px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+/* Mobile: anchor panel to viewport so it doesn't cut off, and shrink trigger */
+@media (max-width: 540px) {
+  .nav-menu-trigger { width: 36px; height: 36px; }
+  .nav-menu-panel {
+    position: fixed;
+    top: 76px;
+    right: 12px;
+    left: 12px;
+    width: auto;
+  }
+}
