@@ -23,7 +23,7 @@ export const jsonLdGraph = {
       description: SITE_DESCRIPTION,
       foundingDate: '2026',
       sameAs: [
-        'https://x.com/vaylamanager',
+        'https://x.com/vaylaofficial_',
         'https://t.me/Vayla_Official',
         'https://github.com/manager-vayla',
         'https://www.coingecko.com/en/coins/vayla-2',

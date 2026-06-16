@@ -37,7 +37,7 @@ export default function StitchFooter() {
                 </p>
                 <div className="flex gap-3 mb-16 w-full">
                     {/* Social links restored from original Footer */}
-                    <a className="social-icon-enhanced" href="https://x.com/vaylamanager" target="_blank" rel="noopener noreferrer">
+                    <a className="social-icon-enhanced" href="https://x.com/vaylaofficial_" target="_blank" rel="noopener noreferrer">
                         <img alt="X" className="w-8 h-8 opacity-95" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoJWShCYfHS63g80c1U2UGheZi2QhZdjizYhVOpc3wGkGkK0uHyq4uQmOvintIcQ_ghGBWUQOv1x16B91k5BDz1z5MYn8N1ttqPQPbihhZAl5b9okiMhC9YnksPj217I7PdiIMOINmh1f73Cxd0KP-x9IuYe1ifzPtgTrZwJWMypaDSB8vPuc6Ns45oOXnjrcEDayc9Hn2y4-S0u6SftnglabRacfgHZ6hjgKq60jfnWEpxSiZW60BBibb1vBU8OWkgZcd52DPHGEX" />
                     </a>
                     <a className="social-icon-enhanced" href="https://t.me/Vayla_Official" target="_blank" rel="noopener noreferrer">

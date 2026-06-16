@@ -2,7 +2,7 @@
 
 export const VAYLA_EXTERNAL = {
   marketingSite: 'https://vayla.io/',
-  twitter: 'https://x.com/vaylamanager',
+  twitter: 'https://x.com/vaylaofficial_',
   telegramOfficial: 'https://t.me/Vayla_Official',
   /** Official link hub — docs, disclosures, outbound resources (mirrors marketing site CTAs). */
   linkHub: 'https://manager-vayla.github.io/VAYLA-link-tree/',
