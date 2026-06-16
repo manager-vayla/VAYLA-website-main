@@ -3,7 +3,7 @@
 import React from "react";
 import Image from 'next/image';
 import GlassAppIcon from "@/components/molecules/GlassAppIcon";
-import logo from "@/assets/VAYLA_logo.png";
+import logo from "@/assets/vayla_logo_new.png";
 import { motion } from "framer-motion";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";

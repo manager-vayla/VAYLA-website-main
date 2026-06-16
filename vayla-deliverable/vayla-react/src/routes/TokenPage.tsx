@@ -292,7 +292,7 @@ export function TokenPage() {
 function Sigil({ size }: { size: number }) {
   return (
     <img
-      src="/VAYLA_logo.png"
+      src="/vayla_logo_new.png"
       alt=""
       width={size}
       height={size}

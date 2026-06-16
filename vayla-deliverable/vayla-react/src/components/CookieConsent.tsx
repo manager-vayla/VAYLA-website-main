@@ -41,7 +41,7 @@ export function CookieConsent() {
       <div className="cookie-consent__glow" aria-hidden="true" />
       <div className="cookie-consent__inner">
         <div className="cookie-consent__head">
-          <img src="/VAYLA_logo.png" alt="" className="cookie-consent__mark" width={44} height={44} aria-hidden draggable={false} />
+          <img src="/vayla_logo_new.png" alt="" className="cookie-consent__mark" width={44} height={44} aria-hidden draggable={false} />
           <div className="cookie-consent__title">
             <span className="cookie-consent__eyebrow">cookie · settlement</span>
             <h3 id={`cc-h-${id}`}>We use a few cookies.</h3>

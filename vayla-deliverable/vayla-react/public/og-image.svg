@@ -62,7 +62,7 @@
   <circle cx="270" cy="315" r="240" fill="url(#ballGlow)"/>
 
   <!-- VAYLA brand logo -->
-  <image href="https://vayla.xyz/VAYLA_logo.png" x="90" y="115" width="360" height="400" preserveAspectRatio="xMidYMid meet"/>
+  <image href="https://vayla.xyz/vayla_logo_new.png" x="90" y="115" width="360" height="400" preserveAspectRatio="xMidYMid meet"/>
 
   <!-- divider rule -->
   <path d="M 510 200 L 510 460" stroke="#70F3D8" stroke-opacity="0.18" stroke-width="1"/>
