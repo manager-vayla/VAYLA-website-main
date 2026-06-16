@@ -42,7 +42,7 @@ export function FootOriginal() {
             <ul>
               <li><a href={VAYLA_EXTERNAL.twitter} target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
               <li><a href={VAYLA_EXTERNAL.telegramOfficial} target="_blank" rel="noopener noreferrer">Telegram</a></li>
-              <li><a href="mailto:hello@vayla.xyz">Contact</a></li>
+              <li><a href="mailto:manager@vayla.io">Contact</a></li>
               <li><Link to="/creator">For creators</Link></li>
             </ul>
           </div>

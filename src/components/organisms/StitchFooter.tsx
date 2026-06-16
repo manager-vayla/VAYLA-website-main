@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { getWhitepaperUrl } from '@/utils/whitepaperUtils';
 
 export default function StitchFooter() {
-    const [whitepaperUrl, setWhitepaperUrl] = useState<string>('https://manager-vayla.github.io/VAYLA-link-tree/');
+    const [whitepaperUrl, setWhitepaperUrl] = useState<string>('https://manager-vayla.github.io/VAYLA-link-tree/(EN)_VAYLA_WHITEPAPER_v3.8.pdf');
 
     useEffect(() => {
         const fetchPdfUrl = async () => {
@@ -14,7 +14,7 @@ export default function StitchFooter() {
                 setWhitepaperUrl(url);
             } catch (error) {
                 console.error('Failed to fetch whitepaper URL:', error);
-                setWhitepaperUrl('https://manager-vayla.github.io/VAYLA-link-tree/');
+                setWhitepaperUrl('https://manager-vayla.github.io/VAYLA-link-tree/(EN)_VAYLA_WHITEPAPER_v3.8.pdf');
             }
         };
 

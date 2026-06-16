@@ -238,7 +238,7 @@ export function Nav() {
                 </span>
                 <span className="nav-menu-item__chev" aria-hidden>&rsaquo;</span>
               </Link>
-              <a href="mailto:hello@vayla.xyz" className="nav-menu-item nav-menu-item--small" role="menuitem">
+              <a href="mailto:manager@vayla.io" className="nav-menu-item nav-menu-item--small" role="menuitem">
                 <span className="nav-menu-item__body">
                   <strong>Contact</strong>
                 </span>
