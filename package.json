@@ -7,7 +7,8 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "check:production": "dev-browser --headless --timeout 120 --idle-timeout 5m run scripts/check-vayla-dev-browser.js"
   },
   "engines": {
     "node": ">=24.0.0"

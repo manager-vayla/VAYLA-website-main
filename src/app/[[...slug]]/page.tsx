@@ -25,7 +25,7 @@ const STATIC_ROUTES = [
   ['brutal-math'],
 ];
 
-const LEGAL_ROUTES = ['terms', 'privacy', 'cookies', 'risk', 'disclaimer'];
+const LEGAL_ROUTES = ['terms', 'privacy', 'cookies', 'risk', 'disclaimer', 'refunds'];
 
 export function generateStaticParams() {
   return [

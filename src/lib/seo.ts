@@ -30,6 +30,7 @@ export const ROUTE_SEO: Record<string, { title: string; description: string; ind
   '/legal/cookies': { title: 'VAYLA Cookie Policy', description: 'Cookie categories, preferences and third-party link disclosures for the VAYLA public website.', index: false },
   '/legal/risk': { title: 'VAYLA Risk Disclosure', description: 'Risks relating to digital assets, external blockchain services and participation features described by VAYLA.', index: false },
   '/legal/disclaimer': { title: 'VAYLA Disclaimer', description: 'Educational, availability and no-investment-advice disclaimer for VAYLA public information.', index: false },
+  '/legal/refunds': { title: 'VAYLA Refunds and Transactions Notice', description: 'Notice that the current VAYLA public preview does not process withdrawals, refunds, settlements or transactions.', index: false },
 };
 
 const developerNodes = VAYLA_FACTS.developers.map(developer => ({

@@ -85,3 +85,11 @@ jobs:
           local-dir: ./out/
           server-dir: ./public_html/
           delete: false
+
+      - name: Install dev-browser for production smoke test
+        run: |
+          npm install --global dev-browser
+          dev-browser install
+
+      - name: Verify production with dev-browser
+        run: pnpm run check:production

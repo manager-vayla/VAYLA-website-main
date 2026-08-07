@@ -2,10 +2,13 @@ import { useEffect, useState } from 'react';
 import { VAYLA_FACTS } from '@/lib/officialFacts';
 
 export function GlobalChrome() {
-  const [time, setTime] = useState(() => formatClock(new Date()));
+  // Keep the server and first client render identical. The live UTC clock is
+  // populated after hydration to avoid a timestamp-based hydration mismatch.
+  const [time, setTime] = useState('UTC');
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    setTime(formatClock(new Date()));
     const timer = setInterval(() => setTime(formatClock(new Date())), 1000);
     return () => clearInterval(timer);
   }, []);
