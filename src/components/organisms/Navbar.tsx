@@ -112,7 +112,7 @@ const Navbar = () => {
                     <div className="flex gap-4 mb-8">
                         {[
                             { icon: 'simple-icons:x', href: 'https://x.com/VAYLAOfficial_' },
-                            { icon: 'simple-icons:telegram', href: 'https://t.me/Vayla_Official' },
+                            { icon: 'simple-icons:telegram', href: 'https://t.me/Vayla_Vaylian' },
                             { icon: 'simple-icons:discord', href: 'https://discord.gg/PSNRHbZDS4' },
                             { icon: 'ph:user-bold', href: '#' }
                         ].map((social, idx) => (

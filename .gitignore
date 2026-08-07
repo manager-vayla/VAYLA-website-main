@@ -13,17 +13,34 @@
 # production
 /build
 /dist
+/storybook-static
+
+# local QA/browser artifacts
+/output/
+/test-results/
+/playwright-report/
+/blob-report/
+
+# local tool caches
+/.cache/
+/.turbo/
+/.vite/
+*.tsbuildinfo
 
 # misc
 .DS_Store
+Thumbs.db
+desktop.ini
 *.pem
 .eslintcache
 test_write.txt
 
 # debug
 npm-debug.log*
+pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.log
 
 # local env files
 .env*.local
@@ -33,7 +50,6 @@ yarn-error.log*
 .vercel
 
 # typescript
-*.tsbuildinfo
 next-env.d.ts
 
 # Deliverable: Next aliases vayla-deliverable/vayla-react/src — track that app, not local bulk.

@@ -40,6 +40,8 @@
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "vayla-deliverable/vayla-react/server",
+    "vayla-deliverable/vayla-react/vite.config.ts"
   ]
 }

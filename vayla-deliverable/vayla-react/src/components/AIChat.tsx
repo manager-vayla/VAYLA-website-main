@@ -4,7 +4,7 @@ import type { ChatMessage } from '@/types';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export function AIChat({
-  vaultId, title = 'Vault Analyst', placeholder = 'Ask about revenue, risk, fan tiers…',
+  vaultId, title = 'Vault Analyst', placeholder = 'Ask about revenue, risk, fan tiers',
   starter,
 }: {
   vaultId?: string;
@@ -75,7 +75,7 @@ export function AIChat({
           <span className="size-2 rounded-full bg-mint-400 animate-pulse" />
           <h3 className="display text-lg">{title}</h3>
         </div>
-        <span className="text-[10px] uppercase tracking-widest text-ink-3">Claude · streaming</span>
+        <span className="text-[10px] uppercase tracking-widest text-ink-3">Claude | streaming</span>
       </div>
 
       <div ref={scrollRef} className="flex-1 overflow-y-auto px-5 py-5 space-y-4">
@@ -104,7 +104,7 @@ export function AIChat({
                   ? 'max-w-[80%] rounded-2xl rounded-tr-sm px-4 py-2.5 bg-mint-400 text-bg-0 font-medium'
                   : 'max-w-[80%] rounded-2xl rounded-tl-sm px-4 py-2.5 glass text-ink-1'
               }>
-                <div className="whitespace-pre-wrap leading-relaxed text-sm">{m.content || (streaming && i === msgs.length - 1 ? '…' : '')}</div>
+                <div className="whitespace-pre-wrap leading-relaxed text-sm">{m.content || (streaming && i === msgs.length - 1 ? '' : '')}</div>
               </div>
             </motion.div>
           ))}

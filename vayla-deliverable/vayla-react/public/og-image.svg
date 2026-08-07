@@ -62,14 +62,14 @@
   <circle cx="270" cy="315" r="240" fill="url(#ballGlow)"/>
 
   <!-- VAYLA brand logo -->
-  <image href="https://vayla.xyz/vayla_logo_new.png" x="90" y="115" width="360" height="400" preserveAspectRatio="xMidYMid meet"/>
+  <image href="https://vayla.io/vayla_logo_new.png" x="90" y="115" width="360" height="400" preserveAspectRatio="xMidYMid meet"/>
 
   <!-- divider rule -->
   <path d="M 510 200 L 510 460" stroke="#70F3D8" stroke-opacity="0.18" stroke-width="1"/>
 
   <!-- right column: type lockup -->
   <g font-family="'Geist Mono', ui-monospace, monospace" fill="#70F3D8" font-size="20" letter-spacing="3">
-    <text x="555" y="200">FAN VAULTS · CREATOR EQUITY · ON-CHAIN</text>
+    <text x="555" y="200">GLOBAL MUSIC FANDOM · BNB SMART CHAIN</text>
   </g>
 
   <text x="555" y="290"
@@ -80,23 +80,23 @@
   <text x="555" y="380"
         font-family="'Bricolage Grotesque', system-ui, sans-serif"
         font-size="42" font-weight="500" letter-spacing="-1"
-        fill="#ECF7F4">The settlement layer for</text>
+        fill="#ECF7F4">VAYLA Arena · Beta</text>
 
   <text x="555" y="430"
         font-family="'Instrument Serif', Georgia, serif"
         font-style="italic" font-size="56" font-weight="400" letter-spacing="-1"
-        fill="url(#emText)">fan-funded equity.</text>
+        fill="url(#emText)">participation, voting &amp; creation.</text>
 
   <!-- bottom strip stats -->
   <g font-family="'Geist Mono', ui-monospace, monospace" font-size="18" fill="#98AAA5" letter-spacing="2">
-    <text x="555" y="510">$48.21M TVL · 1,283 VAULTS · 57,418 FANS · 0% PLATFORM FEE</text>
+    <text x="555" y="510">VAYLA BOOST · ON-CHAIN V CHART · CREATE &amp; EARN</text>
   </g>
 
   <!-- url -->
   <text x="555" y="568"
         font-family="'Geist Mono', ui-monospace, monospace"
         font-size="18" font-weight="600" letter-spacing="3"
-        fill="#70F3D8">VAYLA.XYZ</text>
+        fill="#70F3D8">VAYLA.IO</text>
 
   <!-- top-right live pip -->
   <g transform="translate(1080 80)">
@@ -104,6 +104,6 @@
     <circle r="6" fill="none" stroke="#70F3D8" stroke-opacity="0.3" stroke-width="2"/>
     <text x="18" y="6"
           font-family="'Geist Mono', ui-monospace, monospace"
-          font-size="14" letter-spacing="2" fill="#70F3D8">MAINNET</text>
+          font-size="14" letter-spacing="2" fill="#70F3D8">BETA</text>
   </g>
 </svg>

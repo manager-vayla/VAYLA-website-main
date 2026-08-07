@@ -1,15 +1,9 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useAccount } from 'wagmi';
-import { ConnectButton } from '@/components/ConnectButton';
 
-const STEPS = ['Profile', 'Revenue', 'Vault', 'Review'];
+const STEPS = ['Profile', 'Audience', 'Campaign', 'Review'];
 
 export function CreatorPortal() {
-  // If `address` is set, the wallet is providing it, treat as connected. Covers
-  // 'connected' and 'reconnecting'. Avoids the wagmi `status` race that briefly
-  // reports 'connecting' on already-connected sessions during route transitions.
-  const { address } = useAccount();
   const [step, setStep] = useState(0);
   const [form, setForm] = useState({
     name: '', handle: '', category: 'music', description: '',
@@ -19,29 +13,19 @@ export function CreatorPortal() {
 
   function set<K extends keyof typeof form>(k: K, v: (typeof form)[K]) { setForm(s => ({ ...s, [k]: v })); }
 
-  if (!address) {
-    return (
-      <main className="mx-auto max-w-[800px] px-6 py-32 text-center">
-        <h1 className="display text-5xl">Connect to launch your Vault.</h1>
-        <p className="text-ink-2 mt-4">Verify creator status on-chain. Open one Vault per artist. Fans take it from there.</p>
-        <div className="mt-8"><ConnectButton /></div>
-      </main>
-    );
-  }
-
   return (
-    <main className="mx-auto max-w-[820px] px-6 pt-12 pb-24">
+    <main className="creator-page mx-auto max-w-[820px] min-w-0 px-6 pt-12 pb-24">
       <div className="text-center mb-10">
-        <span className="text-[11px] uppercase tracking-widest text-mint-400">Creator Portal</span>
-        <h1 className="display text-5xl md:text-6xl mt-2">Open your Vault.</h1>
+        <span className="text-[11px] uppercase tracking-widest text-mint-400">Creator Portal | Preview</span>
+        <h1 className="display text-5xl md:text-6xl mt-2">Draft a creator<span className="creator-mobile-break"><br /></span> campaign.</h1>
       </div>
 
-      <div className="flex items-center justify-between mb-8">
+      <div className="creator-stepper flex min-w-0 items-center justify-between mb-8" aria-label="Campaign preview steps">
         {STEPS.map((s, i) => (
-          <div key={s} className="flex-1 flex items-center">
-            <div className={`size-8 rounded-full grid place-items-center text-xs font-semibold ${i <= step ? 'bg-mint-400 text-bg-0' : 'bg-line-1 text-ink-3'}`}>{i + 1}</div>
-            <div className={`ml-2 text-xs uppercase tracking-widest ${i <= step ? 'text-ink-1' : 'text-ink-3'}`}>{s}</div>
-            {i < STEPS.length - 1 && <div className={`flex-1 h-px mx-3 ${i < step ? 'bg-mint-400' : 'bg-line-1'}`} />}
+          <div key={s} className="creator-step flex min-w-0 flex-1 items-center">
+            <div className={`creator-step-number size-8 shrink-0 rounded-full grid place-items-center text-xs font-semibold ${i <= step ? 'bg-mint-400 text-bg-0' : 'bg-line-1 text-ink-3'}`}>{i + 1}</div>
+            <div className={`creator-step-label ml-2 min-w-0 truncate text-xs uppercase tracking-widest ${i <= step ? 'text-ink-1' : 'text-ink-3'}`}>{s}</div>
+            {i < STEPS.length - 1 && <div className={`creator-step-connector min-w-3 flex-1 h-px mx-3 ${i < step ? 'bg-mint-400' : 'bg-line-1'}`} />}
           </div>
         ))}
       </div>
@@ -51,24 +35,24 @@ export function CreatorPortal() {
           <Field label="Display name" value={form.name} onChange={v => set('name', v)} placeholder="NOOR" />
           <Field label="Handle" value={form.handle} onChange={v => set('handle', v)} placeholder="@noor" />
           <FieldSelect label="Category" value={form.category} onChange={v => set('category', v)} options={['music','creator','gaming','film','sports']} />
-          <Field label="Description" value={form.description} onChange={v => set('description', v)} placeholder="Berlin-based artist…" multiline />
+          <Field label="Description" value={form.description} onChange={v => set('description', v)} placeholder="Berlin-based artist" multiline />
         </>}
         {step === 1 && <>
-          <p className="text-ink-2 text-sm">Estimated annual revenue (USD) per stream:</p>
+          <p className="text-ink-2 text-sm">Illustrative annual audience/revenue inputs (USD), for preview only:</p>
           <Number label="Streaming" value={form.streams} onChange={v => set('streams', v)} />
           <Number label="Drops & Merch" value={form.drops} onChange={v => set('drops', v)} />
           <Number label="IP & Licensing" value={form.ip} onChange={v => set('ip', v)} />
           <Number label="Live & Touring" value={form.live} onChange={v => set('live', v)} />
         </>}
         {step === 2 && <>
-          <Range label="Capacity (max fans)" value={form.capacity} min={1000} max={50000} step={1000} onChange={v => set('capacity', v)} />
-          <Range label="Default lockup (days)" value={form.lockup} min={0} max={365} step={15} onChange={v => set('lockup', v)} />
-          <Range label="Risk profile (1-10)" value={form.riskTolerance} min={1} max={10} step={1} onChange={v => set('riskTolerance', v)} />
+          <Range label="Audience capacity (max fans)" value={form.capacity} min={1000} max={50000} step={1000} onChange={v => set('capacity', v)} />
+          <Range label="Campaign window (days)" value={form.lockup} min={0} max={365} step={15} onChange={v => set('lockup', v)} />
+          <Range label="Participation sensitivity (1-10)" value={form.riskTolerance} min={1} max={10} step={1} onChange={v => set('riskTolerance', v)} />
         </>}
         {step === 3 && <>
           <h3 className="display text-2xl">Review</h3>
           <pre className="text-xs text-ink-2 bg-bg-1 rounded-xl p-4 border border-line-1 whitespace-pre-wrap break-all">{JSON.stringify(form, null, 2)}</pre>
-          <p className="text-ink-3 text-xs">Vault contract will be deployed via factory. Network: Base. Estimated gas: ~$3.20.</p>
+          <p className="text-ink-3 text-xs">This is a local product preview in development. It does not submit a campaign, deploy a contract, process a payment or connect a wallet.</p>
         </>}
       </motion.div>
 
@@ -77,7 +61,7 @@ export function CreatorPortal() {
         {step < STEPS.length - 1 ? (
           <button onClick={() => setStep(s => s + 1)} className="btn btn-mint">Continue</button>
         ) : (
-          <button onClick={() => alert('Vault deployment is mocked in this demo.')} className="btn btn-mint">Deploy Vault</button>
+          <button onClick={() => alert('Preview only: no campaign or contract was submitted.')} className="btn btn-mint">Finish preview</button>
         )}
       </div>
     </main>

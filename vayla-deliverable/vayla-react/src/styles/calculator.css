@@ -346,8 +346,6 @@
   text-transform: uppercase; color: var(--text-3);
 }
 .brutal-foot summary::-webkit-details-marker { display: none; }
-.brutal-foot summary::after { content: ' ›'; color: var(--mint); transition: transform 0.18s; display: inline-block; }
-.brutal-foot[open] summary::after { transform: rotate(90deg); }
 .brutal-foot ul {
   margin: 12px 0 4px;
   padding-left: 18px;

@@ -23,12 +23,13 @@ export const metadata: Metadata = {
     'VAYLA Boost',
     'Web3 music',
     'music fandom',
-    'AI music discovery',
+    'On-chain V Chart',
+    'Create & Earn',
     'on-chain participation',
     'music IP',
     'BNB Smart Chain',
   ],
-  authors: [{ name: 'VAYLA Technology Inc' }],
+  authors: [{ name: 'VAYLA' }],
   robots: {
     index: true,
     follow: true,
@@ -68,7 +69,7 @@ export const metadata: Metadata = {
     images: [OG_IMAGE],
   },
   other: {
-    'telegram:channel': '@Vayla_Official',
+    'telegram:channel': '@Vayla_Vaylian',
   },
 };
 

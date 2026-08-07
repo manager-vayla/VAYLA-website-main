@@ -40,7 +40,7 @@ export default function StitchFooter() {
                     <a className="social-icon-enhanced" href="https://x.com/vaylaofficial_" target="_blank" rel="noopener noreferrer">
                         <img alt="X" className="w-8 h-8 opacity-95" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoJWShCYfHS63g80c1U2UGheZi2QhZdjizYhVOpc3wGkGkK0uHyq4uQmOvintIcQ_ghGBWUQOv1x16B91k5BDz1z5MYn8N1ttqPQPbihhZAl5b9okiMhC9YnksPj217I7PdiIMOINmh1f73Cxd0KP-x9IuYe1ifzPtgTrZwJWMypaDSB8vPuc6Ns45oOXnjrcEDayc9Hn2y4-S0u6SftnglabRacfgHZ6hjgKq60jfnWEpxSiZW60BBibb1vBU8OWkgZcd52DPHGEX" />
                     </a>
-                    <a className="social-icon-enhanced" href="https://t.me/Vayla_Official" target="_blank" rel="noopener noreferrer">
+                    <a className="social-icon-enhanced" href="https://t.me/Vayla_Vaylian" target="_blank" rel="noopener noreferrer">
                         <img alt="Telegram" className="w-8 h-8 opacity-95" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBygNTmhRFfjZ8VmllCwZpbKQ0n3QBiCcvGWdyDxtkqGY65yIxoS-d_K_ujeTYwcIGcj8joKXVxecFjnZISNy3Fo84F-QXXzygdTcQUlIqpyeV-R1GRpAgGOhQ2P8yZIgfcYyHNAuMJbNlnWM3GZ4h0-lrkOMXli5UiRjs5rItONB9leVzT8iudlT7WesWWAOlK9NsD-C-aAqlu8_zymI9R9qr9SvCVQEbxGTOcgyxacv2QxmDtGwz8dJAVepGfJycvQO9xB4j0qW5M" />
                     </a>
                     <a className="social-icon-enhanced" href="https://discord.gg/PSNRHbZDS4" target="_blank" rel="noopener noreferrer">

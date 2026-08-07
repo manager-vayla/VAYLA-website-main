@@ -17,6 +17,7 @@ import { Start } from '@/routes/Start';
 import { Legal } from '@/routes/Legal';
 import { TokenPage } from '@/routes/TokenPage';
 import { Calculator } from '@/routes/Calculator';
+import { Arena } from '@/routes/Arena';
 
 export function App() {
   const { pathname } = useLocation();
@@ -33,6 +34,10 @@ export function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/ai" element={<AI />} />
         <Route path="/marketplace" element={<Marketplace />} />
+        <Route path="/arena" element={<Arena />} />
+        <Route path="/chart" element={<Arena />} />
+        <Route path="/tokenutility" element={<TokenPage />} />
+        <Route path="/doc" element={<Whitepaper />} />
         <Route path="/whitepaper" element={<Whitepaper />} />
         <Route path="/creator" element={<CreatorPortal />} />
         <Route path="/onboarding" element={<Onboarding />} />

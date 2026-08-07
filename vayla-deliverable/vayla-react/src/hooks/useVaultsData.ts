@@ -1,11 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { api } from '@/lib/api';
-import { VAULTS as STATIC_VAULTS } from '@/data/vaults';
 import type { Vault } from '@/types';
 
 /**
- * Live API when `/api` exists (Vite + server); otherwise static demo vaults so
- * `/vaults` and `/marketplace` stay populated in Next static export builds.
+ * Use the API only when it returns a verified catalogue. The public static
+ * deployment intentionally renders an empty state instead of demo vaults.
  */
 export function useVaultsData() {
   return useQuery({
@@ -17,7 +16,7 @@ export function useVaultsData() {
       } catch {
         /* no backend — fall through */
       }
-      return STATIC_VAULTS;
+      return [];
     },
     staleTime: 60_000,
   });

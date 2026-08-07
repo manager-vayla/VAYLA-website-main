@@ -1,11 +1,15 @@
 import { Router } from 'express';
-import { VAULTS, findVault } from '../data';
 
 export const vaultsRouter = Router();
 
-vaultsRouter.get('/', (_req, res) => res.json(VAULTS));
-vaultsRouter.get('/:slug', (req, res) => {
-  const v = findVault(req.params.slug);
-  if (!v) return res.status(404).json({ error: 'not_found' });
-  res.json(v);
+/**
+ * The previous route exposed illustrative creator, TVL, APY and revenue data.
+ * Keep the endpoint explicit until a verified Arena catalogue is available.
+ */
+vaultsRouter.get('/', (_req, res) => {
+  res.json([]);
+});
+
+vaultsRouter.get('/:slug', (_req, res) => {
+  res.status(404).json({ error: 'verified_catalogue_unavailable' });
 });

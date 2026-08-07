@@ -1,7 +1,7 @@
 {
   "name": "VAYLA",
   "short_name": "VAYLA",
-  "description": "Global Web3 music fandom platform — VAYLA Boost, AI discovery, voting, rewards, NFTs, and token utilities.",
+  "description": "VAYLA Arena Beta — a Web3 music fandom platform for creator support, voting, creation and participation-based rewards.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#050706",

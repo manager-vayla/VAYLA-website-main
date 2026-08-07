@@ -33,7 +33,7 @@ export function NavLink({
   children,
   end,
   ...props
-}: React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+}: Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'className'> & {
   to: To;
   className?: string | ((state: { isActive: boolean }) => string);
   children: React.ReactNode;
@@ -56,7 +56,7 @@ export function useLocation() {
 }
 
 export function useNavigate() {
-  const router = useRouter();
+  const router = useRouter() as { back: () => void; push: (to: string) => void };
   return (to: string | number) => {
     if (typeof to === 'number') {
       if (to < 0) router.back();
@@ -66,11 +66,11 @@ export function useNavigate() {
   };
 }
 
-export function useParams() {
+export function useParams<T extends Record<string, string | undefined> = Record<string, string | undefined>>() {
   const parts = (usePathname() || '/').split('/').filter(Boolean);
   const [section, value] = parts;
-  if ((section === 'vault' || section === 'legal') && value) return { slug: value };
-  return value ? { slug: value } : {};
+  const result = (section === 'vault' || section === 'legal') && value ? { slug: value } : value ? { slug: value } : {};
+  return result as T;
 }
 
 export function BrowserRouter({ children }: { children: React.ReactNode }) {

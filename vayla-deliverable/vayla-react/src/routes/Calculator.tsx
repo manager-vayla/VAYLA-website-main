@@ -1,13 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import '@/styles/calculator.css';
 
 /* ────────────────────────────────────────────────────────────────────────
    THE BRUTAL MATH
    Public, free, no login. Anyone enters their numbers and sees where every
-   dollar of their music economy actually ends up. Reinforces VAYLA's thesis
-   without ever saying "stake".
+   dollar of a music economy actually ends up. This is an illustrative
+   industry-benchmark tool, not an official VAYLA financial model.
    ──────────────────────────────────────────────────────────────────────── */
 
 type DealKind = 'major' | 'indie' | 'diy';
@@ -19,10 +18,10 @@ const DEAL: Record<DealKind, { label: string; sub: string }> = {
 };
 
 const PRESETS: { name: string; sub: string; streams: number; deal: DealKind; merch: number; sync: number; tour: number }[] = [
-  { name: 'Bedroom artist',    sub: '50K streams/mo · DIY',                streams: 50_000,    deal: 'diy',   merch: 0,     sync: 0,    tour: 0 },
-  { name: 'Touring indie',     sub: '500K streams/mo · indie + aggregator', streams: 500_000,   deal: 'indie', merch: 1_500, sync: 1,    tour: 12_000 },
-  { name: 'Mid-tier signed',   sub: '5M streams/mo · major label',         streams: 5_000_000, deal: 'major', merch: 6_000, sync: 4,    tour: 80_000 },
-  { name: 'Stadium artist',    sub: '50M streams/mo · major label',        streams: 50_000_000,deal: 'major', merch: 80_000,sync: 18,   tour: 1_500_000 },
+  { name: 'Bedroom artist',    sub: '50K streams/mo | DIY',                streams: 50_000,    deal: 'diy',   merch: 0,     sync: 0,    tour: 0 },
+  { name: 'Touring indie',     sub: '500K streams/mo | indie + aggregator', streams: 500_000,   deal: 'indie', merch: 1_500, sync: 1,    tour: 12_000 },
+  { name: 'Mid-tier signed',   sub: '5M streams/mo | major label',         streams: 5_000_000, deal: 'major', merch: 6_000, sync: 4,    tour: 80_000 },
+  { name: 'Stadium artist',    sub: '50M streams/mo | major label',        streams: 50_000_000,deal: 'major', merch: 80_000,sync: 18,   tour: 1_500_000 },
 ];
 
 /* All numbers below are public industry benchmarks: Spotify per-stream ~$0.004,
@@ -39,8 +38,6 @@ const MERCH_PLATFORM_CUT   = 0.12;
 const SYNC_AVG_PLACEMENT   = 8_000;
 const TOUR_AGENT_CUT       = 0.10;
 const TAX_EFFECTIVE        = 0.25;
-const VAYLA_PROTOCOL_KEEP  = 0.0;  // 0% platform fee
-const VAYLA_NETWORK_GAS    = 0.005; // 0.5% rough gas amortized
 
 function fmtUSD(n: number, decimals = 0): string {
   if (Math.abs(n) >= 1e9) return '$' + (n / 1e9).toFixed(2) + 'B';
@@ -131,28 +128,12 @@ function compute(input: Inputs) {
     spotifyKeeps + labelKeeps + distroKeeps + syncAgent + merchPlatform +
     tourAgent + managerKeeps;
 
-  // ── VAYLA hypothetical ─────────────────────────────────────────────
-  // Vault collects everything settled on-chain. Spotify cut is real (their
-  // platform); we eliminate label + distro + agents + agent fees. Manager
-  // optional (we'll keep it because real life). Tax stays.
-  const vayla_spotify = spotifyKeeps; // Spotify is still Spotify
-  const vayla_protocol = (totalGross - spotifyKeeps) * VAYLA_PROTOCOL_KEEP;
-  const vayla_gas      = (totalGross - spotifyKeeps) * VAYLA_NETWORK_GAS;
-  const vayla_artistGross = totalGross - vayla_spotify - vayla_protocol - vayla_gas;
-  const vayla_manager  = input.deal === 'diy' ? 0 : vayla_artistGross * MANAGER_CUT;
-  const vayla_afterManager = vayla_artistGross - vayla_manager;
-  const vayla_tax      = vayla_afterManager * TAX_EFFECTIVE;
-  const vayla_takeHome = vayla_afterManager - vayla_tax;
-
   return {
     annualStreams, totalGross,
     spotifyKeeps, labelKeeps, distroKeeps, syncAgent, merchPlatform,
     tourAgent, managerKeeps, taxKeeps, middlemenTotal,
     artistStream, artistSync, artistMerch, artistTour, artistTakeHome,
-    vayla_takeHome,
-    deltaPct: artistTakeHome > 0 ? (vayla_takeHome - artistTakeHome) / artistTakeHome : 0,
     keptPct: totalGross > 0 ? artistTakeHome / totalGross : 0,
-    vaylaKeptPct: totalGross > 0 ? vayla_takeHome / totalGross : 0,
   };
 }
 
@@ -189,7 +170,7 @@ export function Calculator() {
     });
   }
   function tweetLink() {
-    const text = `Of every $1 spent in this artist's ecosystem, only ${(r.keptPct * 100).toFixed(1)}¢ reached them.\n\nVAYLA would route ${(r.vaylaKeptPct * 100).toFixed(0)}¢.\n\nBrutal math:`;
+    const text = `Of every $1 spent in this illustrative artist-economy scenario, only ${(r.keptPct * 100).toFixed(1)}¢ reached the artist.\n\nBrutal math:`;
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`;
     window.open(url, '_blank', 'noopener,noreferrer');
   }
@@ -200,15 +181,13 @@ export function Calculator() {
       <section className="brutal-hero">
         <div className="brutal-hero__bg" aria-hidden />
         <div className="wrap">
-          <span className="brutal-eyebrow">
-            <span className="dot" /> The Brutal Math · open tool · no login
-          </span>
+          <span className="brutal-eyebrow">The Brutal Math | open tool | no login</span>
           <h1 className="brutal-title">
             Where the music money <span className="font-serif italic">actually goes.</span>
           </h1>
           <p className="brutal-deck">
-            Plug in any artist's numbers. See exactly how many cents reach them on every dollar fans spend.
-            Then see what VAYLA would route to the same artist for the same activity.
+            Plug in any artist's numbers. See an illustrative estimate of how many cents reach them on every dollar fans spend.
+            The result is an industry-benchmark scenario, not a VAYLA guarantee or official protocol output.
           </p>
         </div>
       </section>
@@ -350,48 +329,6 @@ export function Calculator() {
         </div>
       </section>
 
-      {/* VAYLA COMPARISON ────────────────────────────────────────────── */}
-      <section className="brutal-vayla">
-        <div className="wrap brutal-vayla__inner">
-          <div className="brutal-card brutal-card--vayla">
-            <span className="brutal-eyebrow brutal-eyebrow--mint"><span className="dot" /> What VAYLA would route</span>
-            <h2 className="brutal-section-h" style={{ marginTop: 14 }}>
-              Same activity. <span className="font-serif italic">Different math.</span>
-            </h2>
-            <p className="brutal-section-sub">
-              Cut every middleman whose only job is settlement. Spotify still pays for the platform; that's a real product.
-              Everything downstream of "the dollar arrived" runs on smart contracts that don't take a cut.
-            </p>
-
-            <div className="brutal-compare">
-              <div className="brutal-compare__col">
-                <div className="lbl">Status quo · what you get today</div>
-                <div className="amt"><Counter value={r.artistTakeHome} format={n => fmtUSD(n)} /></div>
-                <div className="pct"><Counter value={r.keptPct * 100} decimals={1} suffix="¢" /> of every dollar</div>
-              </div>
-              <div className="brutal-compare__arrow" aria-hidden>→</div>
-              <div className="brutal-compare__col is-mint">
-                <div className="lbl">VAYLA route · same activity</div>
-                <div className="amt"><Counter value={r.vayla_takeHome} format={n => fmtUSD(n)} /></div>
-                <div className="pct"><Counter value={r.vaylaKeptPct * 100} decimals={1} suffix="¢" /> of every dollar</div>
-              </div>
-            </div>
-
-            <div className="brutal-delta">
-              <div>
-                <strong>That's <Counter value={Math.max(0, r.vayla_takeHome - r.artistTakeHome)} format={n => fmtUSD(n)} /> per year.</strong>
-                <span> Not back-of-envelope. The same number, run through fewer cuts.</span>
-              </div>
-            </div>
-
-            <div className="brutal-cta">
-              <Link to="/creator" className="btn btn-mint">I'm a creator. Open my Vault →</Link>
-              <Link to="/start" className="btn btn-ghost">I'm a fan. Show me how →</Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* SHARE & FOOTNOTES ───────────────────────────────────────────── */}
       <section className="brutal-share">
         <div className="wrap brutal-share__inner">
@@ -417,8 +354,8 @@ export function Calculator() {
               <li>Aggregator/distro: <strong>{(INDIE_DISTRO_CUT * 100).toFixed(0)}%</strong> blended (Distrokid/CDBaby/Tunecore mid-tier).</li>
               <li>Manager <strong>{(MANAGER_CUT * 100).toFixed(0)}%</strong>, sync agent <strong>{(SYNC_AGENT_CUT * 100).toFixed(0)}%</strong>, booking <strong>{(TOUR_AGENT_CUT * 100).toFixed(0)}%</strong>, merch platform <strong>{(MERCH_PLATFORM_CUT * 100).toFixed(0)}%</strong> (industry standard ranges).</li>
               <li>US effective income tax assumed <strong>{(TAX_EFFECTIVE * 100).toFixed(0)}%</strong>.</li>
-              <li>VAYLA model: Spotify retains its platform cut. Every other middleman is replaced with on-chain settlement (0% protocol fee, ~0.5% gas amortized). Manager + tax stay.</li>
-              <li>Numbers are illustrative. Real deals vary; the order of magnitude does not.</li>
+              <li>This calculator is illustrative only. It does not model VAYLA fees, token returns, protocol performance, or guaranteed outcomes.</li>
+              <li>Real deals, payout rates, taxes and expenses vary materially by territory, contract and platform.</li>
             </ul>
           </details>
         </div>

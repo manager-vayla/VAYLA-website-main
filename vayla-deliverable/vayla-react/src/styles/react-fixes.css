@@ -347,7 +347,7 @@ main:not(:has(.hero)):not(:has(.heroFlow)) { padding-top: 110px; }
    matter how wide the viewport is. */
 @keyframes tickerRoll { from { transform: translate3d(0,0,0); } to { transform: translate3d(-16.6666%,0,0); } }
 
-/* Marquee bands (FAN VAULTS / creator equity), same seamless-loop pattern */
+/* Marquee bands, same seamless-loop pattern */
 .marquee-track {
   gap: 0 !important;
   display: inline-flex;
@@ -1031,4 +1031,128 @@ html, body { overflow-x: clip; }
        doesn't pop in late on slow phones ---------------------------- */
 @media (max-width: 540px) and (prefers-reduced-motion: reduce) {
   .reveal { transition: none !important; opacity: 1 !important; transform: none !important; }
+}
+
+/* ================================================================
+   UI/UX refinement pass
+   Keep content inside the viewport, make controls identifiable, and
+   reduce the ornamental/template feel of the public preview.
+   ================================================================ */
+
+/* Grid and flex children must be allowed to shrink on narrow screens. */
+main, .wrap, .hero-grid, .hero-grid > *, .wp-wrap, .wp-body, .wp-content,
+.creator-page, .creator-stepper, .creator-step, .cookie-consent__inner {
+  min-width: 0;
+}
+.hero-title, .hero-deck, .wp-title, .wp-deck {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+.hero-mobile-break, .creator-mobile-break { display: none; }
+
+/* The quick menu is useful on desktop; on a phone the navigation drawer is
+   the clearer single entry point and prevents three competing controls. */
+@media (max-width: 880px) {
+  .nav { grid-template-columns: auto minmax(0, 1fr) auto; min-width: 0; }
+  .nav-brand, .nav-cta-cluster { min-width: 0; }
+  .nav-cta-cluster { gap: 6px; }
+  .nav-cta { min-width: 0; max-width: 100%; flex: 0 1 auto; padding-left: 11px !important; padding-right: 12px !important; gap: 6px; }
+  .nav-cta-label { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+  .nav-burger { flex-shrink: 0; }
+  .nav-menu-panel { max-width: calc(100vw - 32px); }
+}
+@media (max-width: 540px) {
+  .nav-menu { display: none; }
+  .nav-cta-label { font-size: 0; letter-spacing: 0; }
+  .nav-cta-label::after {
+    content: 'Dashboard';
+    font-size: 10px;
+    letter-spacing: 0.07em;
+  }
+  .nav-cta-arrow { display: none; }
+  .nav-cta { padding: 9px 11px !important; }
+}
+
+/* Hero and whitepaper copy should wrap naturally rather than being clipped
+   by a max-content grid item. */
+@media (max-width: 880px) {
+  .hero-grid > div:first-child { width: calc(100vw - 40px); max-width: calc(100vw - 40px); }
+  .hero-mobile-break { display: none; }
+  .hero-title { font-size: clamp(42px, 10.5vw, 72px) !important; line-height: 0.99 !important; text-wrap: pretty; }
+  .hero-title em { display: block; overflow-wrap: normal; }
+  .hero-deck { width: 100%; max-width: 100% !important; line-height: 1.55; white-space: normal; }
+  .hero-tease { max-width: 100%; overflow-wrap: anywhere; }
+  .wp-wrap { width: calc(100vw - 40px); max-width: calc(100vw - 40px); padding-left: 0; padding-right: 0; }
+  .wp-body { width: calc(100vw - 40px); max-width: calc(100vw - 40px); padding-left: 0 !important; padding-right: 0 !important; }
+  .wp-content { width: 100%; }
+  .wp-meta { display: flex; flex-wrap: wrap; gap: 6px 10px; line-height: 1.5; }
+  .wp-title { font-size: clamp(42px, 10.5vw, 76px) !important; line-height: 0.98; text-wrap: pretty; }
+  .wp-title em { overflow-wrap: anywhere; }
+  .wp-deck { line-height: 1.55; }
+  .wp-cta-row { width: 100%; }
+  .wp-cta-row .btn { max-width: 100%; }
+}
+@media (max-width: 540px) {
+  .nav-menu { display: none !important; }
+  .hero-mobile-break { display: inline; }
+}
+
+/* The campaign preview stepper becomes compact but remains fully legible. */
+@media (max-width: 540px) {
+  .creator-page { width: calc(100vw - 40px) !important; max-width: calc(100vw - 40px) !important; padding-left: 0 !important; padding-right: 0 !important; }
+  .creator-page h1 { max-width: 100%; font-size: clamp(34px, 9vw, 48px) !important; line-height: 1.02; text-wrap: balance; overflow-wrap: normal; }
+  .creator-mobile-break { display: inline; }
+  .creator-stepper { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; }
+  .creator-step { display: flex; flex-direction: column; flex: none; align-items: center; gap: 8px; }
+  .creator-step-label { margin-left: 0; max-width: 100%; font-size: 9px; letter-spacing: 0.04em; text-align: center; }
+  .creator-step-connector { display: none; }
+  .creator-page .card { padding: 20px !important; }
+}
+
+/* Cookie actions use a predictable two-row layout at phone widths. */
+@media (max-width: 540px) {
+  .cookie-consent { left: 16px; right: 16px; bottom: 16px; width: auto; max-width: none; }
+  .cookie-consent__inner { padding: 18px 18px 16px; gap: 12px; }
+  .cookie-consent__body { overflow-wrap: anywhere; }
+  .cookie-consent__actions { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; gap: 8px; }
+  .cookie-consent__btn { min-width: 0; width: 100%; padding-left: 10px; padding-right: 10px; }
+  .cookie-consent__btn--mint { grid-column: 1 / -1; margin-left: 0; }
+}
+@media (max-width: 360px) {
+  .cookie-consent__head { align-items: flex-start; }
+  .cookie-consent__mark { width: 44px; height: 44px; }
+  .cookie-consent__actions { grid-template-columns: 1fr; }
+  .cookie-consent__btn--mint { grid-column: auto; }
+}
+
+/* Keep the editorial system calm: one accent line is enough for a card. */
+.thesis-card::after { background: var(--line-2); }
+.cookie-consent__mark { animation: none; }
+
+/* Keyboard users need a consistent, visible target indicator. */
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Text labels replaced the decorative roadmap arrows; keep both controls
+   wide enough to remain readable at desktop widths. */
+.road-arrow {
+  width: auto;
+  min-width: 44px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }

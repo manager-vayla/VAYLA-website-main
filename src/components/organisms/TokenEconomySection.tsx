@@ -189,7 +189,7 @@ const TokenEconomySection = () => {
                                             <span className="text-[10px] uppercase tracking-widest font-bold relative z-10 group-hover:tracking-[0.25em] transition-all">BSCScan</span>
                                         </a>
 
-                                        <a href="https://www.coingecko.com/en/coins/vayla-2" target="_blank" rel="noopener noreferrer"
+                                        <a href="https://www.coingecko.com/en/coins/vayla" target="_blank" rel="noopener noreferrer"
                                             className="group relative flex flex-col items-center justify-center gap-2 py-4 bg-black/40 border border-white/10 hover:border-green-500/50 text-gray-400 hover:text-green-400 transition-all duration-300 rounded overflow-hidden backdrop-blur-sm hover:animate-breath"
                                             style={{ animationDelay: '0.3s' }}>
                                             {/* Hover Glitch Effect Background */}

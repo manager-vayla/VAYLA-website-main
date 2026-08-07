@@ -16,43 +16,43 @@ interface LegalDoc {
 const DOCS: Record<string, LegalDoc> = {
   terms: {
     title: 'Terms of Service',
-    blurb: 'The contract between you and VAYLA Technology Inc covering use of the protocol and the website.',
+    blurb: 'The terms for using the VAYLA website and related services.',
     updated: '2026-04-22',
     effective: '2026-05-01',
     sections: [
       { h: '1. Acceptance', body: [
         'By accessing the VAYLA website, smart contracts, dashboards, or any related interface (collectively, the "Services"), you agree to be bound by these Terms of Service. If you do not agree, do not use the Services.',
-        'These Terms form a binding agreement between you and VAYLA Technology Inc, a Delaware corporation ("VAYLA", "we", "us"). They apply equally to fans, creators, and any other party who interacts with the Services.',
+        'These Terms describe use of the VAYLA website and related services. They apply to visitors, creators and other users who interact with the Services.',
       ]},
       { h: '2. Eligibility', body: [
         'You must be at least 18 years old, have legal capacity to enter into contracts in your jurisdiction, and not be located in or a resident of any country subject to comprehensive U.S. sanctions, including (without limitation) Cuba, Iran, North Korea, Syria, and the so called Donetsk/Luhansk regions of Ukraine.',
         'You must not be listed on any sanctions list, including the U.S. Office of Foreign Assets Control Specially Designated Nationals list.',
       ]},
-      { h: '3. Wallet & Account', body: [
-        'The Services are non custodial. You connect a self custodial wallet that you control. VAYLA never holds your tokens. We do not have the ability to move, freeze, or recover your assets.',
-        'You are solely responsible for safeguarding your private keys and seed phrase. Loss of these is unrecoverable.',
+      { h: '3. Accounts and public preview', body: [
+        'The current vayla.io deployment is a public information and product-preview website. It does not require account registration, wallet connection, token deposit, or transaction signing.',
+        'Any external service or future feature that requests an account, wallet, payment, or blockchain transaction must provide its own current instructions and disclosures. Do not share private keys or seed phrases with this website.',
       ]},
       { h: '4. Permitted Use', body: [
         'You may use the Services only for lawful purposes and in accordance with these Terms. You agree not to use the Services in any manner that could damage, disable, overburden, or impair them.',
       ]},
       { h: '5. Prohibited Activities', body: [
-        'You will not: (a) use the Services for money laundering, terrorist financing, or any illicit activity; (b) attempt to manipulate vault prices, yield, or markets; (c) reverse engineer, scrape, or copy proprietary portions of the Services beyond what is permitted by open source license; (d) introduce malware, exploit vulnerabilities, or interfere with other users; (e) impersonate any person or entity.',
+        'You will not: (a) use the Services for money laundering, terrorist financing, or any illicit activity; (b) attempt to manipulate public metrics, predictions, campaigns or markets; (c) reverse engineer, scrape, or copy proprietary portions of the Services beyond what is permitted by an open source license; (d) introduce malware, exploit vulnerabilities, or interfere with other users; (e) impersonate any person or entity.',
       ]},
-      { h: '6. Smart Contract & Protocol Risk', body: [
-        'The Services rely on smart contracts deployed to public blockchains. Smart contracts may contain bugs, exploits, or vulnerabilities. You acknowledge and accept this risk. VAYLA disclaims all liability for losses arising from smart contract failure, blockchain outages, or front running.',
+      { h: '6. External blockchain risk', body: [
+        'The current website does not execute blockchain transactions. Links to public blockchain records and third-party services are provided for verification and may be unavailable, inaccurate, or changed by their operators. Independently verify any contract, network, fee, and transaction details before using an external service.',
       ]},
       { h: '7. No Investment Advice', body: [
         'Nothing on the Services constitutes investment, tax, or legal advice. Information presented is for educational purposes only. Consult your own advisors before making any decision involving the Services.',
       ]},
       { h: '8. Intellectual Property', body: [
-        'The VAYLA name, logo, and brand assets are owned by VAYLA Technology Inc. The smart contracts are released under the licenses specified in the relevant repository. Creator content remains the property of the creator. You retain ownership of anything you submit, but grant VAYLA a non exclusive, royalty free license to display it within the Services as needed.',
+        'The VAYLA name, logo and brand assets are project materials and may not be used to imply endorsement without permission. Any smart-contract license is the one published with the relevant repository. Creator content remains the property of its creator. You retain rights in material you submit, while granting the website permission to display it as needed to operate the Services.',
       ]},
       { h: '9. Disclaimers', body: [
         'The Services are provided AS IS and AS AVAILABLE without warranties of any kind, whether express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, and non infringement.',
       ]},
       { h: '10. Limitation of Liability', body: [
         'To the maximum extent permitted by law, in no event shall VAYLA, its affiliates, officers, directors, employees, or agents be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of profits, data, or use, arising out of or in connection with the Services.',
-        'Our aggregate liability shall not exceed the greater of (i) USD 100 or (ii) the amount you paid VAYLA in the twelve months preceding the claim. Since VAYLA charges no platform fees, item (i) applies.',
+        'Our aggregate liability shall not exceed the greater of (i) USD 100 or (ii) the amount you paid for the relevant Services in the twelve months preceding the claim.',
       ]},
       { h: '11. Indemnification', body: [
         'You agree to indemnify and hold harmless VAYLA from any claims arising out of your use of the Services, your violation of these Terms, or your infringement of any third party right.',
@@ -76,11 +76,11 @@ const DOCS: Record<string, LegalDoc> = {
     effective: '2026-05-01',
     sections: [
       { h: '1. Summary', body: [
-        'VAYLA is non custodial and minimizes data collection. We do not require you to register an account or provide personal information to use the protocol. This policy explains the limited data we do collect and what we do with it.',
+        'The current vayla.io deployment is a public preview. It does not require account registration or wallet connection. This policy explains the limited data that may be processed when you browse the site, change cookie preferences, or voluntarily contact the project.',
       ]},
       { h: '2. Information We Collect', body: [
-        'Wallet address: when you connect a wallet, your public address is visible to us in the same way it is visible to any node on the blockchain. We do not associate it with your identity unless you tell us who you are.',
-        'Device & log data: standard request metadata such as IP, user agent, and referrer, used for security and abuse detection. Retained 30 days.',
+        'Wallet data: the current website does not provide wallet connection or request a wallet address.',
+        'Device & log data: hosting, analytics, or security providers may process standard request metadata according to their own configuration and policies.',
         'Cookies: see our Cookie Policy.',
         'Voluntary data: any information you submit in a form (e.g. creator application, bug report, support email).',
       ]},
@@ -121,17 +121,16 @@ const DOCS: Record<string, LegalDoc> = {
         'Cookies are small text files stored by your browser. They let a website remember information between visits or pages.',
       ]},
       { h: '2. Categories We Use', body: [
-        'Essential: required to operate the site. Examples: wallet session token, route state, anti CSRF token. Always on, cannot be disabled.',
-        'Analytics: anonymized aggregate metrics about page and vault views. Off by default, opt in via the cookie banner.',
+        'Essential: required to operate the site. Examples: consent preference and route state. Always on, cannot be disabled.',
+        'Analytics: optional aggregate page-usage metrics may be processed when you opt in via the cookie banner. The current site does not publish private user or vault performance data.',
         'Marketing: only used if you opt in for drop alerts or campaign tracking. Off by default.',
       ]},
       { h: '3. Specific Cookies', body: [
         'vayla:cookie-consent:v1, your saved preference. Essential. 12 months.',
-        'wagmi.connected, your wallet connection state, set by the wallet library. Essential. Until disconnect.',
         '_va_anon, anonymized analytics ID, only set if you opt in. Analytics. 12 months.',
       ]},
       { h: '4. Third Parties', body: [
-        'We do not embed third party advertising. Wallet provider scripts may set their own cookies on their domains. RPC and indexer providers do not set cookies on the VAYLA domain.',
+        'We do not embed third party advertising. External links and embeds may set their own cookies on their domains; they do not set cookies on the VAYLA domain through this public deployment.',
       ]},
       { h: '5. Managing Cookies', body: [
         'Use the cookie banner shown on first visit. Reopen settings any time at /legal/cookies. You can also clear cookies in your browser settings; doing so will require you to set your preferences again.',
@@ -141,36 +140,36 @@ const DOCS: Record<string, LegalDoc> = {
 
   risk: {
     title: 'Risk Disclosure',
-    blurb: 'A plain English list of every risk you accept by using the Services. Read this before staking.',
+    blurb: 'A plain English list of risks associated with digital assets, blockchain systems and participation in VAYLA services.',
     updated: '2026-04-22',
     effective: '2026-05-01',
     sections: [
       { h: '1. Smart Contract Risk', body: [
-        'Smart contracts are immutable code. Bugs, exploits, oracle manipulation, or unforeseen behavior may result in partial or total loss of staked tokens. VAYLA contracts are audited but no audit guarantees absence of defects.',
+        'Smart contracts and blockchain integrations may contain bugs, exploits, oracle issues or unforeseen behavior. No audit or review guarantees the absence of defects. Only interact with contracts and flows you have independently verified.',
       ]},
       { h: '2. Creator Performance Risk', body: [
-        'Yield depends on the creator earning revenue. A creator may earn nothing in a given period. In that case your stake earns no yield. Your principal is unaffected by creator performance, but you may exit later than planned.',
+        'Creator activity, campaigns and participation outcomes may vary. VAYLA does not guarantee rewards, revenue, yield, successful campaigns or any particular outcome.',
       ]},
       { h: '3. Market Risk', body: [
         'The market price of $VAYLA and other tokens fluctuates. The dollar value of your position may decline below your entry price. Past performance does not predict future results.',
       ]},
       { h: '4. Liquidity Risk', body: [
-        'If you opted into a lockup, you cannot exit until the lockup expires unless you list your position on the secondary marketplace. Marketplace liquidity is not guaranteed.',
+        'Liquidity and availability of any platform feature or digital asset are not guaranteed. A participant may be unable to transact at a desired time or price.',
       ]},
       { h: '5. Regulatory Risk', body: [
         'Crypto regulation is evolving and varies by jurisdiction. Future regulation may restrict, tax, or prohibit activities you currently engage in via the Services. You are responsible for compliance in your jurisdiction.',
       ]},
       { h: '6. Tax Responsibility', body: [
-        'Earnings from staking may be taxable as ordinary income, capital gains, or another category depending on your jurisdiction. VAYLA does not provide tax advice or 1099 forms. Consult a qualified tax professional.',
+        'Digital asset activity may have tax consequences that vary by jurisdiction. VAYLA does not provide tax advice. Consult a qualified tax professional where appropriate.',
       ]},
-      { h: '7. Custody & Key Risk', body: [
-        'You are solely responsible for your wallet keys. Loss, theft, or compromise of keys leads to loss of funds. VAYLA cannot recover your keys or funds.',
+      { h: '7. Wallet and key safety', body: [
+        'The current website does not request private keys, seed phrases, or wallet connections. Never disclose them to a website, person, or support account. If you independently use a third-party wallet or blockchain service, review that provider\'s security and recovery terms.',
       ]},
       { h: '8. Network Risk', body: [
         'Blockchain networks may experience congestion, fork events, or downtime. Transactions may be delayed, fail, or be front run.',
       ]},
-      { h: '9. No Insurance', body: [
-        'Funds in vaults are not FDIC insured, SIPC protected, or covered by any government program.',
+      { h: '9. No financial service is provided here', body: [
+        'The current website does not accept deposits, custody assets, create positions, or provide an insured financial product. Any future feature must be evaluated using its own current disclosures.',
       ]},
       { h: '10. Acknowledgment', body: [
         'By using the Services, you acknowledge you have read and understood these risks and accept full responsibility for any losses.',
@@ -228,26 +227,25 @@ const DOCS: Record<string, LegalDoc> = {
 
   rights: {
     title: 'Intellectual Property & Rights',
-    blurb: 'Who owns what. The short version: creators own their content, fans own their stake, VAYLA owns the brand.',
+    blurb: 'How creator content, user assets and VAYLA brand materials are treated.',
     updated: '2026-04-22',
     effective: '2026-05-01',
     sections: [
       { h: '1. VAYLA Brand', body: [
-        'The VAYLA name, the metaball mark, the wordmark, and the visual system (color palette, typography lockups, marketing illustrations) are trademarks of VAYLA Technology Inc. You may not use them in a way that suggests endorsement without written permission.',
+        'The VAYLA name, mark, wordmark and visual system are project brand materials. You may not use them in a way that suggests endorsement without written permission.',
       ]},
       { h: '2. Protocol & Code', body: [
-        'Smart contracts are released under the licenses specified in their repository (typically MIT, BSL, or AGPL depending on the contract). You may inspect, fork, and audit them per those licenses.',
+        'Where smart-contract source is published, use and inspection are governed by the license stated in that repository. Do not assume that a contract has been audited unless a current report is linked from an official source.',
         'The website source is proprietary except for components explicitly released under open source licenses.',
       ]},
       { h: '3. Creator Rights', body: [
-        'Creators retain 100% of the rights to their content, masters, recordings, image, name, likeness, and intellectual property. VAYLA never claims, takes, or sub licenses any creator IP. The protocol routes revenue; it does not absorb rights.',
+        'Creator content remains subject to the rights and permissions of its owner. The current website preview does not accept or publish creator submissions. Any future submission flow must state the applicable display, license, and permission terms before submission.',
       ]},
       { h: '4. Fan Rights', body: [
-        'Stakers own their tokens. They own their on chain positions. They own their dashboard data. VAYLA never claims any right over user assets.',
-        'Stakers do not, by virtue of staking, acquire equity, voting rights in the creator entity, or revenue rights beyond what the smart contract distributes pro rata.',
+        'The current website does not create creator equity, company ownership, token positions, or custody rights. Any external token or blockchain activity is governed by the relevant provider, network, contract, and applicable law.',
       ]},
       { h: '5. Press & Media', body: [
-        'Press kit and brand assets: vayla.xyz/press. You may use approved assets in editorial coverage with attribution. Modification of the logo is not permitted.',
+        'Press and official brand links are published through the VAYLA link hub. Use approved assets in editorial coverage with attribution; modification of the logo is not permitted.',
       ]},
       { h: '6. Reporting Infringement', body: [
         'Trademark or copyright concerns: rights@vayla.xyz. See also our DMCA policy.',
@@ -263,13 +261,13 @@ const DOCS: Record<string, LegalDoc> = {
     sections: [
       { h: '1. Sanctions', body: [
         'You may not use the Services if you are located in a comprehensively sanctioned country, are listed on the U.S. OFAC SDN list, or are otherwise prohibited from receiving services under U.S., EU, or U.K. law.',
-        'The official VAYLA interface screens against public sanctions lists and may block access for matched addresses. Underlying smart contracts are permissionless.',
+        'The current website is a public information preview and does not provide wallet screening, KYC, transaction monitoring, or account services. Requirements for any external or future service must be stated by that service.',
       ]},
       { h: '2. Anti Money Laundering', body: [
-        'VAYLA monitors for patterns consistent with money laundering and may report suspicious activity to relevant authorities. We may freeze interface level functionality for accounts suspected of illicit activity.',
+        'No transaction, custody, or account activity is processed by the current public preview. Do not use the website or any linked service for unlawful activity, and consult the relevant provider for its compliance requirements.',
       ]},
       { h: '3. KYC', body: [
-        'KYC is not required to use the protocol. Certain creator features (large vault openings, payout to fiat ramps) may require identity verification through a regulated third party provider.',
+        'Identity checks, if any, depend on the specific feature and jurisdiction. Do not assume that a feature is available without checks or restrictions; review the current disclosure before participating.',
       ]},
       { h: '4. Travel Rule', body: [
         'For applicable transfers exceeding regulatory thresholds, we may collect originator and beneficiary information consistent with FATF Recommendation 16.',
@@ -287,7 +285,7 @@ const DOCS: Record<string, LegalDoc> = {
     effective: '2026-05-01',
     sections: [
       { h: '1. Designated Agent', body: [
-        'Copyright Agent, VAYLA Technology Inc, 1209 N Orange St, Wilmington DE 19801, USA. Email: dmca@vayla.xyz.',
+        'Copyright contact details may change. Use the current official contact published through the VAYLA link hub: dmca@vayla.xyz.',
       ]},
       { h: '2. Filing a Notice', body: [
         'A valid notice must include: (a) a physical or electronic signature; (b) identification of the copyrighted work; (c) identification of the allegedly infringing material with enough detail to locate it; (d) your contact information; (e) a statement of good faith belief that the use is unauthorized; (f) a statement under penalty of perjury that the information is accurate and you are authorized to act.',
@@ -329,10 +327,10 @@ const DOCS: Record<string, LegalDoc> = {
     effective: '2026-05-01',
     sections: [
       { h: '1. Audits', body: [
-        'Smart contracts are audited by Spearbit. Audit reports are published in the protocol repository.',
+        'No audit claim is made on this page unless a current report is linked from an official VAYLA source. Review the official repository and disclosures for current security information.',
       ]},
       { h: '2. Bug Bounty', body: [
-        'VAYLA runs an Immunefi bounty with payouts up to USD 1,000,000 for critical smart contract findings. Web and infra findings up to USD 50,000.',
+        'Security reports should be sent to the current official security contact. Bounty availability, scope and payout terms are not guaranteed unless published in a current official program.',
       ]},
       { h: '3. Responsible Disclosure', body: [
         'Send vulnerability reports to security@vayla.xyz, encrypted with our PGP key (fingerprint published at /.well-known/security.txt). Do not exploit the issue beyond what is needed to demonstrate it. Do not access user data. Give us a reasonable window before public disclosure.',
@@ -348,24 +346,24 @@ const DOCS: Record<string, LegalDoc> = {
 
   refunds: {
     title: 'Withdrawal & Refund Policy',
-    blurb: 'You always control your funds. There is nothing to refund because we never charged you.',
+    blurb: 'This page explains that participation flows, availability and any applicable fees must be checked against current official disclosures.',
     updated: '2026-04-22',
     effective: '2026-05-01',
     sections: [
-      { h: '1. Non Custodial', body: [
-        'VAYLA is non custodial. Funds remain in smart contracts you control. We never debit, charge, or hold your assets.',
+      { h: '1. Current public preview', body: [
+        'The current website does not provide custody, wallet connection, transaction signing, deposits, withdrawals, or account-based participation.',
       ]},
       { h: '2. Withdrawal', body: [
-        'Open positions without lockup may be withdrawn at any time via the dashboard. The transaction is on chain; you pay only the network gas fee.',
+        'No withdrawal, refund, settlement, or transaction is processed by the current public preview. Any future external flow must show its network, fees, and conditions before a user proceeds.',
       ]},
       { h: '3. Lockups', body: [
-        'If you opted into a lockup, you cannot withdraw the principal until the lockup expires. You may list your position on the secondary marketplace and another user may purchase it.',
+        'Some future or campaign-specific features may include conditions or time windows. Any such conditions must be shown before participation and may change.',
       ]},
       { h: '4. Platform Fees', body: [
-        'VAYLA charges a 0% platform fee on staking, withdrawal, or yield. There is no charge to refund.',
+        'Fees are feature-specific. The official v3.8 whitepaper describes a 1.5% base VAYLA Boost fee paid in VAYLA; do not infer that this applies to every platform action.',
       ]},
       { h: '5. Mistaken Transfers', body: [
-        'Tokens sent directly to the protocol contract address (not via the staking flow) cannot be recovered by VAYLA. Always use the official interface.',
+        'Do not send tokens or funds to an address supplied by this public preview. If a future official flow is introduced, verify the domain, network, contract, and transaction details before signing.',
       ]},
     ],
   },
@@ -429,7 +427,7 @@ function LegalIndex() {
                   <Link key={it.slug} to={`/legal/${it.slug}`} className="card p-5 hover:border-mint-400/40 transition-colors group">
                     <div className="font-mono text-[10px] uppercase tracking-widest text-mint-400 mb-2">{d.title}</div>
                     <p className="text-sm text-ink-2 leading-relaxed">{d.blurb}</p>
-                    <div className="mt-3 text-xs text-ink-3 group-hover:text-mint-400 transition-colors">Read full document  &rsaquo;</div>
+                    <div className="mt-3 text-xs text-ink-3 group-hover:text-mint-400 transition-colors">Read full document</div>
                   </Link>
                 );
               })}
@@ -448,7 +446,7 @@ function LegalDocView({ doc, slug }: { doc: LegalDoc; slug: string }) {
     <main className="legal">
       <div className="mx-auto max-w-[820px] px-6 pt-24 pb-12 md:pt-32 md:pb-12">
         <Link to="/legal" className="text-xs text-ink-3 hover:text-mint-400 font-mono uppercase tracking-widest">&lsaquo; All legal</Link>
-        <span className="block text-[11px] uppercase tracking-widest text-mint-400 font-mono mt-6">Legal · /{slug}</span>
+        <span className="block text-[11px] uppercase tracking-widest text-mint-400 font-mono mt-6">Legal | /{slug}</span>
         <h1 className="display text-4xl md:text-6xl mt-3 leading-[0.98] tracking-[-0.02em]">{doc.title}</h1>
         <p className="text-ink-2 mt-4 text-base md:text-lg max-w-[640px] leading-relaxed">{doc.blurb}</p>
         <div className="mt-6 flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-widest text-ink-3 font-mono">

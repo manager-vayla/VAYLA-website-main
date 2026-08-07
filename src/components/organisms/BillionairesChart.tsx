@@ -116,7 +116,7 @@ const BillionairesChart = () => {
                         {/* Rank Change */}
                         <div className="w-12 text-center">
                             <span className={`font-mono text-sm font-bold ${getRankChangeColor(item.rankChange)}`}>
-                                {item.rankChange === "*" ? "*" : item.rankChange === "-" ? "-" : item.rankChange > 0 ? `+${item.rankChange}` : item.rankChange}
+                                {item.rankChange === "*" ? "*" : item.rankChange === "-" ? "-" : typeof item.rankChange === 'number' && item.rankChange > 0 ? `+${item.rankChange}` : item.rankChange}
                             </span>
                         </div>
 

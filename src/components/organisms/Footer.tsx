@@ -26,7 +26,7 @@ const Footer = () => {
                         {[
                             { id: 'twitter', icon: 'simple-icons:x', href: 'https://x.com/VAYLAOfficial_' },
                             { id: 'discord', icon: 'mdi:discord', href: 'https://discord.gg/PSNRHbZDS4' },
-                            { id: 'telegram', icon: 'mdi:telegram', href: 'https://t.me/Vayla_Official' },
+                            { id: 'telegram', icon: 'mdi:telegram', href: 'https://t.me/Vayla_Vaylian' },
                             { id: 'github', icon: 'mdi:github', href: 'https://github.com/manager-vayla' }
                         ].map((social) => (
                             <a

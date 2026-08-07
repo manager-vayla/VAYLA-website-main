@@ -1,0 +1,59 @@
+# VAYLA
+
+> VAYLA Arena is a Web3 music fandom platform where fans participate in creator support, voting and creation, with participation-based rewards. VAYLA Arena is currently described as a Beta platform in the official VAYLA whitepaper v3.8.
+
+## Official websites
+
+- Official website: https://vayla.io/
+- VAYLA Arena: https://vayla-arena.com/
+- Official link hub: https://manager-vayla.github.io/VAYLA-link-tree/
+- GitHub organization: https://github.com/manager-vayla
+
+## Verified platform functions
+
+- VAYLA Boost: fan participation for creators, content and events. The whitepaper describes a 1.5% base platform fee paid in VAYLA; rewards are participation incentives and are not investment returns.
+- On-chain V Chart: prediction voting based on selected global music chart data, with participation-based NFT rewards.
+- Create & Earn: campaign-based content creation and community voting for users and artists.
+- Community voting, participation rewards, NFTs and membership benefits as described by the official documentation.
+- Music and video content may be delivered through external embeds such as YouTube; VAYLA is not the direct creator or distributor of third-party content.
+
+## Token facts
+
+- Token: VAYLA
+- Network: BNB Smart Chain
+- Standard: BEP-20
+- Total supply: 3,000,000,000 VAYLA
+- Contract: https://bscscan.com/token/0x3b6b2593475FC2Bf546F237Fd401D63a655cE53f
+- CoinGecko: https://www.coingecko.com/en/coins/vayla
+- CoinMarketCap: https://coinmarketcap.com/currencies/vayla/
+- Whitepaper version: v3.8, updated 2026-04
+- Official whitepaper PDF: https://manager-vayla.github.io/VAYLA-link-tree/%28EN%29_VAYLA_WHITEPAPER_v3.8.pdf
+- Whitepaper source repository: https://github.com/manager-vayla/VAYLA-link-tree/blob/stitch_design/%28EN%29_VAYLA_WHITEPAPER_v3.8.pdf
+
+## Official community links
+
+- X: https://x.com/VAYLAOfficial_
+- Telegram: https://t.me/Vayla_Vaylian
+- Discord: https://discord.gg/gM8EfBH6Vu
+- LinkedIn company: https://www.linkedin.com/company/vaylatechnology/
+
+## Developer team
+
+- Pham Thanh Binh — CTO: https://www.linkedin.com/in/ptb310/ ; https://github.com/binhpt310
+- Van Minh Hoang — Senior FE Developer: https://www.linkedin.com/in/van-minh-hoang-739a891b0/ ; https://github.com/minhhoang-dev1902
+- Nguyen Van Thanh — Senior BE Developer: https://www.linkedin.com/in/thanhnv-be/ ; https://github.com/ThanhBlack273
+
+## Public metrics policy
+
+Market price, market cap, volume, holders, TVL, user counts and traffic metrics are dynamic. VAYLA should publish them only with a source and update timestamp. If an official provider reports no data, the value should be shown as unavailable rather than estimated.
+
+## Legal and risk context
+
+VAYLA token, VAYLA Boost, voting, rewards, NFTs and membership benefits are described as platform utility or participation features. They should not be represented as securities, equity, dividends, guaranteed returns or investment advice. Readers should consult the current official legal disclosures and whitepaper.
+
+## Source priority
+
+1. Official VAYLA whitepaper v3.8 and official link hub.
+2. BscScan contract data for on-chain token facts.
+3. CoinGecko and CoinMarketCap for market listing data, with status and timestamp.
+4. Cloudflare analytics for VAYLA Arena traffic metrics, clearly labeled as analytics rather than token or user ownership data.

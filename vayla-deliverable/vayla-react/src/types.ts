@@ -25,15 +25,6 @@ export interface Vault {
   contract: `0x${string}`;
 }
 
-export interface Position {
-  vaultId: string;
-  staked: number;     // VAYLA staked
-  earned: number;     // USD earned
-  boostExp: number;   // unix seconds
-  entry: number;      // unix seconds
-  share: number;      // % of vault
-}
-
 export interface ChatMessage {
   role: 'user' | 'assistant' | 'system';
   content: string;

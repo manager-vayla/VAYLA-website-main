@@ -13,10 +13,9 @@ const CATS: { k: VaultCategory | 'all'; label: string }[] = [
   { k: 'sports', label: 'Sports' },
 ];
 const SORTS: { k: string; label: string }[] = [
-  { k: 'apy', label: 'APY (high → low)' },
-  { k: 'tvl', label: 'TVL' },
-  { k: 'momentum', label: 'Momentum' },
-  { k: 'risk', label: 'Risk (low → high)' },
+  { k: 'relevance', label: 'Relevance' },
+  { k: 'creator', label: 'Creator name' },
+  { k: 'category', label: 'Category' },
 ];
 
 export function Vaults() {
@@ -31,10 +30,9 @@ export function Vaults() {
     if (q) list = list.filter(v => (v.creator + ' ' + v.handle + ' ' + v.tagline).toLowerCase().includes(q.toLowerCase()));
     list.sort((a, b) => {
       switch (sort) {
-        case 'tvl': return b.tvl - a.tvl;
-        case 'momentum': return b.momentum - a.momentum;
-        case 'risk': return a.riskScore - b.riskScore;
-        case 'apy': default: return b.apy90d - a.apy90d;
+        case 'creator': return a.creator.localeCompare(b.creator);
+        case 'category': return a.category.localeCompare(b.category) || a.creator.localeCompare(b.creator);
+        case 'relevance': default: return a.creator.localeCompare(b.creator);
       }
     });
     return list;
@@ -46,11 +44,11 @@ export function Vaults() {
         <div>
           <span className="text-[11px] uppercase tracking-widest text-mint-400">Browse</span>
           <h1 className="display text-5xl md:text-6xl mt-2">Vaults</h1>
-          <p className="text-ink-2 mt-2 max-w-xl">One Vault per creator. One transaction to deposit. Pro-rata yield, forever.</p>
+          <p className="text-ink-2 mt-2 max-w-xl">The public catalogue is currently unavailable until verified creator and campaign data is connected.</p>
         </div>
         <input
           value={q} onChange={e => setQ(e.target.value)}
-          placeholder="Search creator, handle, tag…"
+          placeholder="Search creator, handle, tag"
           className="px-4 py-2.5 rounded-full bg-bg-1 border border-line-1 outline-none focus:border-mint-400/50 text-sm w-full md:w-72"
         />
       </div>
@@ -63,7 +61,7 @@ export function Vaults() {
             className={`btn !py-1.5 !px-4 text-xs ${cat === c.k ? 'btn-mint' : 'btn-ghost'}`}
           >{c.label}</button>
         ))}
-        <span className="ml-auto text-xs text-ink-3">Sort:</span>
+        <span className="ml-auto text-xs text-ink-3">Sort by:</span>
         <select
           value={sort} onChange={e => setSort(e.target.value)}
           className="bg-bg-1 border border-line-1 rounded-full px-3 py-1.5 text-xs"
@@ -93,7 +91,7 @@ export function Vaults() {
             onClick={() => {
               setCat('all');
               setQ('');
-              setSort('apy');
+              setSort('relevance');
             }}
           >
             Reset filters
@@ -103,7 +101,7 @@ export function Vaults() {
 
       {!isLoading && vaults.length === 0 && (
         <div className="card p-12 text-center text-ink-2 max-w-xl mx-auto space-y-4">
-          <p>No vault catalogue loaded. Check your connection or browse the public site.</p>
+            <p>No verified vault catalogue is currently published. Illustrative entries are intentionally hidden.</p>
           <Link to="/token" className="btn btn-mint !py-2 !px-5 text-sm inline-flex">
             $VAYLA token overview
           </Link>

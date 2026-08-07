@@ -1,5 +1,6 @@
 # Next.js static export -> ./out -> FTP upload to public_html on shared hosting.
-# Production Next.js stack is on binance-redesign2 until merged to main (main is legacy Vite).
+# This repository has one FTP deploy workflow; it does not use GitHub Pages.
+# Do not add a second publisher for the same static export.
 
 name: Deploy Vayla Website ver 3.0
 
@@ -36,11 +37,16 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Check lint
+        run: pnpm run lint
+
+      - name: Check types
+        run: pnpm exec tsc --noEmit
+
       - name: Build static export
         run: pnpm run build
         env:
           NEXT_PUBLIC_BASE_URL: https://vayla.io
-          NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID: ${{ secrets.WALLETCONNECT_PROJECT_ID }}
 
       - name: Verify export output
         run: |
@@ -52,7 +58,12 @@ jobs:
           test -f out/favicon-48.png || { echo "::error::Missing favicon-48.png"; exit 1; }
           test -f out/robots.txt || { echo "::error::Missing robots.txt"; exit 1; }
           test -f out/sitemap.xml || { echo "::error::Missing sitemap.xml"; exit 1; }
+          test -f out/llms.txt || { echo "::error::Missing llms.txt"; exit 1; }
           test -f out/site.webmanifest || { echo "::error::Missing site.webmanifest"; exit 1; }
+          test -f out/arena/index.html || { echo "::error::Missing trailing-slash route out/arena/index.html"; exit 1; }
+          test -f out/chart/index.html || { echo "::error::Missing trailing-slash route out/chart/index.html"; exit 1; }
+          test -f out/tokenutility/index.html || { echo "::error::Missing trailing-slash route out/tokenutility/index.html"; exit 1; }
+          test -f out/doc/index.html || { echo "::error::Missing trailing-slash route out/doc/index.html"; exit 1; }
           grep -q 'rel="icon"' out/index.html || { echo "::error::Missing favicon link in index.html"; exit 1; }
 
       - name: Create .htaccess for routing

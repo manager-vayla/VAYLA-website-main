@@ -1,48 +1,36 @@
 import { useRef } from 'react';
 
 const PHASES = [
-  { stage: 'Phase 01 · Shipped', when: <>Q2 <em>2025</em></>, desc: 'VAYLA Arena launch, mainnet contracts deployed, first 50 artists onboarded.', items: ['Smart contracts audited (Spearbit + OtterSec)','$VAYLA token launch on BNB Smart Chain','50 VAYLA Boost campaigns live'], done: true },
-  { stage: 'Phase 02 · Shipped', when: <>Q3 <em>2025</em></>, desc: 'Streaming yield distribution and Vault Boost multipliers.', items: ['Continuous yield streams (no claim required)','Boost multipliers for long-held positions','Mobile-first app launched'], done: true },
-  { stage: 'Phase 03 · Shipped', when: <>Q1 <em>2026</em></>, desc: 'V-DAO governance + creator economy aggregator integrations.', items: ['V-DAO with quadratic voting','Spotify / Apple Music / Patreon read APIs','1,000+ vaults, $40M+ TVL'], done: true },
-  { stage: 'Phase 04 · Live now', when: <>Q2 <em>2026</em></>, desc: 'IP licensing settlement layer for sync, sample and merch.', items: ['Sync licensing on-chain','Sample royalty router','Merch printer integration'], done: false },
-  { stage: 'Phase 05', when: <>Q3 <em>2026</em></>, desc: 'Cross-chain vaults, mobile push, fiat on/off-ramp partners.', items: ['Solana & Polygon vault bridges','Stripe + Ramp integration','Notifications for live drops'], done: false },
-  { stage: 'Phase 06', when: <>Q4 <em>2026</em></>, desc: 'Open participation SDK for partners and venues.', items: ['Open SDK for any platform','Festival & venue campaigns','10K+ Arena campaigns target'], done: false },
+  { stage: 'Q1 | Global foundation', desc: 'Arena Beta infrastructure, public onboarding and traffic analytics.', items: ['Core Arena architecture', 'Public source and feature onboarding', 'VAYLA Boost / Voting / Create & Earn base flows'] },
+  { stage: 'Q2 | Beta launch', desc: 'Official VAYLA Arena Beta launch and expansion of participation campaigns.', items: ['VAYLA Boost system enhancement', 'Create & Earn campaign system', 'AI Marketing Assistant Beta'] },
+  { stage: 'Q3 | Utility scaling', desc: 'Community engagement, NFT membership and expanded participation utility.', items: ['Online music festivals and Arena events', 'NFT Membership System expansion', 'Community voting and reward system'] },
+  { stage: 'Q4 | Ecosystem expansion', desc: 'Performance analytics, partnerships and preparation for the next expansion phase.', items: ['B2B sponsorship and brand partnership solutions', 'Advanced Performance Analytics', 'Scalable API preparation'] },
 ];
 
 export function Roadmap() {
   const trackRef = useRef<HTMLDivElement>(null);
-  function scroll(dir: number) {
-    const el = trackRef.current;
-    if (!el) return;
-    el.scrollBy({ left: dir * 360, behavior: 'smooth' });
+  function scroll(direction: number) {
+    trackRef.current?.scrollBy({ left: direction * 360, behavior: 'smooth' });
   }
   return (
     <section className="section" id="road">
       <div className="wrap">
         <div className="section-head reveal">
-          <span className="section-eyebrow"><span className="num">06</span> Roadmap</span>
-          <h2 className="section-title">From <em>genesis</em> to settlement.</h2>
-          <p className="section-deck">
-            Six phases. Three already shipped. The protocol is ahead of schedule because the team has been here before.
-          </p>
+          <span className="section-eyebrow">Product roadmap</span>
+          <h2 className="section-title">A roadmap for <em>participation.</em></h2>
+          <p className="section-deck">The official v3.8 roadmap is directional. Features, timing and availability may change.</p>
         </div>
-
         <div className="road-wrap reveal">
           <div className="road-arrows">
-            <button className="road-arrow" onClick={() => scroll(-1)} aria-label="Previous">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
-            </button>
-            <button className="road-arrow" onClick={() => scroll(1)} aria-label="Next">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
-            </button>
+            <button className="road-arrow" onClick={() => scroll(-1)} aria-label="Previous">Previous</button>
+            <button className="road-arrow" onClick={() => scroll(1)} aria-label="Next">Next</button>
           </div>
           <div className="road-track" ref={trackRef}>
-            {PHASES.map((p, i) => (
-              <div key={i} className={`road-card${p.done ? ' is-done' : ''}`}>
-                <div className="stage">{p.stage}</div>
-                <div className="when">{p.when}</div>
-                <p className="desc">{p.desc}</p>
-                <ul>{p.items.map(x => <li key={x}>{x}</li>)}</ul>
+            {PHASES.map(phase => (
+              <div key={phase.stage} className="road-card">
+                <div className="stage">{phase.stage}</div>
+                <p className="desc">{phase.desc}</p>
+                <ul>{phase.items.map(item => <li key={item}>{item}</li>)}</ul>
               </div>
             ))}
           </div>
