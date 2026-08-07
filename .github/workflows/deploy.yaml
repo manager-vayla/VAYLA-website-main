@@ -77,14 +77,29 @@ jobs:
           EOF
 
       - name: Sync files via FTP
+        id: ftp_sync
+        continue-on-error: true
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
           local-dir: ./out/
           server-dir: ./public_html/
-          delete: false
+          timeout: 120000
+
+      - name: Retry FTP sync after transient disconnect
+        if: ${{ steps.ftp_sync.outcome == 'failure' }}
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          local-dir: ./out/
+          server-dir: ./public_html/
+          timeout: 120000
 
       - name: Install dev-browser for production smoke test
         run: |
