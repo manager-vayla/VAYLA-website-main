@@ -1,31 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { VAYLA_FACTS } from '@/lib/officialFacts';
 
 export function GlobalChrome() {
-  // Keep the server and first client render identical. The live UTC clock is
-  // populated after hydration to avoid a timestamp-based hydration mismatch.
-  const [time, setTime] = useState('UTC');
-  const [progress, setProgress] = useState(0);
-
   useEffect(() => {
-    setTime(formatClock(new Date()));
-    const timer = setInterval(() => setTime(formatClock(new Date())), 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const root = document.documentElement;
-      const max = root.scrollHeight - root.clientHeight;
-      setProgress(max > 0 ? (root.scrollTop / max) * 100 : 0);
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  useEffect(() => {
-    if (matchMedia('(pointer: coarse)').matches) return;
+    if (matchMedia('(pointer: coarse)').matches || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     let raf = 0;
     let x = 0;
     let y = 0;
@@ -61,7 +39,6 @@ export function GlobalChrome() {
       <div className="bg-mesh" /><div className="bg-grid" /><div className="bg-dots-dim" />
       <div className="bg-orbs"><span /><span /><span /></div>
       <div className="bg-dots-bright" /><div className="bg-spot" id="bgSpot" /><div className="bg-noise" />
-      <div className="scroll-progress"><div className="bar" style={{ width: progress + '%' }} /></div>
       <div className="statusbar">
         <div className="ticker-track">
           <div className="ticker-rail">
@@ -71,7 +48,7 @@ export function GlobalChrome() {
             <div className="ticker-set" aria-hidden><TickerItems /></div>
           </div>
         </div>
-        <span className="clock">{time}</span>
+        <span className="clock">VAYLA</span>
       </div>
     </>
   );
@@ -87,9 +64,4 @@ function TickerItems() {
       <span>WHITEPAPER <strong>{VAYLA_FACTS.whitepaperVersion}</strong></span><span className="sep">/</span>
     </>
   );
-}
-
-function formatClock(date: Date) {
-  const pad = (value: number) => value.toString().padStart(2, '0');
-  return date.getUTCFullYear() + '-' + pad(date.getUTCMonth() + 1) + '-' + pad(date.getUTCDate()) + ' | ' + pad(date.getUTCHours()) + ':' + pad(date.getUTCMinutes()) + ':' + pad(date.getUTCSeconds()) + ' UTC';
 }

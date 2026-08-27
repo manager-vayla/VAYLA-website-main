@@ -66,7 +66,7 @@ jobs:
           test -f out/doc/index.html || { echo "::error::Missing trailing-slash route out/doc/index.html"; exit 1; }
           grep -q 'rel="icon"' out/index.html || { echo "::error::Missing favicon link in index.html"; exit 1; }
 
-      - name: Create .htaccess for routing
+      - name: Create routing and immutable asset-cache rules
         run: |
           cat <<'EOF' > ./out/.htaccess
           RewriteEngine On
@@ -74,6 +74,12 @@ jobs:
           RewriteCond %{REQUEST_FILENAME} !-f
           RewriteCond %{REQUEST_FILENAME} !-d
           RewriteRule ^([^/]+)/?$ $1.html [L]
+          EOF
+          mkdir -p ./out/_next/static
+          cat <<'EOF' > ./out/_next/static/.htaccess
+          <IfModule mod_headers.c>
+            Header always set Cache-Control "public, max-age=31536000, immutable"
+          </IfModule>
           EOF
 
       - name: Sync files via FTP
@@ -108,3 +114,11 @@ jobs:
 
       - name: Verify production with dev-browser
         run: pnpm run check:production
+
+      - name: Verify immutable static-asset cache
+        run: |
+          asset="$(find out/_next/static -type f -name '*.js' -printf '%P\n' | head -n 1)"
+          test -n "$asset" || { echo "::error::No JavaScript asset found for cache verification"; exit 1; }
+          curl --fail --show-error --silent --head --retry 3 --retry-all-errors "https://vayla.io/_next/static/$asset" \
+            | grep --ignore-case --extended-regexp '^cache-control:.*max-age=31536000.*immutable' \
+            || { echo "::error::Next static assets are not served with immutable caching"; exit 1; }
