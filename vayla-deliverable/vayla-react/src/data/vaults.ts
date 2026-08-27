@@ -15,7 +15,7 @@ export const VAULTS: Vault[] = [
   {
     id: 'v-001', slug: 'noor', creator: 'NOOR', handle: '@noor',
     category: 'music', avatarColor: '#70F3D8',
-    tagline: 'Avant-pop · 2.1M monthly listeners',
+    tagline: 'Avant-pop - 2.1M monthly listeners',
     description: 'Berlin-based artist. Self-released, sold-out world tour 2025. Vault revenues tied to streams, drops and master ownership.',
     tvl: 4_820_311, apy: 38.4, apy30d: 41.2, apy90d: 36.8,
     fans: 8421, capacity: 12000, boost: 1.42, lockup: 0, riskScore: 3, momentum: 0.72,
@@ -34,7 +34,7 @@ export const VAULTS: Vault[] = [
   {
     id: 'v-002', slug: 'rin', creator: 'RIN ASUKA', handle: '@rin',
     category: 'creator', avatarColor: '#9CFBE4',
-    tagline: 'Anime · 4.8M YT subs · IP licensing',
+    tagline: 'Anime - 4.8M YT subs - IP licensing',
     description: 'Independent animator turned studio. Vault holders earn from streaming licenses, merch and a slate of three feature films.',
     tvl: 7_120_004, apy: 29.1, apy30d: 30.5, apy90d: 28.2,
     fans: 12_104, capacity: 20000, boost: 1.30, lockup: 90, riskScore: 4, momentum: 0.48,
@@ -53,7 +53,7 @@ export const VAULTS: Vault[] = [
   {
     id: 'v-003', slug: 'kova', creator: 'KOVA', handle: '@kova',
     category: 'gaming', avatarColor: '#4DE6C0',
-    tagline: 'Indie studio · 380k Steam wishlists',
+    tagline: 'Indie studio - 380k Steam wishlists',
     description: 'Two-person studio shipping a single deeply-loved roguelike. Vault returns from sales, DLC and tournament hosting.',
     tvl: 2_310_902, apy: 51.2, apy30d: 56.8, apy90d: 47.1,
     fans: 4012, capacity: 8000, boost: 1.65, lockup: 30, riskScore: 6, momentum: 0.91,
@@ -70,7 +70,7 @@ export const VAULTS: Vault[] = [
   {
     id: 'v-004', slug: 'lumen', creator: 'LUMEN', handle: '@lumen',
     category: 'music', avatarColor: '#3FE0BC',
-    tagline: 'Producer · 18 platinum credits',
+    tagline: 'Producer - 18 platinum credits',
     description: 'Behind-the-scenes producer for top-40 hits. Vault holders earn from production credits, sample royalties and beat licensing.',
     tvl: 9_840_120, apy: 21.6, apy30d: 22.1, apy90d: 21.0,
     fans: 22_500, capacity: 30000, boost: 1.15, lockup: 180, riskScore: 2, momentum: 0.38,
@@ -87,7 +87,7 @@ export const VAULTS: Vault[] = [
   {
     id: 'v-005', slug: 'vex', creator: 'VEX FC', handle: '@vexfc',
     category: 'sports', avatarColor: '#1FB89A',
-    tagline: 'eSports · 6 majors finalist',
+    tagline: 'eSports - 6 majors finalist',
     description: 'Top-tier competitive team. Vault revenue from prize pools, sponsorships and content rev share.',
     tvl: 5_602_010, apy: 33.7, apy30d: 35.1, apy90d: 32.6,
     fans: 9402, capacity: 15000, boost: 1.28, lockup: 60, riskScore: 5, momentum: 0.61,
@@ -105,7 +105,7 @@ export const VAULTS: Vault[] = [
   {
     id: 'v-006', slug: 'sable', creator: 'SABLE & CO.', handle: '@sable',
     category: 'film', avatarColor: '#70F3D8',
-    tagline: 'Indie production · Sundance grand jury',
+    tagline: 'Indie production - Sundance grand jury',
     description: 'Production house with three festival darlings. Vault returns tied to distribution, streaming and IP development.',
     tvl: 3_204_888, apy: 26.8, apy30d: 27.2, apy90d: 26.0,
     fans: 5210, capacity: 10000, boost: 1.22, lockup: 120, riskScore: 4, momentum: 0.42,

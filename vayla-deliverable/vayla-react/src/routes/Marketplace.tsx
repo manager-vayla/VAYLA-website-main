@@ -35,7 +35,7 @@ export function Marketplace() {
   return (
     <main className="mx-auto max-w-[1240px] px-6 pt-10 pb-24">
       <div className="mb-8">
-        <span className="text-[11px] uppercase tracking-widest text-mint-400">Secondary · interface preview</span>
+        <span className="text-[11px] uppercase tracking-widest text-mint-400">Secondary - interface preview</span>
         <h1 className="display text-5xl md:text-6xl mt-2">Marketplace</h1>
         <p className="text-ink-2 mt-2 max-w-2xl">Browse the restored secondary-market layout with illustrative listings. Trading is not available in this preview.</p>
       </div>
@@ -53,7 +53,7 @@ export function Marketplace() {
                 <VaultAvatar creator={item.vault.creator} color={item.vault.avatarColor} size={40} />
                 <div>
                   <Link to={`/vault/${item.vault.slug}`} className="font-semibold hover:text-mint-400">{item.vault.creator}</Link>
-                  <div className="text-xs text-ink-3 tabular">{item.id} · sample entry {item.entryDays}d ago</div>
+                  <div className="text-xs text-ink-3 tabular">{item.id} - sample entry {item.entryDays}d ago</div>
                 </div>
               </div>
               <span className="text-sm text-ink-2">{item.tier}</span>

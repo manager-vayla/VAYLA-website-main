@@ -21,7 +21,7 @@ export function VaultDetail() {
         <div className="flex flex-col md:flex-row gap-8 items-start relative">
           <VaultAvatar creator={vault.creator} color={vault.avatarColor} size={96} liveDot />
           <div className="flex-1">
-            <div className="text-[11px] uppercase tracking-widest text-mint-400">{vault.category} · interface preview</div>
+            <div className="text-[11px] uppercase tracking-widest text-mint-400">{vault.category} - interface preview</div>
             <h1 className="display text-5xl md:text-6xl mt-1">{vault.creator}</h1>
             <div className="text-ink-3 mt-1 tabular text-sm">{vault.handle}</div>
             <p className="text-ink-2 mt-4 max-w-2xl leading-relaxed">{vault.description}</p>

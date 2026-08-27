@@ -22,10 +22,10 @@ export function Dashboard() {
     <main className="mx-auto max-w-[1240px] px-6 pt-10 pb-24">
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
         <div>
-          <span className="text-[11px] uppercase tracking-widest text-mint-400">Interface preview · sample portfolio</span>
+          <span className="text-[11px] uppercase tracking-widest text-mint-400">Interface preview - sample portfolio</span>
           <h1 className="display text-5xl md:text-6xl mt-2">Dashboard</h1>
         </div>
-        <Link to="/vaults" className="btn btn-mint">Browse vaults →</Link>
+        <Link to="/vaults" className="btn btn-mint">Browse vaults</Link>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -37,7 +37,7 @@ export function Dashboard() {
 
       <div className="card p-6 mt-8">
         <div className="flex items-end justify-between mb-4">
-          <h2 className="display text-2xl">Portfolio · 30 days</h2>
+          <h2 className="display text-2xl">Portfolio - 30 days</h2>
           <span className="text-[10px] uppercase tracking-widest text-ink-3">Illustrative</span>
         </div>
         <div className="h-72">
@@ -70,7 +70,7 @@ export function Dashboard() {
                 <VaultAvatar creator={vault.creator} color={vault.avatarColor} size={44} className="shrink-0" />
                 <div className="min-w-0">
                   <div className="font-semibold truncate">{vault.creator}</div>
-                  <div className="text-xs text-ink-3">Sample entry {entryDays}d ago · APY {fmtPct(vault.apy)}</div>
+                  <div className="text-xs text-ink-3">Sample entry {entryDays}d ago - APY {fmtPct(vault.apy)}</div>
                 </div>
               </Link>
               <div className="grid grid-cols-3 gap-6 text-sm tabular md:text-right">

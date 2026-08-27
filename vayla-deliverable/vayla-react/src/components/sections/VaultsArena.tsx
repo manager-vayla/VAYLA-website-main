@@ -55,7 +55,7 @@ export function VaultsArena() {
             <span className="vault-explorer__eyebrow">Explore {activeFeature.title}</span>
             <p>{activeFeature.detail}</p>
           </div>
-          <Link className="vault-explorer__action" to={activeFeature.href}>{activeFeature.action} <span aria-hidden="true">→</span></Link>
+          <Link className="vault-explorer__action" to={activeFeature.href}>{activeFeature.action}</Link>
         </div>
       </div>
     </section>

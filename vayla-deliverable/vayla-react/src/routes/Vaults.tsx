@@ -12,10 +12,10 @@ const CATS: { k: VaultCategory | 'all'; label: string }[] = [
   { k: 'sports', label: 'Sports' },
 ];
 const SORTS: { k: string; label: string }[] = [
-  { k: 'apy', label: 'APY (high → low)' },
+  { k: 'apy', label: 'APY (high to low)' },
   { k: 'tvl', label: 'TVL' },
   { k: 'momentum', label: 'Momentum' },
-  { k: 'risk', label: 'Risk (low → high)' },
+  { k: 'risk', label: 'Risk (low to high)' },
 ];
 
 export function Vaults() {
@@ -43,13 +43,13 @@ export function Vaults() {
     <main className="mx-auto max-w-[1240px] px-6 pt-12 pb-24">
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
         <div>
-          <span className="text-[11px] uppercase tracking-widest text-mint-400">Browse · interface preview</span>
+          <span className="text-[11px] uppercase tracking-widest text-mint-400">Browse - interface preview</span>
           <h1 className="display text-5xl md:text-6xl mt-2">Vaults</h1>
           <p className="text-ink-2 mt-2 max-w-xl">Explore the restored catalogue layout with illustrative creator and campaign data.</p>
         </div>
         <input
           value={q} onChange={e => setQ(e.target.value)}
-          placeholder="Search creator, handle, tag…"
+          placeholder="Search creator, handle, tag..."
           className="px-4 py-2.5 rounded-full bg-bg-1 border border-line-1 outline-none focus:border-mint-400/50 text-sm w-full md:w-72"
         />
       </div>

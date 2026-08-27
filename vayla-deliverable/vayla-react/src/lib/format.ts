@@ -12,7 +12,7 @@ export function fmtN(n: number, dp = 0) {
 export function fmtPct(n: number, dp = 1) { return n.toFixed(dp) + '%'; }
 export function fmtAddr(a?: string) {
   if (!a) return '';
-  return a.slice(0, 6) + '…' + a.slice(-4);
+  return a.slice(0, 6) + '...' + a.slice(-4);
 }
 export function timeAgo(unix: number) {
   const s = Math.floor(Date.now() / 1000) - unix;
