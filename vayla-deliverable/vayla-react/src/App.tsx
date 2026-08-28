@@ -5,6 +5,7 @@ import { GlobalChrome } from '@/components/GlobalChrome';
 import { CookieConsent } from '@/components/CookieConsent';
 import { FootOriginal } from '@/components/sections/FootOriginal';
 import { Home } from '@/routes/Home';
+import { WalletProvider } from '@/store/wallet';
 
 const Vaults = lazy(() => import('@/routes/Vaults').then(({ Vaults }) => ({ default: Vaults })));
 const VaultDetail = lazy(() => import('@/routes/VaultDetail').then(({ VaultDetail }) => ({ default: VaultDetail })));
@@ -25,7 +26,7 @@ export function App() {
   useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
 
   return (
-    <>
+    <WalletProvider>
       <GlobalChrome />
       <Nav />
       <Suspense fallback={<main className="section"><div className="wrap"><p className="section-eyebrow">Loading page</p></div></main>}>
@@ -54,6 +55,6 @@ export function App() {
       </Suspense>
       <FootOriginal />
       <CookieConsent />
-    </>
+    </WalletProvider>
   );
 }

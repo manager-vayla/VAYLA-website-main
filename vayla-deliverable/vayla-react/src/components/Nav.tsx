@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Logo } from './Logo';
 import { useScrollSpy } from '@/hooks/useScrollSpy';
 import { VAYLA_EXTERNAL } from '@/lib/externalLinks';
+import { ConnectWalletButton } from './ConnectWalletButton';
 
 const LINKS: [string, string, string?][] = [
   ['/', 'Home', '__home__'],
@@ -121,9 +122,7 @@ export function Nav() {
           )}
         </div>
 
-        <Link to="/dashboard" className="nav-cta" title="Open public dashboard preview">
-          <span className="nav-cta-label">Dashboard Preview</span>
-        </Link>
+        <ConnectWalletButton className="nav-cta" title="Connect a wallet to access your personal dashboard" />
         <button type="button" className="nav-burger" aria-label={open ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={open} onClick={() => setOpen(value => !value)}><span /></button>
       </div>
     </nav>

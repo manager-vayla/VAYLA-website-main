@@ -1,11 +1,11 @@
 'use client';
 
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import { ConnectWalletButton } from '@/components/ConnectWalletButton';
+import { useWallet } from '@/store/wallet';
 
 export function Dashboard() {
-  const [walletAddress, setWalletAddress] = useState('');
+  const { address: walletAddress } = useWallet();
 
   return (
     <main className="mx-auto max-w-[900px] px-6 pt-16 pb-24">
@@ -18,7 +18,7 @@ export function Dashboard() {
             : 'You can still explore public platform information and risk disclosures without connecting.'}
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
-          {!walletAddress && <ConnectWalletButton onConnected={setWalletAddress} />}
+          {!walletAddress && <ConnectWalletButton />}
           <Link to="/whitepaper" className="btn btn-ghost">Read platform facts</Link>
           <Link to="/legal/risk" className="btn btn-ghost">Risk disclosure</Link>
         </div>

@@ -1,11 +1,11 @@
 'use client';
 
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import { ConnectWalletButton } from '@/components/ConnectWalletButton';
+import { useWallet } from '@/store/wallet';
 
 export function LiveDashInline() {
-  const [walletAddress, setWalletAddress] = useState('');
+  const { address: walletAddress } = useWallet();
 
   return (
     <section className="section" id="dashboard">
@@ -30,7 +30,7 @@ export function LiveDashInline() {
             <h3>{walletAddress ? <>Wallet <em>connected.</em></> : <>Connect your wallet to access your <em>personal dashboard.</em></>}</h3>
             <p>{walletAddress ? 'Your personal dashboard is ready.' : 'You can still explore public platform information and risk disclosures without connecting.'}</p>
             <div className="flex flex-wrap justify-center gap-3">
-              {!walletAddress && <ConnectWalletButton onConnected={setWalletAddress} />}
+              {!walletAddress && <ConnectWalletButton />}
               <Link to="/whitepaper" className="btn btn-ghost">Read platform facts</Link>
               <Link to="/legal/risk" className="btn btn-ghost">Risk disclosure</Link>
             </div>
