@@ -7,7 +7,7 @@ const ROUTES = [
   '/legal/risk', '/legal/refunds', '/token', '/tokenutility', '/calculator',
 ];
 const VISIBLE_GLYPHS = /[—–·↗→←›✦…✨⭐🔥🚀💡🎯]/u;
-const WALLET_COPY = /connect\s+(a\s+)?wallet|sign\s+in|my\s+account/i;
+const WALLET_DASHBOARD_COPY = /connect your wallet to access your personal dashboard/i;
 const results = [];
 const failures = [];
 
@@ -81,8 +81,11 @@ async function inspect(route, viewport) {
     if (!state.canonicalMatches) fail(`${route} ${viewport.width}px canonical mismatch: ${state.canonical || 'missing'}`);
     if (state.scrollWidth > state.clientWidth + 1) fail(`${route} ${viewport.width}px horizontal overflow ${state.scrollWidth}/${state.clientWidth}`);
     if (VISIBLE_GLYPHS.test(state.bodyText)) fail(`${route} ${viewport.width}px contains a targeted decorative glyph`);
-    if (['/', '/dashboard', '/start', '/token'].includes(route) && WALLET_COPY.test(state.bodyText)) {
-      fail(`${route} ${viewport.width}px contains wallet/login copy`);
+    if (['/', '/dashboard'].includes(route) && !WALLET_DASHBOARD_COPY.test(state.bodyText)) {
+      fail(`${route} ${viewport.width}px missing disconnected-wallet guidance`);
+    }
+    if (['/', '/dashboard'].includes(route) && !state.buttons.some(button => /connect wallet/i.test(button.text))) {
+      fail(`${route} ${viewport.width}px missing Connect Wallet CTA`);
     }
     for (const button of state.buttons) {
       if (!button.text && !button.aria) fail(`${route} ${viewport.width}px has an unlabeled button`);

@@ -29,7 +29,7 @@ const DOCS: Record<string, LegalDoc> = {
         'You must not be listed on any sanctions list, including the U.S. Office of Foreign Assets Control Specially Designated Nationals list.',
       ]},
       { h: '3. Accounts and public preview', body: [
-        'The current vayla.io deployment is a public information and product-preview website. It does not require account registration, wallet connection, token deposit, or transaction signing.',
+        'The current vayla.io deployment is a public information and product-preview website. It does not require account registration, token deposits, or transaction signing; wallet connection is optional for the personal dashboard.',
         'Any external service or future feature that requests an account, wallet, payment, or blockchain transaction must provide its own current instructions and disclosures. Do not share private keys or seed phrases with this website.',
       ]},
       { h: '4. Permitted Use', body: [
@@ -76,10 +76,10 @@ const DOCS: Record<string, LegalDoc> = {
     effective: '2026-05-01',
     sections: [
       { h: '1. Summary', body: [
-        'The current vayla.io deployment is a public preview. It does not require account registration or wallet connection. This policy explains the limited data that may be processed when you browse the site, change cookie preferences, or voluntarily contact the project.',
+        'The current vayla.io deployment is a public preview. It does not require account registration, and wallet connection is optional for the personal dashboard. This policy explains the limited data that may be processed when you browse the site, change cookie preferences, or voluntarily contact the project.',
       ]},
       { h: '2. Information We Collect', body: [
-        'Wallet data: the current website does not provide wallet connection or request a wallet address.',
+        'Wallet data: when you choose to connect a wallet, the address is used locally in your browser to identify the personal dashboard. The website does not request private keys or seed phrases, and does not store the address.',
         'Device & log data: hosting, analytics, or security providers may process standard request metadata according to their own configuration and policies.',
         'Cookies: see our Cookie Policy.',
         'Voluntary data: any information you submit in a form (e.g. creator application, bug report, support email).',
@@ -163,7 +163,7 @@ const DOCS: Record<string, LegalDoc> = {
         'Digital asset activity may have tax consequences that vary by jurisdiction. VAYLA does not provide tax advice. Consult a qualified tax professional where appropriate.',
       ]},
       { h: '7. Wallet and key safety', body: [
-        'The current website does not request private keys, seed phrases, or wallet connections. Never disclose them to a website, person, or support account. If you independently use a third-party wallet or blockchain service, review that provider\'s security and recovery terms.',
+        'The current website never requests private keys or seed phrases. Wallet connection is optional and does not request a transaction signature. Never disclose private keys or seed phrases to a website, person, or support account. If you independently use a third-party wallet or blockchain service, review that provider\'s security and recovery terms.',
       ]},
       { h: '8. Network Risk', body: [
         'Blockchain networks may experience congestion, fork events, or downtime. Transactions may be delayed, fail, or be front run.',
@@ -351,7 +351,7 @@ const DOCS: Record<string, LegalDoc> = {
     effective: '2026-05-01',
     sections: [
       { h: '1. Current public preview', body: [
-        'The current website does not provide custody, wallet connection, transaction signing, deposits, withdrawals, or account-based participation.',
+        'The current website does not provide custody, transaction signing, deposits, withdrawals, or account-based participation. Optional wallet connection only identifies the personal dashboard in your browser.',
       ]},
       { h: '2. Withdrawal', body: [
         'No withdrawal, refund, settlement, or transaction is processed by the current public preview. Any future external flow must show its network, fees, and conditions before a user proceeds.',

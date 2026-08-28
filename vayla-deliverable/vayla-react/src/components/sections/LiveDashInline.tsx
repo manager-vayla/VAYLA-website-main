@@ -1,7 +1,12 @@
-import { Link } from 'react-router-dom';
+'use client';
 
-/** Public preview only. Wallet and portfolio data are intentionally not required. */
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { ConnectWalletButton } from '@/components/ConnectWalletButton';
+
 export function LiveDashInline() {
+  const [walletAddress, setWalletAddress] = useState('');
+
   return (
     <section className="section" id="dashboard">
       <div className="wrap">
@@ -16,11 +21,17 @@ export function LiveDashInline() {
 
         <div className="dash reveal">
           <div className="dash-locked">
-            <div className="lock-icon" aria-hidden="true">i</div>
-            <h3>Personal wallet data is <em>Unavailable.</em></h3>
-            <p>Explore the public platform information, official sources and risk disclosures without connecting a wallet.</p>
+            <div className="lock-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="11" width="18" height="10" rx="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+            </div>
+            <h3>{walletAddress ? <>Wallet <em>connected.</em></> : <>Connect your wallet to access your <em>personal dashboard.</em></>}</h3>
+            <p>{walletAddress ? 'Your personal dashboard is ready.' : 'You can still explore public platform information and risk disclosures without connecting.'}</p>
             <div className="flex flex-wrap justify-center gap-3">
-              <Link to="/whitepaper" className="btn btn-mint">Read platform facts</Link>
+              {!walletAddress && <ConnectWalletButton onConnected={setWalletAddress} />}
+              <Link to="/whitepaper" className="btn btn-ghost">Read platform facts</Link>
               <Link to="/legal/risk" className="btn btn-ghost">Risk disclosure</Link>
             </div>
           </div>
